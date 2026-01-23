@@ -44,7 +44,7 @@ Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikip
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 24 Patterns Detected (with Before/After Examples)
+## 25 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -78,22 +78,23 @@ Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikip
 | 16 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
 | 17 | **Emojis** | "🚀 Launch Phase: 💡 Key Insight:" | Remove emojis |
 | 18 | **Curly quotes** | `said “the project”` | `said "the project"` |
+| 19 | **Primary Single Quotes** | `stated, 'This is a pattern.'` | `stated, "This is a pattern."` |
 
 ### Communication Patterns
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 19 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
-| 20 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
-| 21 | **Sycophantic tone** | "Great question! You're absolutely right!" | Respond directly |
+| 20 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
+| 21 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
+| 22 | **Sycophantic tone** | "Great question! You're absolutely right!" | Respond directly |
 
 ### Filler and Hedging
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 22 | **Filler phrases** | "In order to", "Due to the fact that" | "To", "Because" |
-| 23 | **Excessive hedging** | "could potentially possibly" | "may" |
-| 24 | **Generic conclusions** | "The future looks bright" | Specific plans or facts |
+| 23 | **Filler phrases** | "In order to", "Due to the fact that" | "To", "Because" |
+| 24 | **Excessive hedging** | "could potentially possibly" | "may" |
+| 25 | **Generic conclusions** | "The future looks bright" | Specific plans or facts |
 
 ## Full Example
 
@@ -132,6 +133,7 @@ Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikip
 
 ## Version History
 
+- **2.2.0** - Added Pattern #25 (Primary Single Quotes)
 - **2.1.1** - Fixed pattern #18 example (curly quotes vs straight quotes)
 - **2.1.0** - Added before/after examples for all 24 patterns
 - **2.0.0** - Complete rewrite based on raw Wikipedia article content
