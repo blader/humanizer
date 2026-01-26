@@ -11,24 +11,42 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
 ```
 
-### Manual install/update (only the skill file)
+### Manual install/update
 
-If you already have this repo cloned (or you downloaded `SKILL.md`), copy the skill file into Claude Code’s skills directory:
+Copy the desired skill file into Claude Code’s skills directory:
 
+**Standard Version (Opinionated/Human):**
 ```bash
-mkdir -p ~/.claude/skills/humanizer
-cp SKILL.md ~/.claude/skills/humanizer/
+cp SKILL.md ~/.claude/skills/humanizer/SKILL.md
+```
+
+**Professional Version (Voice & Craft):**
+```bash
+cp SKILL_PROFESSIONAL.md ~/.claude/skills/humanizer/SKILL_PROFESSIONAL.md
 ```
 
 ## Usage
 
-In Claude Code, invoke the skill:
+In Claude Code, invoke the desired skill:
 
+**Standard:**
 ```
 /humanizer
-
 [paste your text here]
 ```
+
+**Professional:**
+```
+/humanizer-pro
+[paste your text here]
+```
+
+## Skill Variants
+
+| Skill | Focus | Best for... |
+|-------|-------|-------------|
+| **Humanizer** (`SKILL.md`) | Personality & Soul | Blog posts, emails, creative writing, social media. |
+| **Humanizer Pro** (`SKILL_PROFESSIONAL.md`) | Voice & Craft | Technical specs, business reports, professional newsletters. |
 
 Or ask Claude to humanize text directly:
 
