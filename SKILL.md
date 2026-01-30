@@ -241,11 +241,21 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### EN-14. Overuse of Boldface
 
-**Before:**
+**Context exception:** In blog articles, SEO content, and guide-style writing, strategic bold text is useful for:
+- **Scannability** - readers skim articles, bold helps quick comprehension
+- **Important warnings** - e.g., "**You can still be fined**"
+- **Calls to action** - e.g., "**Don't sign anything**"
+
+Only remove excessive bold in emails, Slack messages, and personal communication.
+
+**Before (email/chat - remove):**
 > It blends **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)**, and visual strategy tools such as the **Business Model Canvas (BMC)** and **Balanced Scorecard (BSC)**.
 
 **After:**
 > It blends OKRs, KPIs, and visual strategy tools like the Business Model Canvas and Balanced Scorecard.
+
+**OK in articles:**
+> **Important:** Don't sign the cease-and-desist letter without consulting a lawyer first.
 
 ---
 
@@ -521,11 +531,21 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### DE-14. Übermäßige Fettschrift
 
-**Vorher:**
+**Kontext-Ausnahme:** Bei Blog-Artikeln, SEO-Content und Ratgeber-Texten ist strategische Fettmarkierung sinnvoll für:
+- **Scannability** - Leser überfliegen Artikel, Fett hilft beim schnellen Erfassen
+- **Wichtige Warnungen/Hinweise** - z.B. "**Abmahnungen gibt es weiterhin**"
+- **Handlungsaufforderungen** - z.B. "**Unterschreiben Sie nichts**"
+
+Nur bei E-Mails, Slack-Nachrichten und persönlicher Kommunikation sollte Fettschrift reduziert werden.
+
+**Vorher (E-Mail/Chat - entfernen):**
 > Es kombiniert **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)** und visuelle Strategie-Tools wie das **Business Model Canvas (BMC)** und die **Balanced Scorecard (BSC)**.
 
 **Nachher:**
 > Es kombiniert OKRs, KPIs und visuelle Strategie-Tools wie das Business Model Canvas und die Balanced Scorecard.
+
+**Bei Artikeln OK:**
+> **Wichtig:** Unterschreiben Sie die beigefügte Unterlassungserklärung nicht ohne anwaltliche Beratung.
 
 ---
 
