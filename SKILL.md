@@ -7,7 +7,8 @@ description: |
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, negative
-  parallelisms, and excessive conjunctive phrases.
+  parallelisms, excessive conjunctive phrases, persuasive authority tropes,
+  signposting announcements, and fragmented headers.
 allowed-tools:
   - Read
   - Write
@@ -390,6 +391,60 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
+### 25. Persuasive Authority Tropes
+
+**Phrases to watch:** The real X, The true X, At its core, In reality, What really matters, Fundamentally, The deeper issue, What it really comes down to, The heart of the matter, When you get right down to it
+
+**Problem:** LLMs use these phrases to frame ordinary claims as hidden revelations. The "truth" that follows is usually a restatement of something already said. Unlike #1 (significance inflation, which inflates the importance of facts) and #22 (filler phrases, which pad sentences), this pattern specifically manufactures a sense of cutting through noise to a deeper insight that does not exist.
+
+**Not a problem when:** The writer is making a genuine rhetorical pivot in an op-ed or essay, where reframing is the point and the claim that follows is substantively different from what preceded it.
+
+**Before:**
+> The real question is whether teams can adapt. At its core, what truly matters is organizational readiness. In reality, the deeper issue comes down to workflow integration.
+
+**After:**
+> The question is whether teams can adapt. That depends mostly on organizational readiness and how willing they are to change existing workflows.
+
+---
+
+### 26. Signposting and Announcements
+
+**Phrases to watch:** Let's dive in, Let's explore, Let's break this down, Here's what you need to know, Here's the thing, Here is what happens next, Without further ado, Now let's look at, With that said, So without further ado, Buckle up
+
+**Problem:** LLMs announce what they are about to do instead of doing it. These phrases stall the reader with meta-commentary about the structure of the text. They come from chatbot dialogue training where the model narrates its own response before delivering content. Distinct from #19 (Collaborative Communication Artifacts), which covers chatbot politeness phrases like "I hope this helps"; this pattern covers meta-structure preambles that preview content without delivering it. Also distinct from #22 (Filler Phrases), which pads sentences without structural preview; signposting specifically announces upcoming content or transitions.
+
+**Not a problem when:** The text is a live presentation script, lecture transcript, or interactive tutorial where addressing the audience directly is expected.
+
+**Before:**
+> Let's dive into how caching works in Next.js. Here's what you need to know. Let's break this down step by step.
+
+**After:**
+> Next.js caches at four levels: the request memoization layer, the data cache, the full route cache, and the router cache on the client.
+
+---
+
+### 27. Fragmented Headers
+
+**Signs to watch:** A one-sentence or one-fragment paragraph immediately after a heading, followed by the actual content paragraph. The orphan line typically restates the heading in different words or makes a generic claim ("Speed matters.", "Security is everything.", "Testing is crucial.").
+
+**Problem:** LLMs insert a short, generic sentence after a heading as a rhetorical "hook" before the real paragraph begins. The orphan line adds no information beyond what the heading already signals. Remove it and let the heading do its job.
+
+**Not a problem when:** The short opener is specific and adds information the heading does not contain (e.g., a date, a number, a named claim). Intentional stylistic openers in essays or speeches may also be legitimate.
+
+**Before:**
+> ## Performance
+>
+> Speed matters.
+>
+> When users encounter a slow page, they leave. A 2023 Google study found that 53% of mobile users abandon sites that take longer than three seconds to load.
+
+**After:**
+> ## Performance
+>
+> When users encounter a slow page, they leave. A 2023 Google study found that 53% of mobile users abandon sites that take longer than three seconds to load.
+
+---
+
 ## Process
 
 1. Read the input text carefully
@@ -462,7 +517,7 @@ Provide:
 > The productivity metrics are slippery. GitHub can say Copilot users "accept 30% of suggestions," but acceptance isn't correctness, and correctness isn't value. If you don't have tests, you're basically guessing.
 
 **Changes made:**
-- Removed chatbot artifacts ("Great question!", "I hope this helps!", "Let me know if...")
+- Removed chatbot artifacts and signposting ("Great question!", "Here is an essay on this topic", "I hope this helps!", "Let me know if...")
 - Removed significance inflation ("testament", "pivotal moment", "evolving landscape", "vital role")
 - Removed promotional language ("groundbreaking", "nestled", "seamless, intuitive, and powerful")
 - Removed vague attributions ("Industry observers")
@@ -475,7 +530,7 @@ Provide:
 - Removed formulaic challenges section ("Despite challenges... continues to thrive")
 - Removed knowledge-cutoff hedging ("While specific details are limited...")
 - Removed excessive hedging ("could potentially be argued that... might have some")
-- Removed filler phrases ("In order to", "At its core")
+- Removed persuasive authority trope ("At its core") and filler phrase ("In order to")
 - Removed generic positive conclusion ("the future looks bright", "exciting times lie ahead")
 - Made the voice more personal and less "assembled" (varied rhythm, fewer placeholders)
 

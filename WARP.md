@@ -16,7 +16,7 @@ The “runtime” artifact is `SKILL.md`: Claude Code reads the YAML frontmatter
   - After the frontmatter is the editor prompt: the canonical, detailed pattern list with examples.
 - `README.md`
   - Installation and usage instructions.
-  - Contains a summarized “24 patterns” table and a short version history.
+  - Contains a summarized “27 patterns” table and a short version history.
 
 When changing behavior/content, treat `SKILL.md` as the source of truth, and update `README.md` to stay consistent.
 
