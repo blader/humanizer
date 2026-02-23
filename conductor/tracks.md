@@ -90,7 +90,7 @@ _Link: [./tracks/systematic-refactor-hardening_20260215/](./tracks/systematic-re
 
 ### Legacy Active Tracks (pre-2026-02-15)
 
-## [x] Track: Adopt upstream pull requests #3, #4, and #5 from blader/humanizer
+## [x] Track: Adopt upstream pull requests #3, #4, and #5 from blader/humanizer [d06f5c7]
 
 _Status: completed | Archived: ./tracks/archive/adopt-upstream-prs_20260131/_
 
@@ -98,10 +98,9 @@ _Status: completed | Archived: ./tracks/archive/adopt-upstream-prs_20260131/_
 
 _Status: completed | Archived: ./tracks/archive/skill-distribution_20260131/_
 
-## [ ] Track: Implement repo management tooling recommendations (Vale scripts, Renovate, npx skills distribution docs)
+## [x] Track: Implement repo management tooling recommendations (Vale scripts, Renovate, npx skills distribution docs) [d06f5c7]
 
-_Status: in_progress_  
-_Link: [./tracks/repo-tooling-enhancements_20260214/](./tracks/repo-tooling-enhancements_20260214/)_
+_Status: completed | Archived: ./tracks/archive/repo-tooling-enhancements_20260214/_
 
 ---
 

@@ -1,0 +1,8 @@
+{
+  "track_id": "adopt-upstream-prs_20260131",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-01-31T22:18:00+11:00",
+  "updated_at": "2026-01-31T22:18:00+11:00",
+  "description": "Adopt upstream pull requests #3, #4, and #5 from blader/humanizer"
+}
