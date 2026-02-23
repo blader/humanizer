@@ -44,11 +44,11 @@ Priority order (run sequentially unless marked parallel-safe):
 **Status:** new | **Priority:** P1 | **Dependencies:** none
 _Link: [./tracks/repo-hardening-skill-distribution_20260215/](./tracks/repo-hardening-skill-distribution_20260215/)_
 
-### 2. [x] reasoning-failures-stream_20260215 [g1h2i3j]
+### 2. [x] reasoning-failures-stream_20260215 [c623d3e]
 
 **Summary:** LLM reasoning failures stream - source archiving, evidence cataloging, taxonomy, Wikipedia workflow
 **Status:** completed | **Priority:** P0 | **Dependencies:** none
-_Link: [./tracks/reasoning-failures-stream_20260215/](./tracks/reasoning-failures-stream_20260215/)_
+_Link: [./tracks/archive/reasoning-failures-stream_20260215/](./tracks/archive/reasoning-failures-stream_20260215/)_
 
 ### 2. [x] reasoning-stream-implementation_20260215 [p6q7r8s]
 
