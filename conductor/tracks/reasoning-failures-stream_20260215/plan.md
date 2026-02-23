@@ -116,19 +116,19 @@
 
 ## Handoff Artifacts (Unblocks Downstream Tracks)
 
-- [ ] Artifact: `archive/sources_manifest.json` - source provenance for reasoning-failure claims
-- [ ] Artifact: `docs/reasoning-failures-taxonomy.md` - canonical category schema
-- [ ] Artifact: `docs/TAXONOMY_CHANGELOG.md` - taxonomy evolution tracking
-- [ ] Artifact: `src/reasoning-stream/*.md` - source fragments for reasoning module
-- [ ] Artifact: `scripts/research/citation-normalize.js` - citation helper utility
-- [ ] Artifact: `docs/wikipedia-edit-history.md` - edit audit trail (success or fallback)
+- [x] Artifact: `archive/sources_manifest.json` - source provenance for reasoning-failure claims
+- [x] Artifact: `docs/reasoning-failures-taxonomy.md` - canonical category schema
+- [x] Artifact: `docs/TAXONOMY_CHANGELOG.md` - taxonomy evolution tracking
+- [x] Artifact: `src/reasoning-stream/*.md` - source fragments for reasoning module
+- [x] Artifact: `scripts/research/citation-normalize.js` - citation helper utility
+- [x] Artifact: `docs/wikipedia-edit-history.md` - edit audit trail (success or fallback)
 
 ## Definition of Done
 
-- [ ] All acceptance criteria in `spec.md` are satisfied
-- [ ] All phases have verification checkpoints passed
-- [ ] Handoff artifacts exist and are committed
-- [ ] Downstream tracks' Required Inputs are available
-- [ ] `metadata.json` status updated to `completed`
-- [ ] `npm run lint` and `npm run validate` pass
-- [ ] No regressions in existing humanizer behavior
+- [x] All acceptance criteria in `spec.md` are satisfied
+- [x] All phases have verification checkpoints passed
+- [x] Handoff artifacts exist and are committed
+- [x] Downstream tracks' Required Inputs are available
+- [x] `metadata.json` status updated to `completed`
+- [x] `npm run lint` and `npm run validate` pass
+- [x] No regressions in existing humanizer behavior
