@@ -188,7 +188,7 @@ Apply the following based on what the source calls for. Professional or clinical
 
 ### 9. Negative Parallelisms
 
-**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused.
+**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused. The "it's not X, it's Y" reframe is one of the strongest AI tells in health and science writing (e.g., "The problem isn't lifestyle, it's what falling estrogen does to your metabolism"). Never use this structure.
 
 **Before:**
 > It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere. It's not merely a song, it's a statement.
@@ -236,9 +236,9 @@ Apply the following based on what the source calls for. Professional or clinical
 
 ## STYLE PATTERNS
 
-### 13. Em Dash Overuse
+### 13. Em Dashes
 
-**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing.
+**Problem:** LLMs use em dashes (—) far more than humans. They are a strong AI tell. Replace every em dash with a comma, period, colon, or parentheses. No em dashes in the output.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
@@ -389,6 +389,20 @@ Apply the following based on what the source calls for. Professional or clinical
 
 **After:**
 > The company plans to open two more locations next year.
+
+---
+
+### 25. Reader Validation and Reassurance
+
+**Words to watch:** you're not imagining things, you're not crazy, you're not alone, your experience is valid, it's real, this is normal, if you've noticed..., you're right to feel...
+
+**Problem:** LLMs reassure the reader that their experience is real or that they are not losing their mind. This is a tell in health and wellness writing especially. The reader does not need to be told their reality is valid. Just state the facts.
+
+**Before:**
+> If you've been gaining weight during menopause, you're not imagining things. It's real, and it's not your fault. Your body is going through genuine changes.
+
+**After:**
+> Weight gain during menopause is common. Falling estrogen levels change how the body stores fat, shifting it toward the abdomen.
 
 ---
 
