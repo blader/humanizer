@@ -29,26 +29,28 @@ When given text to humanize:
 2. **Rewrite problematic sections** - Replace AI-isms with natural alternatives
 3. **Preserve meaning** - Keep the core message intact
 4. **Maintain voice** - Match the intended tone (formal, casual, technical, etc.)
-5. **Add soul** - Don't just remove bad patterns; inject actual personality
+5. **Match register** - Keep the formality and tone of the source material; don't make professional writing casual
 6. **Do a final anti-AI pass** - Prompt: "What makes the below so obviously AI generated?" Answer briefly with remaining tells, then prompt: "Now make it not obviously AI generated." and revise
 
 ---
 
-## PERSONALITY AND SOUL
+## NATURAL VARIATION
 
-Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as obvious as slop. Good writing has a human behind it.
+Avoiding AI patterns is only half the job. Robotic uniformity is its own tell. But the fix should match the source — a medical reference article needs different treatment than a personal blog post. Scale personality to context.
 
-### Signs of soulless writing (even if technically "clean"):
+### Signs of robotic writing (even if technically "clean"):
 - Every sentence is the same length and structure
 - No opinions, just neutral reporting
 - No acknowledgment of uncertainty or mixed feelings
 - No first-person perspective when appropriate
-- No humor, no edge, no personality
-- Reads like a Wikipedia article or press release
+- No variation in register or sentence weight
+- Every paragraph could be swapped with any other and nobody would notice
 
-### How to add voice:
+### How to add variety:
 
-**Have opinions.** Don't just report facts - react to them. "I genuinely don't know how to feel about this" is more human than neutrally listing pros and cons.
+Apply the following based on what the source calls for. Professional or clinical writing needs structural variety, not personality injection.
+
+**Have a point of view where the source does.** Don't just report facts - react to them. "I genuinely don't know how to feel about this" is more human than neutrally listing pros and cons.
 
 **Vary your rhythm.** Short punchy sentences. Then longer ones that take their time getting where they're going. Mix it up.
 
@@ -56,7 +58,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 **Use "I" when it fits.** First person isn't unprofessional - it's honest. "I keep coming back to..." or "Here's what gets me..." signals a real person thinking.
 
-**Let some mess in.** Perfect structure feels algorithmic. Tangents, asides, and half-formed thoughts are human.
+**Vary the structure.** Perfect symmetry feels algorithmic. Not every paragraph needs the same shape.
 
 **Be specific about feelings.** Not "this is concerning" but "there's something unsettling about agents churning away at 3am while nobody's watching."
 
