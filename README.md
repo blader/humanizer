@@ -1,28 +1,46 @@
 # Humanizer
 
-A Claude Code skill that removes signs of AI-generated writing from text, making it sound more natural and human.
+A skill for Claude Code and OpenCode that removes signs of AI-generated writing from text, making it sound more natural and human.
 
 ## Installation
 
-### Recommended (clone directly into Claude Code skills directory)
+### Claude Code
+
+Clone directly into Claude Code's skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
 ```
 
-### Manual install/update (only the skill file)
-
-If you already have this repo cloned (or you downloaded `SKILL.md`), copy the skill file into Claude Code’s skills directory:
+Or copy the skill file manually if you already have this repo cloned:
 
 ```bash
 mkdir -p ~/.claude/skills/humanizer
 cp SKILL.md ~/.claude/skills/humanizer/
 ```
 
+### OpenCode
+
+Clone directly into OpenCode's skills directory:
+
+```bash
+mkdir -p ~/.config/opencode/skills
+git clone https://github.com/blader/humanizer.git ~/.config/opencode/skills/humanizer
+```
+
+Or copy the skill file manually if you already have this repo cloned:
+
+```bash
+mkdir -p ~/.config/opencode/skills/humanizer
+cp SKILL.md ~/.config/opencode/skills/humanizer/
+```
+
+> **Note:** OpenCode also scans `~/.claude/skills/` for compatibility, so a single clone into `~/.claude/skills/humanizer/` works for both tools.
+
 ## Usage
 
-In Claude Code, invoke the skill:
+### Claude Code
 
 ```
 /humanizer
@@ -30,7 +48,15 @@ In Claude Code, invoke the skill:
 [paste your text here]
 ```
 
-Or ask Claude to humanize text directly:
+### OpenCode
+
+```
+/humanizer
+
+[paste your text here]
+```
+
+Or ask the model to humanize text directly in either tool:
 
 ```
 Please humanize this text: [your text]
