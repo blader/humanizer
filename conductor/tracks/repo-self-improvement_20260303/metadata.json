@@ -27,15 +27,21 @@
         "phase": 2,
         "name": "Upstream PR Assessment & Adoption",
         "priority": "P1",
-        "status": "pending",
-        "ralph_loop": true
+        "status": "completed",
+        "ralph_loop": true,
+        "started_at": "2026-03-03",
+        "completed_at": "2026-03-03",
+        "deliverables": ["upstream-decision-log.md", "ralph-loop-phase2-report.md"]
       },
       {
         "phase": 3,
         "name": "Architecture Evaluation & Modularization",
         "priority": "P1",
-        "status": "pending",
-        "ralph_loop": true
+        "status": "completed",
+        "ralph_loop": true,
+        "started_at": "2026-03-03",
+        "completed_at": "2026-03-03",
+        "deliverables": ["ADR-001-skill-modularization.md"]
       },
       {
         "phase": 4,

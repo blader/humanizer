@@ -1,0 +1,6 @@
+{
+  "repoPath": "./",
+  "maxCommits": 100000,
+  "maxRetries": 3,
+  "mcpEndpoint": "https://mcp.linear.app/sse"
+}
