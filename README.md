@@ -34,7 +34,7 @@ This will rebuild `SKILL.md` (Standard) and `SKILL_PROFESSIONAL.md` (Pro) from t
 
 ## Capability overview
 
-Detects 25 patterns including inflated symbolism, superficial analyses, vague attributions, and AI-signature comments.
+Detects **30 patterns** including inflated symbolism, superficial analyses, vague attributions, AI-signature comments, persuasive tropes, signposting, and fragmented headers.
 
 ### Global agent context
 
@@ -66,7 +66,7 @@ npm run sync
 
 This will automatically update version metadata and last synced timestamps across all adapter files.
 
-## 25 patterns detected (with before/after examples)
+## 30 patterns detected (with before/after examples)
 
 ### Content patterns
 
@@ -157,6 +157,9 @@ This will automatically update version metadata and last synced timestamps acros
 
 ## Version history
 
+- **3.1.0** - Adopted upstream PR #39: Patterns 28-30 (Persuasive tropes, Signposting, Fragmented headers)
+- **3.0.0** - Modular architecture (ADR-001): 5 modules (CORE, TECHNICAL, ACADEMIC, GOVERNANCE, REASONING), compile script
+- **2.3.0** - Reasoning module integration, severity classification, technical literal preservation
 - **2.2.1** - Added Pattern #19 (Primary Single Quotes), unified Agents.md manifest, and addressed review feedback.
 - **2.2.0** - Modular refactor and Humanizer Pro variant.
 - **2.1.2** - Fixed YAML description (replaced "excessive conjunctive phrases" with "filler phrases").

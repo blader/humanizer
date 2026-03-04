@@ -1,9 +1,0 @@
-{
-  "body": "Introduced SKILL_PROFESSIONAL.md which focuses on 'Voice and Craft' rather than 'Personality and Soul'. This version is better suited for business professional contexts like technical specs and reports. Updated README.md with installation and usage instructions for both variants.",
-  "files": [
-    { "path": "README.md", "additions": 23, "deletions": 5 },
-    { "path": "SKILL_PROFESSIONAL.md", "additions": 461, "deletions": 0 }
-  ],
-  "number": 11,
-  "title": "Add professional version of the skill (humanizer-pro)"
-}

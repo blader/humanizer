@@ -23,6 +23,18 @@ page_raw.txt
 talk_headings.txt
 talk_raw.txt
 
+# Test and debug files
+simple_test.js
+test_*.txt
+test-*.json
+pr*.diff
+pr*.json
+issues*.json
+issues_*.txt
+list.txt
+patterns_out.txt
+router_out.txt
+
 # OS
 .DS_Store
 Thumbs.db
