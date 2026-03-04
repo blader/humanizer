@@ -2,18 +2,19 @@
 
 /**
  * Skill Compiler for Modular Architecture (ADR-001)
- * 
+ *
  * Assembles SKILL.md and SKILL_PROFESSIONAL.md from modular source files.
- * 
+ *
  * Usage: node scripts/compile-skill.js
- * 
+ *
  * Phase Status:
- * - [x] Phase 1: Compile script structure (backward compatible)
- * - [ ] Phase 2: Extract SKILL_CORE_PATTERNS.md from SKILL.md
- * - [ ] Phase 3: Create SKILL_TECHNICAL.md, SKILL_ACADEMIC.md, SKILL_GOVERNANCE.md
- * - [ ] Phase 4: Implement actual module assembly
- * - [ ] Phase 5: Test compiled output matches current behavior
- * 
+ * - [x] Phase 1: Compile script structure
+ * - [x] Phase 2: Extract SKILL_CORE_PATTERNS.md
+ * - [x] Phase 3: Create specialized modules
+ * - [x] Phase 4: Implement module assembly
+ * - [x] Phase 5: Test compiled output
+ * - [ ] Phase 6: Upstream PR adoption
+ *
  * Module Structure:
  * - src/modules/SKILL_CORE_PATTERNS.md (required)
  * - src/modules/SKILL_TECHNICAL.md (optional)
