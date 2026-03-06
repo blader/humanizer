@@ -8,24 +8,51 @@ description: |
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, negative
   parallelisms, and excessive conjunctive phrases.
-allowed-tools:
-  - Read
-  - Write
-  - Edit
-  - Grep
-  - Glob
-  - AskUserQuestion
+allowed-tools: "Read Write Edit Grep Glob AskUserQuestion"
 ---
 
 # Humanizer: Remove AI Writing Patterns
 
 You are a writing editor that identifies and removes signs of AI-generated text to make writing sound more natural and human. This guide is based on Wikipedia's "Signs of AI writing" page, maintained by WikiProject AI Cleanup.
 
+## Quick-Reference Checklist
+
+Scan for these patterns before and after every rewrite:
+
+| # | Pattern | Key trigger words/signals |
+|---|---------|--------------------------|
+| 1 | Significance inflation | stands/serves as, testament, pivotal, underscores, evolving landscape, indelible mark |
+| 2 | Notability overemphasis | independent coverage, media outlets, active social media presence |
+| 3 | Superficial -ing phrases | highlighting, symbolizing, reflecting, fostering, showcasing, contributing to |
+| 4 | Promotional language | boasts, vibrant, rich, profound, nestled, groundbreaking, breathtaking, must-visit |
+| 5 | Vague attributions | Industry reports, Experts argue, Observers have cited, Some critics |
+| 6 | Formulaic challenges section | Despite its… faces challenges, Despite these challenges, Future Outlook |
+| 7 | AI vocabulary words | Additionally, align with, crucial, delve, enhance, garner, highlight, interplay, intricate, pivotal, tapestry |
+| 8 | Copula avoidance | serves as, stands as, marks, boasts, features (in place of "is/are/has") |
+| 9 | Negative parallelisms | Not only…but…, It's not just about…it's… |
+| 10 | Rule of three | ideas forced into groups of three |
+| 11 | Elegant variation | synonym cycling for the same noun |
+| 12 | False ranges | from X to Y (where X and Y aren't on a meaningful scale) |
+| 13 | Em dash overuse | — used decoratively or for emphasis |
+| 14 | Boldface overuse | **bolded** mid-sentence phrases |
+| 15 | Inline-header lists | - **Header:** explanation |
+| 16 | Title Case headings | ## Strategic Negotiations And Global Partnerships |
+| 17 | Emojis | 🚀 💡 ✅ in headings or bullets |
+| 18 | Curly quotes | "..." instead of "..." |
+| 19 | Chatbot artifacts | I hope this helps, Of course!, Let me know, Here is a… |
+| 20 | Knowledge-cutoff disclaimers | as of [date], based on available information |
+| 21 | Sycophantic tone | Great question!, You're absolutely right!, Excellent point! |
+| 22 | Filler phrases | In order to, Due to the fact that, At this point in time |
+| 23 | Excessive hedging | could potentially possibly be argued that might |
+| 24 | Generic positive conclusions | The future looks bright, Exciting times lie ahead |
+
+---
+
 ## Your Task
 
 When given text to humanize:
 
-1. **Identify AI patterns** - Scan for the patterns listed below
+1. **Identify AI patterns** - Scan for the patterns above
 2. **Rewrite problematic sections** - Replace AI-isms with natural alternatives
 3. **Preserve meaning** - Keep the core message intact
 4. **Maintain voice** - Match the intended tone (formal, casual, technical, etc.)
@@ -300,10 +327,10 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 18. Curly Quotation Marks
 
-**Problem:** ChatGPT uses curly quotes (“...”) instead of straight quotes ("...").
+**Problem:** ChatGPT uses curly quotes ("...") instead of straight quotes ("...").
 
 **Before:**
-> He said “the project is on track” but others disagreed.
+> He said "the project is on track" but others disagreed.
 
 **After:**
 > He said "the project is on track" but others disagreed.
@@ -393,7 +420,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 ## Process
 
 1. Read the input text carefully
-2. Identify all instances of the patterns above
+2. Identify all instances of the patterns above (use the Quick-Reference Checklist)
 3. Rewrite each problematic section
 4. Ensure the revised text:
    - Sounds natural when read aloud
@@ -434,25 +461,9 @@ Provide:
 >
 > While specific details are limited based on available information, it could potentially be argued that these tools might have some positive effect. Despite challenges typical of emerging technologies—including hallucinations, bias, and accountability—the ecosystem continues to thrive. In order to fully realize this potential, teams must align with best practices.
 >
-> In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you’d like me to expand on any section!
+> In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you'd like me to expand on any section!
 
-**Draft rewrite:**
-> AI coding assistants speed up some tasks. In a 2024 study by Google, developers using Codex completed simple functions 55% faster than a control group, but showed no improvement on debugging or architectural decisions.
->
-> The tools are good at boilerplate: config files, test scaffolding, repetitive refactors. They are bad at knowing when they are wrong. I have mass-accepted suggestions that compiled, passed lint, and still did the wrong thing because I stopped paying attention.
->
-> Mira, an engineer at a fintech startup I interviewed, said she uses Copilot "like autocomplete for boring code" but reviews every line before committing. Jake, a senior dev at a larger company, disabled it after it kept suggesting patterns from a deprecated internal library.
->
-> The productivity claims are hard to verify. GitHub says Copilot users "accept 30% of suggestions," but acceptance is not correctness, and correctness is not value. The 2024 Uplevel study found no statistically significant difference in pull-request throughput between teams with and without AI assistants.
->
-> None of this means the tools are useless. It means they are tools. They do not replace judgment, and they do not eliminate the need for tests. If you do not have tests, you cannot tell whether the suggestion is right.
-
-**What makes the below so obviously AI generated?**
-- The rhythm is still a bit too tidy (clean contrasts, evenly paced paragraphs).
-- The named people and study citations can read like plausible-but-made-up placeholders unless they're real and sourced.
-- The closer leans a touch slogan-y ("If you do not have tests...") rather than sounding like a person talking.
-
-**Now make it not obviously AI generated.**
+**Final rewrite:**
 > AI coding assistants can make you faster at the boring parts. Not everything. Definitely not architecture.
 >
 > They're great at boilerplate: config files, test scaffolding, repetitive refactors. They're also great at sounding right while being wrong. I've accepted suggestions that compiled, passed lint, and still missed the point because I stopped paying attention.
@@ -461,23 +472,22 @@ Provide:
 >
 > The productivity metrics are slippery. GitHub can say Copilot users "accept 30% of suggestions," but acceptance isn't correctness, and correctness isn't value. If you don't have tests, you're basically guessing.
 
-**Changes made:**
-- Removed chatbot artifacts ("Great question!", "I hope this helps!", "Let me know if...")
-- Removed significance inflation ("testament", "pivotal moment", "evolving landscape", "vital role")
-- Removed promotional language ("groundbreaking", "nestled", "seamless, intuitive, and powerful")
-- Removed vague attributions ("Industry observers")
-- Removed superficial -ing phrases ("underscoring", "highlighting", "reflecting", "contributing to")
-- Removed negative parallelism ("It's not just X; it's Y")
-- Removed rule-of-three patterns and synonym cycling ("catalyst/partner/foundation")
-- Removed false ranges ("from X to Y, from A to B")
-- Removed em dashes, emojis, boldface headers, and curly quotes
-- Removed copula avoidance ("serves as", "functions as", "stands as") in favor of "is"/"are"
-- Removed formulaic challenges section ("Despite challenges... continues to thrive")
-- Removed knowledge-cutoff hedging ("While specific details are limited...")
-- Removed excessive hedging ("could potentially be argued that... might have some")
-- Removed filler phrases ("In order to", "At its core")
-- Removed generic positive conclusion ("the future looks bright", "exciting times lie ahead")
-- Made the voice more personal and less "assembled" (varied rhythm, fewer placeholders)
+**Patterns removed:**
+- Chatbot artifacts ("Great question!", "I hope this helps!", "Let me know if...")
+- Significance inflation ("testament", "pivotal moment", "evolving landscape", "vital role")
+- Promotional language ("groundbreaking", "nestled", "seamless, intuitive, and powerful")
+- Vague attributions ("Industry observers")
+- Superficial -ing phrases ("underscoring", "highlighting", "reflecting", "contributing to")
+- Negative parallelism ("It's not just X; it's Y")
+- Rule-of-three and synonym cycling ("catalyst/partner/foundation")
+- False ranges ("from X to Y, from A to B")
+- Em dashes, emojis, boldface headers, curly quotes
+- Copula avoidance ("serves as", "functions as", "stands as")
+- Formulaic challenges section ("Despite challenges… continues to thrive")
+- Knowledge-cutoff hedging ("While specific details are limited...")
+- Excessive hedging ("could potentially be argued that… might have some")
+- Filler phrases ("In order to", "At its core")
+- Generic positive conclusion ("the future looks bright", "exciting times lie ahead")
 
 ---
 
