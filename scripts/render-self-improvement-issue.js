@@ -5,8 +5,95 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
+const GITHUB_API = 'https://api.github.com';
+
+function getGitHubHeaders() {
+  return {
+    Accept: 'application/vnd.github.v3+json',
+    'User-Agent': 'humanizer-self-improvement-renderer',
+    ...(process.env.GITHUB_TOKEN ? { Authorization: `token ${process.env.GITHUB_TOKEN}` } : {}),
+  };
+}
+
+async function fetchGitHubPullRequests(repoName, retries = 3) {
+  for (let attempt = 0; attempt < retries; attempt += 1) {
+    try {
+      const response = await fetch(
+        `${GITHUB_API}/repos/${repoName}/pulls?state=open&per_page=100`,
+        {
+          headers: getGitHubHeaders(),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error(`GitHub API returned ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      if (attempt === retries - 1) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 1000 * (attempt + 1)));
+    }
+  }
+
+  return [];
+}
+
+function dedupePullRequests(items) {
+  return Array.from(new Map(items.map((item) => [item.number, item])).values());
+}
+
+function isDependencyBotAuthor(author) {
+  return [
+    'dependabot',
+    'dependabot[bot]',
+    'app/dependabot',
+    'renovate[bot]',
+    'renovate-bot',
+  ].includes(author || '');
+}
+
+function normalizePullRequest(pr) {
+  return {
+    number: pr.number,
+    title: pr.title,
+    state: pr.state,
+    draft: Boolean(pr.draft),
+    author: pr.author || pr.user?.login || 'unknown',
+    updated_at: pr.updated_at || null,
+    is_dependency_bot:
+      typeof pr.is_dependency_bot === 'boolean'
+        ? pr.is_dependency_bot
+        : isDependencyBotAuthor(pr.user?.login),
+  };
+}
+
+function getOpenPullRequests(prs) {
+  return dedupePullRequests(prs.map(normalizePullRequest))
+    .filter((pr) => pr.state === 'open')
+    .sort((left, right) => new Date(right.updated_at || 0) - new Date(left.updated_at || 0));
+}
+
+function getActionableDependencyPullRequests(prs) {
+  return getOpenPullRequests(prs).filter((pr) => pr.is_dependency_bot);
+}
+
+async function resolveLocalPullRequests(repoName, fallbackPrs) {
+  try {
+    return getOpenPullRequests(await fetchGitHubPullRequests(repoName));
+  } catch (error) {
+    console.warn(`Falling back to snapshot data for ${repoName}: ${error.message}`);
+    return getOpenPullRequests(fallbackPrs);
+  }
+}
 
 function summarizeTopTitles(items, limit = 5) {
+  if (items.length === 0) {
+    return '- None';
+  }
+
   return items
     .slice(0, limit)
     .map((item) => `- #${item.number} ${item.title}`)
@@ -129,10 +216,7 @@ function classifyDecision(pr, scope, rules) {
 }
 
 function buildLocalDecisions(localPrs) {
-  return localPrs
-    .filter((pr) => pr.is_dependency_bot)
-    .slice(0, 10)
-    .map((pr) => classifyDecision(pr, 'local', LOCAL_DECISION_RULES));
+  return localPrs.slice(0, 10).map((pr) => classifyDecision(pr, 'local', LOCAL_DECISION_RULES));
 }
 
 function buildUpstreamDecisions(upstreamPrs) {
@@ -141,7 +225,7 @@ function buildUpstreamDecisions(upstreamPrs) {
     .map((pr) => classifyDecision(pr, 'upstream', UPSTREAM_DECISION_RULES));
 }
 
-function main() {
+async function main() {
   const inputPath =
     process.argv[2] ||
     path.join(REPO_ROOT, 'conductor', 'tracks', 'repo-self-improvement_20260303', 'repo-data.json');
@@ -170,8 +254,14 @@ function main() {
   const upstream = data.upstream_repository;
   const localSecurityPolicy = local.security?.has_security_policy ?? false;
   const upstreamSecurityPolicy = upstream.security?.has_security_policy ?? false;
-  const localDecisions = buildLocalDecisions(local.pull_requests.raw);
+  const localPullRequests = await resolveLocalPullRequests(local.name, local.pull_requests.raw);
+  const localCandidates = getActionableDependencyPullRequests(localPullRequests);
+  const localDecisions = buildLocalDecisions(localCandidates);
   const upstreamDecisions = buildUpstreamDecisions(upstream.pull_requests.raw);
+  const localBacklogAction =
+    localCandidates.length > 0
+      ? 'Review and merge the current automated dependency backlog if validation passes.'
+      : 'No local automated dependency backlog is open this cycle; keep Renovate policy and required checks unchanged.';
   const decisionRecordBranch = 'automation/self-improvement-decision-record';
   const decisionRecordPath =
     'conductor/tracks/repo-self-improvement_20260303/upstream-decision-log.md';
@@ -186,15 +276,15 @@ Generated from \`scripts/gather-repo-data.js\` on ${data.gathered_at}.
 ## Local Repository
 
 - Repository: \`${local.name}\`
-- Open PRs: ${local.pull_requests.analysis.total}
-- Automated dependency PRs: ${local.pull_requests.analysis.automated_dependency_prs}
-- Human-authored PRs: ${local.pull_requests.analysis.human_authored}
+- Open PRs: ${localPullRequests.length}
+- Automated dependency PRs: ${localCandidates.length}
+- Human-authored PRs: ${localPullRequests.filter((pr) => !pr.is_dependency_bot).length}
 - Open issues: ${local.issues.analysis.total}
 - Security policy detected by GitHub: ${localSecurityPolicy ? 'Yes' : 'No'}
 
 ### Top Local PRs
 
-${summarizeTopTitles(local.pull_requests.raw)}
+${summarizeTopTitles(localPullRequests)}
 
 ## Upstream Repository
 
@@ -224,7 +314,7 @@ ${formatDecisionItems(upstreamDecisions)}
 
 ## Recommended Actions
 
-1. Review and merge the current automated dependency backlog if validation passes.
+1. ${localBacklogAction}
 2. Convert the automated Adopt / Reject / Defer suggestions above into explicit maintainer decisions on the active conductor track.
 3. Keep the repo skill-focused: validate adapter sync and distribution first, not npm publishing.
 4. Keep experimental subsystems outside the maintained skill surface; the citation manager now lives under \`experiments/citation_ref_manager/\`.
@@ -259,7 +349,7 @@ ${formatDecisionItems(upstreamDecisions)}
 
 ## Current Local Candidates
 
-${formatCandidateLinks(local.name, local.pull_requests.raw.filter((pr) => pr.is_dependency_bot).slice(0, 10))}
+${formatCandidateLinks(local.name, localCandidates.slice(0, 10))}
 
 ## Current Upstream Candidates
 
@@ -324,4 +414,9 @@ ${formatDecisionItems(upstreamDecisions)}
   console.log(`Updated track decision record at ${trackDecisionLogPath}`);
 }
 
-main();
+main().catch((error) => {
+  console.error('Failed to render self-improvement outputs.');
+  console.error(`Input: ${process.argv[2] || 'default repo-data.json'}`);
+  console.error(error);
+  process.exit(1);
+});

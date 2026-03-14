@@ -2,7 +2,7 @@
 
 **Track:** `repo-self-improvement_20260303`
 
-**Generated:** 2026-03-14T01:26:52.002Z
+**Generated:** 2026-03-14T02:52:56.747Z
 
 **Local Repository:** edithatogo/humanizer-next
 
@@ -26,15 +26,7 @@
 
 ## Local Repository Decisions
 
-- local #30: build(deps-dev): bump @types/node from 25.3.3 to 25.5.0
-  Decision: ADOPT
-  Why: Maintainer-tooling updates fit the repo contract and should be taken when the local lint, validate, and test gates remain green.
-- local #29: build(deps-dev): bump lint-staged from 16.3.1 to 16.3.3
-  Decision: ADOPT
-  Why: Maintainer-tooling updates fit the repo contract and should be taken when the local lint, validate, and test gates remain green.
-- local #27: build(deps-dev): bump eslint from 10.0.2 to 10.0.3
-  Decision: ADOPT
-  Why: Maintainer-tooling updates fit the repo contract and should be taken when the local lint, validate, and test gates remain green.
+- None
 
 ## Upstream Repository Decisions
 
