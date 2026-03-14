@@ -52,6 +52,8 @@ Decision: the citation manager has been moved to `experiments/citation_ref_manag
 
 Current state: the scheduled workflow now generates decision-oriented issue content plus a standalone decision-log artifact. Maintainers still need to convert suggested Adopt / Reject / Defer outcomes into explicit track decisions.
 
+Follow-up improvement: the workflow now also refreshes the track-owned decision record at `upstream-decision-log.md`, so maintainers have a stable file to edit instead of copying suggestions out of ephemeral issue text.
+
 ---
 
 ## Phase 1: Dependency Updates & Security Baseline [P0]

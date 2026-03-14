@@ -64,6 +64,7 @@ jobs:
           name: self-improvement-data
           path: |
             conductor/tracks/repo-self-improvement_20260303/repo-data.json
+            conductor/tracks/repo-self-improvement_20260303/upstream-decision-log.md
             .github/generated/self-improvement-issue.md
             .github/generated/self-improvement-decisions.md
 
@@ -81,4 +82,5 @@ jobs:
         run: |
           echo "::notice::Self-improvement cycle initiated. See issue created above for detailed analysis tasks and Adopt/Reject/Defer suggestions."
           echo "::notice::Branch created: self-improvement-$(date +%Y-%m-%d)"
-          echo "::notice::Generated issue body, decision log, and repo-data.json are attached as workflow artifacts."
+          echo "::notice::The track-owned decision record at conductor/tracks/repo-self-improvement_20260303/upstream-decision-log.md has been refreshed from live data."
+          echo "::notice::Generated issue body, decision logs, and repo-data.json are attached as workflow artifacts."
