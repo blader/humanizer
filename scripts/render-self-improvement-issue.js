@@ -109,7 +109,10 @@ function classifyDecision(pr, scope, rules) {
 }
 
 function buildLocalDecisions(localPrs) {
-  return localPrs.slice(0, 10).map((pr) => classifyDecision(pr, 'local', LOCAL_DECISION_RULES));
+  return localPrs
+    .filter((pr) => pr.is_dependabot)
+    .slice(0, 10)
+    .map((pr) => classifyDecision(pr, 'local', LOCAL_DECISION_RULES));
 }
 
 function buildUpstreamDecisions(upstreamPrs) {
@@ -127,6 +130,13 @@ function main() {
   const decisionsPath = outputPath.replace(
     /self-improvement-issue\.md$/,
     'self-improvement-decisions.md'
+  );
+  const trackDecisionLogPath = path.join(
+    REPO_ROOT,
+    'conductor',
+    'tracks',
+    'repo-self-improvement_20260303',
+    'upstream-decision-log.md'
   );
 
   const raw = fs.readFileSync(inputPath, 'utf8');
@@ -203,11 +213,48 @@ ${formatDecisionItems(localDecisions)}
 ${formatDecisionItems(upstreamDecisions)}
 `;
 
+  const trackDecisionLogBody = `# Self-Improvement Decision Record
+
+**Track:** \`repo-self-improvement_20260303\`
+
+**Generated:** ${data.gathered_at}
+
+**Local Repository:** ${local.name}
+
+**Upstream Repository:** ${upstream.name}
+
+---
+
+## How to use this file
+
+- This file is the track-owned decision record for the weekly self-improvement workflow.
+- The workflow refreshes the candidate decisions from live repository data.
+- Maintainers should edit the decision text only when making an explicit final call, rather than rewriting the whole file from scratch.
+- Suggested decisions are not final approvals. They are triage inputs for the track.
+
+## Decision Rubric
+
+- Evidence quality: prefer changes grounded in reproducible examples or clear user pain, not vibes.
+- Pattern overlap: avoid adding new rules that duplicate existing Humanizer patterns without meaningfully improving coverage.
+- False-positive risk: reject changes that are likely to flatten legitimate human style or technical writing.
+- Adapter impact: prefer improvements that do not increase sync complexity or runtime dependencies across supported adapters.
+
+## Local Repository Decisions
+
+${formatDecisionItems(localDecisions)}
+
+## Upstream Repository Decisions
+
+${formatDecisionItems(upstreamDecisions)}
+`;
+
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });
   fs.writeFileSync(outputPath, body, 'utf8');
   fs.writeFileSync(decisionsPath, decisionsBody, 'utf8');
+  fs.writeFileSync(trackDecisionLogPath, trackDecisionLogBody, 'utf8');
   console.log(`Wrote self-improvement issue body to ${outputPath}`);
   console.log(`Wrote self-improvement decision log to ${decisionsPath}`);
+  console.log(`Updated track decision record at ${trackDecisionLogPath}`);
 }
 
 main();
