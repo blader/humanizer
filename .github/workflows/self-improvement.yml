@@ -42,7 +42,7 @@ jobs:
           echo "AI Pattern Count:" >> metrics-baseline.txt
           grep -c -i "stands as\|testament to\|crucial\|pivotal\|vibrant\|showcasing" SKILL.md SKILL_PROFESSIONAL.md QWEN.md >> metrics-baseline.txt || echo "0" >> metrics-baseline.txt
 
-      - name: Gather repository intelligence
+      - name: Gather repository intelligence and decision support
         run: |
           node scripts/gather-repo-data.js edithatogo/humanizer-next blader/humanizer
           node scripts/render-self-improvement-issue.js
@@ -65,6 +65,7 @@ jobs:
           path: |
             conductor/tracks/repo-self-improvement_20260303/repo-data.json
             .github/generated/self-improvement-issue.md
+            .github/generated/self-improvement-decisions.md
 
       - name: Create Analysis Issue
         uses: peter-evans/create-issue-from-file@v6
@@ -78,6 +79,6 @@ jobs:
 
       - name: Output Instructions
         run: |
-          echo "::notice::Self-improvement cycle initiated. See issue created above for detailed analysis tasks."
+          echo "::notice::Self-improvement cycle initiated. See issue created above for detailed analysis tasks and Adopt/Reject/Defer suggestions."
           echo "::notice::Branch created: self-improvement-$(date +%Y-%m-%d)"
-          echo "::notice::Generated issue body and repo-data.json are attached as workflow artifacts."
+          echo "::notice::Generated issue body, decision log, and repo-data.json are attached as workflow artifacts."

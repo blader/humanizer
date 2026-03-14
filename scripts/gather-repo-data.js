@@ -19,6 +19,15 @@ const OUTPUT_DIR = './conductor/tracks/repo-self-improvement_20260303';
 
 // GitHub API base URL
 const GITHUB_API = 'https://api.github.com';
+const SECURITY_POLICY_CANDIDATES = ['SECURITY.md', '.github/SECURITY.md', 'docs/SECURITY.md'];
+
+function getGitHubHeaders() {
+  return {
+    Accept: 'application/vnd.github.v3+json',
+    'User-Agent': 'humanizer-self-improvement-bot',
+    ...(process.env.GITHUB_TOKEN ? { Authorization: `token ${process.env.GITHUB_TOKEN}` } : {}),
+  };
+}
 
 /**
  * Fetch data from GitHub API with rate limit handling
@@ -27,10 +36,7 @@ async function fetchGitHub(endpoint, retries = 3) {
   for (let i = 0; i < retries; i++) {
     try {
       const response = await fetch(`${GITHUB_API}${endpoint}`, {
-        headers: {
-          Accept: 'application/vnd.github.v3+json',
-          'User-Agent': 'humanizer-self-improvement-bot',
-        },
+        headers: getGitHubHeaders(),
       });
 
       if (response.status === 403 && response.headers.get('X-RateLimit-Remaining') === '0') {
@@ -46,6 +52,59 @@ async function fetchGitHub(endpoint, retries = 3) {
       await new Promise((resolve) => setTimeout(resolve, 2000 * (i + 1)));
     }
   }
+}
+
+/**
+ * Check whether a file exists in a repository.
+ * @param {string} repo
+ * @param {string} filePath
+ * @returns {Promise<boolean>}
+ */
+async function repoFileExists(repo, filePath) {
+  for (let i = 0; i < 3; i++) {
+    try {
+      const response = await fetch(`${GITHUB_API}/repos/${repo}/contents/${filePath}`, {
+        method: 'HEAD',
+        headers: getGitHubHeaders(),
+      });
+
+      if (response.status === 404) {
+        return false;
+      }
+
+      if (response.status === 403 && response.headers.get('X-RateLimit-Remaining') === '0') {
+        const resetTime = new Date(response.headers.get('X-RateLimit-Reset') * 1000);
+        console.log(`Rate limited while checking ${filePath}. Reset at: ${resetTime}`);
+        throw new Error('Rate limited');
+      }
+
+      if (!response.ok) {
+        throw new Error(`Failed to check ${filePath} in ${repo}: ${response.status}`);
+      }
+
+      return true;
+    } catch (error) {
+      if (i === 2) {
+        throw error;
+      }
+      await new Promise((resolve) => setTimeout(resolve, 2000 * (i + 1)));
+    }
+  }
+}
+
+/**
+ * Detect whether a repository publishes a SECURITY.md policy in a standard location.
+ * @param {string} repo
+ * @returns {Promise<boolean>}
+ */
+async function hasPublishedSecurityPolicy(repo) {
+  for (const candidate of SECURITY_POLICY_CANDIDATES) {
+    if (await repoFileExists(repo, candidate)) {
+      return true;
+    }
+  }
+
+  return false;
 }
 
 /**
@@ -107,7 +166,11 @@ async function getIssues(repo, state = 'open') {
  */
 async function getRepoMetadata(repo) {
   console.log(`Fetching metadata for ${repo}...`);
-  const repoData = await fetchGitHub(`/repos/${repo}`);
+  const [repoData, hasSecurityPolicy] = await Promise.all([
+    fetchGitHub(`/repos/${repo}`),
+    hasPublishedSecurityPolicy(repo),
+  ]);
+
   return {
     name: repoData.name,
     full_name: repoData.full_name,
@@ -118,7 +181,7 @@ async function getRepoMetadata(repo) {
     forks_count: repoData.forks_count,
     open_issues_count: repoData.open_issues_count,
     default_branch: repoData.default_branch,
-    has_security_policy: repoData.security_and_analysis?.secret_scanning?.status === 'enabled',
+    has_security_policy: hasSecurityPolicy,
     has_vulnerability_alerts:
       repoData.security_and_analysis?.dependabot_security_updates?.status === 'enabled',
     created_at: repoData.created_at,

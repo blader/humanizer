@@ -41,7 +41,7 @@ Fresh data was gathered on **2026-03-13** via `scripts/gather-repo-data.js` and 
 
 1. `humanizer-next` should remain a **skill-source repository**, not a publishable npm library.
 2. `.github/workflows/release.yml` is currently **misaligned** with that goal because it still assumes a Changesets + npm publish lifecycle.
-3. `.github/workflows/self-improvement.yml` is useful as a scheduler, but it is too shallow to be considered a closed-loop improvement system. It creates an issue and gathers baseline metrics, but it does not make high-quality adoption decisions.
+3. `.github/workflows/self-improvement.yml` now gathers baseline metrics, live repository data, and decision-oriented issue content. It is stronger than the original placeholder workflow, but it is still not fully closed-loop because maintainers must finalize the Adopt / Reject / Defer outcomes.
 4. The citation reference manager was a **scope outlier** relative to the repo's core purpose. It has now been moved behind an explicit experimental boundary at `experiments/citation_ref_manager/`, with the decision documented in `docs/citation-manager-boundary.md`. Follow-on extraction into a separate repo or skill remains a valid option if it graduates from experimentation.
 5. The highest-value maintenance work is now:
    - reviewing and merging the 6 current Dependabot PRs,

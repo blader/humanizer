@@ -46,9 +46,11 @@ Decision: the citation manager has been moved to `experiments/citation_ref_manag
 
 #### Task R4: Strengthen self-improvement automation
 
-- [ ] Make the weekly workflow consume refreshed upstream data rather than only creating a placeholder issue
-- [ ] Add decision criteria for adopting new "AI tells": evidence quality, overlap, false-positive risk, adapter impact
+- [x] Make the weekly workflow consume refreshed upstream data rather than only creating a placeholder issue
+- [x] Add decision criteria for adopting new "AI tells": evidence quality, overlap, false-positive risk, adapter impact
 - [ ] Record explicit Adopt / Reject / Defer outcomes for high-signal upstream PRs
+
+Current state: the scheduled workflow now generates decision-oriented issue content plus a standalone decision-log artifact. Maintainers still need to convert suggested Adopt / Reject / Defer outcomes into explicit track decisions.
 
 ---
 
