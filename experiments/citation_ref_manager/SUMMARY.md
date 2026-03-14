@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Citation Reference Manager is a comprehensive skill module designed to validate and manage citations within the humanizer project. It prevents AI hallucinations by ensuring all references are stored in a canonical CSL-JSON file, verifying manuscript citations, validating URLs and DOIs, enriching references using authoritative databases, and converting to multiple standard formats.
+The Citation Reference Manager is an experimental module for validating and managing citations alongside the humanizer project. It prevents AI hallucinations by ensuring all references are stored in a canonical CSL-JSON file, verifying manuscript citations, validating URLs and DOIs, enriching references using authoritative databases, and converting to multiple standard formats.
 
 ## Key Features
 
@@ -57,7 +57,7 @@ Validates URLs, DOIs, and other reference details for accuracy and accessibility
 
 ## Integration with Humanizer Framework
 
-The citation reference manager integrates seamlessly with the humanizer skill framework, ensuring that AI-generated content is properly grounded in real, verifiable sources. It serves as a "truth anchor" for AI-generated content, ensuring all references are real and verifiable, thus humanizing AI output.
+The citation reference manager is currently kept behind an explicit experimental boundary. It is not part of the maintained Humanizer skill contract or adapter distribution path, but it remains available for evaluation, future extraction, or later productization if it becomes strategically important.
 
 ## Quality Assurance
 
@@ -93,7 +93,7 @@ import {
   enrichReferences,
   formatConverter,
   referenceVerifier,
-} from './citation_ref_manager/index.js';
+} from './index.js';
 
 // Validate citations in a manuscript
 const verificationResult = await validateCitations(manuscriptText, cslJson);

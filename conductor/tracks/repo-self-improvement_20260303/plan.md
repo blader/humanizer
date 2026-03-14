@@ -19,7 +19,7 @@ The implementation plan below was written against a March 3 snapshot and is no l
 1. Replace stale PR and issue counts with live GitHub data before making adoption decisions.
 2. Treat `humanizer-next` as a **skill-source repo**, not a package-release repo.
 3. Reframe release/distribution work around generated skill artifacts and adapter sync, not npm publishing.
-4. Explicitly evaluate whether `src/citation_ref_manager/` should remain in this repository.
+4. Keep experimental subsystems outside the maintained skill surface and document extraction decisions clearly.
 
 ### Recommended Additional Tasks
 
@@ -38,9 +38,11 @@ The implementation plan below was written against a March 3 snapshot and is no l
 
 #### Task R3: Evaluate extraction candidates
 
-- [ ] Review `src/citation_ref_manager/` against the repo's core scope
-- [ ] Decide between: keep and productize, move to `experiments/`, or extract to a separate repo/skill
-- [ ] Document the decision in an ADR or track summary
+- [x] Review `src/citation_ref_manager/` against the repo's core scope
+- [x] Decide between: keep and productize, move to `experiments/`, or extract to a separate repo/skill
+- [x] Document the decision in an ADR or track summary
+
+Decision: the citation manager has been moved to `experiments/citation_ref_manager/` and is no longer treated as part of the maintained skill surface. See `docs/citation-manager-boundary.md`.
 
 #### Task R4: Strengthen self-improvement automation
 

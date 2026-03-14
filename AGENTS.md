@@ -33,6 +33,8 @@ This file serves as the **Agents.md** standard manifest for this repository. It 
 
 - `src/`
   - Modular fragments used to compile the skill files.
+- `experiments/`
+  - Experimental subsystems and extraction candidates that are intentionally outside the primary skill contract.
 - `SKILL.md` / `SKILL_PROFESSIONAL.md`
   - Compiled skill files (Standard and Pro).
 - `adapters/`
@@ -65,6 +67,7 @@ npm run sync
 - `SKILL.md` has a `version:` field in its YAML frontmatter.
 - **Rule:** If you bump the version, you must update the source in `src/` and run `npm run sync`.
 - `package.json` is only for repo tooling. Do not treat this repository as an npm package to publish or consume.
+- Changes under `experiments/` should not be allowed to silently expand the maintained skill surface. Promote them into `src/` only if they become a supported part of Humanizer.
 
 ## Interoperability
 

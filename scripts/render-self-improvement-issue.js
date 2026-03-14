@@ -61,7 +61,7 @@ ${summarizeTopTitles(upstream.pull_requests.raw)}
 1. Review and merge the current Dependabot backlog if validation passes.
 2. Record explicit Adopt / Reject / Defer decisions for the highest-signal upstream PRs.
 3. Keep the repo skill-focused: validate adapter sync and distribution first, not npm publishing.
-4. Reassess whether \`src/citation_ref_manager/\` belongs in this repository.
+4. Keep experimental subsystems outside the maintained skill surface; the citation manager now lives under \`experiments/citation_ref_manager/\`.
 `;
 
   fs.mkdirSync(path.dirname(outputPath), { recursive: true });

@@ -7,6 +7,7 @@ This repo is not a standalone runtime library. It exists to maintain canonical s
 ## Repo role
 
 - Canonical skill sources live under `src/`.
+- Experimental prototypes and extraction candidates live under `experiments/`.
 - Generated root artifacts are `SKILL.md` and `SKILL_PROFESSIONAL.md`.
 - Adapter outputs live under `adapters/`.
 - Repository guidance for agent environments lives in `AGENTS.md`.
@@ -59,6 +60,8 @@ The repo is validated as a skill-source repository:
 - Python adapter tests
 - Sync-drift verification
 - Cross-platform skill distribution validation
+
+The maintainer gates are intentionally centered on the maintained skill surface: `src/`, generated artifacts, adapters, docs, and validation scripts. Content under `experiments/` is kept in-tree for evaluation and extraction decisions, but it is not treated as part of the primary supported skill contract.
 
 ## Self-improvement track
 
