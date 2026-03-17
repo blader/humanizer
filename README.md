@@ -125,6 +125,12 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 >
 > The only real backstop is tests. Without them, you're mostly judging vibes.
 
+## Community Forks
+
+| Language | Repository | Patterns | Maintainer |
+|----------|-----------|----------|------------|
+| Deutsch | [marmbiz/humanizer-de](https://github.com/marmbiz/humanizer-de) | 34 | Martin Moeller |
+
 ## References
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - Primary source
