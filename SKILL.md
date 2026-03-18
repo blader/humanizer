@@ -8,6 +8,7 @@ description: |
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, negative
   parallelisms, and excessive conjunctive phrases.
+  中文触发词：去除AI痕迹、人性化文本、降低AI感、让文字更自然、去AI味、润色文章、优化文风、消除机器感
 allowed-tools:
   - Read
   - Write
