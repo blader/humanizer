@@ -1,0 +1,26 @@
+{
+  "name": "humanizer-cli",
+  "version": "1.0.0",
+  "description": "Bundle humanizer prompts with your text — pipe to any LLM",
+  "type": "module",
+  "bin": {
+    "humanizer": "./bin/humanizer.js"
+  },
+  "files": [
+    "bin/",
+    "src/"
+  ],
+  "keywords": [
+    "ai",
+    "writing",
+    "humanize",
+    "llm",
+    "prompt",
+    "cli"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.3.0"
+  }
+}
