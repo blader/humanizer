@@ -4,7 +4,7 @@
   "description": "Bundle humanizer prompts with your text — pipe to any LLM",
   "type": "module",
   "bin": {
-    "humanizer": "./bin/humanizer.js"
+    "humanizer": "bin/humanizer.js"
   },
   "files": [
     "bin/",

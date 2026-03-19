@@ -63,6 +63,16 @@ Humanize the following text:
 [your input text]
 ```
 
+## CLI vs skill — when to use which
+
+| | CLI (`humanizer-cli`) | Skill (`blader/humanizer`) |
+|---|---|---|
+| **Best for** | Automated pipelines, CI/CD, scripts | Interactive editing in Claude Code |
+| **Runs on** | Any machine with Node.js | Only where Claude Code skills are installed |
+| **How it works** | Bundles prompt + text → stdout, pipe to any LLM | Claude Code loads the skill and rewrites in-place |
+
+Use the **CLI** when you're running in production, on a server, or in any environment that doesn't have access to local Claude Code skills. Use the **skill** when you're working interactively in Claude Code on your own machine.
+
 ## References
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
