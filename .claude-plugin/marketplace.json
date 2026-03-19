@@ -1,0 +1,19 @@
+{
+  "name": "humanizer-dev",
+  "description": "Development marketplace for Humanizer skills library",
+  "owner": {
+    "name": "Humanizer Contributors",
+    "email": "info@humanizer.dev"
+  },
+  "plugins": [
+    {
+      "name": "humanizer",
+      "description": "Skills library for humanizing code and improving readability",
+      "version": "2.2.0",
+      "source": "./",
+      "author": {
+        "name": "Humanizer Contributors",
+        "email": "info@humanizer.dev"
+      }
+    }
+  ]

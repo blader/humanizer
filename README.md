@@ -4,20 +4,29 @@ A Claude Code skill that removes signs of AI-generated writing from text, making
 
 ## Installation
 
-### Recommended (clone directly into Claude Code skills directory)
+### Claude Plugin Marketplace (Recommended)
+
+Register the marketplace and install:
+
+```bash
+claude plugin marketplace add https://github.com/blader/humanizer
+claude plugin install humanizer-dev:humanizer
+```
+
+### Manual Install (Git Clone)
+
+Clone directly into Claude skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills
 git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
 ```
 
-### Manual install/update (only the skill file)
-
-If you already have this repo cloned (or you downloaded `SKILL.md`), copy the skill file into Claude Code’s skills directory:
+### Cursor
 
 ```bash
-mkdir -p ~/.claude/skills/humanizer
-cp SKILL.md ~/.claude/skills/humanizer/
+mkdir -p ~/.cursor/skills
+git clone https://github.com/blader/humanizer.git ~/.cursor/skills/humanizer
 ```
 
 ## Usage

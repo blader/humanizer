@@ -1,0 +1,12 @@
+{
+  "name": "humanizer",
+  "description": "Skills library for humanizing code and improving readability",
+  "version": "2.2.0",
+  "author": {
+    "name": "Humanizer Contributors",
+    "email": "info@humanizer.dev"
+  },
+  "homepage": "https://github.com/blader/humanizer",
+  "repository": "https://github.com/blader/humanizer",
+  "license": "MIT",
+  "keywords": ["skills", "humanizer", "readability", "code-quality", "best-practices"]
