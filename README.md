@@ -133,6 +133,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.4.0** - Added pattern scorecard: shows which patterns were detected before rewriting, and a change log after
 - **2.3.0** - Added pattern #25: hyphenated word pair overuse
 - **2.2.0** - Added a final "obviously AI generated" audit + second-pass rewrite prompts
 - **2.1.1** - Fixed pattern #18 example (curly quotes vs straight quotes)

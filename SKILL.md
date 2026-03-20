@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.3.0
+version: 2.4.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -382,26 +382,31 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 1. Read the input text carefully
 2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
+3. Output a pattern scorecard (see Output Format)
+4. Rewrite each problematic section
+5. Ensure the revised text:
    - Sounds natural when read aloud
    - Varies sentence structure naturally
    - Uses specific details over vague claims
    - Maintains appropriate tone for context
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+6. Present a draft humanized version
+7. Prompt: "What makes the below so obviously AI generated?"
+8. Answer briefly with the remaining tells (if any)
+9. Prompt: "Now make it not obviously AI generated."
+10. Present the final version (revised after the audit)
 
 ## Output Format
 
 Provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. **Pattern scan** - Table of detected patterns:
+   | # | Pattern | Instances |
+   |---|---------|-----------|
+   Only list patterns actually found. Skip patterns with 0 instances. Include the specific words or phrases that triggered each pattern.
+2. Draft rewrite
+3. "What makes the below so obviously AI generated?" (brief bullets)
+4. Final rewrite
+5. **Change log** - What was changed and which pattern each change addressed
 
 
 ## Full Example
