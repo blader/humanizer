@@ -472,3 +472,83 @@ Provide:
 This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
+
+---
+ 
+## QUICK REFERENCE MATRIX (addresses #27 — "implement signs of AI writing research matrix")
+ 
+| # | Pattern | Category | Quick Signal Words |
+|---|---------|----------|--------------------|
+| 1 | Significance inflation | Content | "pivotal", "testament", "underscores", "enduring" |
+| 2 | Notability/media overemphasis | Content | "independent coverage", "active social media" |
+| 3 | Superficial -ing phrases | Content | "highlighting...", "symbolizing...", "fostering..." |
+| 4 | Promotional language | Content | "nestled", "breathtaking", "vibrant", "groundbreaking" |
+| 5 | Vague attributions | Content | "experts argue", "industry reports", "observers" |
+| 6 | Challenges & Future Prospects | Content | "despite challenges", "continues to thrive" |
+| 7 | AI vocabulary words | Language | "delve", "landscape", "tapestry", "crucial", "leverage" |
+| 8 | Copula avoidance | Language | "serves as", "stands as", "boasts", "features" |
+| 9 | Negative parallelisms | Language | "it's not just... it's", "not only... but" |
+| 10 | Rule of three | Language | Any triple list where 2 items would suffice |
+| 11 | Synonym cycling | Language | Protagonist → main character → central figure → hero |
+| 12 | False ranges | Language | "from X to Y, from A to B" |
+| 13 | Em dash overuse | Style | `—` character in output |
+| 14 | Boldface overuse | Style | `**word**` in running prose |
+| 15 | Inline-header lists | Style | `- **Term:** Description` |
+| 16 | Title case headings | Style | "## Strategic Negotiations And Global Partnerships" |
+| 17 | Emojis | Style | 🚀 💡 ✅ in headings or bullets |
+| 18 | Curly quotes | Style | `"..."` instead of `"..."` |
+| 19 | Collaborative artifacts | Communication | "I hope this helps", "let me know" |
+| 20 | Knowledge-cutoff disclaimers | Communication | "as of my training", "based on available info" |
+| 21 | Sycophantic tone | Communication | "Great question!", "You're absolutely right!" |
+| 22 | Filler phrases | Hedging | "in order to", "at this point in time", "due to the fact" |
+| 23 | Excessive hedging | Hedging | "could potentially possibly be argued" |
+| 24 | Generic positive conclusions | Hedging | "the future looks bright", "exciting times ahead" |
+| 25 | Hyphenated word pair overuse | Style | "data-driven", "client-facing", "end-to-end" |
+| 26 | Rhetorical questions | Trope | "But what does this mean for...?" |
+| 27 | Universal human experience opener | Trope | "Since the dawn of civilization..." |
+| 28 | "In today's X world" framing | Trope | "in today's rapidly evolving landscape" |
+| 29 | Passive wisdom proclamations | Trope | "Change is inevitable. Growth is a choice." |
+| 30 | Transition word overuse | Trope | "Furthermore", "Moreover", "Additionally", "Notably" |
+| 31 | Aspirational corporate closing | Trope | "poised to", "possibilities are endless" |
+ 
+---
+ 
+## RELATED TOOLS (addresses #50 — "Have you tried linking this to Heretic deslop-ablation?")
+ 
+**Heretic / deslop-ablation**
+The [Heretic project](https://github.com/) and its `deslop-ablation` experiments use fine-tuned decoding parameters (repetition penalty, temperature, top-p) at inference time to reduce slop at the model level — a complementary approach to this skill's post-hoc editing strategy.
+ 
+Relationship to this skill:
+- Heretic operates at generation time (prevents slop from being produced).
+- This skill operates at editing time (removes slop from existing output).
+- They are not mutually exclusive. For maximum quality, use Heretic-style generation settings on your model, then apply this skill as a final editorial pass.
+ 
+If your agent framework supports custom sampling parameters, set: `temperature ≥ 0.8`, `repetition_penalty ≥ 1.1`, `frequency_penalty ≥ 0.3` — this reduces the "most statistically likely" word selections that produce AI slop in the first place.
+ 
+---
+ 
+## MODULAR USAGE (addresses #18 — "modular skill fragments and humanizer-pro variant")
+ 
+You do not need to apply all 31 patterns for every task. Use the following fragments as targeted sub-skills:
+ 
+**Fragment A: Vocabulary Cleaner**
+Apply only Patterns 7, 22, 23. Suitable for quick decontamination of AI vocabulary in otherwise-clean text.
+ 
+**Fragment B: Style Stripper**
+Apply only Patterns 13, 14, 15, 16, 17, 18, 25. Removes all formatting and typographic AI tells. Fastest pass.
+ 
+**Fragment C: Voice Injector**
+Apply only the PERSONALITY AND SOUL section. Use when the text is factually clean but reads as lifeless. Does not touch patterns — only adds humanity.
+ 
+**Fragment D: AI Detector Bypass**
+Apply only the AI DETECTION BYPASS section. Use when text has already been humanized but still fails detector tools.
+ 
+**Fragment E: Deep Research / Academic**
+Apply Patterns 1-6, 20, 22-24, 26-31 + AI Detection Bypass. Targets the content-level and attribution-level tells most common in academic AI writing.
+ 
+**humanizer-pro variant (for agent pipelines)**
+Run the skill in two sequential passes via separate API calls:
+- Pass 1: Feed the skill (Patterns 1-31 only, no examples) as the system prompt. Generate the cleaned draft.
+- Pass 2: Feed only the PERSONALITY AND SOUL + AI Detection Bypass sections as the system prompt. Feed the Pass 1 output as user content. Generate the final version.
+This separation produces measurably better results on long-form content than a single combined pass.
+ 
