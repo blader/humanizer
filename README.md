@@ -11,13 +11,14 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
 ```
 
-### Manual install/update (only the skill file)
+### Manual install/update
 
-If you already have this repo cloned (or you downloaded `SKILL.md`), copy the skill file into Claude Code’s skills directory:
+If you already have this repo cloned (or you downloaded `SKILL.md`), copy the skill files into Claude Code’s skills directory:
 
 ```bash
-mkdir -p ~/.claude/skills/humanizer
+mkdir -p ~/.claude/skills/humanizer/scripts
 cp SKILL.md ~/.claude/skills/humanizer/
+cp scripts/detect_patterns.py ~/.claude/skills/humanizer/scripts/
 ```
 
 ## Usage
@@ -41,6 +42,31 @@ Please humanize this text: [your text]
 Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) guide, maintained by WikiProject AI Cleanup. This comprehensive guide comes from observations of thousands of instances of AI-generated text.
 
 The skill also includes a final "obviously AI generated" audit pass and a second rewrite, to catch lingering AI-isms in the first draft.
+
+### Pattern Detection Script
+
+The skill includes a bundled Python script (`scripts/detect_patterns.py`) that scans text for measurable AI writing patterns and produces a scored report. The skill runs this script automatically at three points:
+
+1. **Pre-scan** — baseline score on the original text
+2. **Post-scan** — score on the draft rewrite
+3. **Final scan** — score on the final version
+
+This adds determinism to the humanisation process: instead of relying purely on LLM intuition, the audit step is grounded in concrete pattern counts and a normalised score (per 100 words).
+
+The script detects 15 of the 25 patterns programmatically (vocabulary hits, em dashes, boldface, emojis, filler phrases, hedging, etc.). The remaining patterns — rhythm, tone, synonym cycling at scale — are assessed by Claude during the rewrite.
+
+You can also run the script standalone:
+
+```bash
+# From stdin
+echo "your text here" | python3 ~/.claude/skills/humanizer/scripts/detect_patterns.py
+
+# From a file
+python3 ~/.claude/skills/humanizer/scripts/detect_patterns.py input.txt
+
+# JSON output (for piping into other tools)
+python3 ~/.claude/skills/humanizer/scripts/detect_patterns.py --json input.txt
+```
 
 ### Key Insight from Wikipedia
 
@@ -133,6 +159,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.4.0** - Added `scripts/detect_patterns.py` pattern detection script for deterministic pre/post scanning
 - **2.3.0** - Added pattern #25: hyphenated word pair overuse
 - **2.2.0** - Added a final "obviously AI generated" audit + second-pass rewrite prompts
 - **2.1.1** - Fixed pattern #18 example (curly quotes vs straight quotes)

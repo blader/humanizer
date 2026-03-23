@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.3.0
+version: 2.4.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -15,6 +15,7 @@ allowed-tools:
   - Grep
   - Glob
   - AskUserQuestion
+  - Bash(python3 *)
 ---
 
 # Humanizer: Remove AI Writing Patterns
@@ -380,28 +381,41 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## Process
 
-1. Read the input text carefully
-2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
+1. **Pre-scan** — Run the pattern detector on the input text to get a baseline score:
+   ```
+   echo '<input text>' | python3 ${CLAUDE_SKILL_DIR}/scripts/detect_patterns.py
+   ```
+   Use the report to prioritise which patterns to target first.
+2. Read the input text carefully, guided by the scan results
+3. Identify all instances of the patterns above (the scan catches measurable ones; also look for patterns the script cannot detect, such as tone and rhythm)
+4. Rewrite each problematic section
+5. Ensure the revised text:
    - Sounds natural when read aloud
    - Varies sentence structure naturally
    - Uses specific details over vague claims
    - Maintains appropriate tone for context
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+6. Present a draft humanised version
+7. **Post-scan** — Run the pattern detector on the draft to measure improvement:
+   ```
+   echo '<draft text>' | python3 ${CLAUDE_SKILL_DIR}/scripts/detect_patterns.py
+   ```
+8. Prompt: "What makes the below so obviously AI generated?"
+9. Answer briefly with the remaining tells (if any) — combine script findings with your own assessment of non-measurable patterns (rhythm, voice, structure)
+10. Prompt: "Now make it not obviously AI generated."
+11. Present the final version (revised after the audit)
+12. **Final scan** — Run the detector one last time on the final version to confirm the score dropped
 
 ## Output Format
 
 Provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. **Pre-scan report** (pattern detector output on the original text)
+2. Draft rewrite
+3. **Post-scan report** (pattern detector output on the draft)
+4. "What makes the below so obviously AI generated?" (brief bullets — combine script findings with non-measurable observations)
+5. Final rewrite
+6. **Final scan report** (pattern detector output on the final version)
+7. A brief summary of changes made and score delta (e.g. "Score: 47.4 → 2.1 per 100 words")
 
 
 ## Full Example
