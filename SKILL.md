@@ -1,13 +1,13 @@
 ---
 name: humanizer
-version: 2.4.0
+version: 2.5.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, negative
-  parallelisms, and excessive conjunctive phrases.
+  parallelisms, and filler phrases.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -197,15 +197,21 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > Gallery 825 is LAAA's exhibition space for contemporary art. The gallery has four rooms totaling 3,000 square feet.
 
 
-### 9. Negative Parallelisms
+### 9. Negative Parallelisms and Tailing Negations
 
-**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused.
+**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused. So are clipped tailing-negation fragments such as "no guessing" or "no wasted motion" tacked onto the end of a sentence instead of written as a real clause.
 
 **Before:**
 > It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere. It's not merely a song, it's a statement.
 
 **After:**
 > The heavy beat adds to the aggressive tone.
+
+**Before (tailing negation):**
+> The options come from the selected item, no guessing.
+
+**After:**
+> The options come from the selected item without forcing the user to guess.
 
 
 ### 10. Rule of Three Overuse
@@ -245,7 +251,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 13. Em Dash Overuse
 
-**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing.
+**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
@@ -399,6 +405,51 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 **After:**
 > The cross functional team delivered a high quality, data driven report on our client facing tools. Their decision making process was known for being thorough and detail oriented.
 
+
+### 26. Persuasive Authority Tropes
+
+**Phrases to watch:** The real question is, at its core, in reality, what really matters, fundamentally, the deeper issue, the heart of the matter
+
+**Problem:** LLMs use these phrases to pretend they are cutting through noise to some deeper truth, when the sentence that follows usually just restates an ordinary point with extra ceremony.
+
+**Before:**
+> The real question is whether teams can adapt. At its core, what really matters is organizational readiness.
+
+**After:**
+> The question is whether teams can adapt. That mostly depends on whether the organization is ready to change its habits.
+
+
+### 27. Signposting and Announcements
+
+**Phrases to watch:** Let's dive in, let's explore, let's break this down, here's what you need to know, now let's look at, without further ado
+
+**Problem:** LLMs announce what they are about to do instead of doing it. This meta-commentary slows the writing down and gives it a tutorial-script feel.
+
+**Before:**
+> Let's dive into how caching works in Next.js. Here's what you need to know.
+
+**After:**
+> Next.js caches data at multiple layers, including request memoization, the data cache, and the router cache.
+
+
+### 28. Fragmented Headers
+
+**Signs to watch:** A heading followed by a one-line paragraph that simply restates the heading before the real content begins.
+
+**Problem:** LLMs often add a generic sentence after a heading as a rhetorical warm-up. It usually adds nothing and makes the prose feel padded.
+
+**Before:**
+> ## Performance
+>
+> Speed matters.
+>
+> When users hit a slow page, they leave.
+
+**After:**
+> ## Performance
+>
+> When users hit a slow page, they leave.
+
 ---
 
 ## Process
@@ -485,7 +536,7 @@ Provide:
 - Removed formulaic challenges section ("Despite challenges... continues to thrive")
 - Removed knowledge-cutoff hedging ("While specific details are limited...")
 - Removed excessive hedging ("could potentially be argued that... might have some")
-- Removed filler phrases ("In order to", "At its core")
+- Removed filler phrases and persuasive framing ("In order to", "At its core")
 - Removed generic positive conclusion ("the future looks bright", "exciting times lie ahead")
 - Made the voice more personal and less "assembled" (varied rhythm, fewer placeholders)
 

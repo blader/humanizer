@@ -88,7 +88,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 25 Patterns Detected (with Before/After Examples)
+## 28 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -107,7 +107,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 |---|---------|--------|-------|
 | 7 | **AI vocabulary** | "Actually... additionally... testament... landscape... showcasing" | "also... remain common" |
 | 8 | **Copula avoidance** | "serves as... features... boasts" | "is... has" |
-| 9 | **Negative parallelisms** | "It's not just X, it's Y" | State the point directly |
+| 9 | **Negative parallelisms / tailing negations** | "It's not just X, it's Y", "..., no guessing" | State the point directly |
 | 10 | **Rule of three** | "innovation, inspiration, and insights" | Use natural number of items |
 | 11 | **Synonym cycling** | "protagonist... main character... central figure... hero" | "protagonist" (repeat when clearest) |
 | 12 | **False ranges** | "from the Big Bang to dark matter" | List topics directly |
@@ -116,13 +116,16 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 13 | **Em dash overuse** | "institutions—not the people—yet this continues—" | Use commas or periods |
+| 13 | **Em dash overuse** | "institutions—not the people—yet this continues—" | Prefer commas or periods |
 | 14 | **Boldface overuse** | "**OKRs**, **KPIs**, **BMC**" | "OKRs, KPIs, BMC" |
 | 15 | **Inline-header lists** | "**Performance:** Performance improved" | Convert to prose |
 | 16 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
 | 17 | **Emojis** | "🚀 Launch Phase: 💡 Key Insight:" | Remove emojis |
 | 18 | **Curly quotes** | `said “the project”` | `said “the project”` |
 | 25 | **Hyphenated word pairs** | “cross-functional, data-driven, client-facing” | Drop hyphens on common word pairs |
+| 26 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
+| 27 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
+| 28 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
 
 ### Communication Patterns
 
@@ -175,6 +178,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.5.0** - Added patterns for persuasive framing, signposting, and fragmented headers; expanded negative parallelisms to cover tailing negations; tightened wording around em dash overuse; fixed frontmatter wording to use "filler phrases"
 - **2.4.0** - Added voice calibration: match the user's personal writing style from samples
 - **2.3.0** - Added pattern #25: hyphenated word pair overuse
 - **2.2.0** - Added a final "obviously AI generated" audit + second-pass rewrite prompts
