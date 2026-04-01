@@ -1,13 +1,13 @@
 ---
 name: humanizer
-version: 2.5.0
+version: 2.5.1
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
-  attributions, em dash overuse, rule of three, AI vocabulary words, negative
-  parallelisms, and filler phrases.
+  attributions, em dash overuse, rule of three, AI vocabulary words, passive
+  voice, negative parallelisms, and filler phrases.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -247,9 +247,20 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The book covers the Big Bang, star formation, and current theories about dark matter.
 
 
+### 13. Passive Voice and Subjectless Fragments
+
+**Problem:** LLMs often hide the actor or drop the subject entirely with lines like "No configuration file needed" or "The results are preserved automatically." Rewrite these when active voice makes the sentence clearer and more direct.
+
+**Before:**
+> No configuration file needed. The results are preserved automatically.
+
+**After:**
+> You do not need a configuration file. The system preserves the results automatically.
+
+
 ## STYLE PATTERNS
 
-### 13. Em Dash Overuse
+### 14. Em Dash Overuse
 
 **Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
 
@@ -260,7 +271,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The term is primarily promoted by Dutch institutions, not by the people themselves. You don't say "Netherlands, Europe" as an address, yet this mislabeling continues in official documents.
 
 
-### 14. Overuse of Boldface
+### 15. Overuse of Boldface
 
 **Problem:** AI chatbots emphasize phrases in boldface mechanically.
 
@@ -271,7 +282,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > It blends OKRs, KPIs, and visual strategy tools like the Business Model Canvas and Balanced Scorecard.
 
 
-### 15. Inline-Header Vertical Lists
+### 16. Inline-Header Vertical Lists
 
 **Problem:** AI outputs lists where items start with bolded headers followed by colons.
 
@@ -284,7 +295,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The update improves the interface, speeds up load times through optimized algorithms, and adds end-to-end encryption.
 
 
-### 16. Title Case in Headings
+### 17. Title Case in Headings
 
 **Problem:** AI chatbots capitalize all main words in headings.
 
@@ -295,7 +306,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > ## Strategic negotiations and global partnerships
 
 
-### 17. Emojis
+### 18. Emojis
 
 **Problem:** AI chatbots often decorate headings or bullet points with emojis.
 
@@ -308,7 +319,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The product launches in Q3. User research showed a preference for simplicity. Next step: schedule a follow-up meeting.
 
 
-### 18. Curly Quotation Marks
+### 19. Curly Quotation Marks
 
 **Problem:** ChatGPT uses curly quotes (“...”) instead of straight quotes ("...").
 
@@ -321,7 +332,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## COMMUNICATION PATTERNS
 
-### 19. Collaborative Communication Artifacts
+### 20. Collaborative Communication Artifacts
 
 **Words to watch:** I hope this helps, Of course!, Certainly!, You're absolutely right!, Would you like..., let me know, here is a...
 
@@ -334,7 +345,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The French Revolution began in 1789 when financial crisis and food shortages led to widespread unrest.
 
 
-### 20. Knowledge-Cutoff Disclaimers
+### 21. Knowledge-Cutoff Disclaimers
 
 **Words to watch:** as of [date], Up to my last training update, While specific details are limited/scarce..., based on available information...
 
@@ -347,7 +358,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The company was founded in 1994, according to its registration documents.
 
 
-### 21. Sycophantic/Servile Tone
+### 22. Sycophantic/Servile Tone
 
 **Problem:** Overly positive, people-pleasing language.
 
@@ -360,7 +371,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## FILLER AND HEDGING
 
-### 22. Filler Phrases
+### 23. Filler Phrases
 
 **Before → After:**
 - "In order to achieve this goal" → "To achieve this"
@@ -371,7 +382,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 - "It is important to note that the data shows" → "The data shows"
 
 
-### 23. Excessive Hedging
+### 24. Excessive Hedging
 
 **Problem:** Over-qualifying statements.
 
@@ -382,7 +393,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The policy may affect outcomes.
 
 
-### 24. Generic Positive Conclusions
+### 25. Generic Positive Conclusions
 
 **Problem:** Vague upbeat endings.
 
@@ -393,7 +404,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The company plans to open two more locations next year.
 
 
-### 25. Hyphenated Word Pair Overuse
+### 26. Hyphenated Word Pair Overuse
 
 **Words to watch:** third-party, cross-functional, client-facing, data-driven, decision-making, well-known, high-quality, real-time, long-term, end-to-end
 
@@ -406,7 +417,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The cross functional team delivered a high quality, data driven report on our client facing tools. Their decision making process was known for being thorough and detail oriented.
 
 
-### 26. Persuasive Authority Tropes
+### 27. Persuasive Authority Tropes
 
 **Phrases to watch:** The real question is, at its core, in reality, what really matters, fundamentally, the deeper issue, the heart of the matter
 
@@ -419,7 +430,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > The question is whether teams can adapt. That mostly depends on whether the organization is ready to change its habits.
 
 
-### 27. Signposting and Announcements
+### 28. Signposting and Announcements
 
 **Phrases to watch:** Let's dive in, let's explore, let's break this down, here's what you need to know, now let's look at, without further ado
 
@@ -432,7 +443,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > Next.js caches data at multiple layers, including request memoization, the data cache, and the router cache.
 
 
-### 28. Fragmented Headers
+### 29. Fragmented Headers
 
 **Signs to watch:** A heading followed by a one-line paragraph that simply restates the heading before the real content begins.
 

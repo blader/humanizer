@@ -88,7 +88,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 28 Patterns Detected (with Before/After Examples)
+## 29 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -111,37 +111,38 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 | 10 | **Rule of three** | "innovation, inspiration, and insights" | Use natural number of items |
 | 11 | **Synonym cycling** | "protagonist... main character... central figure... hero" | "protagonist" (repeat when clearest) |
 | 12 | **False ranges** | "from the Big Bang to dark matter" | List topics directly |
+| 13 | **Passive voice / subjectless fragments** | "No configuration file needed" | Name the actor when it helps clarity |
 
 ### Style Patterns
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 13 | **Em dash overuse** | "institutions—not the people—yet this continues—" | Prefer commas or periods |
-| 14 | **Boldface overuse** | "**OKRs**, **KPIs**, **BMC**" | "OKRs, KPIs, BMC" |
-| 15 | **Inline-header lists** | "**Performance:** Performance improved" | Convert to prose |
-| 16 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
-| 17 | **Emojis** | "🚀 Launch Phase: 💡 Key Insight:" | Remove emojis |
-| 18 | **Curly quotes** | `said “the project”` | `said “the project”` |
-| 25 | **Hyphenated word pairs** | “cross-functional, data-driven, client-facing” | Drop hyphens on common word pairs |
-| 26 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
-| 27 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
-| 28 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
+| 14 | **Em dash overuse** | "institutions—not the people—yet this continues—" | Prefer commas or periods |
+| 15 | **Boldface overuse** | "**OKRs**, **KPIs**, **BMC**" | "OKRs, KPIs, BMC" |
+| 16 | **Inline-header lists** | "**Performance:** Performance improved" | Convert to prose |
+| 17 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
+| 18 | **Emojis** | "🚀 Launch Phase: 💡 Key Insight:" | Remove emojis |
+| 19 | **Curly quotes** | `said “the project”` | `said “the project”` |
+| 26 | **Hyphenated word pairs** | “cross-functional, data-driven, client-facing” | Drop hyphens on common word pairs |
+| 27 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
+| 28 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
+| 29 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
 
 ### Communication Patterns
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 19 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
-| 20 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
-| 21 | **Sycophantic tone** | "Great question! You're absolutely right!" | Respond directly |
+| 20 | **Chatbot artifacts** | "I hope this helps! Let me know if..." | Remove entirely |
+| 21 | **Cutoff disclaimers** | "While details are limited in available sources..." | Find sources or remove |
+| 22 | **Sycophantic tone** | "Great question! You're absolutely right!" | Respond directly |
 
 ### Filler and Hedging
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 22 | **Filler phrases** | "In order to", "Due to the fact that" | "To", "Because" |
-| 23 | **Excessive hedging** | "could potentially possibly" | "may" |
-| 24 | **Generic conclusions** | "The future looks bright" | Specific plans or facts |
+| 23 | **Filler phrases** | "In order to", "Due to the fact that" | "To", "Because" |
+| 24 | **Excessive hedging** | "could potentially possibly" | "may" |
+| 25 | **Generic conclusions** | "The future looks bright" | Specific plans or facts |
 
 ## Full Example
 
@@ -178,6 +179,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.5.1** - Added a passive-voice / subjectless-fragment rule, raising the total to 29 patterns
 - **2.5.0** - Added patterns for persuasive framing, signposting, and fragmented headers; expanded negative parallelisms to cover tailing negations; tightened wording around em dash overuse; fixed frontmatter wording to use "filler phrases"
 - **2.4.0** - Added voice calibration: match the user's personal writing style from samples
 - **2.3.0** - Added pattern #25: hyphenated word pair overuse
