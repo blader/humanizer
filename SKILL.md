@@ -461,8 +461,6 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 >
 > When users hit a slow page, they leave.
 
----
-
 ### 30. Diff-Anchored Writing
 
 **Problem:** Writing that is overly coupled to a specific change or point-in-time diff rather than making statements that stand on their own. Unless the document is inherently version-scoped (release notes, changelogs, migration guides), documentation and comments should read coherently without knowing what changed in the last commit.
