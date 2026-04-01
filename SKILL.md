@@ -461,6 +461,22 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 >
 > When users hit a slow page, they leave.
 
+### 30. Diff-Anchored Writing
+
+**Problem:** Writing that is overly coupled to a specific change or point-in-time diff rather than making statements that stand on their own. Unless the document is inherently version-scoped (release notes, changelogs, migration guides), documentation and comments should read coherently without knowing what changed in the last commit.
+
+**Before:**
+> This function was added to replace the previous approach of iterating through all items. The old method caused O(n²) performance, so we now use a hash map instead.
+
+**After:**
+> This function uses a hash map for O(1) lookups per item, avoiding the O(n²) cost of naive iteration.
+
+**Before:**
+> We removed the `legacy_auth` middleware because legal flagged it for storing session tokens in a non-compliant way. The new implementation uses encrypted cookies.
+
+**After:**
+> Authentication uses encrypted cookies for session storage, meeting the current compliance requirements for token handling.
+
 ---
 
 ## Process

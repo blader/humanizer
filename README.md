@@ -88,7 +88,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 29 Patterns Detected (with Before/After Examples)
+## 30 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -127,6 +127,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 | 27 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
 | 28 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
 | 29 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
+| 30 | **Diff-anchored writing** | "This was added to replace the old approach" | Describe what the code does, not what changed |
 
 ### Communication Patterns
 
@@ -179,6 +180,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.5.2** - Added a diff-anchored writing rule, raising the total to 30 patterns
 - **2.5.1** - Added a passive-voice / subjectless-fragment rule, raising the total to 29 patterns
 - **2.5.0** - Added patterns for persuasive framing, signposting, and fragmented headers; expanded negative parallelisms to cover tailing negations; tightened wording around em dash overuse; fixed frontmatter wording to use "filler phrases"
 - **2.4.0** - Added voice calibration: match the user's personal writing style from samples
