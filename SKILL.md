@@ -1,13 +1,14 @@
 ---
 name: humanizer
-version: 2.5.1
+version: 2.6.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, filler phrases, conditional frame stacking, and
+  miscalibrated epistemic confidence.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -197,9 +198,9 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > Gallery 825 is LAAA's exhibition space for contemporary art. The gallery has four rooms totaling 3,000 square feet.
 
 
-### 9. Negative Parallelisms and Tailing Negations
+### 9. Negative Parallelisms, Tailing Negations, and "Rather Than" Dismissals
 
-**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused. So are clipped tailing-negation fragments such as "no guessing" or "no wasted motion" tacked onto the end of a sentence instead of written as a real clause.
+**Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused. So are clipped tailing-negation fragments such as "no guessing" or "no wasted motion" tacked onto the end of a sentence instead of written as a real clause. A third form of the same pattern is "rather than" used to stage a contrast by dismissing an alternative that nobody was claiming in the first place.
 
 **Before:**
 > It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere. It's not merely a song, it's a statement.
@@ -212,6 +213,14 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 **After:**
 > The options come from the selected item without forcing the user to guess.
+
+**Before ("rather than" dismissal):**
+> The goal is to write clearly rather than to impress the reader with complexity.
+
+**After:**
+> The goal is to write clearly.
+
+**Test:** Ask whether the discarded alternative (Y in "X rather than Y") is actually on the table. If no one was claiming Y, cut the dismissal and just say X.
 
 
 ### 10. Rule of Three Overuse
@@ -260,15 +269,28 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## STYLE PATTERNS
 
-### 14. Em Dash Overuse
+### 14. Em Dash Overuse and Paired Bracketing
 
 **Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
+
+A specific sub-pattern is paired em dash bracketing: wrapping an elaboration between two dashes (X — elaboration — continues). This looks inserted rather than written — like something dropped into an existing sentence rather than composed as part of it.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
 
 **After:**
 > The term is primarily promoted by Dutch institutions, not by the people themselves. You don't say "Netherlands, Europe" as an address, yet this mislabeling continues in official documents.
+
+**Before (paired bracketing):**
+> The report—which covered three continents and twelve case studies—concluded that demand had shifted.
+
+**After options (depending on type of insertion):**
+- If a list: break into a separate sentence. "The report covered three continents and twelve case studies. It concluded that demand had shifted."
+- If an appositive: use a comma or recast. "The report, covering three continents and twelve case studies, concluded that demand had shifted."
+- If a parenthetical aside: use parentheses if truly aside, or restructure. "The report (three continents, twelve case studies) concluded that demand had shifted."
+- If subject expansion: rewrite as two sentences.
+
+**Exception:** A single, short, earned bracket that does not repeat elsewhere in the passage is fine. The problem is the pattern, not any one instance.
 
 
 ### 15. Overuse of Boldface
@@ -460,6 +482,43 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > ## Performance
 >
 > When users hit a slow page, they leave.
+
+
+### 30. Conditional Frame Stacking
+
+**Problem:** AI hedges its own conclusions by stacking multiple "if" clauses in the same passage — "if the argument holds," "if the reading is right," "if this interpretation is correct." One conditional at a genuine analytical branching point is fine. A cluster of them in a conclusion or summary signals the writer is not standing behind their own work.
+
+**Before:**
+> If the argument holds, and if the evidence supports this reading, then the policy may have had some effect — if, that is, the context was as described.
+
+**After:**
+> The evidence supports the argument that the policy had an effect in this context.
+
+**Fix:** In a conclusion or summary, state what the argument found. Reserve "if" for real analytical branches where the outcome genuinely differs depending on the condition — not as a repeated hedge against being wrong.
+
+
+### 31. Miscalibrated Epistemic Confidence
+
+**Problem:** A two-sided pattern. AI swings between over-asserting and over-hedging, sometimes in the same passage.
+
+- **Over-assertion:** Loading claims with words like "decisively," "fundamentally," "completely," "unquestionably," "clearly demonstrates" when the evidence is more limited.
+- **Over-hedging:** Layering qualifiers such as "appears to have arguably," "may have somewhat," "could potentially suggest" when the evidence actually supports a more direct statement.
+
+Both are tells. The fix is not to replace one extreme with the other — it is to narrow the claim to what the evidence actually supports.
+
+**Before (over-assertion):**
+> The data decisively demonstrates that remote work fundamentally transformed productivity across all sectors.
+
+**After:**
+> In the surveyed companies, productivity rose an average of 8% in the first year of remote work.
+
+**Before (over-hedging):**
+> It appears that the policy may have arguably had some effect on outcomes, potentially suggesting a modest shift.
+
+**After:**
+> The policy was associated with a modest improvement in outcomes in two of the three cases studied.
+
+**Critical rule:** Do not fix over-assertion by adding hedges. Fix it by narrowing the claim.
 
 ---
 
