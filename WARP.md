@@ -40,7 +40,7 @@ Invoke the skill:
 
 ## Making changes safely
 ### Versioning (keep in sync)
-- `SKILL.md` has a `version:` field in its YAML frontmatter.
+- `SKILL.md` has a `version:` field under `metadata:` in its YAML frontmatter.
 - `README.md` has a “Version History” section.
 
 If you bump the version, update both.
