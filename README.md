@@ -88,7 +88,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 29 Patterns Detected (with Before/After Examples)
+## 31 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -107,7 +107,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 |---|---------|--------|-------|
 | 7 | **AI vocabulary** | "Actually... additionally... testament... landscape... showcasing" | "also... remain common" |
 | 8 | **Copula avoidance** | "serves as... features... boasts" | "is... has" |
-| 9 | **Negative parallelisms / tailing negations** | "It's not just X, it's Y", "..., no guessing" | State the point directly |
+| 9 | **Negative parallelisms / tailing negations / "rather than" dismissals** | "It's not just X, it's Y", "..., no guessing", "X rather than Y (where Y is unstated)" | State the point directly; cut dismissed alternatives nobody claimed |
 | 10 | **Rule of three** | "innovation, inspiration, and insights" | Use natural number of items |
 | 11 | **Synonym cycling** | "protagonist... main character... central figure... hero" | "protagonist" (repeat when clearest) |
 | 12 | **False ranges** | "from the Big Bang to dark matter" | List topics directly |
@@ -117,7 +117,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 14 | **Em dash overuse** | "institutions—not the people—yet this continues—" | Prefer commas or periods |
+| 14 | **Em dash overuse / paired bracketing** | "institutions—not the people—yet this continues—", "report—covering three continents—concluded" | Prefer commas or periods; break paired brackets into separate sentences or appositives |
 | 15 | **Boldface overuse** | "**OKRs**, **KPIs**, **BMC**" | "OKRs, KPIs, BMC" |
 | 16 | **Inline-header lists** | "**Performance:** Performance improved" | Convert to prose |
 | 17 | **Title Case Headings** | "Strategic Negotiations And Partnerships" | "Strategic negotiations and partnerships" |
@@ -127,6 +127,8 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 | 27 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
 | 28 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
 | 29 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
+| 30 | **Conditional frame stacking** | "If the argument holds, and if the reading is right, then perhaps..." | State the conclusion; reserve "if" for real analytical branches |
+| 31 | **Miscalibrated epistemic confidence** | Over: "decisively demonstrates fundamentally"; Over-hedge: "appears to have arguably may have somewhat" | Narrow the claim to what the evidence supports; don't replace over-assertion with hedges |
 
 ### Communication Patterns
 
@@ -179,6 +181,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.6.0** - Added patterns 30 (conditional frame stacking) and 31 (miscalibrated epistemic confidence); expanded rule 9 to cover "rather than" dismissals; expanded rule 14 to cover paired em dash bracketing; raising the total to 31 patterns
 - **2.5.1** - Added a passive-voice / subjectless-fragment rule, raising the total to 29 patterns
 - **2.5.0** - Added patterns for persuasive framing, signposting, and fragmented headers; expanded negative parallelisms to cover tailing negations; tightened wording around em dash overuse; fixed frontmatter wording to use "filler phrases"
 - **2.4.0** - Added voice calibration: match the user's personal writing style from samples
