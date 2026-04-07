@@ -27,16 +27,27 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -e
+
           LAST_SHA=$(jq -r '.last_synced_sha' .github/upstream-state.json)
+          echo "last_sha=$LAST_SHA"
           echo "last_sha=$LAST_SHA" >> "$GITHUB_OUTPUT"
 
           LATEST_SHA=$(gh api repos/blader/humanizer/commits/main --jq '.sha')
+          echo "new_sha=$LATEST_SHA"
           echo "new_sha=$LATEST_SHA" >> "$GITHUB_OUTPUT"
+
+          if [ -z "$LATEST_SHA" ]; then
+            echo "ERROR: Failed to fetch upstream SHA"
+            exit 1
+          fi
 
           if [ "$LAST_SHA" = "$LATEST_SHA" ] && [ "${{ inputs.force_check }}" != "true" ]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
+            echo "No upstream changes detected."
           else
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "Upstream changes detected: $LAST_SHA -> $LATEST_SHA"
           fi
 
       - name: Check for existing open issue
@@ -45,12 +56,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          set -e
+
           EXISTING=$(gh issue list \
+            --repo "${{ github.repository }}" \
             --label "upstream-sync" \
             --state open \
-            --json number,title \
+            --json number \
             --jq '.[0].number // empty')
-          echo "issue_number=$EXISTING" >> "$GITHUB_OUTPUT"
+          echo "issue_number=${EXISTING}"
+          echo "issue_number=${EXISTING}" >> "$GITHUB_OUTPUT"
 
       - name: Comment on existing issue
         if: |
@@ -62,17 +77,15 @@ jobs:
           OLD_SHA="${{ steps.check.outputs.last_sha }}"
           NEW_SHA="${{ steps.check.outputs.new_sha }}"
           ISSUE="${{ steps.existing.outputs.issue_number }}"
-
           COMPARE_URL="https://github.com/blader/humanizer/compare/${OLD_SHA:0:7}...${NEW_SHA:0:7}"
 
-          gh issue comment "$ISSUE" --body "$(cat <<EOF
-          ## 追加のアップストリーム変更が検知されました
+          gh issue comment "$ISSUE" \
+            --repo "${{ github.repository }}" \
+            --body "## 追加のアップストリーム変更が検知されました
 
           **新しいコミット**: [\`${OLD_SHA:0:7}...${NEW_SHA:0:7}\`](${COMPARE_URL})
 
-          このIssueが解決される前にさらに変更がありました。上記のcompare URLで差分を確認してください。
-          EOF
-          )"
+          このIssueが解決される前にさらに変更がありました。上記のcompare URLで差分を確認してください。"
 
       - name: Build issue body and create issue
         if: |
@@ -81,6 +94,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PAT_TOKEN }}
         run: |
+          set -e
+
           OLD_SHA="${{ steps.check.outputs.last_sha }}"
           NEW_SHA="${{ steps.check.outputs.new_sha }}"
           COMPARE_URL="https://github.com/blader/humanizer/compare/${OLD_SHA:0:7}...${NEW_SHA:0:7}"
@@ -88,11 +103,12 @@ jobs:
           # コミット一覧と変更ファイルを取得
           COMPARE_DATA=$(gh api "repos/blader/humanizer/compare/${OLD_SHA}...${NEW_SHA}")
           COMMIT_COUNT=$(echo "$COMPARE_DATA" | jq '.commits | length')
-          COMMIT_LIST=$(echo "$COMPARE_DATA" | jq -r '.commits[] | "- [`\(.sha[0:7])`](https://github.com/blader/humanizer/commit/\(.sha)) \(.commit.message | split("\n")[0])"')
-          FILE_LIST=$(echo "$COMPARE_DATA" | jq -r '.files[] | "- `\(.filename)` (\(.status), +\(.additions) -\(.deletions))"')
+          COMMIT_LIST=$(echo "$COMPARE_DATA" | jq -r \
+            '.commits[] | "- [`\(.sha[0:7])`](https://github.com/blader/humanizer/commit/\(.sha)) \(.commit.message | split("\n")[0])"')
+          FILE_LIST=$(echo "$COMPARE_DATA" | jq -r \
+            '.files[] | "- `\(.filename)` (\(.status), +\(.additions) -\(.deletions))"')
 
-          BODY=$(cat <<ISSUE_BODY
-          ## アップストリーム変更検知 / Upstream Changes Detected
+          BODY="## アップストリーム変更検知 / Upstream Changes Detected
 
           **Upstream**: [blader/humanizer](https://github.com/blader/humanizer)
           **変更数 / Commits**: ${COMMIT_COUNT}
@@ -118,11 +134,10 @@ jobs:
           3. 各変更について日本語版への適応要否を判断する（CLAUDE.mdの適応ルールに従う）
           4. 適応変更をSKILL.md/README.md/WARP.mdに適用し、\`upstream-sync\`ラベルのPRを作成する
           5. PRのdescriptionに \`<!-- upstream-new-sha: ${NEW_SHA} -->\` を必ず含めること
-          6. 変更が不要な場合はその理由をコメントしてPR作成をスキップする
-          ISSUE_BODY
-          )
+          6. 変更が不要な場合はその理由をコメントしてPR作成をスキップする"
 
           gh issue create \
+            --repo "${{ github.repository }}" \
             --title "upstream-sync: ${COMMIT_COUNT} new commit(s) in blader/humanizer (${NEW_SHA:0:7})" \
             --body "$BODY" \
             --label "upstream-sync"
