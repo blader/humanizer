@@ -20,6 +20,7 @@ mkdir -p ~/.claude/skills/humanizer
 cp SKILL.md ~/.claude/skills/humanizer/
 ```
 
+> **Important:** If Claude Code was open during installation, close it completely and reopen it before using `/humanizer`. Otherwise, the skill may not appear right away.
 ### OpenCode
 
 Clone directly into OpenCode's skills directory:
