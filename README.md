@@ -2,7 +2,7 @@
 
 A skill for Claude Code and OpenCode that removes signs of AI-generated writing from text, making it sound more natural and human.
 
-## Installation
+## Installation - Guide - Sacheendra
 
 ### Claude Code
 
