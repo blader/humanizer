@@ -53,7 +53,7 @@ cp SKILL.md ~/.config/opencode/skills/humanizer/
 ```
 /humanizer
 
-[paste your text here]
+[All the best]
 ```
 
 Or ask the model to humanize text directly in either tool:
