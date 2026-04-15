@@ -461,6 +461,27 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 >
 > When users hit a slow page, they leave.
 
+
+### RELIABILITY AND EVIDENCE PATTERNS
+
+30. **Citation Fabrication / Hallucinated Sources**
+   LLMs sometimes generate citations that look legitimate but are off-topic, have invalid DOIs, or reference non-existent publications. Also watch for: broken external links, `utm_source=` parameters in URLs, named references declared but never used.
+   > Fix: Verify every citation. Remove unverifiable ones.
+   - Before: "According to Smith et al. (2023) in the Journal of Digital Innovation..."
+   - After: [verify the source exists and says what you claim, or remove]
+
+31. **Broken Markup Artifacts**
+   AI-generated text may contain markup from a different context: markdown syntax in Word documents, `oaicite` tags, `contentReference` spans, or `turn0search0` references.
+   > Fix: Remove all AI markup artifacts. Use the platform's native formatting.
+   - Before: "The results were **significant** (see `contentReference[oaicite:0]`)"
+   - After: "The results were significant (see Table 2)"
+
+32. **Era-Specific Vocabulary Clustering**
+   AI vocabulary clusters by model era. When you spot one high-frequency AI word, scan the surrounding text — others from the same era tend to cluster in the same paragraph. Finding 3+ AI vocabulary words in one paragraph is a strong signal.
+   > Fix: When you spot a cluster, rewrite the entire paragraph, not just individual words.
+
+> Patterns 30-32 sourced from [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) and [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup)
+
 ---
 
 ## Process
@@ -487,6 +508,59 @@ Provide:
 2. "What makes the below so obviously AI generated?" (brief bullets)
 3. Final rewrite
 4. A brief summary of changes made (optional, if helpful)
+
+
+## 5 Core Principles (Quick Reference)
+
+1. **Delete filler** — Remove filler words and emphatic crutches. "It is important to note" means nothing. Delete it.
+2. **Break formula** — Avoid binary contrasts ("not just X, but Y"), dramatic segmentation, rhetorical setup. Start with substance.
+3. **Vary rhythm** — Mix sentence lengths. Short. Then longer ones that develop the thought. Two items beat three. Vary paragraph endings.
+4. **Trust the reader** — State facts directly. Skip softening, excuses, hand-holding. If you wrote "to be sure" or "of course" — delete it.
+5. **Kill the quotables** — If a sentence sounds like it belongs on a motivational poster, rewrite it. Real people don't speak in epigrams.
+
+> Adapted from [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)
+
+
+## Quick Checklist (Pre-Delivery Audit)
+
+- [ ] Three consecutive sentences same length? → Break one up
+- [ ] Paragraph ends with short single line? → Vary the ending
+- [ ] Em dash before a revelation? → Delete it
+- [ ] Explaining a metaphor? → Trust the reader
+- [ ] Used "Additionally" / "However" / "Furthermore"? → Consider deletion
+- [ ] Rule of three anywhere? → Change to two or four
+
+
+## Quality Scoring
+
+After rewriting, score your output across 5 dimensions (1-10 each, total /50):
+
+| Dimension | 10 = | 1 = |
+|-----------|------|-----|
+| **Directness** | Every sentence delivers info immediately | Every paragraph starts with setup |
+| **Rhythm** | Mix of short and long, varied endings | Mechanical uniformity |
+| **Reader Trust** | Concise, no over-explanation | Hand-holds throughout |
+| **Authenticity** | Has voice, opinions, specific observations | Obviously AI, formulaic |
+| **Conciseness** | Zero redundancy | Could be cut 40%+ |
+
+**Target: ≥ 40/50 before delivery.**
+
+> Scoring system adapted from [op7418/Humanizer-zh](https://github.com/op7418/Humanizer-zh), originally from [hardikpandya/stop-slop](https://github.com/hardikpandya/stop-slop)
+
+
+## Detection Confidence Framework
+
+Not all patterns carry equal weight. Individual LOW patterns may be normal human style.
+
+| Confidence | Patterns | Alone? |
+|-----------|----------|--------|
+| **HIGH** | P1, P3, P5, P6, P7 (clustered), P16, P18, P20, P21, P22, P25, P28, P30, P31, P32 | Strong signal |
+| **MEDIUM** | P2, P4, P8, P9, P10, P11, P14, P15, P23, P24, P27, P29 | Suspicious if 2+ |
+| **LOW** | P12, P13, P17, P19, P26 | Normal unless clustered |
+
+**Combined Indicator Principle:** 3+ categories matching in the same text = high probability AI origin.
+
+> Framework based on [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 
 
 ## Full Example
