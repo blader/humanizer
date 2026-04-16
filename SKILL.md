@@ -1,13 +1,14 @@
 ---
 name: humanizer
-version: 2.5.1
+version: 2.6.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
-  attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  attributions, rule of three, AI vocabulary words, passive voice, negative
+  parallelisms, and filler phrases. Enforces an absolute ban on em dashes (—)
+  and en dashes (–) in the final output.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -260,15 +261,28 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## STYLE PATTERNS
 
-### 14. Em Dash Overuse
+### 14. Em Dashes (—): Absolute Ban
 
-**Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing. In practice, most of these can be rewritten more cleanly with commas, periods, or parentheses.
+**Rule:** Never use em dashes (—) in humanized output. This is not a stylistic preference or a "use sparingly" guideline. It is an absolute constraint. The em dash has become one of the single most reliable AI tells in modern writing, and any em dash in the final output invalidates the humanization.
+
+**The en dash (–) is banned for the same reason.** Do not substitute one for the other.
+
+**Replace every em dash with one of these, in roughly this order of preference:**
+
+1. **A period.** Start a new sentence. This is the correct choice 80% of the time.
+2. **A comma.** For tight inline asides that genuinely belong in the same sentence.
+3. **A colon.** When introducing an explanation, list, or consequence.
+4. **A semicolon.** When two independent clauses are genuinely linked and a period feels too hard a break.
+5. **Parentheses.** For true parentheticals that the main sentence could survive without.
+6. **Rewrite the sentence.** If none of the above fits cleanly, the sentence itself is the problem. Restructure it.
 
 **Before:**
 > The term is primarily promoted by Dutch institutions—not by the people themselves. You don't say "Netherlands, Europe" as an address—yet this mislabeling continues—even in official documents.
 
 **After:**
 > The term is primarily promoted by Dutch institutions, not by the people themselves. You don't say "Netherlands, Europe" as an address, yet this mislabeling continues in official documents.
+
+**Self-check before returning any humanized output:** Scan the text for `—` and `–`. Any hit means the draft is not finished. Rewrite the offending sentence and scan again.
 
 
 ### 15. Overuse of Boldface
@@ -478,7 +492,8 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 6. Prompt: "What makes the below so obviously AI generated?"
 7. Answer briefly with the remaining tells (if any)
 8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+9. **Mandatory em dash scan.** Before presenting the final version, grep the output for `—` and `–`. Any hit is a failure state. Rewrite the offending sentences per Section 14 and scan again until the count is zero.
+10. Present the final version (revised after the audit and the em dash scan)
 
 ## Output Format
 
@@ -487,6 +502,8 @@ Provide:
 2. "What makes the below so obviously AI generated?" (brief bullets)
 3. Final rewrite
 4. A brief summary of changes made (optional, if helpful)
+
+**Absolute constraint on the final rewrite:** It must contain zero em dashes (—) and zero en dashes (–). If a dash slips through, the output is treated as a failed draft, not a final answer.
 
 
 ## Full Example
