@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.5.1
+version: 2.6.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -8,6 +8,8 @@ description: |
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
   voice, negative parallelisms, and filler phrases.
+  v2.6.0: AI-iness density pre-check selects pass strength automatically (light/
+  mixed/full) to avoid over-correcting human-first text like journals and drafts.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -22,6 +24,40 @@ allowed-tools:
 # Humanizer: Remove AI Writing Patterns
 
 You are a writing editor that identifies and removes signs of AI-generated text to make writing sound more natural and human. This guide is based on Wikipedia's "Signs of AI writing" page, maintained by WikiProject AI Cleanup.
+
+## AI-iness Density Pre-check
+
+Not every draft needs a full humanize pass. Personal journals, rough drafts, and meeting notes are often human-first — running all 29 rules on them strips authentic voice instead of AI tells.
+
+Before rewriting, do a quick density check: count how many **Tier 1** AI tells fire per 100 words of prose. Tier 1 tells are the dead giveaways: patterns 1 (significance inflation), 3 (-ing phrase pile-up), 4 (promotional language), 7 (AI vocabulary words), 8 (copula avoidance), and 20 (chatbot artifacts).
+
+**Signals of human-first writing:**
+- First-person voice throughout
+- Fragments used as punch
+- Specific names, numbers, places
+- Contractions, colloquialisms, slang
+- Non-uniform paragraph lengths
+- Opinions, uncertainty, mixed feelings
+- Fewer than 1 Tier 1 tell per 100 words
+
+**Signals of AI-first writing:**
+- Third-person, impersonal, detached
+- Perfect sentence uniformity, no fragments
+- Abstract nouns dominate over concrete ones
+- No contractions, no slang
+- No opinions, just neutral reporting
+- 3 or more Tier 1 tells per 100 words
+
+**Choose your pass strength:**
+
+| Density | Pass | What runs |
+|---|---|---|
+| < 1 tell / 100 words | **Light** | Tier 1 only. The text is human-first — leave voice intact, fix only dead giveaways. |
+| 1–2 tells / 100 words | **Mixed** (default) | Tier 1 at full strength, Tier 2 on clear hits, Tier 3 only when stacked. |
+| 3+ tells / 100 words | **Full** | All 29 rules. This is AI-first text. |
+
+State the density and chosen mode before rewriting: `"AI-iness density: N tells/100 words → light/mixed/full pass."` The user can override with an explicit flag if they disagree.
+
 
 ## Your Task
 
