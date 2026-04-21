@@ -56,6 +56,26 @@ If the user provides a writing sample (their own previous writing), analyze it b
 - File: "Humanize this text. Use my writing style from [file path] as a reference."
 
 
+## Positive Voice Guide (Optional)
+
+A writing sample shows you what the voice IS by example. A positive voice guide shows you what the voice IS by description: principles, hook patterns, audience routing, and concrete anti-examples. Things the writer wants to pull TOWARD, not just things to strip.
+
+Without a positive guide, even a clean rewrite can land flat. Generic-human, not the writer's specific human. Voice calibration removes the AI tells; the positive guide gives the rewrite a North Star.
+
+### How to provide a positive voice guide
+- Inline: "Humanize this. Here's how my voice works: [principles]"
+- File: "Humanize this. My voice guide is at [file path]."
+- If the user works in a structured project or vault, common locations include `voice-style.md`, `style-guide.md`, or similar at the project root. If a path is implied but not given, ask.
+
+### How to use it in the rewrite
+1. Read the guide first. Note the positive principles, any audience routing (different vocabulary for different surfaces, like LinkedIn vs newsletter vs investor email), and concrete anti-examples if provided.
+2. After stripping AI patterns, check each paragraph against the guide. Does the opener match the writer's hook style? Does it lead the way the writer leads (with the reader's takeaway, with a specific moment, with awe, with a contrarian frame, etc., depending on what the guide prescribes)? Is the vocabulary right for the surface?
+3. If the guide includes anti-examples, treat them as a similarity check. If a draft sentence rhymes with a known-bad pattern, rewrite it the way the guide prescribes.
+4. If the guide has a `review_due` or freshness marker that has passed, note it in the output so the writer knows to refresh it.
+
+When no guide is provided, fall back to voice calibration (if a sample exists) or the PERSONALITY AND SOUL defaults below.
+
+
 ## PERSONALITY AND SOUL
 
 Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as obvious as slop. Good writing has a human behind it.
