@@ -1,0 +1,21 @@
+services:
+  humanizer:
+    build: .
+    image: humanizer-streamlit
+    container_name: humanizer-streamlit
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mount the host's Claude Code config so the container inherits:
+      #   - the installed `humanizer` skill (~/.claude/skills/humanizer/)
+      #   - any file-based auth tokens
+      # On macOS, OAuth credentials live in the Keychain (not in ~/.claude),
+      # so the first run may still need `docker compose exec humanizer claude /login`.
+      - ${HOME}/.claude:/root/.claude
+    environment:
+      # Fallback auth — uncomment (and export ANTHROPIC_API_KEY) to skip OAuth.
+      # - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - HOME=/root
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
