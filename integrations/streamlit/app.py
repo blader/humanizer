@@ -98,7 +98,7 @@ st.set_page_config(page_title="Humanizer", layout="wide")
 st.title("Humanizer")
 st.caption(
     "Paste text → click **Humanize** → get the final rewritten prose. "
-    "Uses your local `claude` CLI + the `humanizer` skill. No API key required."
+    "Uses your local `claude` CLI + the `humanizer` skill."
 )
 
 col_in, col_out = st.columns(2)
