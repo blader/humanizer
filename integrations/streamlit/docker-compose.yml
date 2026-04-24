@@ -1,0 +1,26 @@
+services:
+  humanizer:
+    build: .
+    image: humanizer-streamlit
+    container_name: humanizer-streamlit
+    ports:
+      # Published on 127.0.0.1 only so the UI isn't exposed to the LAN.
+      # Remove the 127.0.0.1 prefix if you actually want LAN access AND
+      # have put authentication / network controls in front of it.
+      - "127.0.0.1:8501:8501"
+    volumes:
+      # Mount the host's Claude Code config so the container inherits:
+      #   - the installed `humanizer` skill (~/.claude/skills/humanizer/)
+      #   - any file-based auth tokens
+      # This is read-write because macOS users may need to run
+      # `claude /login` inside the container (see README), and that writes
+      # back to this directory. Treat the container as a trust-equivalent
+      # of the host for these credentials.
+      - ${HOME}/.claude:/home/app/.claude
+    environment:
+      # Fallback auth — uncomment (and export ANTHROPIC_API_KEY) to skip OAuth.
+      # - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - HOME=/home/app
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
