@@ -1,13 +1,20 @@
 """
 Streamlit UI that forwards text to the local `claude` CLI and invokes the
-`humanizer` skill. No API key: relies on the user's existing Claude Code login.
+`humanizer` skill. No API key required by default; uses the user's existing
+Claude Code login. ANTHROPIC_API_KEY is also honored if set.
 
-Paste text → click Humanize → get the final rewritten prose, with the
-skill's usual draft / audit / summary suppressed.
+Paste text → click Humanize → get the final rewritten prose.
+
+Lifecycle:
+- No `claude` process runs at idle.
+- Each click spawns a one-shot `claude -p "<prompt>"` subprocess.
+- The subprocess exits on its own once the answer is finished.
+- Clicking again (or closing Streamlit) kills the in-flight subprocess.
 """
 
 import atexit
 import os
+import re
 import shutil
 import subprocess
 
@@ -30,6 +37,32 @@ Text to humanize:
 {text}
 """
 
+_PREAMBLE_RE = re.compile(
+    r"^(?:Here(?:'s| is)\b|Below is\b|Sure[,!.]?|Certainly[,!.]?|"
+    r"I(?:'ve| have)\s+rewritten\b|Got it[,!.]?|Okay[,!.]?|Alright[,!.]?|"
+    r"Rewritten text:|Output:|Result:)[^\n]*\n+",
+    re.IGNORECASE,
+)
+_TRAILING_RE = re.compile(
+    r"\n+(?:---+\s*\n+)?\*{0,2}(?:Summary|Changes?|Notes?|What makes)[^\n]*\n[\s\S]*$",
+    re.IGNORECASE,
+)
+_CODEFENCE_RE = re.compile(r"^\s*```[a-zA-Z]*\n(.*?)\n```\s*$", re.DOTALL)
+
+
+def _clean_output(text: str) -> str:
+    """Defensive post-processing in case the model leaks preambles or the
+    skill's default 'Summary of changes' block despite the strict prompt."""
+    t = (text or "").strip()
+    m = _CODEFENCE_RE.match(t)
+    if m:
+        t = m.group(1).strip()
+    t = _PREAMBLE_RE.sub("", t, count=1).strip()
+    t = _TRAILING_RE.sub("", t, count=1).strip()
+    if len(t) >= 2 and t[0] in '"\'' and t[-1] == t[0]:
+        t = t[1:-1].strip()
+    return t
+
 
 def _kill(proc):
     if proc is None:
@@ -45,7 +78,7 @@ st.set_page_config(page_title="Humanizer", layout="wide")
 st.title("Humanizer")
 st.caption(
     "Paste text → click Humanize → get the final rewritten prose. "
-    "Uses your local `claude` CLI + the `humanizer` skill. No API key."
+    "Uses your local `claude` CLI + the `humanizer` skill. No API key required."
 )
 
 col_in, col_out = st.columns(2)
@@ -87,20 +120,31 @@ if go and text.strip():
             yield chunk
         proc.wait()
 
-    with col_out:
-        output_slot.empty()
-        final = st.write_stream(stream())
+    raw = output_slot.write_stream(stream())
 
     if proc.returncode != 0:
         err = (proc.stderr.read() or "").strip()
-        st.error(
+        output_slot.error(
             f"`claude` exited with code {proc.returncode}.\n\n"
-            f"Check that Claude Code is installed (`which claude`) and logged in.\n\n"
+            f"Check that Claude Code is installed and logged in (`claude /login`) "
+            f"or that `ANTHROPIC_API_KEY` is set.\n\n"
             f"stderr:\n```\n{err}\n```"
         )
+        st.session_state.pop("final_text", None)
     else:
-        st.session_state["final_text"] = (final or "").strip()
+        cleaned = _clean_output(raw or "")
+        st.session_state["final_text"] = cleaned
+        output_slot.text_area(
+            "Output",
+            value=cleaned,
+            height=560,
+            label_visibility="collapsed",
+        )
 
 elif "final_text" in st.session_state:
-    with col_out:
-        output_slot.markdown(st.session_state["final_text"])
+    output_slot.text_area(
+        "Output",
+        value=st.session_state["final_text"],
+        height=560,
+        label_visibility="collapsed",
+    )
