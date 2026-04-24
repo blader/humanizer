@@ -1,15 +1,17 @@
 """
 Streamlit UI that forwards text to the local `claude` CLI and invokes the
 `humanizer` skill. No API key required by default; uses the user's existing
-Claude Code login. ANTHROPIC_API_KEY is also honored if set.
-
-Paste text → click Humanize → get the final rewritten prose.
+Claude Code login. `ANTHROPIC_API_KEY` is also honored if set.
 
 Lifecycle:
 - No `claude` process runs at idle.
 - Each click spawns a one-shot `claude -p "<prompt>"` subprocess.
 - The subprocess exits on its own once the answer is finished.
-- Clicking again (or closing Streamlit) kills the in-flight subprocess.
+- Clicking Humanize again kills any still-running subprocess first.
+- Closing the browser alone does NOT kill an in-flight subprocess — it
+  will self-terminate within seconds when claude finishes the request.
+  To stop the server itself, Ctrl+C the terminal (local) or
+  `docker compose down` (container). See README for details.
 """
 
 import atexit
@@ -77,7 +79,7 @@ def _kill(proc):
 st.set_page_config(page_title="Humanizer", layout="wide")
 st.title("Humanizer")
 st.caption(
-    "Paste text → click Humanize → get the final rewritten prose. "
+    "Paste text → click **Humanize** → get the final rewritten prose. "
     "Uses your local `claude` CLI + the `humanizer` skill. No API key required."
 )
 
@@ -96,6 +98,7 @@ with col_in:
 
 with col_out:
     st.subheader("Output")
+    status_slot = st.empty()
     output_slot = st.empty()
 
 if go and text.strip():
@@ -112,6 +115,11 @@ if go and text.strip():
     st.session_state["proc"] = proc
     atexit.register(_kill, proc)
 
+    status_slot.info(
+        "⏳ Running humanizer skill via `claude -p`… first call has ~3–5 s "
+        "startup overhead, then streams."
+    )
+
     def stream():
         while True:
             chunk = proc.stdout.read(32)
@@ -120,10 +128,12 @@ if go and text.strip():
             yield chunk
         proc.wait()
 
-    raw = output_slot.write_stream(stream())
+    with st.spinner("Humanizing…"):
+        raw = output_slot.write_stream(stream())
 
     if proc.returncode != 0:
         err = (proc.stderr.read() or "").strip()
+        status_slot.empty()
         output_slot.error(
             f"`claude` exited with code {proc.returncode}.\n\n"
             f"Check that Claude Code is installed and logged in (`claude /login`) "
@@ -134,17 +144,8 @@ if go and text.strip():
     else:
         cleaned = _clean_output(raw or "")
         st.session_state["final_text"] = cleaned
-        output_slot.text_area(
-            "Output",
-            value=cleaned,
-            height=560,
-            label_visibility="collapsed",
-        )
+        status_slot.success("Done. Use the copy icon in the top-right of the box below.")
+        output_slot.code(cleaned, language=None, wrap_lines=True)
 
 elif "final_text" in st.session_state:
-    output_slot.text_area(
-        "Output",
-        value=st.session_state["final_text"],
-        height=560,
-        label_visibility="collapsed",
-    )
+    output_slot.code(st.session_state["final_text"], language=None, wrap_lines=True)

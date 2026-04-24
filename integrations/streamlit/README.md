@@ -2,7 +2,7 @@
 
 A minimal web UI for the `humanizer` skill. Paste text, click **Humanize**, get the rewritten prose back — without the skill's default draft / audit / summary sections.
 
-Paste text → `claude -p` + humanizer skill → clean final prose.
+Paste text → `claude -p` + humanizer skill → clean final prose, with a copy button.
 
 ---
 
@@ -37,7 +37,7 @@ cd integrations/streamlit
 2. Create a local `.venv/` and install `streamlit`.
 3. Launch the app on http://localhost:8501.
 
-Press `Ctrl+C` in the terminal to stop.
+**To stop:** press `Ctrl+C` in the same terminal. That sends SIGINT to Streamlit, Streamlit's `atexit` hook kills any in-flight `claude -p` subprocess, and the port is released.
 
 ## Option B — Run with Docker
 
@@ -50,26 +50,36 @@ Then open http://localhost:8501.
 
 The compose file mounts your host's `~/.claude/` into the container so any file-based auth + your installed skills carry over. See [Authentication](#authentication) for the macOS caveat.
 
-Stop with `Ctrl+C`, or `docker compose down`.
+**To stop:** two options, either works.
+
+- **From the terminal running `docker compose up`** — press `Ctrl+C`. Compose sends SIGTERM to the container, waits a few seconds, then SIGKILL if needed. When the container's PID 1 dies, the kernel kills every process inside the namespace, including any in-flight `claude -p`.
+- **From a separate terminal** (or if `up` is detached with `-d`):
+  ```bash
+  docker compose down          # stop + remove container (recommended)
+  # or
+  docker compose stop          # stop but keep container for a quick restart
+  # or (last resort, hard kill)
+  docker kill humanizer-streamlit
+  ```
 
 ---
 
-## Lifecycle — when does `claude` run?
+## Lifecycle — when does `claude` run, and when does it stop?
 
-The wrapper keeps **no** persistent `claude` session. Each click is self-contained:
+The wrapper keeps **no** persistent `claude` session. Each click is self-contained.
 
 | Moment | What happens |
 |---|---|
 | You open the browser | Streamlit boots. **No `claude` process yet.** |
-| You paste text | Nothing yet — text just sits in the textarea. |
-| You click **Humanize** | `app.py` spawns `claude -p "<your text + strict output rules>"` as a subprocess. |
-| Generation runs (~5–15 s) | stdout streams into the right-hand panel. |
-| Subprocess finishes | Process exits on its own. Cleaned output is shown in a copy-friendly textarea. |
+| You paste text | Nothing happens — text just sits in the textarea. |
+| You click **Humanize** | `app.py` spawns `claude -p "<your text + strict output rules>"` as a subprocess. Right panel shows a spinner + "Running humanizer skill…" status message, then streams the rewrite live as it arrives. |
+| Generation finishes (~5–15 s) | Subprocess exits on its own. Status flips to "Done". Output is re-rendered in a code block with a native copy icon in the top-right corner. |
 | You click **Humanize** again | Any still-running subprocess is killed first, then a fresh one spawns. |
-| You close the browser tab | Streamlit detects the disconnect. Any in-flight subprocess is killed on Streamlit shutdown (best-effort via `atexit`). |
-| You `Ctrl+C` the terminal | Streamlit shuts down, killing any remaining subprocess. |
+| You close **only** the browser tab | Streamlit server stays up. A subprocess that was already running **will finish on its own within seconds** (its stdout just gets discarded). **Closing the tab alone does not stop Streamlit.** |
+| You `Ctrl+C` the local terminal | Streamlit shuts down → `atexit` fires → any in-flight subprocess is killed → port released. |
+| You `docker compose down` / `Ctrl+C docker compose up` | Container is stopped → kernel kills every process in its namespace, subprocess included. |
 
-In Claude Code terms: **each click is a brand-new one-shot session** with no memory of previous clicks. That's intentional — it keeps cost predictable and avoids stale context.
+In Claude Code terms: **each click is a brand-new one-shot session** with no memory of previous clicks.
 
 ---
 
@@ -125,9 +135,9 @@ export ANTHROPIC_API_KEY=sk-ant-...
 Yes. Two layers enforce this:
 
 1. **Prompt-level:** The request wrapper explicitly tells Claude to output **only** the final rewritten prose — no draft, no "what makes it AI" audit, no summary of changes, no preamble, no markdown headers, no `---` separators, no surrounding quotes.
-2. **Post-process-level:** Even if the model leaks a "Here is…" opener or the skill's default "**Summary of changes:**" trailer, `_clean_output()` in `app.py` strips them before the textarea is populated.
+2. **Post-process-level:** Even if the model leaks a "Here is…" opener or the skill's default "**Summary of changes:**" trailer, `_clean_output()` in `app.py` strips them before the output block is populated.
 
-During generation you'll see text stream into the right panel. Once it finishes, that display is replaced by a clean `text_area` containing only the rewritten prose, ready to copy.
+During generation you'll see text stream into the right panel as it arrives. Once it finishes, that streamed view is replaced by a `st.code` block — this gives you a **native copy-to-clipboard icon in the top-right corner** of the output so you can paste the result straight into your doc.
 
 If you ever see leftover garbage in the cleaned output, that's a prompt-obedience failure — tighten `PROMPT_TEMPLATE` or extend `_PREAMBLE_RE` / `_TRAILING_RE` in `app.py`.
 
@@ -137,6 +147,7 @@ If you ever see leftover garbage in the cleaned output, that's a prompt-obedienc
 
 - First call has the usual Claude Code startup cost (plugin sync, CLAUDE.md discovery, keychain read); subsequent calls are faster.
 - Long texts are passed as a positional argument, so input is bounded by your shell's `ARG_MAX` (≈256 KB on macOS, ≈128 KB on Linux). Enough for any single essay; swap to `--input-format stream-json` if you need more.
+- Closing the browser tab alone does not stop an in-flight subprocess (it will self-terminate within seconds anyway). If you need a hard stop, use `Ctrl+C` / `docker compose down` — see [How to stop](#option-a--run-locally) above.
 - No history / undo. Each click overwrites the previous output.
 
 ---
