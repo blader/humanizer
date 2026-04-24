@@ -72,8 +72,8 @@ The wrapper keeps **no** persistent `claude` session. Each click is self-contain
 |---|---|
 | You open the browser | Streamlit boots. **No `claude` process yet.** |
 | You paste text | Nothing happens — text just sits in the textarea. |
-| You click **Humanize** | `app.py` spawns `claude -p "<your text + strict output rules>"` as a subprocess. Right panel shows a spinner + "Running humanizer skill…" status message, then streams the rewrite live as it arrives. |
-| Generation finishes (~5–15 s) | Subprocess exits on its own. Status flips to "Done". Output is re-rendered in a code block with a native copy icon in the top-right corner. |
+| You click **Humanize** | `app.py` spawns `claude -p "<your text + strict output rules>"` as a subprocess. Right panel shows a spinner + "Running humanizer skill…" status message. |
+| Generation finishes (~5–15 s) | Subprocess exits on its own. Status flips to "Done". Output appears in a code block with a native copy icon in the top-right corner. |
 | You click **Humanize** again | Any still-running subprocess is killed first, then a fresh one spawns. |
 | You close **only** the browser tab | Streamlit server stays up. A subprocess that was already running **will finish on its own within seconds** (its stdout just gets discarded). **Closing the tab alone does not stop Streamlit.** |
 | You `Ctrl+C` the local terminal | Streamlit shuts down → `atexit` fires → any in-flight subprocess is killed → port released. |
@@ -137,7 +137,7 @@ Yes. Two layers enforce this:
 1. **Prompt-level:** The request wrapper explicitly tells Claude to output **only** the final rewritten prose — no draft, no "what makes it AI" audit, no summary of changes, no preamble, no markdown headers, no `---` separators, no surrounding quotes.
 2. **Post-process-level:** Even if the model leaks a "Here is…" opener or the skill's default "**Summary of changes:**" trailer, `_clean_output()` in `app.py` strips them before the output block is populated.
 
-During generation you'll see text stream into the right panel as it arrives. Once it finishes, that streamed view is replaced by a `st.code` block — this gives you a **native copy-to-clipboard icon in the top-right corner** of the output so you can paste the result straight into your doc.
+While the subprocess is running you'll see a spinner and a status message. Once it finishes, the rewritten prose appears in a `st.code` block — this gives you a **native copy-to-clipboard icon in the top-right corner** of the output so you can paste the result straight into your doc.
 
 If you ever see leftover garbage in the cleaned output, that's a prompt-obedience failure — tighten `PROMPT_TEMPLATE` or extend `_PREAMBLE_RE` / `_TRAILING_RE` in `app.py`.
 

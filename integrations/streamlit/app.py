@@ -133,38 +133,28 @@ if go and text.strip():
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
-        bufsize=0,
     )
     holder["proc"] = proc
 
     status_slot.info(
         "⏳ Running humanizer skill — first call has ~3–5 s startup "
-        "overhead, then output streams in."
+        "overhead. Output appears when the run finishes."
     )
 
-    def stream():
-        while True:
-            chunk = proc.stdout.read(32)
-            if not chunk:
-                break
-            yield chunk
-        proc.wait()
-
     with st.spinner("Humanizing…"):
-        raw = output_slot.write_stream(stream())
+        stdout, stderr = proc.communicate()
 
     if proc.returncode != 0:
-        err = (proc.stderr.read() or "").strip()
         status_slot.empty()
         output_slot.error(
             f"`claude` exited with code {proc.returncode}.\n\n"
             f"Check that Claude Code is installed and logged in (`claude /login`) "
             f"or that `ANTHROPIC_API_KEY` is set.\n\n"
-            f"stderr:\n```\n{err}\n```"
+            f"stderr:\n```\n{(stderr or '').strip()}\n```"
         )
         st.session_state.pop("final_text", None)
     else:
-        cleaned = _clean_output(raw or "")
+        cleaned = _clean_output(stdout or "")
         st.session_state["final_text"] = cleaned
         status_slot.success("Done. Use the copy icon in the top-right of the box below.")
         output_slot.code(cleaned, language=None, wrap_lines=True)
