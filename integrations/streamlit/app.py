@@ -45,8 +45,16 @@ _PREAMBLE_RE = re.compile(
     r"Rewritten text:|Output:|Result:)[^\n]*\n+",
     re.IGNORECASE,
 )
+# Match the humanizer skill's own trailing metadata blocks only. Require
+# either a `---` separator + bold header, or a bolded skill-specific phrase
+# ("Summary of changes", "Changes made", "What makes … AI …", "Draft rewrite",
+# "Now make it not"). This avoids truncating legitimate prose that merely
+# begins with a word like "Notes" or "Summary".
 _TRAILING_RE = re.compile(
-    r"\n+(?:---+\s*\n+)?\*{0,2}(?:Summary|Changes?|Notes?|What makes)[^\n]*\n[\s\S]*$",
+    r"\n+(?:---+\s*\n+)?\*{2}"
+    r"(?:Summary\s+of\s+changes?|Changes?\s+made|What\s+makes[^\n]*AI[^\n]*|"
+    r"Draft\s+rewrite|Now\s+make\s+it\s+not)"
+    r"[^\n]*\*{2}[\s\S]*$",
     re.IGNORECASE,
 )
 _CODEFENCE_RE = re.compile(r"^\s*```[a-zA-Z]*\n(.*?)\n```\s*$", re.DOTALL)
@@ -76,6 +84,16 @@ def _kill(proc):
         pass
 
 
+@st.cache_resource
+def _proc_holder():
+    """Single shared handle for the current subprocess. `atexit` is
+    registered exactly once (via cache_resource) so it doesn't accumulate
+    across Streamlit reruns."""
+    holder = {"proc": None}
+    atexit.register(lambda: _kill(holder["proc"]))
+    return holder
+
+
 st.set_page_config(page_title="Humanizer", layout="wide")
 st.title("Humanizer")
 st.caption(
@@ -102,22 +120,26 @@ with col_out:
     output_slot = st.empty()
 
 if go and text.strip():
-    _kill(st.session_state.get("proc"))
+    holder = _proc_holder()
+    _kill(holder["proc"])
 
     prompt = PROMPT_TEMPLATE.format(text=text)
+    # --no-session-persistence keeps each invocation fully ephemeral: no
+    # session file is written to disk, and no prior session can be picked
+    # up by the next click. Combined with the default absence of -c / -r,
+    # each Humanize click is a brand-new stateless call.
     proc = subprocess.Popen(
-        [CLAUDE_BIN, "-p", prompt],
+        [CLAUDE_BIN, "-p", "--no-session-persistence", prompt],
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
         text=True,
         bufsize=0,
     )
-    st.session_state["proc"] = proc
-    atexit.register(_kill, proc)
+    holder["proc"] = proc
 
     status_slot.info(
-        "⏳ Running humanizer skill via `claude -p`… first call has ~3–5 s "
-        "startup overhead, then streams."
+        "⏳ Running humanizer skill — first call has ~3–5 s startup "
+        "overhead, then output streams in."
     )
 
     def stream():

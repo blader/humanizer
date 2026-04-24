@@ -79,7 +79,7 @@ The wrapper keeps **no** persistent `claude` session. Each click is self-contain
 | You `Ctrl+C` the local terminal | Streamlit shuts down → `atexit` fires → any in-flight subprocess is killed → port released. |
 | You `docker compose down` / `Ctrl+C docker compose up` | Container is stopped → kernel kills every process in its namespace, subprocess included. |
 
-In Claude Code terms: **each click is a brand-new one-shot session** with no memory of previous clicks.
+In Claude Code terms: **each click is a brand-new one-shot session** with no memory of previous clicks. The subprocess is launched with `--no-session-persistence`, so no session file is written to disk either — there is no way for the output of one click to leak into the context of the next.
 
 ---
 
@@ -142,6 +142,15 @@ During generation you'll see text stream into the right panel as it arrives. Onc
 If you ever see leftover garbage in the cleaned output, that's a prompt-obedience failure — tighten `PROMPT_TEMPLATE` or extend `_PREAMBLE_RE` / `_TRAILING_RE` in `app.py`.
 
 ---
+
+## Security considerations
+
+Scoped for **single-user, local use**. A few things to know before you deploy this further:
+
+- **No authentication on the UI.** Anyone who can reach `http://<host>:8501` can humanize text against your Claude Code credentials. The Docker compose file publishes the port on `127.0.0.1` by default so only your machine can hit it. Don't remove that bind unless you're putting auth in front of it.
+- **`~/.claude` is mounted read-write into the container.** This gives the container full access to your host Claude Code auth tokens and installed skills. It needs to be writable because the macOS `claude /login`-inside-container fix writes back there. Treat the container image as trust-equivalent to the host for those credentials — don't run a random image against this compose file.
+- **Container runs as a non-root user** (`app`, uid 1000) so a bug in a dependency can't trivially write to host files as root. (Your mounted `~/.claude/` files end up owned by uid 1000; that's normal.)
+- **Prompt injection isn't a security issue here** — you are both the user *and* the "attacker". If you paste text that tries to redirect the skill, the worst case is your own output is weird. Don't deploy this in a multi-user setting without thinking that through.
 
 ## Limitations
 

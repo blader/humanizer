@@ -8,13 +8,17 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 RUN npm install -g @anthropic-ai/claude-code
 
+RUN useradd -m -u 1000 app
+
 WORKDIR /app
 COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
-
 COPY app.py ./
+RUN chown -R app:app /app
 
-ENV HOME=/root
+USER app
+ENV HOME=/home/app
+
 EXPOSE 8501
 
 CMD ["streamlit", "run", "app.py", \
