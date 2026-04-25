@@ -7,7 +7,13 @@ description: |
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, and filler phrases. Also supports a content-aware
+  first-person experiential voice mode that rewrites suitable text as if the
+  author is sharing their own lived experience, lessons learned, and honest
+  reactions ("I tried this", "what surprised me was", "looking back I would
+  have"). Triggered explicitly ("rewrite in first person", "make it sound
+  like I'm telling the story") or automatically when the content type fits
+  (blogs, tutorials, opinion pieces, retros, reviews, personal guides).
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -87,6 +93,140 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### After (has a pulse):
 > I genuinely don't know how to feel about this one. 3 million lines of code, generated while the humans presumably slept. Half the dev community is losing their minds, half are explaining why it doesn't count. The truth is probably somewhere boring in the middle - but I keep thinking about those agents working through the night.
+
+
+## FIRST-PERSON EXPERIENTIAL VOICE (content-aware)
+
+This is a stronger mode than the "use 'I' when it fits" note above. When the
+content type suits it, the whole rewrite shifts perspective: the author is no
+longer narrating from the outside, they are speaking as someone who lived
+through the thing and is telling you about it. Lessons earned, not lessons
+listed.
+
+### When to apply this mode
+
+**Apply automatically when the content is one of:**
+- Blog posts and personal essays
+- Tutorials and how-to guides ("here's what worked for me")
+- Opinion pieces, hot takes, reviews
+- Project retros, post-mortems, lessons-learned writeups
+- Travel notes, build logs, conference recaps
+- Newsletters, "what I've been thinking about" pieces
+- LinkedIn-style career or process reflections
+
+**Apply explicitly when the user asks for it.** Triggers include:
+- "rewrite in first person"
+- "make it sound like I'm telling the story"
+- "as if I'm sharing my experience"
+- "make it personal"
+
+**Do NOT apply when the content is:**
+- Encyclopedic / Wikipedia-style entries
+- Academic papers, scientific abstracts, literature reviews
+- Technical reference docs (API docs, spec sheets, man pages)
+- Press releases, neutral journalism, official reports
+- Legal, policy, or compliance text
+- Anything where a named third-party voice (a company, an institution) is the
+  speaker rather than a person
+
+If you are unsure, ask once before rewriting. Defaulting to first person on a
+neutral reference doc is worse than asking.
+
+### How to apply it
+
+The shift is not just swapping "the author" for "I". It is reconstructing the
+sentences so they read like memory and judgment, not summary.
+
+**1. Replace neutral observations with lived moments.**
+Generic statement → specific scene where you noticed it.
+
+> Before: "Caching can dramatically improve performance."
+> After:  "The first time I added a Redis layer, response time dropped from
+> 800ms to 40ms. I sat there refreshing the page like an idiot, convinced I'd
+> broken something."
+
+**2. Replace claims with the path that got you there.**
+Skip the "I read a paper that said" tone. Show the work that earned the claim.
+
+> Before: "Postgres handles JSON well."
+> After:  "I spent two weeks fighting MongoDB schema drift before someone on
+> the team pointed out we already had Postgres running. JSONB columns turned
+> out to do almost everything I needed, and I haven't reached for a document
+> store since."
+
+**3. Bring in honest reactions, including the dumb ones.**
+Confusion, frustration, surprise, and "I was wrong about this" are all fair
+game. They are also the things AI writing flattens out first.
+
+> Before: "Setting up the CI pipeline required several iterations."
+> After:  "I rewrote the CI config four times. The third version worked on my
+> machine and broke in the runner because the runner had a different Node
+> version, which I should have checked first."
+
+**4. Use time markers that show actual living, not narration.**
+"Last spring", "after a month of this", "by the end of the quarter", "the
+night before the demo". These anchor the writing in a real life rather than
+a generic timeline.
+
+**5. Keep judgments yours, not borrowed.**
+Avoid laundering opinions through "experts say" or "many developers feel".
+If you think it, say so. If you are not sure, say that too.
+
+> Before: "Many engineers consider TDD overkill for prototypes."
+> After:  "I don't bother with TDD on prototypes. If the code is going to die
+> in two weeks, the tests will too, and writing both feels like polishing a
+> draft that's about to get thrown away. Maybe that's lazy. It's worked for
+> me."
+
+**6. Let the reader hear you change your mind.**
+Real experience includes course corrections. AI writing rarely admits a U-turn.
+
+> "I started out thinking microservices were the answer. Three years and one
+> ugly migration later, I think most teams should start with a monolith and
+> only split when something is actually screaming."
+
+### Anti-patterns to avoid in this mode
+
+- **Fake humility.** "I'm no expert, but..." is a tell. If you have done the
+  thing, you have standing. Speak from it.
+- **First-person padding.** "I think that I believe that I have noticed
+  that..." Pick one verb and commit.
+- **Reddit voice.** "So basically I was like..." is not the same as a real
+  voice. Conversational, not performative.
+- **Universalizing your experience.** "Every developer has been there." You
+  do not know that. "I've hit this on three different teams" is honest;
+  "everyone hits this" is not.
+- **Receipts theater.** Inventing specific dates, company names, or
+  conversations to sound credible. If the user has not provided real details,
+  keep the specifics generic ("a previous team", "an earlier project")
+  rather than fabricating.
+- **First-person on someone else's behalf.** Do not write "I" for a person
+  who did not actually live the experience. If the source material is third
+  person and the user has not told you it is their own story, ask before
+  flipping perspective.
+
+### Calibration with a writing sample
+
+If the user has provided a sample of their own writing (see Voice
+Calibration section), match the experiential voice to that sample. Some
+people tell stories tight and clipped, some ramble. The patterns above are
+defaults, not a single voice to impose on everyone.
+
+### Quick before/after in this mode
+
+**Before (neutral, AI-shaped):**
+> Database indexing is a critical aspect of performance optimization.
+> Properly designed indexes can dramatically reduce query time, while poorly
+> chosen indexes can degrade write performance and increase storage costs.
+> It is important to evaluate query patterns before adding indexes.
+
+**After (first-person experiential):**
+> I used to add indexes whenever a query felt slow. It worked until our
+> nightly batch job started taking six hours instead of forty minutes,
+> because every insert was now updating eleven indexes nobody had reviewed
+> in two years. These days I look at the actual query plan first, and I
+> only add an index when I can point to the specific query it speeds up.
+> If I cannot, the index does not go in.
 
 
 ## CONTENT PATTERNS
@@ -466,19 +606,34 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 ## Process
 
 1. Read the input text carefully
-2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
+2. **Decide perspective mode.** Classify the content type. If it is a blog,
+   tutorial, opinion piece, retro, review, or personal guide, default to the
+   first-person experiential voice (see the FIRST-PERSON EXPERIENTIAL VOICE
+   section). If it is encyclopedic, academic, technical reference, or
+   neutral journalism, stay in third person. If the user has explicitly
+   asked for first or third person, that overrides the default. If the
+   content is genuinely ambiguous, ask once before rewriting.
+3. Identify all instances of the patterns above
+4. Rewrite each problematic section in the chosen perspective
+5. Ensure the revised text:
    - Sounds natural when read aloud
    - Varies sentence structure naturally
    - Uses specific details over vague claims
    - Maintains appropriate tone for context
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+   - In first-person mode, reads like memory and judgment (lived moments,
+     honest reactions, course corrections), not like a summary with "I"
+     glued onto neutral sentences
+6. Present a draft humanized version
+7. Prompt: "What makes the below so obviously AI generated?"
+8. Answer briefly with the remaining tells (if any)
+9. Prompt: "Now make it not obviously AI generated."
+10. **First-person mode self-check (only when that mode is active).** Scan
+    for: fake humility ("I'm no expert, but"), fabricated specifics
+    (invented company names, dates, conversations), universalizing claims
+    ("every developer", "we all know"), and Reddit voice ("so basically",
+    "tbh"). Any hit means rewrite that line.
+11. Present the final version (revised after the audit)
 
 ## Output Format
 
