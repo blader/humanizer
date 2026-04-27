@@ -513,27 +513,39 @@ If the input mixes languages (e.g. Chinese narrative with English code identifie
 ## Process
 
 1. Read the input text carefully
-2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
+2. Classify the register using the Quick triage in Register Awareness
+3. Identify all instances of the patterns above, applying register overrides
+4. Rewrite each problematic section
+5. Ensure the revised text:
    - Sounds natural when read aloud
    - Varies sentence structure naturally
    - Uses specific details over vague claims
-   - Maintains appropriate tone for context
+   - Maintains appropriate tone for context (keep scholarly verbs in scholarly prose)
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+6. Present a draft humanized version
+7. Prompt: "What makes the below so obviously AI generated?"
+8. Answer briefly with the remaining tells (if any)
+9. Prompt: "Now make it not obviously AI generated."
+10. Present the final version (revised after the audit)
+11. **Register-shifting edits checkpoint:** scan the diff between input and final. If any of the changes below were made, list them as separate bullets (`original phrase` → `rewritten phrase`) and ask the user whether to keep each one before treating delivery as final:
+    - Person change (we ↔ I, third-person ↔ first-person)
+    - Hyphen stripped from a compound modifier
+    - Scholarly verb informalized (shows / demonstrates / preserves / reports / presents → lands / dresses up / pulls off / etc.)
+    - Em dash removed from academic prose
+    - Voice or opinion injected into multi-author or scholarly prose
+    - Technical term replaced with a bland equivalent
+
+    If no such edits were made, state "No register-shifting edits flagged" and skip the question. When the user is unreachable (batch mode, automation), default to keeping the original wording for any flagged edit and note that you reverted them.
 
 ## Output Format
 
 Provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. **Register classification** — one line stating the register you classified the input as (academic / technical / quote / conversational / default)
+2. Draft rewrite
+3. "What makes the below so obviously AI generated?" (brief bullets)
+4. Final rewrite
+5. **Flagged register-shifting edits** — list per checkpoint above, or "No register-shifting edits flagged"
+6. A brief summary of changes made (optional, if helpful)
 
 
 ## Full Example
