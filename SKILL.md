@@ -89,6 +89,53 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 > I genuinely don't know how to feel about this one. 3 million lines of code, generated while the humans presumably slept. Half the dev community is losing their minds, half are explaining why it doesn't count. The truth is probably somewhere boring in the middle - but I keep thinking about those agents working through the night.
 
 
+## Register Awareness — Read Before Applying Rules
+
+The patterns below assume blog, marketing, encyclopedic, or conversational prose. Before rewriting, identify the register of the input. Some rules misfire on academic, technical, code, or quoted material, and applying them blindly damages writing more than it helps.
+
+### Quick triage
+
+Inspect the input and pick one register before editing:
+
+1. **Academic / scholarly prose** — multi-author paper, has citations or `\cite{}` / `\ref{}` markers, uses third-person plural "we", names methods or results, uses domain compound modifiers (e.g. "cold-cache compile time", "per-contract dispatch identity"). LaTeX source counts.
+2. **Technical / code-adjacent prose** — fenced code blocks, function names, file paths, command examples, API documentation, release notes that name internal systems.
+3. **Direct quote, citation, or reference** — text inside quotation marks attributed to someone else, bibliography entries, transcribed dialogue.
+4. **Conversational / personal** — first-person singular, casual tone, opinions stated directly.
+5. **Default (blog / marketing / encyclopedic)** — none of the above. Apply all rules.
+
+When in doubt, default to blog/marketing **and note in the changes summary that you assumed default register**, so the user can correct you.
+
+### Rules SAFE in every register
+
+These remove pure formatting noise or chatbot artifacts and have no register-dependent failure mode. Apply them everywhere:
+
+rule 18 (Emojis), rule 19 (Curly quotation marks), rule 20 (Collaborative communication artifacts), rule 21 (Knowledge-cutoff disclaimers), rule 22 (Sycophantic / servile tone), rule 28 (Signposting and announcements), rule 29 (Fragmented headers).
+
+### Restraint required in academic / technical register
+
+When the input is academic or technical, apply the following overrides:
+
+- **Rule 26 (Hyphenated word pair overuse) — DO NOT strip** compound modifiers that are domain conventions in the field. Compounds like `cold-cache compile time`, `per-contract dispatch identity`, `end-to-end retries`, `client-facing tools`, `data-driven report`, `cross-functional team` function as single technical units. Removing the hyphens forces readers to re-parse constituent boundaries and creates real syntactic ambiguity. Only consider stripping in informal prose where the compound is also generic.
+- **Personality and Soul section — DO NOT inject** first-person singular voice ("I keep coming back to…", "I genuinely don't know how to feel"), opinionated reactions, or casual asides. Multi-author papers use "we", and scholarly prose stays third-person. Adding voice here breaks the intended register and corrupts the authorial collective.
+- **Rule 8 (Copula avoidance) — apply selectively.** Phrases like "X represents Y" can be precise scholarly framing, not ceremonial inflation. Distinguish: strip "stands as a testament", but keep "represents a measured systems effect" — the latter is making a real claim.
+- **Rule 14 (Em dashes) — apply selectively.** Academic prose sometimes uses em dashes for parenthetical asides where commas would create syntactic ambiguity. Check whether the alternative actually reads cleaner before swapping.
+- **Rule 10 (Rule of three) — check first.** The original may genuinely list three things (three benchmarks, three contributions, three results axes). Strip the rule of three only when the trio is rhetorical filler, not when it is a real enumeration tied to the substance.
+- **Verb register — preserve scholarly verbs.** Do not informalize "shows / demonstrates / preserves / reports / presents" into "lands / dresses up / pulls off". Precise reporting verbs are part of the contract with the reader in research writing.
+- **Person — never switch person.** If the original uses "we", do not rewrite to "I". If it uses third-person, do not rewrite to first-person.
+
+### Skip rules entirely for these inputs
+
+- **Code blocks, function names, file paths, command examples** — leave verbatim. Only humanize the surrounding prose.
+- **Direct quotes from another source** — leave the quoted text exactly as written. Apply rules only to the framing narrative.
+- **Bibliography entries / citations / reference lists** — leave verbatim.
+
+### Mixed-language inputs
+
+If the input mixes languages (e.g. Chinese narrative with English code identifiers, or English prose with quoted non-English text), humanize each language segment by its own conventions. Do not translate or romanize. Do not strip diacritics or accents.
+
+---
+
+
 ## CONTENT PATTERNS
 
 ### 1. Undue Emphasis on Significance, Legacy, and Broader Trends
