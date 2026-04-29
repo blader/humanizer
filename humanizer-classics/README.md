@@ -21,19 +21,29 @@ The v2 skill works and is in active use at version 2.5.1. v3 changes the archite
 
 ## Installation
 
+> **Non-technical user?** See [`HOW-TO-USE.md`](HOW-TO-USE.md) for a plain-English setup and usage guide.
+
+The skill currently lives as a subdirectory inside [`bdevz/humanizer`](https://github.com/bdevz/humanizer); install via clone + symlink.
+
 ### Claude Code
 
 ```bash
-git clone https://github.com/<your-account>/humanizer-classics ~/.claude/skills/humanizer-classics
+mkdir -p ~/.claude/skills
+git clone https://github.com/bdevz/humanizer ~/humanizer-source
+ln -s ~/humanizer-source/humanizer-classics ~/.claude/skills/humanizer-classics
 ```
 
-Then invoke with `/humanizer-classics` in any Claude Code session.
+Restart Claude Code. Invoke with `/humanizer-classics` in any session.
 
 ### OpenCode
 
 ```bash
-git clone https://github.com/<your-account>/humanizer-classics ~/.config/opencode/skills/humanizer-classics
+mkdir -p ~/.config/opencode/skills
+git clone https://github.com/bdevz/humanizer ~/humanizer-source 2>/dev/null || true
+ln -s ~/humanizer-source/humanizer-classics ~/.config/opencode/skills/humanizer-classics
 ```
+
+(Once `humanizer-classics` is split out into its own repo, the install will simplify to a one-liner.)
 
 ## Usage
 
