@@ -58,12 +58,9 @@ Zinsser writes for journalists and essayists; Strunk writes for everyone; Garner
 **Context tags:** memo, email, technical-doc, meeting-notes
 **Detection cue:** Long paragraphs (8+ sentences) with no subheads, no bullets, no bolding. OR the opposite: a wall of bullets where every line is a full sentence and bolding is on every third word for no reason.
 
-**Problem:** This rule sounds like it conflicts with W-15 / W-16 / W-18 (the rules against boldface, inline-header lists, and emoji decoration), and the conflict is the point. LLM business writing fails in two opposite directions: the wall of unbroken prose (no anchors for the eye) *and* the carpet of bolded bullets and emoji headings (every line shouting "look at me"). H-2 says: real skim-formatting uses subheads as the spine, bullets only for true parallel lists, and bolding only for the one phrase per section that the skimmer absolutely must catch.
+**Problem:** This rule sounds like it conflicts with W-15 / W-16 / W-18 (the rules against boldface, inline-header lists, and emoji decoration), and the conflict is the point. LLM business writing fails in two opposite directions: the **wall of unbroken prose** (no anchors for the eye — but that's really an H-3 / Z-1 problem) *and* the **carpet of bolded bullets and emoji headings** (every line shouting "look at me"), which is what H-2 specifically catches. Real skim-formatting uses subheads as the spine, bullets only for true parallel lists, and bolding only for the one phrase per section that the skimmer absolutely must catch.
 
-**Before (wall of prose)**
-> The Q3 results came in below target. Revenue was 8% under plan because the enterprise team missed its forecast for two large deals that slipped to Q4. The good news is that the SMB team beat their plan by 14%, driven mostly by the new onboarding flow that launched in July. Operating costs were on plan but we ran hot on cloud spend after the data-warehouse migration. Hiring stayed under target since we paused recruiting for the platform team. We expect Q4 to recover assuming the slipped enterprise deals close.
-
-**Before (carpet of bolded bullets)**
+**Before**
 > 🚀 **Q3 Results Overview:**
 > - **Revenue:** 8% under plan ❌
 > - **Enterprise Sales:** Missed forecast 📉

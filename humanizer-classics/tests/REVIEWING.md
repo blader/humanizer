@@ -63,10 +63,21 @@ The v2 skill must still work for users on `~/.claude/skills/humanizer/`. After i
 
 ## Skill structural sanity
 
-- [ ] `SKILL.md` frontmatter parses (name, version, description, license, compatibility, allowed-tools).
-- [ ] Every `Read references/<file>.md` directive in `SKILL.md` points to a file that exists.
-- [ ] Every rule ID mentioned in the skill is also in `references/_rule-index.md`.
-- [ ] Every reference file follows the format from `_template-book-rules.md` (or `wikipedia-signs-of-ai-writing.md` for the imported W-rules).
+Run the automated structural validator first:
+
+```bash
+cd humanizer-classics/
+python3 tests/validate.py
+```
+
+The script covers:
+- [ ] `SKILL.md` frontmatter parses (name, version, description, license, compatibility, allowed-tools)
+- [ ] Every `Read references/<file>.md` directive in `SKILL.md` points to a file that exists
+- [ ] Rule IDs are consistent across `SKILL.md` catalog, `references/_rule-index.md`, and reference-file rule sections
+- [ ] Every book rule has the required structural sections (Source, pull-quote, Cross-references, Context tags, Detection cue, Problem, Before, After, How to apply)
+- [ ] Every corpus sample has its `.expected-fixes.md` pair and cites only valid rule IDs
+
+Exit code 0 means all structural checks pass. The script does NOT verify behavioral correctness — that's what the per-PR check above is for.
 
 ---
 

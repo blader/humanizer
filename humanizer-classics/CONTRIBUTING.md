@@ -40,7 +40,12 @@ If your rule depends on another change (e.g., a new book file), bundle the depen
 
 5. **Bump the version.** See *Versioning* below.
 
-6. **Run the manual review** (see `tests/REVIEWING.md`) before opening the PR.
+6. **Run the validator and manual review** before opening the PR:
+   ```bash
+   cd humanizer-classics/
+   python3 tests/validate.py
+   ```
+   The validator catches structural problems (broken references, missing sections, inconsistent rule IDs) automatically. Then run the manual review in `tests/REVIEWING.md` to catch behavioral issues.
 
 ## How to add a new book
 
