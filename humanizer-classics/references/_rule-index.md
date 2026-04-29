@@ -44,6 +44,7 @@ Flat lookup table of every rule in this skill. Use this when a rule ID is mentio
 | Z-7 | A lead must capture the reader immediately | `zinsser-on-writing-well.md` |
 | Z-8 | Maintain unity of pronoun, tense, and mood | `zinsser-on-writing-well.md` |
 | Z-9 | Most adjectives and adverbs are unnecessary | `zinsser-on-writing-well.md` |
+| Z-10 | Write for yourself, not for an imagined mass audience | `zinsser-on-writing-well.md` |
 | S-1 | Omit needless words | `strunk-and-white-elements-of-style.md` |
 | S-2 | Use the active voice | `strunk-and-white-elements-of-style.md` |
 | S-3 | Put statements in positive form | `strunk-and-white-elements-of-style.md` |
@@ -59,7 +60,7 @@ Flat lookup table of every rule in this skill. Use this when a rule ID is mentio
 | H-4 | Imperative for instructions | `hbr-guide-better-business-writing.md` |
 | H-5 | Cut throat-clearing openers | `hbr-guide-better-business-writing.md` |
 
-**Total:** 52 rules across 4 sources (29 Wikipedia + 9 Zinsser + 9 Strunk & White + 5 HBR).
+**Total:** 53 rules across 4 sources (29 Wikipedia + 10 Zinsser + 9 Strunk & White + 5 HBR).
 
 ## Cross-reference graph
 
@@ -81,6 +82,7 @@ When a Wikipedia detection rule fires, the matching book rule(s) usually offer t
 | W-28 (signposting), W-29 (fragmented headers) | Z-7 (lead must capture immediately) |
 | W-11 (synonym cycling), W-22 (tone shifts) | Z-8 (unity of pronoun/tense/mood) |
 | W-4 (promotional language), W-7 (AI vocabulary) | Z-9 (most adjectives/adverbs are unnecessary) |
+| W-22 (sycophantic tone), W-25 (generic conclusions) — when audience-courting | Z-10 (write for yourself, not the gallery) |
 
 ## Adding a new rule
 

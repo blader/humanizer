@@ -23,6 +23,7 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 | Z-7 | A lead must capture the reader immediately | Ch. 9 "The Lead and the Ending" |
 | Z-8 | Maintain unity of pronoun, tense, and mood | Ch. 8 "Unity" |
 | Z-9 | Most adjectives and adverbs are unnecessary | Ch. 10 "Bits & Pieces" — Adverbs, Adjectives |
+| Z-10 | Write for yourself, not for an imagined mass audience | Ch. 5 "The Audience" |
 
 ---
 
@@ -225,3 +226,25 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 > Murals lined the stone streets — the same ones the town's grandparents had walked. Tourists photographed the carved doorframes and the fountain; the locals kept moving past them. The square was already full at 8 a.m.
 
 **How to apply:** Highlight every adverb and adjective in the draft. For each adverb, ask: does the verb already mean this? If yes, cut the adverb (and consider whether a stronger verb could replace the verb-plus-adverb pair entirely — "ran quickly" → "sprinted"). For each adjective, ask: does the noun already imply this property, or is the adjective decorative? If decoration, cut. If the modifier survives — it adds genuine information the noun or verb couldn't carry alone — keep it. The remaining adjectives and adverbs will read with full force because they're not lost in a crowd.
+
+
+### Z-10. Write for yourself, not for an imagined mass audience
+
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 5 "The Audience" (p. 25-30)
+
+> "It's a fundamental question, and it has a fundamental answer: You are writing for yourself. Don't try to visualize the great mass audience. There is no such audience — every reader is a different person."
+> — Zinsser, Ch. 5 (p. 25)
+
+**Cross-references:** Z-5 (be present on the page) — *complementary, not duplicate*; S-9 (do not affect a breezy manner); W-22 (sycophantic tone); W-25 (generic positive conclusions)
+**Context tags:** blog, book-draft, email, dictation (does NOT fire on memo, technical-doc, meeting-notes — those have a real, specific audience and audience-awareness is appropriate)
+**Detection cue:** Trend-chasing openers ("In an era when everyone is talking about…", "In today's fast-paced digital landscape…"). Preemptive audience-pleasing ("you'll love this!", "this will blow your mind", "trust me on this one"). The "imagined gallery" voice — sentences calibrated to maximize reactions rather than to say something specific. LinkedIn-style humble-brag stance. Hedge-claims that don't commit ("Some might say… Others would argue…") because the writer is hedging against an imagined critical audience that may not exist.
+
+**Problem:** This is a distinct failure mode from Z-5 and S-9. Z-5 says *put yourself on the page*. S-9 warns against the *manufactured-spontaneity* over-correction (breezy "Hey folks!" register). Z-10 catches a third register: prose that is technically "personal" — uses "I", states opinions — yet is calibrated to please an imagined audience. The writer is courting the gallery. Zinsser's prescription is harder than it sounds: write what you actually think, in the language that comes naturally, even at the cost of fewer readers. He cites Mencken (p. 30): *"He was writing for himself and didn't give a damn what the reader might think. … Mencken was never timid or evasive; he didn't kowtow to the reader or curry anyone's favor."*
+
+**Before**
+> In today's fast-paced digital landscape, you'll absolutely love this game-changing approach to productivity that's been blowing minds across the industry. Some experts might say it's a fad, but trust me — those who get it early are reaping massive benefits. You don't want to be left behind on this one!
+
+**After**
+> I've been using this approach for six months. It cut my email backlog by half and made my mornings unrecognizable. I don't know whether it scales past one person — I'm one person — but the productivity-guru framing the industry built around it is mostly noise. Skip the framing, try the move.
+
+**How to apply:** When the draft has Z-5 voice but feels performative, ask: who is the writer trying to please? If the answer is "the imagined audience that will share/like this", the writer is courting the gallery. Cut every sentence that exists to manage the audience's reaction — preemptive defenses, trend-language, "you'll love this", "trust me", "this is a hot take". What remains should be what the writer would say to a single specific reader they trust. **Z-10 fires on the same contexts as Z-5** (blog, book-draft, email, dictation). It does NOT fire on memo, technical-doc, or meeting-notes — those have a real specific audience, and writing toward that audience is the form's job.
