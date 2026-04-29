@@ -46,13 +46,17 @@ Flat lookup table of every rule in this skill. Use this when a rule ID is mentio
 | S-3 | Put statements in positive form | `strunk-and-white-elements-of-style.md` |
 | S-4 | Use definite, specific, concrete language | `strunk-and-white-elements-of-style.md` |
 | S-5 | Do not overstate | `strunk-and-white-elements-of-style.md` |
+| S-6 | Express coordinate ideas in similar form | `strunk-and-white-elements-of-style.md` |
+| S-7 | Place the emphatic words of a sentence at the end | `strunk-and-white-elements-of-style.md` |
+| S-8 | Avoid a succession of loose sentences | `strunk-and-white-elements-of-style.md` |
+| S-9 | Do not affect a breezy manner | `strunk-and-white-elements-of-style.md` |
 | H-1 | Lead with the bottom line (pyramid principle) | `hbr-guide-better-business-writing.md` |
 | H-2 | Write for the skim-reader | `hbr-guide-better-business-writing.md` |
 | H-3 | One idea per paragraph | `hbr-guide-better-business-writing.md` |
 | H-4 | Imperative for instructions | `hbr-guide-better-business-writing.md` |
 | H-5 | Cut throat-clearing openers | `hbr-guide-better-business-writing.md` |
 
-**Total:** 45 rules across 4 sources (29 Wikipedia + 6 Zinsser + 5 Strunk & White + 5 HBR).
+**Total:** 49 rules across 4 sources (29 Wikipedia + 6 Zinsser + 9 Strunk & White + 5 HBR).
 
 ## Cross-reference graph
 
@@ -68,6 +72,9 @@ When a Wikipedia detection rule fires, the matching book rule(s) usually offer t
 | W-22 (sycophantic), W-20 (chatbot artifacts) | Z-5, H-5 (be present; cut throat-clearing) |
 | W-16 (inline-header lists), W-18 (emojis) | H-2 (skim-reader formatting done right) |
 | W-3 (-ing analyses), W-12 (false ranges) | S-4 (concrete and specific) |
+| W-10 (rule of three), W-11 (synonym cycling) | S-6 (parallel construction), S-8 (avoid loose-sentence monotony) |
+| W-25 (generic conclusions), H-1 (lead with bottom line) | S-7 (emphatic words at the end) |
+| Z-5 (be present on the page) — when over-applied | S-9 (do not affect a breezy manner — calibrating partner) |
 
 ## Adding a new rule
 

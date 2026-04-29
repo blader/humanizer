@@ -136,6 +136,10 @@ Craft rules (positive guidance — what good writing *does*):
 | S-3 | Put statements in positive form | `references/strunk-and-white-elements-of-style.md` |
 | S-4 | Use definite, specific, concrete language | `references/strunk-and-white-elements-of-style.md` |
 | S-5 | Do not overstate | `references/strunk-and-white-elements-of-style.md` |
+| S-6 | Express coordinate ideas in similar form (parallel construction) | `references/strunk-and-white-elements-of-style.md` |
+| S-7 | Place the emphatic words of a sentence at the end | `references/strunk-and-white-elements-of-style.md` |
+| S-8 | Avoid a succession of loose sentences (mechanical singsong) | `references/strunk-and-white-elements-of-style.md` |
+| S-9 | Do not affect a breezy manner (calibrating partner to Z-5) | `references/strunk-and-white-elements-of-style.md` |
 | H-1 | Lead with the bottom line (pyramid principle) | `references/hbr-guide-better-business-writing.md` |
 | H-2 | Write for the skim-reader | `references/hbr-guide-better-business-writing.md` |
 | H-3 | One idea per paragraph | `references/hbr-guide-better-business-writing.md` |
@@ -285,7 +289,7 @@ Provide:
 - `references/_template-book-rules.md` — template for contributing a new book
 - `references/wikipedia-signs-of-ai-writing.md` — 29 detection rules (CC BY-SA 4.0)
 - `references/zinsser-on-writing-well.md` — 6 craft rules from Zinsser
-- `references/strunk-and-white-elements-of-style.md` — 5 craft rules from Strunk & White
+- `references/strunk-and-white-elements-of-style.md` — 9 craft rules from Strunk & White
 - `references/hbr-guide-better-business-writing.md` — 5 craft rules from Garner / HBR
 - `references/granola-meeting-transcripts.md` — Granola MCP workflow + Wispr Flow dictation guidance
 

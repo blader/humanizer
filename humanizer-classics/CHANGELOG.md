@@ -8,7 +8,7 @@ All notable changes to humanizer-classics. Format roughly follows [Keep a Change
 
 - Initial v3 release as a fork of `humanizer` v2.5.1.
 - New architecture: slim `SKILL.md` dispatcher (~250 lines) + per-source `references/` files lazy-loaded as rules fire.
-- 16 new craft rules sourced from foundational writing books, each with a citation and pull-quote:
+- 20 new craft rules sourced from foundational writing books, each with a citation and pull-quote (verified against the source PDFs):
   - **Zinsser, *On Writing Well*** (30th anniversary ed., 2006) — Z-1 through Z-6:
     - Z-1: Cut clutter — every word that does no work
     - Z-2: Use short, plain, Anglo-Saxon words
@@ -16,12 +16,16 @@ All notable changes to humanizer-classics. Format roughly follows [Keep a Change
     - Z-4: Strip qualifiers
     - Z-5: Be present on the page; have a self
     - Z-6: Endings matter — quit when the work is done
-  - **Strunk & White, *The Elements of Style*** (4th ed., 1999) — S-1 through S-5:
-    - S-1: Omit needless words
-    - S-2: Use the active voice
-    - S-3: Put statements in positive form
-    - S-4: Use definite, specific, concrete language
-    - S-5: Do not overstate
+  - **Strunk & White, *The Elements of Style*** (4th ed., 1999) — S-1 through S-9:
+    - S-1: Omit needless words (II.17)
+    - S-2: Use the active voice (II.14)
+    - S-3: Put statements in positive form (II.15)
+    - S-4: Use definite, specific, concrete language (II.16)
+    - S-5: Do not overstate (V.7)
+    - S-6: Express coordinate ideas in similar form — parallel construction (II.19)
+    - S-7: Place the emphatic words of a sentence at the end (II.22)
+    - S-8: Avoid a succession of loose sentences — mechanical singsong (II.18)
+    - S-9: Do not affect a breezy manner — calibrating partner to Z-5 (V.9)
   - **Garner / HBR, *HBR Guide to Better Business Writing*** (1st ed., 2012) — H-1 through H-5:
     - H-1: Lead with the bottom line (pyramid principle)
     - H-2: Write for the skim-reader
