@@ -1,9 +1,10 @@
 # On Writing Well — William Zinsser
 
-**Source:** William Zinsser, *On Writing Well: The Classic Guide to Writing Nonfiction*, 30th anniversary edition (HarperCollins, 2006)
+**Source:** William Zinsser, *On Writing Well: The Classic Guide to Writing Nonfiction*, 25th Anniversary Edition (6th ed., HarperResource, 2001)
 **Type:** Craft prescription (positive guidance — what good writing *does*)
 **License of pull-quotes:** Fair use — short excerpts for educational commentary
 **Rule prefix:** `Z`
+**Citation note:** All pull-quotes verified against the 25th anniversary edition. Page numbers reference that printing.
 
 ## Why this book belongs in humanizer-classics
 
@@ -14,20 +15,23 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 | ID | Rule (one line) | Chapter / reference |
 |----|-----------------|---------------------|
 | Z-1 | Cut clutter — every word that does no work | Ch. 3 "Clutter" |
-| Z-2 | Use short, plain, Anglo-Saxon words; concrete over abstract | Ch. 4 "Style", Ch. 6 "Words" |
-| Z-3 | Active verbs do the work; kill nominalizations | Ch. 10 "Bits and Pieces" — Verbs |
-| Z-4 | Strip qualifiers — "a bit", "rather", "sort of", "quite" | Ch. 3 "Clutter" |
-| Z-5 | Be present on the page; have a self | Ch. 4 "Style", Ch. 5 "The Audience" |
+| Z-2 | Use short, plain, Anglo-Saxon words; concrete over abstract | Ch. 3 "Clutter", Ch. 6 "Words" |
+| Z-3 | Active verbs do the work; kill nominalizations | Ch. 10 "Bits & Pieces" — Verbs |
+| Z-4 | Strip qualifiers — "a bit", "rather", "sort of", "quite" | Ch. 10 "Bits & Pieces" — Little Qualifiers |
+| Z-5 | Be present on the page; have a self | Ch. 4 "Style" |
 | Z-6 | Endings matter — quit when the work is done | Ch. 9 "The Lead and the Ending" |
+| Z-7 | A lead must capture the reader immediately | Ch. 9 "The Lead and the Ending" |
+| Z-8 | Maintain unity of pronoun, tense, and mood | Ch. 8 "Unity" |
+| Z-9 | Most adjectives and adverbs are unnecessary | Ch. 10 "Bits & Pieces" — Adverbs, Adjectives |
 
 ---
 
 ### Z-1. Cut clutter — every word that does no work
 
-**Source:** Zinsser, *On Writing Well*, Ch. 3 "Clutter"
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 3 "Clutter"
 
-> "Clutter is the disease of American writing. We are a society strangling in unnecessary words, circular constructions, pompous frills, and meaningless jargon."
-> — Zinsser, opening of Ch. 3
+> "Look for the clutter in your writing and prune it ruthlessly. Be grateful for everything you can throw away. Reexamine each sentence you put on paper. Is every word doing new work?"
+> — Zinsser, Ch. 3 closing (p. 17)
 
 **Cross-references:** W-7 (AI vocabulary), W-23 (filler), W-27 (persuasive tropes)
 **Context tags:** all
@@ -46,10 +50,10 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 
 ### Z-2. Use short, plain, Anglo-Saxon words; concrete over abstract
 
-**Source:** Zinsser, *On Writing Well*, Ch. 4 "Style" and Ch. 6 "Words"
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 3 "Clutter" (specific quote, p. 16); reinforced in Ch. 6 "Words"
 
-> "Don't dialogue with someone you can talk to. Don't interface with anybody."
-> — Zinsser, on the urge to dress up plain verbs
+> "Beware, then, of all the long words that's no better than the short word: 'assistance' (help), 'numerous' (many), 'facilitate' (ease), 'individual' (man or woman), 'remainder' (rest), 'initial' (first), 'implement' (do), 'sufficient' (enough), 'attempt' (try), 'referred to as' (called) and hundreds more. … Don't dialogue with someone you can talk to. Don't interface with anybody."
+> — Zinsser, Ch. 3 (p. 16)
 
 **Cross-references:** W-7 (AI vocabulary), W-3 (-ing analyses), S-4 (specific concrete language)
 **Context tags:** all (especially blog, email, book-draft)
@@ -68,10 +72,10 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 
 ### Z-3. Active verbs do the work; kill nominalizations
 
-**Source:** Zinsser, *On Writing Well*, Ch. 10 "Bits and Pieces" — section on Verbs
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 10 "Bits & Pieces" — Verbs section (p. 68-69)
 
-> "Verbs are the most important of all your tools. They push the sentence forward and give it momentum."
-> — Zinsser, Ch. 10
+> "Verbs are the most important of all your tools. They push the sentence forward and give it momentum. Active verbs push hard; passive verbs tug fitfully."
+> — Zinsser, Ch. 10 (p. 69)
 
 **Cross-references:** W-13 (passive voice), S-2 (active voice), W-8 (copula avoidance)
 **Context tags:** all
@@ -90,10 +94,10 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 
 ### Z-4. Strip qualifiers — "a bit", "rather", "sort of", "quite"
 
-**Source:** Zinsser, *On Writing Well*, Ch. 3 "Clutter"
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 10 "Bits & Pieces" — Little Qualifiers section (p. 71-72)
 
-> "Don't say you were a bit confused and sort of tired and a little depressed. Be confused. Be tired. Be depressed."
-> — Zinsser, Ch. 3 (paraphrased; common rendering)
+> "Don't say you were a bit confused and sort of tired and a little depressed and somewhat annoyed. Be confused. Be tired. Be depressed. Be annoyed. Don't hedge your prose with little timidities. Good writing is lean and confident."
+> — Zinsser, Ch. 10 (p. 71)
 
 **Cross-references:** W-24 (excessive hedging), S-3 (positive form)
 **Context tags:** all
@@ -112,10 +116,10 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 
 ### Z-5. Be present on the page; have a self
 
-**Source:** Zinsser, *On Writing Well*, Ch. 4 "Style" and Ch. 5 "The Audience"
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 4 "Style" — closing line (p. 24)
 
-> "Sell yourself, and your subject will exert its own appeal. Believe in your own identity and your own opinions."
-> — Zinsser, Ch. 5
+> "Sell yourself, and your subject will exert its own appeal. Believe in your own identity and your own opinions. Writing is an act of ego, and you might as well admit it. Use its energy to keep yourself going."
+> — Zinsser, Ch. 4 closing (p. 24)
 
 **Cross-references:** W-22 (sycophantic tone), W-25 (generic conclusion), H-5 (throat-clearing)
 **Context tags:** blog, book-draft, email, dictation (NOT memo, technical-doc, meeting-notes)
@@ -134,10 +138,10 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 
 ### Z-6. Endings matter — quit when the work is done
 
-**Source:** Zinsser, *On Writing Well*, Ch. 9 "The Lead and the Ending"
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 9 "The Lead and the Ending" (p. 65)
 
-> "The perfect ending should take the reader slightly by surprise and yet seem exactly right."
-> — Zinsser, Ch. 9
+> "The perfect ending should take your readers slightly by surprise and yet seem exactly right. They didn't expect the article to end so soon, or so abruptly, or to say what it said. … For the nonfiction writer, the simplest way of putting this into a rule is: when you're ready to stop, stop."
+> — Zinsser, Ch. 9 (p. 65-66)
 
 **Cross-references:** W-25 (generic positive conclusions), W-6 (challenges-and-future-prospects), H-1 (lead with bottom line)
 **Context tags:** all
@@ -152,3 +156,72 @@ Zinsser teaches the *positive moves* that LLM writing skips. Where Wikipedia's r
 > If you don't have tests, you're guessing. That's the real cost.
 
 **How to apply:** Find the last sentence in the draft that actually says something. Delete everything after it. If the ending now feels abrupt, that's usually the right feel — Zinsser argues the abruptness is what makes a closing land. If you cut and the piece truly hangs, write *one* concrete sentence (a fact, a quote, a turn) — not a summary.
+
+
+### Z-7. A lead must capture the reader immediately
+
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 9 "The Lead and the Ending" (p. 55-56)
+
+> "The most important sentence in any article is the first one. If it doesn't induce the reader to proceed to the second sentence, your article is dead. And if the second sentence doesn't induce him to continue to the third sentence, it's equally dead."
+> — Zinsser, Ch. 9 opening (p. 55)
+
+**Cross-references:** H-1 (lead with the bottom line), Z-6 (endings matter), W-28 (signposting), W-29 (fragmented headers)
+**Context tags:** blog, book-draft, email (NOT memo, technical-doc — those use H-1 instead)
+**Detection cue:** Opening sentences that set context instead of grabbing attention: "In today's rapidly evolving landscape…", "As we move further into the digital age…", "The world of [topic] has been undergoing significant changes…". Bad lead patterns Zinsser explicitly names (Ch. 9, p. 60): the "future archaeologist" lead, the "visitor from Mars" lead, the "have-in-common" lead, the "one day not long ago" lead. Leads that take three sentences to admit what the piece is even about.
+
+**Problem:** LLMs warm up before saying anything. The first paragraph clears throat, sets vague context, and admits the piece's actual subject only in paragraph 2 or 3. Zinsser is brutal: if the first sentence doesn't pull the reader to the second, the article is *dead*. The lead must "cajole him with freshness, or novelty, or paradox, or humor, or surprise, or with an unusual idea, or an interesting fact, or a question" (p. 56). It must give the reader hard details about why this piece is worth reading. The companion to Z-6 (endings): the lead and the ending are the two highest-leverage sentences in any piece, and Zinsser devotes a whole chapter to both for that reason.
+
+**Before**
+> In today's rapidly evolving technological landscape, AI coding assistants have emerged as a topic of significant interest among developers and engineers. As organizations increasingly adopt these tools, questions arise about their impact on productivity, code quality, and the nature of software development itself. This piece will explore some of the key considerations…
+
+**After**
+> The Google study said developers using Codex finished simple functions 55% faster. The Uplevel study, looking at the same teams six months later, found no statistically significant change in pull-request throughput. Both can be true — and the gap between them is where the real argument lives.
+
+**How to apply:** Read your draft's first sentence. If it could be the first sentence of any other article on the same topic, rewrite. The lead should contain a specific fact, a paradox, a question, a quoted line, or a small concrete scene that signals what's at stake in *this* piece, not the topic in general. If you find the actual lead three paragraphs in, that paragraph is the real opening — promote it.
+
+
+### Z-8. Maintain unity of pronoun, tense, and mood
+
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 8 "Unity" (p. 49-54)
+
+> "Unity is the anchor of good writing. So, first, get your unities straight. … Therefore choose from among the many variables and stick to your choice."
+> — Zinsser, Ch. 8 (p. 50)
+
+**Cross-references:** W-11 (synonym cycling), W-22 (sycophantic tone shifts), S-2 (active voice consistency)
+**Context tags:** all
+**Detection cue:** Pronoun drift inside a single passage — "the user should…" then "we recommend…" then "you might consider…" then "one ought to…". Tense flips — past for two paragraphs, then present, then back. Tone changes — formal opening, casual mid-section ("super important!"), formal close. Register shifts within the same piece, especially common in AI-assembled longer text where sections were generated separately.
+
+**Problem:** AI-generated longer text often reads as if assembled from pieces written by different writers. The first paragraph is in third person past tense; paragraph two switches to second person present; paragraph three drifts to first-person plural. The mood swings from technical-formal to casual-conversational and back. None of the shifts are signposted, so the reader's subconscious sense of who is speaking and from when keeps getting jolted. Zinsser names three explicit unities — pronoun, tense, mood — and the rule is the same for each: pick one and stick with it. Travel writing is his canonical example (p. 51): the writer who shifts from "I" to "you" to a guidebook's third-person "the visitor" loses the reader's trust.
+
+**Before**
+> When the team launched the new feature in October, we faced a few unexpected challenges. The user immediately reports several issues with the dashboard, mostly around performance. One should consider that load patterns can vary widely — and you'll want to monitor the rollout carefully to make sure things stay smooth. Engineering teams will be paying close attention.
+
+**After**
+> When we launched the new feature in October, we faced a few unexpected challenges. Users reported several dashboard performance issues in the first week. We watched the load patterns closely, since they vary widely across customer segments, and we paged the on-call engineer twice that week before the rollout stabilized.
+
+**How to apply:** Before rewriting, decide three things: who is the *narrator* (first person, second person, third person, or plural "we"?), what *tense* (past, present, or — rarely — future)?, and what *mood* (formal, casual, technical, polemical?). Write all three on a sticky note. Read each sentence and check that it matches all three. If a sentence shifts pronoun, tense, or mood, rewrite to match the chosen unity. Zinsser allows tense changes when the meaning genuinely demands them (a flashback, a hypothetical) — but the *principal* tense should be one and stable.
+
+
+### Z-9. Most adjectives and adverbs are unnecessary
+
+**Source:** Zinsser, *On Writing Well*, 25th anniversary ed., Ch. 10 "Bits & Pieces" — Adverbs and Adjectives sections (p. 69-71)
+
+> "Most adverbs are unnecessary. You will clutter your sentence and annoy the reader if you choose a verb that has a specific meaning and then add an adverb that carries the same meaning."
+> — Zinsser, Ch. 10 (p. 69)
+
+> "Most adjectives are also unnecessary. … The adjective that exists solely as decoration is a self-indulgence for the writer and a burden for the reader."
+> — Zinsser, Ch. 10 (p. 70-71)
+
+**Cross-references:** W-4 (promotional language), W-7 (AI vocabulary), S-5 (do not overstate), Z-2 (plain words), Z-3 (active verbs)
+**Context tags:** all
+**Detection cue:** Redundant adverbs after specific verbs — "blared loudly", "clenched tightly", "whispered quietly", "smiled happily", "shouted angrily". Decorative adjectives that restate the noun's known property — "yellow daffodils", "brownish dirt", "tall skyscraper", "precipitous cliff", "lacy spiderweb". "-ly" intensifiers everywhere — "extremely", "incredibly", "absolutely", "totally", "literally" (when not literal).
+
+**Problem:** LLMs add adjectives and adverbs as a default to make prose sound "vivid", but most of them work against vividness — they restate what the verb or noun already conveys. Zinsser's rule: every modifier must do work that needs to be done. "Blared" already means loud; adding "loudly" weakens the verb. "Daffodils" are yellow; adding "yellow" tells the reader nothing new. The adjective that earns its place — "garish daffodils" (a value judgment), "drab apartment" (a specific feeling) — is the one that survives. Strip the rest, and the verbs get their power back.
+
+**Before**
+> The vibrant cultural heritage of the region was beautifully captured in the colorful murals that lined the ancient stone streets, where excited tourists eagerly photographed the stunning architectural details with their digital cameras. The morning sun shone brightly over the bustling town square as locals warmly greeted visiting strangers.
+
+**After**
+> Murals lined the stone streets — the same ones the town's grandparents had walked. Tourists photographed the carved doorframes and the fountain; the locals kept moving past them. The square was already full at 8 a.m.
+
+**How to apply:** Highlight every adverb and adjective in the draft. For each adverb, ask: does the verb already mean this? If yes, cut the adverb (and consider whether a stronger verb could replace the verb-plus-adverb pair entirely — "ran quickly" → "sprinted"). For each adjective, ask: does the noun already imply this property, or is the adjective decorative? If decoration, cut. If the modifier survives — it adds genuine information the noun or verb couldn't carry alone — keep it. The remaining adjectives and adverbs will read with full force because they're not lost in a crowd.

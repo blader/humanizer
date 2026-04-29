@@ -131,6 +131,9 @@ Craft rules (positive guidance — what good writing *does*):
 | Z-4 | Strip qualifiers ("a bit", "rather", "sort of") | `references/zinsser-on-writing-well.md` |
 | Z-5 | Be present on the page; have a self | `references/zinsser-on-writing-well.md` |
 | Z-6 | Endings matter — quit when the work is done | `references/zinsser-on-writing-well.md` |
+| Z-7 | A lead must capture the reader immediately or the article is dead | `references/zinsser-on-writing-well.md` |
+| Z-8 | Maintain unity of pronoun, tense, and mood | `references/zinsser-on-writing-well.md` |
+| Z-9 | Most adjectives and adverbs are unnecessary | `references/zinsser-on-writing-well.md` |
 | S-1 | Omit needless words | `references/strunk-and-white-elements-of-style.md` |
 | S-2 | Use the active voice | `references/strunk-and-white-elements-of-style.md` |
 | S-3 | Put statements in positive form | `references/strunk-and-white-elements-of-style.md` |
@@ -288,7 +291,7 @@ Provide:
 - `references/_rule-index.md` — full rule index with cross-reference graph
 - `references/_template-book-rules.md` — template for contributing a new book
 - `references/wikipedia-signs-of-ai-writing.md` — 29 detection rules (CC BY-SA 4.0)
-- `references/zinsser-on-writing-well.md` — 6 craft rules from Zinsser
+- `references/zinsser-on-writing-well.md` — 9 craft rules from Zinsser
 - `references/strunk-and-white-elements-of-style.md` — 9 craft rules from Strunk & White
 - `references/hbr-guide-better-business-writing.md` — 5 craft rules from Garner / HBR
 - `references/granola-meeting-transcripts.md` — Granola MCP workflow + Wispr Flow dictation guidance

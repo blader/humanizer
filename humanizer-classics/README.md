@@ -8,7 +8,7 @@ A Claude Code / OpenCode skill that refines AI-generated text using rules drawn 
 
 `humanizer-classics` is the v3 fork of [`humanizer`](../). Where v2 catalogs **what AI writing looks like** (29 patterns from Wikipedia's "Signs of AI writing"), v3 adds **what good human writing does** — craft prescriptions sourced from books, with citations.
 
-- **49 rules** at launch: 29 detection rules (Wikipedia) + 20 craft rules (Zinsser × 6, Strunk & White × 9, HBR Guide × 5)
+- **52 rules** at launch: 29 detection rules (Wikipedia) + 23 craft rules (Zinsser × 9, Strunk & White × 9, HBR Guide × 5)
 - **Two-pass process**: draft → audit ("what makes this still obviously AI?") → final
 - **Voice calibration**: paste 2-3 paragraphs of your own writing and the skill matches your rhythm and word choice instead of generic "clean" prose
 - **Granola integration**: pull meeting transcripts directly via MCP and humanize them
@@ -99,7 +99,7 @@ When a detection rule fires, the matching craft rule(s) usually offer the better
 
 ## Books currently included
 
-- **Zinsser**, *On Writing Well* (30th anniversary ed., 2006) — 6 rules
+- **Zinsser**, *On Writing Well* (25th Anniversary Edition, 6th ed., 2001) — 9 rules
 - **Strunk & White**, *The Elements of Style* (4th ed., 1999) — 9 rules
 - **Garner / HBR**, *HBR Guide to Better Business Writing* (1st ed., 2012) — 5 rules
 

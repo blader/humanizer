@@ -41,6 +41,9 @@ Flat lookup table of every rule in this skill. Use this when a rule ID is mentio
 | Z-4 | Strip qualifiers — "a bit", "rather", "sort of" | `zinsser-on-writing-well.md` |
 | Z-5 | Be present on the page; have a self | `zinsser-on-writing-well.md` |
 | Z-6 | Endings matter — quit when the work is done | `zinsser-on-writing-well.md` |
+| Z-7 | A lead must capture the reader immediately | `zinsser-on-writing-well.md` |
+| Z-8 | Maintain unity of pronoun, tense, and mood | `zinsser-on-writing-well.md` |
+| Z-9 | Most adjectives and adverbs are unnecessary | `zinsser-on-writing-well.md` |
 | S-1 | Omit needless words | `strunk-and-white-elements-of-style.md` |
 | S-2 | Use the active voice | `strunk-and-white-elements-of-style.md` |
 | S-3 | Put statements in positive form | `strunk-and-white-elements-of-style.md` |
@@ -56,7 +59,7 @@ Flat lookup table of every rule in this skill. Use this when a rule ID is mentio
 | H-4 | Imperative for instructions | `hbr-guide-better-business-writing.md` |
 | H-5 | Cut throat-clearing openers | `hbr-guide-better-business-writing.md` |
 
-**Total:** 49 rules across 4 sources (29 Wikipedia + 6 Zinsser + 9 Strunk & White + 5 HBR).
+**Total:** 52 rules across 4 sources (29 Wikipedia + 9 Zinsser + 9 Strunk & White + 5 HBR).
 
 ## Cross-reference graph
 
@@ -75,6 +78,9 @@ When a Wikipedia detection rule fires, the matching book rule(s) usually offer t
 | W-10 (rule of three), W-11 (synonym cycling) | S-6 (parallel construction), S-8 (avoid loose-sentence monotony) |
 | W-25 (generic conclusions), H-1 (lead with bottom line) | S-7 (emphatic words at the end) |
 | Z-5 (be present on the page) — when over-applied | S-9 (do not affect a breezy manner — calibrating partner) |
+| W-28 (signposting), W-29 (fragmented headers) | Z-7 (lead must capture immediately) |
+| W-11 (synonym cycling), W-22 (tone shifts) | Z-8 (unity of pronoun/tense/mood) |
+| W-4 (promotional language), W-7 (AI vocabulary) | Z-9 (most adjectives/adverbs are unnecessary) |
 
 ## Adding a new rule
 

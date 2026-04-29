@@ -8,14 +8,17 @@ All notable changes to humanizer-classics. Format roughly follows [Keep a Change
 
 - Initial v3 release as a fork of `humanizer` v2.5.1.
 - New architecture: slim `SKILL.md` dispatcher (~250 lines) + per-source `references/` files lazy-loaded as rules fire.
-- 20 new craft rules sourced from foundational writing books, each with a citation and pull-quote (verified against the source PDFs):
-  - **Zinsser, *On Writing Well*** (30th anniversary ed., 2006) — Z-1 through Z-6:
-    - Z-1: Cut clutter — every word that does no work
-    - Z-2: Use short, plain, Anglo-Saxon words
-    - Z-3: Active verbs do the work; kill nominalizations
-    - Z-4: Strip qualifiers
-    - Z-5: Be present on the page; have a self
-    - Z-6: Endings matter — quit when the work is done
+- 23 new craft rules sourced from foundational writing books, each with a citation and pull-quote verified against the source PDFs:
+  - **Zinsser, *On Writing Well*** (25th Anniversary Edition, 6th ed., HarperResource, 2001) — Z-1 through Z-9:
+    - Z-1: Cut clutter — every word that does no work (Ch. 3)
+    - Z-2: Use short, plain, Anglo-Saxon words (Ch. 3, Ch. 6)
+    - Z-3: Active verbs do the work; kill nominalizations (Ch. 10)
+    - Z-4: Strip qualifiers (Ch. 10 — Little Qualifiers)
+    - Z-5: Be present on the page; have a self (Ch. 4)
+    - Z-6: Endings matter — quit when the work is done (Ch. 9)
+    - Z-7: A lead must capture the reader immediately (Ch. 9)
+    - Z-8: Maintain unity of pronoun, tense, and mood (Ch. 8)
+    - Z-9: Most adjectives and adverbs are unnecessary (Ch. 10)
   - **Strunk & White, *The Elements of Style*** (4th ed., 1999) — S-1 through S-9:
     - S-1: Omit needless words (II.17)
     - S-2: Use the active voice (II.14)
