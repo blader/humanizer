@@ -5,7 +5,7 @@ is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
-## [0.1.0] (2026-05-DD)
+## [0.1.0] (2026-05-07)
 
 Initial release. Forked from
 [`blader/humanizer`](https://github.com/blader/humanizer) by Siqi Chen.
