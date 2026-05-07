@@ -115,7 +115,8 @@ Verify:
 slop status --json
 ```
 
-Should print `{"premium": true, ...}`. If `premium: false`, finish step 2.
+Should print `{"pro": true, ...}` on recent builds (older builds use the
+legacy `"premium": true` field). If the value is `false`, finish step 2.
 
 ## Usage
 

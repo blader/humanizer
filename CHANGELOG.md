@@ -15,6 +15,13 @@ is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - README explanation of what Flesch-Kincaid reading level means, with a link
   to the Wikipedia overview.
 
+### Changed
+
+- README and `references/slop-cli-setup.md` now document the `slop status`
+  field as `pro` (renamed from the legacy `premium`). The runtime probe
+  was already robust because it calls `detect_text` directly, so neither
+  CLI nor MCP behavior changes.
+
 ## [0.1.0] (2026-05-07)
 
 Initial release. Forked from

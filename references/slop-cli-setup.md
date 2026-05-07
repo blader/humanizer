@@ -52,8 +52,13 @@ source ~/.zshrc
 slop status --json
 ```
 
-Expected: a JSON object with `premium: true` (or `localCachePremium: true`)
-and the CLI version. If `premium: false`, return to step 2.
+Expected: a JSON object with `pro: true` (or, on older builds, the
+legacy `premium: true` / `localCachePremium: true` field) and the CLI
+version. If the value is `false`, return to step 2.
+
+> The field was renamed from `premium` to `pro` to match the in-app tier
+> name. The skill probes Pro tier by attempting a real `detect_text`
+> call, not by reading this field, so both old and new builds work.
 
 ## 5. Subcommands the loop uses
 
