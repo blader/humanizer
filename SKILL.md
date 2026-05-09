@@ -463,22 +463,55 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
+## Pre-flight: AI-iness Density Check
+
+Before applying patterns, count how many **Tier 1 dead-giveaway** AI tells fire per 100 words of prose. The result picks pass strength so the skill stops over-correcting human-first text (personal journals, rough drafts, meeting notes).
+
+**Tier 1 dead giveaways** (the only patterns counted for the density score):
+
+- Rule 1: undue emphasis on significance, legacy, broader trends
+- Rule 4: promotional and advertisement-like language
+- Rule 7: overused "AI vocabulary" words
+- Rule 20: collaborative communication artifacts ("Certainly!", "Of course!")
+- Rule 21: knowledge-cutoff disclaimers
+- Rule 22: sycophantic/servile tone
+- Rule 25: generic positive conclusions
+
+These are the patterns that almost never appear in authentic human writing. Counting only Tier 1 keeps the density score signal-heavy.
+
+**Pass strength by density:**
+
+| Tier 1 hits / 100 words | Mode | Behavior |
+|---|---|---|
+| 0 | **light** | Skip the rewrite. The text is human-first; leave it alone except for any Tier 1 hit that does fire (apply only that specific rule). |
+| 1–2 | **mixed** (default) | Apply Tier 1 rules in full. Apply other rules only where they clearly fire. Preserve voice quirks. |
+| 3+ | **full** | Apply all 29 rules. The text is AI-first and needs comprehensive rewriting. |
+
+**Announce the density and chosen mode before rewriting**, e.g.:
+
+> Pre-flight: AI-iness density = 0 tells / 100 words. Mode = light. Skipping rewrite (text reads as human-authored).
+
+If the user disagrees, they can override with an explicit instruction ("run a full pass on this anyway").
+
+**Why this matters:** the current behavior is all-or-nothing. Every rule runs on every text. That works for fully AI-generated drafts but creates false positives on human-authored or lightly-assisted text, stripping out the exact quirks that made it sound like a person. Density gating makes humanizer safe to run on any input without destroying authentic voice.
+
 ## Process
 
 1. Read the input text carefully
-2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
+2. Run the **Pre-flight: AI-iness Density Check** above and pick the mode
+3. Identify all instances of the patterns above
+4. Rewrite each problematic section
+5. Ensure the revised text:
    - Sounds natural when read aloud
    - Varies sentence structure naturally
    - Uses specific details over vague claims
    - Maintains appropriate tone for context
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+6. Present a draft humanized version
+7. Prompt: "What makes the below so obviously AI generated?"
+8. Answer briefly with the remaining tells (if any)
+9. Prompt: "Now make it not obviously AI generated."
+10. Present the final version (revised after the audit)
 
 ## Output Format
 
