@@ -13,11 +13,12 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
 ```
 
-Or copy the skill file manually if you already have this repo cloned:
+Or copy the skill and references manually if you already have this repo cloned:
 
 ```bash
 mkdir -p ~/.claude/skills/humanizer
 cp SKILL.md ~/.claude/skills/humanizer/
+cp -R references ~/.claude/skills/humanizer/
 ```
 
 ### OpenCode
@@ -29,11 +30,12 @@ mkdir -p ~/.config/opencode/skills
 git clone https://github.com/blader/humanizer.git ~/.config/opencode/skills/humanizer
 ```
 
-Or copy the skill file manually if you already have this repo cloned:
+Or copy the skill and references manually if you already have this repo cloned:
 
 ```bash
 mkdir -p ~/.config/opencode/skills/humanizer
 cp SKILL.md ~/.config/opencode/skills/humanizer/
+cp -R references ~/.config/opencode/skills/humanizer/
 ```
 
 > **Note:** OpenCode also scans `~/.claude/skills/` for compatibility, so a single clone into `~/.claude/skills/humanizer/` works for both tools.
@@ -82,13 +84,15 @@ The skill will analyze your sentence rhythm, word choices, and quirks, then appl
 
 Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) guide, maintained by WikiProject AI Cleanup. This comprehensive guide comes from observations of thousands of instances of AI-generated text.
 
-The skill also includes a final "obviously AI generated" audit pass and a second rewrite, to catch lingering AI-isms in the first draft.
+The skill also includes a final "obviously AI generated" audit pass and a second rewrite, to catch lingering AI-isms in the first draft. For dense drafts, it can load `references/banned-list.md`, a comprehensive list of phrases, transitions, emojis, fake names, and style patterns to remove.
+
+It now has a hard factual-integrity rule: do not add facts, names, numbers, sources, quotes, examples, prices, dates, or claims unless the user supplied them.
 
 ### Key Insight from Wikipedia
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 29 Patterns Detected (with Before/After Examples)
+## 31 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -127,6 +131,8 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 | 27 | **Persuasive authority tropes** | "At its core, what matters is..." | State the point directly |
 | 28 | **Signposting announcements** | "Let's dive in", "Here's what you need to know" | Start with the content |
 | 29 | **Fragmented headers** | "## Performance" + "Speed matters." | Let the heading do the work |
+| 30 | **Fake naming** | "The Feedback Loop Method" | Describe the idea normally |
+| 31 | **Self-narration / rhetorical hooks** | "This highlights...", "The key takeaway is..." | Make the point directly |
 
 ### Communication Patterns
 
@@ -164,21 +170,21 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 > In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you’d like me to expand on any section!
 
 **After (Humanized):**
-> AI coding assistants can speed up the boring parts of the job. They're great at boilerplate: config files and the little glue code you don't want to write. They can also help you sketch a test, but you still have to read it.
+> AI coding assistants can help with documentation and tests. They can also help with refactors, but weak suggestions often look polished, so the value depends on whether someone reviews the output.
 >
-> The dangerous part is how confident the suggestions look. I've accepted code that compiled and passed lint, then discovered later it missed the point because I stopped paying attention.
+> The adoption claims in this draft are hard to judge. "Industry observers" and broad media mentions do not say much without named sources or actual data.
 >
-> If you treat it like autocomplete and review every line, it's useful. If you use it to avoid thinking, it will help you ship bugs faster.
->
-> The only real backstop is tests. Without them, you're mostly judging vibes.
+> The safest summary is simple: these tools may speed up parts of software work, but teams still need human review and tests.
 
 ## References
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) - Primary source
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) - Maintaining organization
+- [`references/banned-list.md`](references/banned-list.md) - Comprehensive local banned-list reference
 
 ## Version History
 
+- **2.6.0** - Ported the stricter notes-humanizer guardrails: factual-integrity rule, hard bans for fake naming/self-narration/hooks, reference banned-list, no-preamble default output, and safer examples that avoid invented specifics
 - **2.5.1** - Added a passive-voice / subjectless-fragment rule, raising the total to 29 patterns
 - **2.5.0** - Added patterns for persuasive framing, signposting, and fragmented headers; expanded negative parallelisms to cover tailing negations; tightened wording around em dash overuse; fixed frontmatter wording to use "filler phrases"
 - **2.4.0** - Added voice calibration: match the user's personal writing style from samples

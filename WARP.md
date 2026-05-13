@@ -14,11 +14,14 @@ The “runtime” artifact is `SKILL.md`: Claude Code reads the YAML frontmatter
   - The actual skill definition.
   - Starts with YAML frontmatter (`---` … `---`) containing `name`, `version`, `description`, and `allowed-tools`.
   - After the frontmatter is the editor prompt: the canonical, detailed pattern list with examples.
+- `references/banned-list.md`
+  - A bundled reference for dense AI-writing cleanup passes.
+  - Keep detailed banned words, phrases, emojis, fake names, and style-pattern lists here instead of bloating `SKILL.md`.
 - `README.md`
   - Installation and usage instructions.
-  - Contains a summarized “25 patterns” table and a short version history.
+  - Contains a summarized “31 patterns” table and a short version history.
 
-When changing behavior/content, treat `SKILL.md` as the source of truth, and update `README.md` to stay consistent.
+When changing behavior/content, treat `SKILL.md` as the source of truth and update `README.md` to stay consistent.
 
 ## Common commands
 ### Install the skill into Claude Code
@@ -28,10 +31,11 @@ mkdir -p ~/.claude/skills
 git clone https://github.com/blader/humanizer.git ~/.claude/skills/humanizer
 ```
 
-Manual install/update (only the skill file):
+Manual install/update (skill file and references):
 ```bash
 mkdir -p ~/.claude/skills/humanizer
 cp SKILL.md ~/.claude/skills/humanizer/
+cp -R references ~/.claude/skills/humanizer/
 ```
 
 ## How to “run” it (Claude Code)
@@ -48,6 +52,7 @@ If you bump the version, update both.
 ### Editing `SKILL.md`
 - Preserve valid YAML frontmatter formatting and indentation.
 - Keep the pattern numbering stable unless you’re intentionally re-numbering (since the README table and examples reference the same numbering).
+- If `SKILL.md` points at a bundled reference, keep the reference file present in manual install instructions.
 
 ### Documenting non-obvious fixes
 If you change the prompt to handle a tricky failure mode (e.g., a repeated mis-edit or an unexpected tone shift), add a short note to `README.md`’s version history describing what was fixed and why.

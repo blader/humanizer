@@ -1,13 +1,13 @@
 ---
 name: humanizer
-version: 2.5.1
+version: 2.6.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, fake naming, self-narration, and filler phrases.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -30,9 +30,28 @@ When given text to humanize:
 1. **Identify AI patterns** - Scan for the patterns listed below
 2. **Rewrite problematic sections** - Replace AI-isms with natural alternatives
 3. **Preserve meaning** - Keep the core message intact
-4. **Maintain voice** - Match the intended tone (formal, casual, technical, etc.)
-5. **Add soul** - Don't just remove bad patterns; inject actual personality
-6. **Do a final anti-AI pass** - Prompt: "What makes the below so obviously AI generated?" Answer briefly with remaining tells, then prompt: "Now make it not obviously AI generated." and revise
+4. **Protect factual integrity** - Do not add facts, names, numbers, sources, quotes, examples, prices, dates, or claims unless the user supplied them
+5. **Maintain voice** - Match the intended tone (formal, casual, technical, etc.)
+6. **Add soul** - Don't just remove bad patterns; inject actual personality
+7. **Do a final anti-AI pass** - Ask yourself "What makes the below so obviously AI generated?", fix the remaining tells, then deliver the final version
+
+
+## Hard Rules
+
+1. **Do not invent details.** If the source is vague, keep the rewrite vague or ask for missing facts. Never fabricate studies, people, companies, quotes, metrics, examples, timelines, prices, or citations to make the prose feel concrete.
+2. **No em dashes.** Use commas, periods, colons, semicolons, or parentheses unless the user explicitly asks to preserve them.
+3. **No forced rule-of-three lists.** Use the number of items the content naturally needs.
+4. **No contrast framing.** Avoid "It's not X, it's Y," "Not only X, but Y," "More than just X," and escalation ladders like "It's not A. It's not even B. It's C."
+5. **No dramatic staccato bursts.** Do not stack three or more short sentences for effect.
+6. **No rhetorical transition hooks.** Delete "The catch?", "The kicker?", "Here's the thing," "So what does this mean?", and similar setup lines unless a real question belongs there.
+7. **No fake naming.** Do not capitalize ordinary ideas into invented frameworks, methods, paradoxes, or flywheels.
+8. **No self-narration.** Delete phrases that announce the point instead of making it, such as "this highlights," "this underscores," "the key takeaway is," and "here's why this matters."
+9. **No chatbot wrapper.** Do not add "Here is," "I hope this helps," "let me know," or similar preamble/closing text around the rewrite.
+
+
+## Reference Files
+
+For dense AI-sounding drafts, read `references/banned-list.md`. It contains the comprehensive lists of transition words, adjectives, adverbs, abstract nouns, verbs, phrases, emojis, contrast frames, fake names, and style patterns to remove.
 
 
 ## Voice Calibration (Optional)
@@ -432,7 +451,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ### 28. Signposting and Announcements
 
-**Phrases to watch:** Let's dive in, let's explore, let's break this down, here's what you need to know, now let's look at, without further ado
+**Phrases to watch:** Let's dive in, let's explore, let's break this down, here's what you need to know, now let's look at, without further ado, nobody talks about this, nobody tells you this
 
 **Problem:** LLMs announce what they are about to do instead of doing it. This meta-commentary slows the writing down and gives it a tutorial-script feel.
 
@@ -461,32 +480,57 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 >
 > When users hit a slow page, they leave.
 
+
+### 30. Fake Naming
+
+**Signs to watch:** The Productivity Paradox, The 3C Framework, The Feedback Loop Method, The Innovation Flywheel, The Growth Paradox, The 5-Step Method
+
+**Problem:** LLMs turn ordinary observations into title-cased concepts to make weak structure look authoritative. Unless the name already exists outside the draft, it reads fake.
+
+**Before:**
+> The Feedback Loop Method helps teams improve communication by reviewing what worked and what did not.
+
+**After:**
+> Teams can improve communication by reviewing what worked and what did not.
+
+
+### 31. Self-Narration and Rhetorical Hooks
+
+**Phrases to watch:** this highlights, this underscores, this speaks to, here's why this matters, the key takeaway is, the big picture here is, now for the interesting part, what does this mean?
+
+**Problem:** These phrases announce the point instead of making it. They add a narrator voice that makes the writing feel like a generated explainer.
+
+**Before:**
+> This highlights why onboarding matters. The key takeaway is that users need a faster first-run experience.
+
+**After:**
+> Users need a faster first-run experience.
+
 ---
 
 ## Process
 
 1. Read the input text carefully
 2. Identify all instances of the patterns above
-3. Rewrite each problematic section
-4. Ensure the revised text:
+3. If the draft is dense with AI patterns, read `references/banned-list.md` before rewriting
+4. Rewrite each problematic section without adding unsupported specifics
+5. Ensure the revised text:
    - Sounds natural when read aloud
    - Varies sentence structure naturally
    - Uses specific details over vague claims
+   - Preserves only facts the user supplied
    - Maintains appropriate tone for context
    - Uses simple constructions (is/are/has) where appropriate
-5. Present a draft humanized version
-6. Prompt: "What makes the below so obviously AI generated?"
-7. Answer briefly with the remaining tells (if any)
-8. Prompt: "Now make it not obviously AI generated."
-9. Present the final version (revised after the audit)
+6. Privately ask: "What makes the below so obviously AI generated?"
+7. Fix the remaining tells, especially invented detail, forced structure, self-narration, and banned phrasing
+8. Present the final version
 
 ## Output Format
 
 Provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. If the user only asks for a rewrite, provide only the rewritten text with no preamble
+2. If the user asks for an audit, comparison, or explanation, provide the rewritten text first, then brief notes
+3. If the rewrite needs missing facts to avoid vagueness, ask a short question or keep the sentence general instead of inventing details
 
 
 ## Full Example
@@ -508,30 +552,12 @@ Provide:
 >
 > In conclusion, the future looks bright. Exciting times lie ahead as we continue this journey toward excellence. Let me know if you’d like me to expand on any section!
 
-**Draft rewrite:**
-> AI coding assistants speed up some tasks. In a 2024 study by Google, developers using Codex completed simple functions 55% faster than a control group, but showed no improvement on debugging or architectural decisions.
+**After (humanized):**
+> AI coding assistants can help with documentation and tests. They can also help with refactors, but weak suggestions often look polished, so the value depends on whether someone reviews the output.
 >
-> The tools are good at boilerplate: config files, test scaffolding, repetitive refactors. They are bad at knowing when they are wrong. I have mass-accepted suggestions that compiled, passed lint, and still did the wrong thing because I stopped paying attention.
+> The adoption claims in this draft are hard to judge. "Industry observers" and broad media mentions do not say much without named sources or actual data.
 >
-> Mira, an engineer at a fintech startup I interviewed, said she uses Copilot "like autocomplete for boring code" but reviews every line before committing. Jake, a senior dev at a larger company, disabled it after it kept suggesting patterns from a deprecated internal library.
->
-> The productivity claims are hard to verify. GitHub says Copilot users "accept 30% of suggestions," but acceptance is not correctness, and correctness is not value. The 2024 Uplevel study found no statistically significant difference in pull-request throughput between teams with and without AI assistants.
->
-> None of this means the tools are useless. It means they are tools. They do not replace judgment, and they do not eliminate the need for tests. If you do not have tests, you cannot tell whether the suggestion is right.
-
-**What makes the below so obviously AI generated?**
-- The rhythm is still a bit too tidy (clean contrasts, evenly paced paragraphs).
-- The named people and study citations can read like plausible-but-made-up placeholders unless they're real and sourced.
-- The closer leans a touch slogan-y ("If you do not have tests...") rather than sounding like a person talking.
-
-**Now make it not obviously AI generated.**
-> AI coding assistants can make you faster at the boring parts. Not everything. Definitely not architecture.
->
-> They're great at boilerplate: config files, test scaffolding, repetitive refactors. They're also great at sounding right while being wrong. I've accepted suggestions that compiled, passed lint, and still missed the point because I stopped paying attention.
->
-> People I talk to tend to land in two camps. Some use it like autocomplete for chores and review every line. Others disable it after it keeps suggesting patterns they don't want. Both feel reasonable.
->
-> The productivity metrics are slippery. GitHub can say Copilot users "accept 30% of suggestions," but acceptance isn't correctness, and correctness isn't value. If you don't have tests, you're basically guessing.
+> The safest summary is simple: these tools may speed up parts of software work, but teams still need human review and tests.
 
 **Changes made:**
 - Removed chatbot artifacts ("Great question!", "I hope this helps!", "Let me know if...")
@@ -549,7 +575,7 @@ Provide:
 - Removed excessive hedging ("could potentially be argued that... might have some")
 - Removed filler phrases and persuasive framing ("In order to", "At its core")
 - Removed generic positive conclusion ("the future looks bright", "exciting times lie ahead")
-- Made the voice more personal and less "assembled" (varied rhythm, fewer placeholders)
+- Kept the rewrite general where the source gave no evidence, rather than inventing studies or numbers
 
 
 ## Reference
