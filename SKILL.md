@@ -37,19 +37,25 @@ When given text to humanize:
 
 ## Voice Calibration (Optional)
 
-If the user provides a writing sample (their own previous writing), analyze it before rewriting:
+If the user provides a writing sample (their own previous writing), that sample becomes the style target. Analyze it before rewriting, and let it override the default PERSONALITY AND SOUL guidance.
 
-1. **Read the sample first.** Note:
+1. **Read the sample first and write a brief voice card.** Before the rewrite, note:
    - Sentence length patterns (short and punchy? Long and flowing? Mixed?)
    - Word choice level (casual? academic? somewhere between?)
    - How they start paragraphs (jump right in? Set context first?)
    - Punctuation habits (lots of dashes? Parenthetical asides? Semicolons?)
    - Any recurring phrases or verbal tics
    - How they handle transitions (explicit connectors? Just start the next point?)
+   - Point of view (first person? second person? detached?)
+   - Emotional temperature (dry, warm, blunt, funny, skeptical, enthusiastic?)
 
-2. **Match their voice in the rewrite.** Don't just remove AI patterns - replace them with patterns from the sample. If they write short sentences, don't produce long ones. If they use "stuff" and "things," don't upgrade to "elements" and "components."
+2. **Use the voice card as a constraint, not decoration.** Don't just remove AI patterns - replace them with patterns from the sample. If they write short sentences, don't produce long ones. If they use "stuff" and "things," don't upgrade to "elements" and "components." If they write dry technical prose, keep it dry.
 
-3. **When no sample is provided,** fall back to the default behavior (natural, varied, opinionated voice from the PERSONALITY AND SOUL section below).
+3. **Do not import personality from this guide unless the sample supports it.** Do not add first person, jokes, punchy asides, mixed feelings, edge, or extra opinion just because the default guidance says human writing can have those traits. Add them only when the sample shows that pattern or the user explicitly asks for it.
+
+4. **Preserve meaning and remove AI tells.** Voice matching does not permit changing claims, adding unsupported details, or leaving obvious AI artifacts in place. The rewrite should sound like the sample writer cleaned up the text themselves.
+
+5. **When no sample is provided,** fall back to the default behavior (natural, varied, opinionated voice from the PERSONALITY AND SOUL section below).
 
 ### How to provide a sample
 - Inline: "Humanize this text. Here's a sample of my writing for voice matching: [sample]"
@@ -483,10 +489,11 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 ## Output Format
 
 Provide:
-1. Draft rewrite
-2. "What makes the below so obviously AI generated?" (brief bullets)
-3. Final rewrite
-4. A brief summary of changes made (optional, if helpful)
+1. Voice card (only when a writing sample is provided)
+2. Draft rewrite
+3. "What makes the below so obviously AI generated?" (brief bullets)
+4. Final rewrite
+5. A brief summary of changes made (optional, if helpful)
 
 
 ## Full Example
