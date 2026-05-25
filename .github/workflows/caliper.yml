@@ -1,0 +1,65 @@
+name: Caliper
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  humanizer-evals:
+    runs-on: ubuntu-latest
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Caliper
+        run: python -m pip install "caliper-eval[openai]"
+
+      - name: Validate eval spec
+        run: caliper validate evals/humanizer-voice-calibration.eval.yaml
+
+      - name: Run Caliper eval
+        if: ${{ env.OPENAI_API_KEY != '' || env.ANTHROPIC_API_KEY != '' }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+
+          import yaml
+
+          spec_path = Path("evals/humanizer-voice-calibration.eval.yaml")
+          spec = yaml.safe_load(spec_path.read_text())
+          backend = "openai-api" if os.environ.get("OPENAI_API_KEY") else "claude-api"
+          spec["skill"]["backend"] = backend
+          spec["judge"]["backend"] = backend
+          Path("evals/humanizer-voice-calibration.ci.eval.yaml").write_text(
+              yaml.safe_dump(spec, sort_keys=False)
+          )
+          PY
+          caliper run evals/humanizer-voice-calibration.ci.eval.yaml \
+            --k 1 \
+            --baseline \
+            --judge script \
+            --output results.json
+          python evals/assert_voice.py results.json
+
+      - name: Explain skipped eval
+        if: ${{ env.OPENAI_API_KEY == '' && env.ANTHROPIC_API_KEY == '' }}
+        run: |
+          echo "Caliper spec validation passed."
+          echo "Full eval run skipped because no model API secret is configured."
+          echo "Set OPENAI_API_KEY or ANTHROPIC_API_KEY to enable PR eval runs."
+
+      - name: Upload Caliper results
+        if: ${{ hashFiles('results.json') != '' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: caliper-results
+          path: results.json

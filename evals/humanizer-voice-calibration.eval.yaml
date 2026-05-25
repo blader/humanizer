@@ -1,0 +1,55 @@
+skill:
+  path: ../SKILL.md
+  backend: codex
+judge:
+  backend: codex
+tasks:
+  - name: edonadei_blog_voice
+    prompt: |
+      Humanize the draft below. Use the writing sample as the voice target.
+
+      Writing sample:
+      Every organization has people who know how things actually get done. Not the official process. The real one.
+
+      They know which edge case the template doesn't handle. Which stakeholder needs to be looped in first. Which step everyone quietly skips, and why.
+
+      In theory, a SKILL.md that captures the right sequence, tools, and judgment calls gives you repeatable expert behavior at scale. In practice, most teams ship the skill and call it done.
+
+      That's the mistake.
+
+      Draft to humanize:
+      AI-assisted writing serves as a pivotal milestone in the rapidly evolving landscape of content production, underscoring the crucial role that language models play in enhancing communication workflows. At its core, the value proposition is clear: streamlining drafting, strengthening collaboration, and empowering teams to produce high-quality outputs. It is not just about speed; it is about unlocking creativity at scale. In conclusion, the future looks bright as teams continue this journey toward excellence.
+    expect: |
+      Pass only if the response includes a brief voice card or equivalent style-target note before the rewrite, and the final rewritten prose removes obvious AI-writing tells while preserving the sample's voice: direct, terse, technical-blog prose with mixed short and medium sentences. Ignore wrapper labels such as "Draft rewrite", "Final rewrite", or "Changes made" except for checking that a voice card is present. The rewrite should avoid chatbot signposting, generic upbeat conclusions, inflated phrases such as "pivotal milestone" or "rapidly evolving landscape", and unsupported first-person emotion. It should not become a generic motivational or highly casual rewrite. Fail if the response does not identify the sample voice before rewriting, ignores the sample, adds claims not in the draft, leaves major AI tells, or imports a punchy/opinionated voice that is not grounded in the sample.
+
+  - name: dry_technical_voice
+    prompt: |
+      Humanize the draft below. Use the writing sample as the voice target.
+
+      Writing sample:
+      The cache stores normalized keys and their serialized values. A write replaces the previous value for the same key. Expiration is evaluated on read, not by a background job. This keeps the implementation small and makes eviction behavior easy to test.
+
+      Draft to humanize:
+      The caching layer serves as a robust foundation for scalable application performance, providing developers with a seamless and intuitive mechanism for managing frequently accessed data. Not only does it reduce latency, but it also empowers teams to unlock more efficient user experiences across the platform. Let's dive into what makes this approach so powerful.
+    expect: |
+      Pass only if the response includes a brief voice card or equivalent style-target note before the rewrite, and the final rewritten prose removes promotional phrasing, signposting, and negative parallelism while preserving a dry technical voice. Ignore wrapper labels such as "Draft rewrite", "Final rewrite", or "Changes made" except for checking that a voice card is present. The rewrite should be plain, specific, and impersonal. It should not add "I", jokes, emotional reactions, punchy editorial comments, or conversational warmth unless present in the source sample. Fail if the response does not identify the sample voice before rewriting, makes the prose more personal or opinionated than the sample, leaves "serves as", "seamless", "unlock", or "Let's dive in", or changes the technical meaning.
+
+  - name: casual_email_voice
+    prompt: |
+      Humanize the draft below. Use the writing sample as the voice target.
+
+      Writing sample:
+      Hey Sam, quick note before I forget. The import worked, but the names came through weird in two rows. I can clean it up tomorrow unless you need it today.
+
+      Draft to humanize:
+      I hope this message finds you well. I wanted to provide a quick update regarding the data import process. The system successfully completed the import, but there are a few minor inconsistencies that may require further review. Please let me know if you would like me to proceed with resolving these items.
+    expect: |
+      Pass only if the response includes a brief voice card or equivalent style-target note before the rewrite, and the final rewritten prose removes formal chatbot artifacts and matches the casual email sample: short, direct, friendly, with contractions or plain wording where natural. Ignore wrapper labels such as "Draft rewrite", "Final rewrite", or "Changes made" except for checking that a voice card is present. The rewrite should preserve the concrete facts that the import worked and a few inconsistencies need review. Fail if the response does not identify the sample voice before rewriting, stays formal, includes "I hope this message finds you well", over-explains, or becomes too polished for the sample.
+
+  - name: no_sample_default
+    prompt: |
+      Humanize this draft:
+
+      Great question! Here is an overview. AI coding assistants serve as a transformative force in the modern software development landscape, marking a pivotal shift in how developers ideate, iterate, and deliver high-quality solutions. Additionally, these tools foster collaboration, enhance productivity, and unlock creativity at scale. In conclusion, the future looks bright. Let me know if you'd like me to expand on any section.
+    expect: |
+      Grade only the rewritten prose, especially the final rewrite if the response includes draft/audit sections. Ignore the skill's required wrapper labels such as "Draft rewrite", "Final rewrite", or "Changes made". Pass if the answer uses the default humanizer behavior: remove chatbot artifacts, significance inflation, generic conclusion, and AI vocabulary while preserving the meaning. A more natural, opinionated voice is acceptable because no sample was supplied. Fail if the rewrite leaves obvious AI tells or adds unsupported facts.
