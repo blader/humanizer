@@ -172,7 +172,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 **High-frequency AI words and phrases:** Actually, additionally, align with, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), `load[- ]bearing`, pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
 
-**Problem:** These words and phrases appear far more frequently in post-2023 text. They often co-occur. When source text contains a phrase matching `load[- ]bearing`, replace it with the specific claim: core, binding, required, material, normative, decision-critical, or another concrete term.
+**Problem:** These words and phrases appear far more frequently in post-2023 text. They often co-occur. When source text contains a phrase matching `load[- ]bearing`, do not swap in a stock synonym. Rewrite the sentence around the role being claimed: what depends on it, what breaks without it, which rule it preserves, or which decision it gates.
 
 **Before:**
 > Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.

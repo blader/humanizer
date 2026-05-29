@@ -105,7 +105,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 7 | **AI vocabulary** | "Actually... additionally... testament... landscape... showcasing... `load[- ]bearing`" | "also... remain common... core... binding" |
+| 7 | **AI vocabulary** | "Actually... additionally... testament... landscape... showcasing... `load[- ]bearing`" | Rewrite around the actual dependency or rule |
 | 8 | **Copula avoidance** | "serves as... features... boasts" | "is... has" |
 | 9 | **Negative parallelisms / tailing negations** | "It's not just X, it's Y", "..., no guessing" | State the point directly |
 | 10 | **Rule of three** | "innovation, inspiration, and insights" | Use natural number of items |
