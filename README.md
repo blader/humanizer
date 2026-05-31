@@ -4,9 +4,20 @@ A skill for Claude Code and OpenCode that removes signs of AI-generated writing 
 
 ## Installation
 
-### Claude Code
+### Claude Code (plugin marketplace — recommended)
 
-Clone directly into Claude Code's skills directory:
+Add the marketplace and install the plugin from within Claude Code:
+
+```
+/plugin marketplace add blader/humanizer
+/plugin install humanizer@humanizer
+```
+
+This installs Humanizer as a managed plugin, so you can enable, disable, and update it through `/plugin` without touching your skills directory.
+
+### Claude Code (manual clone)
+
+Or clone directly into Claude Code's skills directory:
 
 ```bash
 mkdir -p ~/.claude/skills

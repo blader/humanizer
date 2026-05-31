@@ -1,0 +1,15 @@
+{
+  "name": "humanizer",
+  "owner": {
+    "name": "Siqi Chen",
+    "url": "https://github.com/blader"
+  },
+  "description": "Marketplace for the Humanizer skill — removes signs of AI-generated writing from text.",
+  "plugins": [
+    {
+      "name": "humanizer",
+      "source": "./",
+      "description": "Remove signs of AI-generated writing from text, making it sound more natural and human. Based on Wikipedia's \"Signs of AI writing\" guide."
+    }
+  ]
+}
