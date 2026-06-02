@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.7.0
+version: 2.8.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -481,6 +481,49 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 
 **After:**
 > This function uses a hash map for O(1) lookups, avoiding the O(n²) cost of naive iteration.
+
+
+### 31. Tables Where Prose Belongs
+
+**Problem:** AI chatbots reach for a table to present information that reads better as a sentence or a short list. Watch for tables with a single data row, a column that repeats one value, or "aspect/description" pairs that are really just prose split across cells.
+
+**Before:**
+> | Feature | Description |
+> | --- | --- |
+> | Speed | The service responds quickly under normal load. |
+
+**After:**
+> Under normal load, the service responds quickly.
+
+
+### 32. Skipped Heading Levels
+
+**Problem:** AI-generated documents often jump heading levels (an `H2` followed directly by an `H4`), using heading size for visual weight rather than to express the real document hierarchy. Headings should step down one level at a time.
+
+**Before:**
+> ## Installation
+> #### Prerequisites
+
+**After:**
+> ## Installation
+> ### Prerequisites
+
+
+### 33. Thematic Breaks Before Headings
+
+**Problem:** AI chatbots scatter horizontal rules (`---`) just above section headings as decorative separators. A heading already starts a new section; the rule is redundant noise.
+
+**Before:**
+> Earlier content wraps up here.
+>
+> ---
+>
+> ## Next Section
+
+**After:**
+> Earlier content wraps up here.
+>
+> ## Next Section
 
 
 ## DETECTION GUIDANCE
