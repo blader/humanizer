@@ -1,0 +1,4 @@
+interface:
+  display_name: "Humanizer"
+  short_description: "Rewrite text to remove AI writing tells"
+  default_prompt: "Use $humanizer to rewrite pasted text so it sounds natural and human-written."

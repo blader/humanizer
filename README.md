@@ -1,8 +1,25 @@
 # Humanizer
 
-A skill for Claude Code and OpenCode that removes signs of AI-generated writing from text, making it sound more natural and human.
+A skill for Codex, Claude Code, and OpenCode that removes signs of AI-generated writing from text, making it sound more natural and human.
 
 ## Installation
+
+### Codex
+
+Clone directly into Codex's skills directory:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills"
+git clone https://github.com/blader/humanizer.git "${CODEX_HOME:-$HOME/.codex}/skills/humanizer"
+```
+
+Or copy the skill files manually if you already have this repo cloned:
+
+```bash
+mkdir -p "${CODEX_HOME:-$HOME/.codex}/skills/humanizer"
+cp SKILL.md "${CODEX_HOME:-$HOME/.codex}/skills/humanizer/"
+cp -R agents "${CODEX_HOME:-$HOME/.codex}/skills/humanizer/"
+```
 
 ### Claude Code
 
@@ -40,6 +57,14 @@ cp SKILL.md ~/.config/opencode/skills/humanizer/
 
 ## Usage
 
+### Codex
+
+```
+Use $humanizer to humanize this text:
+
+[paste your text here]
+```
+
 ### Claude Code
 
 ```
@@ -56,7 +81,7 @@ cp SKILL.md ~/.config/opencode/skills/humanizer/
 [paste your text here]
 ```
 
-Or ask the model to humanize text directly in either tool:
+Or ask the model to humanize text directly in any supported tool:
 
 ```
 Please humanize this text: [your text]
@@ -180,6 +205,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.8.0** - Added Codex compatibility while retaining Claude Code and OpenCode support; added `agents/openai.yaml` metadata. No change to the 30 patterns.
 - **2.7.0** - Added pattern #30 (diff-anchored writing); made em/en dashes a hard cut rather than "overuse"; expanded #21 to cover speculative gap-filling ("maintains a low profile"). 30 patterns total.
 - **2.6.0** - Cleanup pass: consolidated the duplicated workflow sections, gated the personality guidance to content where voice is wanted, removed the model-fingerprinting subsection, and condensed the worked example. No change to the 29 patterns.
 - **2.5.1** - Added a passive-voice / subjectless-fragment rule, raising the total to 29 patterns
