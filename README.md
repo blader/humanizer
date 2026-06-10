@@ -22,6 +22,14 @@ If you want to install for specific agent, use the table below.
  
 > **Note:** OpenCode also scans `~/.claude/skills/` for compatibility, so if you use both tools, setting it up for Claude Code is enough.
 
+### Update
+
+To sync the latest changes from the repo to the local installed skill, run the command
+
+```bash
+npx skills update humanizer
+```
+
 ## Usage
 
 ### Claude Code
