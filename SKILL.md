@@ -1,13 +1,17 @@
 ---
 name: humanizer
-version: 2.8.0
+version: 2.9.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, and filler phrases. Bilingual: detects whether
+  the input is English or Spanish and applies the matching pattern catalog
+  (Spanish patterns live in references/patrones-espanol.md). Use also when asked
+  in Spanish to redactar, humanizar, or reescribir un texto so it doesn't read
+  as AI-generated.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -34,6 +38,20 @@ When given text to humanize:
 
 The draft → audit → final loop and the deliverable are defined under Process and Output, below.
 
+
+## Language / Idioma (detect first)
+
+Before anything else, detect the language of the input:
+
+- **English** → use the pattern catalog in this file as-is.
+- **Spanish / español** → ALSO load `references/patrones-espanol.md` and apply the
+  Spanish vocabulary, connectors, calque openers and examples from there. The
+  structural and stylistic principles in this file (rule of three, uniform
+  sentence length, em-dash discipline, copula avoidance, hedging, sycophancy,
+  filler) still apply — only the word lists and examples change.
+- **Mixed / other** → humanize each passage in its own language; never translate.
+
+Always deliver the rewrite in the same language as the input.
 
 ## Voice Calibration (Optional)
 

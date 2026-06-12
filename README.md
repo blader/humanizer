@@ -78,6 +78,16 @@ Now humanize this text:
 
 The skill will analyze your sentence rhythm, word choices, and quirks, then apply them to the rewrite instead of producing generic "clean" output.
 
+### Spanish / Español
+
+The skill detects the input language automatically. For Spanish text it loads [`references/patrones-espanol.md`](references/patrones-espanol.md), a parallel catalog of Spanish-specific AI tells: filler connectors ("Cabe destacar", "En definitiva"), calque openers ("En el mundo actual…"), brochure verbs ("potenciar", "fomentar"), superfluous gerund chains, and a full before/after example in Spanish. The structural rules (rule of three, uniform sentence length, em-dash discipline) carry over from the English catalog; only the word lists and examples change. Rewrites always stay in the language of the input — nothing gets translated.
+
+```
+/humanizer
+
+Humaniza este texto: [tu texto en español]
+```
+
 ## Overview
 
 Based on [Wikipedia's "Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) guide, maintained by WikiProject AI Cleanup. This comprehensive guide comes from observations of thousands of instances of AI-generated text.
@@ -183,6 +193,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.9.0** - Added Spanish language support: automatic language detection routes Spanish input to `references/patrones-espanol.md`, a parallel catalog of Spanish AI tells (filler connectors, calque openers, brochure verbs, superfluous gerunds) with a Spanish before/after example. English catalog and the 33 patterns unchanged.
 - **2.8.0** - Added style/cadence patterns #31-33 for manufactured punchlines, aphorism formulas, and conversational rhetorical openers; expanded #20 to catch offer-to-continue chatbot closers. 33 patterns total.
 - **2.7.0** - Added pattern #30 (diff-anchored writing); made em/en dashes a hard cut rather than "overuse"; expanded #21 to cover speculative gap-filling ("maintains a low profile"). 30 patterns total.
 - **2.6.0** - Cleanup pass: consolidated the duplicated workflow sections, gated the personality guidance to content where voice is wanted, removed the model-fingerprinting subsection, and condensed the worked example. No change to the 29 patterns.
