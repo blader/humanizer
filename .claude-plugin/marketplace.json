@@ -1,0 +1,16 @@
+{
+  "name": "plainspeak",
+  "owner": {
+    "name": "Samuel Araya"
+  },
+  "description": "Plainspeak: make scientific and technical writing clear.",
+  "plugins": [
+    {
+      "name": "plainspeak",
+      "source": "./",
+      "description": "Make scientific and technical writing clear. Cuts padding, keeps exact terms, numbers, and citations, and puts the claim first.",
+      "homepage": "https://github.com/saraya209/plainspeak",
+      "license": "MIT"
+    }
+  ]
+}

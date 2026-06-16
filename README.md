@@ -1,6 +1,6 @@
 # Plainspeak
 
-A skill for Claude Code and OpenCode that makes scientific, technical, and data-science writing clear. Plainspeak cuts padding, keeps the exact terms and numbers, and puts the claim first. The same edits remove the signs of AI writing, so clean prose comes out as a result.
+A Claude Code skill that makes scientific, technical, and data-science writing clear. Plainspeak cuts padding, keeps the exact terms and numbers, and puts the claim first. The same edits remove the signs of AI writing, so clean prose comes out as a result.
 
 Plainspeak takes its method and its name from Orwell. The core rules paraphrase the six from his "Politics and the English Language" (1946); the name sets plain, truthful prose against the obfuscating Newspeak of *1984*.
 
@@ -24,21 +24,20 @@ Plainspeak is a fork of [blader/humanizer](https://github.com/blader/humanizer) 
 
 ## Installation
 
-### Claude Code
+Plainspeak installs as a Claude Code plugin, so you can update it from inside Claude Code instead of managing a clone by hand. Add the marketplace, then install:
 
-```bash
-mkdir -p ~/.claude/skills
-git clone https://github.com/saraya209/plainspeak.git ~/.claude/skills/plainspeak
+```
+/plugin marketplace add saraya209/plainspeak
+/plugin install plainspeak@plainspeak
 ```
 
-### OpenCode
+To update later, after a new version is published:
 
-OpenCode also scans `~/.claude/skills/`, so a single clone into that path works for both tools. To install separately:
-
-```bash
-mkdir -p ~/.config/opencode/skills
-git clone https://github.com/saraya209/plainspeak.git ~/.config/opencode/skills/plainspeak
 ```
+/plugin marketplace update plainspeak
+```
+
+You can also turn on auto-update for the marketplace from the `/plugin` menu under the Marketplaces tab.
 
 ## Usage
 
@@ -116,7 +115,7 @@ Plainspeak builds on two open-source lineages. The full chain, with links and no
 
 ## Version history
 
-- **0.1.0** - Initial Plainspeak fork. Reframed humanizer around clarity for technical prose: Orwell-based core rules, an explicit domain-terminology exception, a methods-section passive-voice exception, artifact-specific conventions, and removal of the blog-voice personality material. Scope set to core technical and scientific prose.
+- **0.1.0** - Initial Plainspeak fork. Reframed humanizer around clarity for technical prose: Orwell-based core rules, an explicit domain-terminology exception, a methods-section passive-voice exception, artifact-specific conventions, and removal of the blog-voice personality material. Scope set to core technical and scientific prose. Packaged as a Claude Code plugin for marketplace install and in-app updates.
 
 ## License
 
