@@ -88,7 +88,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 33 Patterns Detected (with Before/After Examples)
+## 34 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -148,6 +148,12 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 | 24 | **Excessive hedging** | "could potentially possibly" | "may" |
 | 25 | **Generic conclusions** | "The future looks bright" | Specific plans or facts |
 
+### Factuality and Sourcing
+
+| # | Pattern | Before | After |
+|---|---------|--------|-------|
+| 34 | **Hallucinated data / fake citations / fabricated links** | "studies show 73%... (https://jse.org/...)" | Verify and cite, or flag `[unverified - needs source]` — never invent a source |
+
 ## Full Example
 
 **Before (AI-sounding):**
@@ -183,6 +189,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.9.0** - Added pattern #34 (hallucinated data, fake citations, fabricated links) in a new "Factuality and Sourcing" section, plus a fact-check pass as the first step of the process and a sourcing report in the deliverable. The rule is verify-and-cite or flag, and never invent a source, since a fabricated statistic or dead link survives a style edit and reads more credible after polishing. 34 patterns total.
 - **2.8.0** - Added style/cadence patterns #31-33 for manufactured punchlines, aphorism formulas, and conversational rhetorical openers; expanded #20 to catch offer-to-continue chatbot closers. 33 patterns total.
 - **2.7.0** - Added pattern #30 (diff-anchored writing); made em/en dashes a hard cut rather than "overuse"; expanded #21 to cover speculative gap-filling ("maintains a low profile"). 30 patterns total.
 - **2.6.0** - Cleanup pass: consolidated the duplicated workflow sections, gated the personality guidance to content where voice is wanted, removed the model-fingerprinting subsection, and condensed the worked example. No change to the 29 patterns.

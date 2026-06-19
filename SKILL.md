@@ -1,13 +1,14 @@
 ---
 name: humanizer
-version: 2.8.0
+version: 2.9.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
   comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
   inflated symbolism, promotional language, superficial -ing analyses, vague
   attributions, em dash overuse, rule of three, AI vocabulary words, passive
-  voice, negative parallelisms, and filler phrases.
+  voice, negative parallelisms, filler phrases, and hallucinated data, fake
+  citations, or fabricated links.
 license: MIT
 compatibility: claude-code opencode
 allowed-tools:
@@ -520,6 +521,28 @@ Before returning the final rewrite, scan it for `—` and `–`. Any hit means t
 > Whether it's worth the price depends on how often you'll use it.
 
 
+## FACTUALITY AND SOURCING
+
+### 34. Hallucinated Data, Fake Citations, and Fabricated Links
+
+**Signs to watch:** suspiciously clean statistics with no source ("studies show 73% of..."), named studies, reports, or surveys that may not exist, quotes attributed to real people without a traceable origin, plausible-looking URLs nobody checked, DOIs / ISBNs / case numbers / dates / dollar figures stated with confidence but no provenance.
+
+**Problem:** This is the most damaging tell because it survives a style edit untouched. The prose reads clean while the facts are invented. LLMs fill gaps with plausible numbers, citations, and links instead of admitting they don't know, and a polishing pass makes the fabrication *more* convincing, not less. A rewrite that leaves a fake statistic or a dead link in place has made the text worse, because it now reads credibly.
+
+**Rules:**
+
+1. **Don't assume.** Treat every specific data point, statistic, quote, named source, date, and URL as unverified until checked. Plausibility is not verification. A number that "sounds about right" is exactly the trap.
+2. **Verify when you can.** If web or other research access is available, confirm each factual claim and every link against a primary or reputable source. Check that cited URLs actually resolve and actually say what the text claims, and that named studies, papers, and people exist.
+3. **Cite what you keep.** Every retained data point or quote should carry a citation to a real, working source. Prefer primary sources and link directly to them.
+4. **When you cannot verify:** never paraphrase a guess into fact. Either (a) cut the claim, (b) soften it to what is genuinely known and say plainly what is not, or (c) mark it `[unverified - needs source]` so it cannot ship by accident. **Never invent a citation or URL.** A fabricated source is worse than an admitted gap.
+
+**Before:**
+> A recent study found that 73% of developers report higher productivity with AI coding tools, according to research published in the Journal of Software Engineering (https://jse.org/ai-productivity-2024).
+
+**After (verifiable claim kept and cited; the rest flagged, not faked):**
+> In GitHub's 2024 developer survey, most respondents said AI tools improved their productivity (GitHub, "Survey: The AI wave continues to grow," 2024; confirm the exact live URL before publishing). [The specific "73%" figure and the "Journal of Software Engineering" citation could not be verified and were removed; restore only with a real source. The original URL did not resolve.]
+
+
 ## DETECTION GUIDANCE
 
 ### What NOT to flag (false positives)
@@ -560,11 +583,12 @@ When you see these, lean toward leaving the prose alone — they are evidence of
 ## Process and Output
 
 1. Read the input carefully and identify every instance of the patterns above.
-2. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register.
-3. Ask: **"What makes the below so obviously AI generated?"** Answer briefly with any remaining tells.
-4. Revise into a **final rewrite** that addresses them and contains no em or en dashes (see §14).
+2. **Fact-check pass (see §34).** Before rewriting, list every specific data point, statistic, quote, named source, date, and URL. Assume none are correct. Verify what you can and note a citation for each; flag or cut what you can't. Do this first so you never polish a false claim into something more convincing.
+3. Write a **draft rewrite**. Check that it reads naturally aloud, varies sentence length, prefers specific details and simple constructions (is/are/has), and keeps the appropriate register. Keep every verified fact attached to its citation.
+4. Ask: **"What makes the below so obviously AI generated?"** Answer briefly with any remaining tells.
+5. Revise into a **final rewrite** that addresses them, contains no em or en dashes (see §14), carries a citation for every retained data point and quote, and leaves no unverified claim asserted as fact.
 
-Deliver the draft, the brief "still-AI" bullets, the final rewrite, and (optionally) a short summary of changes.
+Deliver the draft, the brief "still-AI" bullets, a short **sourcing report** (verified / cited, softened, removed, or `[unverified - needs source]`), the final rewrite, and (optionally) a short summary of changes.
 
 
 ## Full Example
