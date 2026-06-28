@@ -46,7 +46,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 
-## 24 Patterns Detected (with Before/After Examples)
+## 34 Patterns Detected (with Before/After Examples)
 
 ### Content Patterns
 
@@ -58,6 +58,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 | 4 | **Promotional language** | "nestled within the breathtaking region" | "is a town in the Gonder region" |
 | 5 | **Vague attributions** | "Experts believe it plays a crucial role" | "according to a 2019 survey by..." |
 | 6 | **Formulaic challenges** | "Despite challenges... continues to thrive" | Specific facts about actual challenges |
+| 34 | **Universal audience appeals** | "Whether you are a seasoned engineer or a complete beginner..." | "This tool handles both complex and basic workflows." |
 
 ### Language Patterns
 
@@ -132,6 +133,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.9.0** - Added pattern #34 for universal audience appeals
 - **2.2.0** - Added a final "obviously AI generated" audit + second-pass rewrite prompts
 - **2.1.1** - Fixed pattern #18 example (curly quotes vs straight quotes)
 - **2.1.0** - Added before/after examples for all 24 patterns

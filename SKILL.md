@@ -1,6 +1,6 @@
 ---
 name: humanizer
-version: 2.2.0
+version: 2.9.0
 description: |
   Remove signs of AI-generated writing from text. Use when editing or reviewing
   text to make it sound more natural and human-written. Based on Wikipedia's
@@ -151,6 +151,22 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 **After:**
 > Traffic congestion increased after 2015 when three new IT parks opened. The municipal corporation began a stormwater drainage project in 2022 to address recurring floods.
+
+---
+
+### 34. Universal Audience Appeals
+
+**Words to watch:** Whether you are/you're a seasoned expert or a complete beginner, for everyone from beginners to experts, beginners and experts alike, no matter your skill level, whether advanced or just getting started
+
+**Problem:** LLMs try to maximize apparent usefulness by explicitly promising value to every reader skill level at once.
+
+**Before:**
+> Whether you are a seasoned engineer or a complete beginner, this tool has something to offer.
+
+**After:**
+> This tool handles both complex and basic workflows.
+
+**Note:** The universal-audience framing reads like AI marketing fluff because it flatters every possible reader instead of naming the actual capability. Preserve specific audience assumptions ("This guide assumes you already know Git") and factual feature ranges ("The API supports both REST and GraphQL").
 
 ---
 
