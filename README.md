@@ -189,6 +189,7 @@ The skill also includes a final "obviously AI generated" audit pass and a second
 
 ## Version History
 
+- **2.9.0** - Added a Factual Reliability group with pattern #34 (fabricated and unverifiable citations); broadened #14 from em/en dashes to all dashes used as punctuation, including the spaced hyphen, with a rephrase ladder; grounded #7's AI-vocabulary claim in the Kobak excess-vocabulary study; added leaked-assistant phrases ("As an AI language model") to #20; removed three em dashes from the skill's own prose. 34 patterns total.
 - **2.8.0** - Added style/cadence patterns #31-33 for manufactured punchlines, aphorism formulas, and conversational rhetorical openers; expanded #20 to catch offer-to-continue chatbot closers. 33 patterns total.
 - **2.7.0** - Added pattern #30 (diff-anchored writing); made em/en dashes a hard cut rather than "overuse"; expanded #21 to cover speculative gap-filling ("maintains a low profile"). 30 patterns total.
 - **2.6.0** - Cleanup pass: consolidated the duplicated workflow sections, gated the personality guidance to content where voice is wanted, removed the model-fingerprinting subsection, and condensed the worked example. No change to the 29 patterns.
