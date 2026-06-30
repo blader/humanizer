@@ -1,0 +1,18 @@
+{
+  "name": "humanizer",
+  "description": "The humanizer skill, installable as a GitHub Copilot CLI plugin.",
+  "owner": {
+    "name": "blader",
+    "url": "https://github.com/blader"
+  },
+  "plugins": [
+    {
+      "name": "humanizer",
+      "description": "Remove signs of AI-generated writing from text, making it sound more natural and human. Based on Wikipedia's \"Signs of AI writing\" guide.",
+      "source": "./",
+      "category": "writing",
+      "tags": ["writing", "editing", "ai-detection", "humanize", "prose", "style"],
+      "skills": ".github/skills"
+    }
+  ]
+}

@@ -12,13 +12,16 @@ A portable agent skill implemented entirely as Markdown. The runtime artifact is
 - `README.md` — for humans: installation, usage, a summary table of the patterns, and a version history.
 - `.claude-plugin/plugin.json` — optional Claude Code plugin manifest.
 - `.claude-plugin/marketplace.json` — optional single-repo marketplace entry so `/plugin marketplace add blader/humanizer` works.
+- `.github/plugin/plugin.json` — optional GitHub Copilot CLI plugin manifest.
+- `.github/plugin/marketplace.json` — optional single-repo marketplace entry so `/plugin marketplace add blader/humanizer` works in Copilot CLI.
+- `.github/skills/humanizer/SKILL.md` — symlink to the root `SKILL.md`. Copilot CLI discovers skills under `.github/skills/`, so this exposes the skill there without a second copy; the symlink keeps `SKILL.md` the single source of truth. Leave it as a symlink (don't replace it with a copy).
 
 ## The maintenance contract
 
 `SKILL.md` and `README.md` must stay in sync. When you change behavior or content:
 
 - **Patterns:** the skill currently defines **33 numbered patterns**. If you add, remove, or renumber any, update the README pattern table, its "N Patterns Detected" heading, and every cross-reference in the same change. Keep numbering stable unless you are deliberately renumbering.
-- **Version:** `SKILL.md` frontmatter has a `version:` field, `README.md` has a "Version History" section, and `.claude-plugin/plugin.json` has a `version` field. Bump them together so package metadata matches the skill. (`marketplace.json` intentionally omits a version so `plugin.json` stays the package source of truth.)
+- **Version:** `SKILL.md` frontmatter has a `version:` field, `README.md` has a "Version History" section, and both `.claude-plugin/plugin.json` and `.github/plugin/plugin.json` have a `version` field. Bump them together so package metadata matches the skill. (Both `marketplace.json` files intentionally omit a version so the `plugin.json` files stay the package source of truth.)
 - **Compatibility:** keep install and usage language harness-neutral. The skill should work in any agent harness that can load Markdown skill instructions; Claude Code, OpenCode, Codex, and other harnesses are examples, not limits.
 - **Non-obvious fixes:** if you change the prompt to handle a tricky failure mode (a repeated mis-edit, an unexpected tone shift), add a short note to the README version history explaining what was fixed and why.
 

@@ -41,6 +41,23 @@ Claude Code users can also install Humanizer as a plugin:
 
 The skill is then invoked as `/humanizer:humanizer`.
 
+### GitHub Copilot CLI
+
+GitHub Copilot CLI users can install Humanizer as a plugin:
+
+```
+/plugin marketplace add blader/humanizer
+/plugin install humanizer@humanizer
+```
+
+Or add just the skill, without the plugin wrapper:
+
+```
+/skills add https://github.com/blader/humanizer
+```
+
+Either way, `/skills list` shows `humanizer` once it is installed. Copilot loads the skill automatically when you ask it to humanize text, and you can also request it by name.
+
 ### Manual
 
 Any agent harness can use the skill directly because the runtime artifact is `SKILL.md`. Install it wherever your harness expects skill directories, or copy `SKILL.md` into an existing skill folder.
