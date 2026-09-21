@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "humanizer",
   "description": "Rewrite AI-sounding text so it reads naturally without changing what it says.",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "author": {
     "name": "blader",
     "url": "https://github.com/blader"

@@ -7,7 +7,7 @@ description: |
   language, stock AI words, bold labels, or filler. Based on Wikipedia's "Signs of AI writing."
 license: MIT
 metadata:
-  version: "3.0.0"
+  version: "3.1.0"
 ---
 
 # Humanizer: remove AI writing patterns
@@ -300,6 +300,10 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 > 💡 **Key Insight:** Users prefer simplicity
 **After:**
 > The product launches in Q3. User research showed a preference for simplicity.
+**Before (heading written for effect rather than naming the section):**
+> ## The decision, on one screen
+**After:**
+> ## How the six options compare
 
 ### 21. Curly quotation marks
 
@@ -349,13 +353,31 @@ Remove these outright. Nothing here needs rewriting.
 >
 > When users hit a slow page, they leave.
 
-### 25. Writing about the previous version
+### 25. Writing about the document instead of its subject
 
-**Problem:** Documentation and comments describe what the text replaced instead of the current behavior. Mention the previous version only in change logs, release notes, migration guides, and other documents about change.
+**Watch for:** what the text replaced; how it was assembled; how carefully it was sourced. "was added to replace"; "generated from"; "compiled from"; "narrowed down from"; "anything unconfirmed is flagged rather than guessed".
+**Problem:** The sentence describes the document rather than the thing the document is about, so the reader is told about the factory instead of the product. Mention a previous version only in change logs, release notes, migration guides, and other documents about change. A source credit the reader can follow stays; a description of your process goes. A caveat stays where it changes what the reader should do and goes where it only reports how you worked.
 **Before:**
 > This function was added to replace the previous approach of iterating through all items, which caused O(n²) performance.
 **After:**
 > This function uses a hash map for O(1) lookups, avoiding the O(n²) cost of naive iteration.
+**Before (method narration):**
+> The figures below are drawn from each vendor's published pricing; anything we could not confirm is flagged rather than guessed.
+**After:**
+> Prices are each vendor's published rate. Two vendors publish nothing; call them.
+
+### 26. Explaining the document's own conventions
+
+**Watch for:** a sentence describing the page's own legend, layout, structure or order. "The table below compares"; "this section is organized by owner"; "click any row to expand"; "ratings are out of five, where five is best".
+**Problem:** The reader can already see the convention, so stating it adds nothing and signals that the legend was written by something that could not see the page. State a convention only where the reader cannot infer it, and state it once without defending it. *Weak alone.*
+**Before:**
+> Cost is shown as a relative scale, where one symbol is the cheapest option on this list and five is the most expensive.
+**After:**
+> (cut; the column header already says Cost)
+**Before:**
+> Ratings come from the public listing along with the number of reviews, because a high score from a handful of people is not the same as a slightly lower score from hundreds.
+**After:**
+> Ratings are from the public listing, with the review count.
 
 ## When not to act
 
