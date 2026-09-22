@@ -63,6 +63,20 @@ if SKILL_PATH.is_symlink() or skill_files != {Path("SKILL.md")}:
 if PLUGIN.get("skills") != ["./"]:
     raise SystemExit("Point the Claude plugin skill loader at the repo root")
 
+skill_name = require_match(
+    re.search(r"(?m)^name:\s*(\S+)\s*$", yaml_metadata),
+    "Add a name field to SKILL.md metadata",
+).group(1)
+if PLUGIN.get("name") != skill_name:
+    raise SystemExit(
+        f"plugin.json name ({PLUGIN.get('name')!r}) must match SKILL.md name ({skill_name!r})"
+    )
+
+referenced_files = sorted(set(re.findall(r"references/[\w.-]+\.md", SKILL)))
+missing_references = [ref for ref in referenced_files if not (ROOT / ref).is_file()]
+if missing_references:
+    raise SystemExit(f"SKILL.md points to a missing file: {missing_references}")
+
 pattern_numbers = [
     int(number)
     for number in re.findall(r"(?m)^### ([0-9]+)\. ", SKILL)
@@ -84,4 +98,7 @@ if f"## The {pattern_count} patterns" not in README:
 if len(SKILL.splitlines()) > 400:
     raise SystemExit("Keep SKILL.md at 400 lines or fewer")
 
-print(f"Humanizer package v{skill_version} is valid")
+print(
+    f"{skill_name} package v{skill_version} is valid "
+    f"({pattern_count} patterns, {len(referenced_files)} reference files)"
+)

@@ -1,4 +1,4 @@
 interface:
-  display_name: "Humanizer"
-  short_description: "Make AI-written text sound like the writer"
-  default_prompt: "Use $humanizer to rewrite this text in my voice without changing its facts."
+  display_name: "Wallet Pickle Humanizer"
+  short_description: "Make AI-written text sound like Wallet Pickle's editorial team"
+  default_prompt: "Use $wallet-pickle-humanizer to rewrite this text in Wallet Pickle's voice without changing its facts."

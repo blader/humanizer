@@ -1,15 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
-  "name": "humanizer",
-  "description": "Rewrite AI-sounding text so it reads naturally without changing what it says.",
-  "version": "3.0.0",
+  "name": "wallet-pickle-humanizer",
+  "description": "Rewrite AI-sounding text so it reads naturally in Wallet Pickle's voice, without changing what it says.",
+  "version": "1.0.0",
   "author": {
     "name": "blader",
     "url": "https://github.com/blader"
   },
-  "homepage": "https://github.com/blader/humanizer",
-  "repository": "https://github.com/blader/humanizer",
+  "homepage": "https://github.com/Devhari2k/humanizer",
+  "repository": "https://github.com/Devhari2k/humanizer",
   "license": "MIT",
-  "keywords": ["writing", "editing", "humanize", "prose", "style"],
+  "keywords": ["writing", "editing", "humanize", "prose", "style", "wallet-pickle", "finance"],
   "skills": ["./"]
 }
