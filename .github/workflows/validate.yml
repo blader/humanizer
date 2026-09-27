@@ -21,6 +21,8 @@ jobs:
           python-version: "3.12"
       - name: Check package files
         run: python3 scripts/validate-package.py
+      - name: Check OpenCode plugin
+        run: node --test scripts/test-opencode-plugin.mjs
       - name: Check skill discovery
         run: npx --yes skills@1.5.20 add . --list
       - name: Check Claude marketplace
