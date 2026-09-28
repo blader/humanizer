@@ -1,0 +1,26 @@
+scripts/validate-package.py
+  c0458bb19846b9df 28-33,60-65,76-79
+AGENTS.md
+  c0458bb19846b9df 17,26-27
+.cursor-plugin/plugin.json
+  c0458bb19846b9df 1-12
+README.md
+  c0458bb19846b9df 179
+  s_d321e4fc3c0fa4::t_16e9e64aaf7d41 26-27
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9f2cc4b29fc00b346f1a082d9bf590c3fac087db",
+  "prompts": {},
+  "sessions": {
+    "s_d321e4fc3c0fa4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f89e4d2-f78b-4c34-b2b0-b4ca54eb3d36",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    }
+  }
+}
