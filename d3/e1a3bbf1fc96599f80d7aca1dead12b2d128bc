@@ -1,0 +1,21 @@
+README.md
+  s_d321e4fc3c0fa4::t_58e6679349025f 7-8,123,133,181
+SKILL.md
+  s_d321e4fc3c0fa4::t_f6bcbad8fea4e9 78,294,353,355-356,361-364
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d3e1a3bbf1fc96599f80d7aca1dead12b2d128bc",
+  "prompts": {},
+  "sessions": {
+    "s_d321e4fc3c0fa4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f89e4d2-f78b-4c34-b2b0-b4ca54eb3d36",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    }
+  }
+}
