@@ -1,0 +1,19 @@
+README.md
+  s_d321e4fc3c0fa4::t_972e4104090927 5,17-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "c163acba804fa91fbb706dc122fbc33bd0d2caf2",
+  "prompts": {},
+  "sessions": {
+    "s_d321e4fc3c0fa4": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "0f89e4d2-f78b-4c34-b2b0-b4ca54eb3d36",
+        "model": "claude-opus-5-5"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    }
+  }
+}
