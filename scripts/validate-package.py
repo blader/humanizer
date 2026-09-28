@@ -85,7 +85,12 @@ skill_description = " ".join(
         "Write the SKILL.md description as an indented block",
     ).group(1).split()
 )
-MARKETPLACE = json.loads(read_package_file(ROOT / ".claude-plugin" / "marketplace.json"))
+try:
+    MARKETPLACE = json.loads(
+        read_package_file(ROOT / ".claude-plugin" / "marketplace.json")
+    )
+except json.JSONDecodeError as error:
+    raise SystemExit(f"Fix the JSON in .claude-plugin/marketplace.json: {error}")
 package_descriptions = {
     str(PLUGIN.get("description", "")),
     str(CURSOR_PLUGIN.get("description", "")),
@@ -125,6 +130,9 @@ if renamed:
     raise SystemExit("Match the README pattern names to SKILL.md: " + "; ".join(renamed))
 if f"## The {pattern_count} patterns" not in README:
     raise SystemExit(f"Title the README pattern section 'The {pattern_count} patterns'")
+pattern_anchor = f"(#the-{pattern_count}-patterns)"
+if pattern_anchor not in README:
+    raise SystemExit(f"Point the README pattern link at {pattern_anchor}")
 
 # A renumber can leave a section reference pointing at the wrong pattern or at
 # nothing. CHANGELOG.md keeps the numbers each release used, so read SKILL.md only.
