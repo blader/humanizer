@@ -1,5 +1,11 @@
 # Changelog
 
+## 3.2.0
+
+- Rewrote the "After" examples that added facts missing from their "Before" (§2, §3, §4, §6, §12, §18, §19, §20, §25, §26), so every example follows the no-invention rule. §26 also no longer ends with chatbot residue.
+- Step 4 now rewrites only the sentences that carry a tell and leaves the rest as the writer wrote them. "When not to act" moved ahead of the patterns.
+- Step 3 now checks for tells the rewrite added: colons swapped in for dashes by rule and sentence length varied by formula. §8 prefers a period or comma over a colon. No change to the 26 patterns.
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.
