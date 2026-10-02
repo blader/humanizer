@@ -115,9 +115,9 @@ The patterns are numbered by strength and frequency. The first five justify an e
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
 | 1 | **Not X but Y** | "It's not just X, it's Y", "This doesn't mean X. It means Y." | State the point directly |
-| 2 | **One-line closers and dramatic fragments** | "That is the real win." after every section; "This shows the importance of..." after an example; "No prior. No nostalgia." | Cut the closer that repeats or explains the example; merge fragments into a specific claim |
+| 2 | **One-line closers and dramatic fragments** | "That is the real win." after every section; "This shows the importance of..." after an example; "No prior. No nostalgia."; a last line that echoes the first | Cut the closer that repeats or explains the example; merge fragments into a specific claim |
 | 3 | **Sayings that sound deep** | "At its core, what matters is...", "Symmetry is the language of trust" | Replace the saying with the specific claim |
-| 4 | **Staged run-up before the point** | "Let's dive in", "Honestly? It depends..." | Remove the run-up and state the point |
+| 4 | **Staged run-up before the point** | "Let's dive in", "Honestly? It depends...", "Why? Because...", "In today's fast-paced world" | Remove the run-up and state the point |
 | 5 | **Arguing with no one** | "This isn't mainly about...", "A tempting approach would be..." | Remove the unraised objection or fake option; keep any real claim |
 
 ### B. Rhythm by rule
@@ -164,7 +164,7 @@ The patterns are numbered by strength and frequency. The first five justify an e
 
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
-| 26 | **Re-explaining what the reader knows** | A reply that walks the diagnosis and proves the plan works before the decision | Lead with the decision; leave the diagnosis and the proof for the ticket that follows |
+| 26 | **Re-explaining what the reader knows** | A reply that restates what the other person said, then walks the diagnosis and proves the plan works before the decision | Lead with the decision; leave the diagnosis and the proof for the ticket that follows |
 
 ## Full example
 

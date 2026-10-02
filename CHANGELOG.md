@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.1
+
+- Folded four tells into existing patterns, with no new pattern: a closing line that echoes the opening (#2), warm-up openers, performed sympathy, and a question the next sentence answers (#4), and a reply that opens by restating what the other person just said (#26).
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.
