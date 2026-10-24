@@ -1,5 +1,12 @@
 # Changelog
 
+## 3.2.0
+
+- Informal human text is no longer over-edited. Chat messages, rants, and angry reviews keep their lowercase, abbreviations, fragments, and blunt openers. A lone tell is not enough there (§22 chatbot residue excepted); two unrelated tells make the whole text a rewrite target. Anger and disgust keep their strength, and "tried X" stays "tried X". Based on a cross-model, cross-genre study (El Attar et al., arXiv:2606.04177), which found that most signals change with the model and the text type.
+- Added a closing "Overall" or "Ultimately" verdict that restates the paragraph to §2, and a scope note that fragments in a casual first-person message are voice.
+- Said that a plain "let me know" in a message predates chatbots.
+- Cited the study in the Why section, Source section, and README sources.
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.
