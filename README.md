@@ -107,7 +107,7 @@ A language model writes whatever is most likely to come next, so by default it m
 
 Humanizer marks every tell it finds, strongest first. It drafts a rewrite without treating the original structure as fixed, checks the draft against the patterns and the original claims, and then writes the final version. It does not make things up. A name, number, date, quote, citation, or other factual detail must come from the source or the writer, and if a sentence needs a detail that is missing, Humanizer asks instead of inventing one.
 
-When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain.
+When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain. Informal human text, such as chat messages, rants, and angry reviews, is left alone unless two unrelated tells appear together, and Humanizer keeps the writer's anger at full strength.
 
 ## The 26 patterns
 
@@ -197,6 +197,7 @@ The patterns are numbered by strength and frequency. The first five justify an e
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the source for the pattern list.
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) maintains the page.
+- El Attar, Dönmez, Maurer, and Falenska, ["A Systematic Analysis of Linguistic Features in AI-Generated Text Detection Across Domains and Models"](https://arxiv.org/abs/2606.04177) (2026) is the source for the caution that most signals change with the model and the text type.
 
 ## Version history
 
