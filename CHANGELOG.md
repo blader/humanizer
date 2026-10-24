@@ -5,6 +5,10 @@
 - Tightened `SKILL.md` and `README.md` for clarity, concision, and readability. Reworded four "After" examples (§6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
 - Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names (#338).
 - `scripts/validate-package.py` now fails when a pattern number appears twice in `SKILL.md` or in the README tables. Before, the second one replaced the first and the check passed (#340).
+- Informal human text is no longer over-edited. Chat messages, rants, and angry reviews keep their lowercase, abbreviations, fragments, and blunt openers. A lone tell is not enough there (§22 chatbot residue excepted); two unrelated tells make the whole text a rewrite target. Anger keeps its strength, and "tried X" stays "tried X" (#318).
+- Added a closing "Overall" or "Ultimately" verdict that restates the paragraph to §2 (#318).
+- Said that a plain "let me know" in a message predates chatbots (#318).
+- Cited El Attar et al. (arXiv:2606.04177) in the Source section and the README sources (#318).
 
 ## 4.0.0
 
