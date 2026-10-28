@@ -16,6 +16,7 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 - `.claude-plugin/plugin.json` describes the Claude plugin and points its skill loader at the root `SKILL.md`.
 - `.claude-plugin/marketplace.json` lets users add this repo as a Claude marketplace.
 - `.cursor-plugin/plugin.json` describes the Cursor plugin. Omit a `skills` path so Cursor loads the root `SKILL.md`.
+- `package.json` makes the repo a pi package. Its `pi.skills` entry points at the repo root so pi loads the root `SKILL.md`. Do not add a `version` field; pi installs from git.
 - `agents/openai.yaml` holds the display name, short description, and default prompt for OpenAI-compatible agents.
 - `scripts/validate-package.py` checks package files and shared values.
 
