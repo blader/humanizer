@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added Russian support in `ru.md`. The skill reads it when the text is in Russian. It keeps grammatical dashes, guillemets, and orthographic hyphens, which §8, §10, and §21 would otherwise remove, and adds Russian tells: bureaucratic style (kantselyarit), Russian forms of §1 and §4, calques from English, and chatbot wrappers. Answers stay in the language of the text.
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.

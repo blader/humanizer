@@ -98,6 +98,10 @@ Now humanize this text:
 
 Humanizer follows the sample's rhythm, word choice, punctuation, and deliberate quirks, including dashes if you use them.
 
+### Russian
+
+For Russian text the skill also reads [`ru.md`](ru.md). Russian uses dashes by grammar ("Москва — столица России"), so those stay; only the dramatic dash goes. It also catches bureaucratic style (канцелярит), calques from English, and Russian stock phrases such as «не просто X — это Y» and «важно отметить».
+
 ## How it works
 
 A language model writes whatever is most likely to come next, so by default it makes the choice that fits the widest range of readers and subjects. A person chooses for one reader and one subject. Every tell Humanizer looks for is a form of that default choice: a sentence that signals importance instead of adding a fact, rhythm or formatting applied by rule, an ordinary fact dressed as a pivotal one, text left over from the chat, or a reply that re-explains what the reader already knows.
