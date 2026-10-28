@@ -98,6 +98,8 @@ Now humanize this text:
 
 Humanizer follows the sample's rhythm, word choice, punctuation, and deliberate quirks, including dashes if you use them.
 
+Stated background guides perspective without repeated identity announcements. Trimming an identity phrase must preserve details that explain the writer's experience, knowledge, or authority, including background the final reader may not know.
+
 ## How it works
 
 A language model writes whatever is most likely to come next, so by default it makes the choice that fits the widest range of readers and subjects. A person chooses for one reader and one subject. Every tell Humanizer looks for is a form of that default choice: a sentence that signals importance instead of adding a fact, rhythm or formatting applied by rule, an ordinary fact dressed as a pivotal one, text left over from the chat, or a reply that re-explains what the reader already knows.

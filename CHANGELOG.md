@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.1
+
+- Clarified Voice so stated background guides perspective without repeated identity announcements, while relevant experience, knowledge, and authority survive edits.
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.
