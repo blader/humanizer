@@ -52,6 +52,28 @@ npx skills add blader/humanizer --global --agent codex
 
 Download this repository as a ZIP (**Code → Download ZIP**) and upload it as a skill in Settings.
 
+### Google Antigravity & Gemini
+
+Install Humanizer globally for all Antigravity workspaces:
+
+```bash
+bash scripts/install-antigravity.sh
+```
+
+Or manually copy `SKILL.md`:
+
+```bash
+mkdir -p ~/.gemini/config/skills/humanizer
+cp SKILL.md ~/.gemini/config/skills/humanizer/SKILL.md
+```
+
+For project-specific use in any other repository:
+
+```bash
+mkdir -p .agents/skills/humanizer
+cp /path/to/humanizer/SKILL.md .agents/skills/humanizer/SKILL.md
+```
+
 ### Other agents
 
 ```bash

@@ -8,7 +8,9 @@
 - Extended #2 to "That distinction matters." (#277) and to a sentence that explains what an example already showed (#295).
 - Narrowed #10 so words the dictionary always hyphenates keep their hyphen. Gave each watched word one pattern, and stated the evidence rule and the no-invention rule once each.
 - Fixed the Voice section's dash reference (#273) and the marketplace schema URL (#288).
-- Added a Cursor plugin manifest (#278).
+-  Added a Cursor plugin manifest (#278).
+- Added Google Antigravity and Gemini agent support with `agents/gemini.yaml` and `scripts/install-antigravity.sh`.
+- Added article and section mode to `SKILL.md` to preserve voice, argument, and transitions across multi-section documents.
 - README: opens with a before/after, the five strongest tells, and install steps for each agent. States that getting past AI detectors is not a goal. The full example's rewrite now keeps every fact from its draft and adds none. Version history moved to this file.
 
 ## 3.0.0

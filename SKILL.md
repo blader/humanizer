@@ -50,6 +50,8 @@ Without a sample, take the voice from the kind of text. Blog posts, essays, opin
 
 **File mode.** When the user names a file, run the full process but write only the final text to the file. Change prose only. Keep code blocks, inline code, commands, paths, YAML metadata, data, and link targets unchanged. Then give the user a short summary.
 
+**Article and section mode.** When editing an article in sections or parts, keep the central argument, thesis, and tone uniform across the whole piece. Retain logical transitions between adjacent sections. Rewrite each section without dropping premises, evidence, or nuance. Check that sentence rhythm stays consistent, and ensure no repeated section-ending closers (§2) or formulaic openings (§4) appear across headings.
+
 **Embedded mode.** When another task uses this skill for a pull request, commit message, or document, return only the final text.
 
 ## A. Staging instead of stating
