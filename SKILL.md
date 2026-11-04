@@ -48,7 +48,7 @@ Without a sample, take the voice from the kind of text. Blog posts, essays, opin
 
 **Pasted text (default).** Return the draft, a short list of remaining patterns, and the final rewrite.
 
-**File mode.** When the user names a file, run the full process but write only the final text to the file. Change prose only. Keep code blocks, inline code, commands, paths, YAML metadata, data, and link targets unchanged. Then give the user a short summary.
+**File mode.** When the user names a file, first read the whole current file from disk, even if you wrote it in this session. Read long files in chunks until every section has been covered. Run the full process but write only the final text to the file. Change prose only. Keep code blocks, inline code, commands, paths, YAML metadata, data, and link targets unchanged. Then give the user a short summary stating how many sections you reviewed and identifying any you could not cover. A partial pass must be reported as partial.
 
 **Embedded mode.** When another task uses this skill for a pull request, commit message, or document, return only the final text.
 

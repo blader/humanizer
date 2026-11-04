@@ -82,6 +82,8 @@ To rewrite a file, give Humanizer its path:
 Humanize the prose in docs/launch-post.md
 ```
 
+Humanizer reads the current file in full before editing, including files it wrote earlier in the session. Its summary states how many sections it reviewed and identifies any it could not cover.
+
 ### Match your voice
 
 If you want the rewrite to sound more like you, include a sample:
