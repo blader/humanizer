@@ -379,6 +379,8 @@ A model writes for a reader who shares no context, because that fits the widest 
 > Agreed, this is a workaround. Fixing it properly in `MergeService` would widen this ticket well past its scope: it is shared code, so it means checking the merge flow for every account, plus a backfill for the rows that are already wrong.
 >
 > I'd rather keep this PR account specific and open a separate ticket for the `MergeService` fix and the backfill. Let me know if that works.
+###27. Avoid redundant English glosses in multilingual replies
+**Watch for:** When explaining something to the user don't state the meaning of a particular word which is in a different language beside it unless explicitly asked for explanation or you are writing in a different language and the word belongs to a different language. 
 
 ## When not to act
 
