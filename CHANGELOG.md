@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Informal human text is no longer over-edited. Chat messages, rants, and angry reviews keep their lowercase, abbreviations, fragments, and blunt openers. A lone tell is not enough there (§22 chatbot residue excepted); two unrelated tells make the whole text a rewrite target. Anger keeps its strength, and "tried X" stays "tried X".
+- Added a closing "Overall" or "Ultimately" verdict that restates the paragraph to §2.
+- Said that a plain "let me know" in a message predates chatbots.
+- Cited El Attar et al. (arXiv:2606.04177) in the Source section and the README sources.
+
 ## 4.0.0
 
 - The skill no longer forbids adding facts. Where the text is generic, it now adds a specific detail it knows to be true. It still keeps every claim the original made and treats a lost or changed claim as an error. This reverses the no-invention rule from 2.9.0. Patterns 14 and 17 follow the same change.

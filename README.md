@@ -117,7 +117,7 @@ A language model writes whatever is most likely to come next, so by default it m
 
 Humanizer marks every tell it finds, strongest first. It drafts a rewrite and may merge, split, or reorder sentences and paragraphs, then checks the draft against the patterns and the original claims and writes the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made.
 
-When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain.
+When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain. Informal human text, such as chat messages, rants, and angry reviews, is left alone unless two unrelated tells appear together, and Humanizer keeps the writer's anger at full strength.
 
 ## The 26 patterns
 
@@ -209,6 +209,7 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the source for the pattern list.
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) maintains the page.
+- El Attar, Dönmez, Maurer, and Falenska, ["A Systematic Analysis of Linguistic Features in AI-Generated English Text Detection Across Domains and Models"](https://arxiv.org/abs/2606.04177) (2026) is the source for the caution that most signals change with the model and the text type.
 
 ## Version history
 

@@ -46,6 +46,8 @@ If the user gives a writing sample, read it first and match its sentence length,
 
 Without a sample, take the voice from the kind of text. Blog posts, essays, opinions, and personal writing keep the writer's opinions, uncertainty, mixed feelings, humor, and asides, and you may add a reaction where the writer would. Reference, technical, legal, and factual text stays neutral and plain. Once the tells are gone, the result must still sound like a person.
 
+Informal text (chat messages, comments, rants, angry reviews) is often human already. Lowercase, abbreviations like "lmk", fragments, and emphatic stops ("Worst. Service. Ever.") are its register, so leave them. A lone tell is not enough here, except §22 chatbot residue; two unrelated tells make the whole text a rewrite target. Keep the writer's anger at full strength: "disgusting" stays "disgusting" and "tried restarting it" stays "tried restarting it". With no tell, return the text unchanged.
+
 ### What to return
 
 **Pasted text (default).** Return the draft, a short list of remaining patterns, and the final rewrite.
@@ -84,7 +86,7 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 ### 2. One-line closers and dramatic fragments
 
-**Watch for:** a one-sentence paragraph that restates the paragraph before it; "That is the real win."; "That distinction matters."; "Read that again."; "Let that sink in."; the same closer after several sections; a sentence after an example, scene, or number that names what it showed ("This shows the importance of...", "The message was clear:", "It was a lesson in patience."); a row of fragments ("No aesthetic prior. No nostalgia."); one word in ALL CAPS or with periods between words (every. single. day.).
+**Watch for:** a one-sentence paragraph that restates the paragraph before it; "That is the real win."; "That distinction matters."; "Read that again."; "Let that sink in."; the same closer after several sections; a sentence after an example, scene, or number that names what it showed ("This shows the importance of...", "The message was clear:", "It was a lesson in patience."); a row of fragments ("No aesthetic prior. No nostalgia."); one word in ALL CAPS or with periods between words (every. single. day.); a closing "Overall" or "Ultimately" sentence that restates a verdict the paragraph already gave.
 
 **Problem:** The line asks the reader to pause on a claim instead of adding to it. One short sentence can carry emphasis when it carries a new fact. Cut a closer that repeats, including one that explains an example the reader just saw. Keep it when it adds a fact or consequence the example does not show. Merge a row of fragments into a sentence with a specific claim.
 
@@ -483,7 +485,7 @@ A model writes for a reader who shares no context, because that fits the widest 
 
 ## When not to act
 
-Each pattern describes a default choice, and a person can make any one of them on purpose. Leave a watched phrase alone inside a quotation, a title, a proper name, or a passage that discusses the phrase rather than uses it. Salutations and sign-offs on a letter or comment predate chatbots. Text written before November 30, 2022 is not AI-written. People who judge by feel do little better than chance, and human writing keeps absorbing AI habits, so several tells together are the safeguard.
+Each pattern describes a default choice, and a person can make any one of them on purpose. Leave a watched phrase alone inside a quotation, a title, a proper name, or a passage that discusses the phrase rather than uses it. Salutations, sign-offs, and a plain "let me know" in a message predate chatbots. Text written before November 30, 2022 is not AI-written. People who judge by feel do little better than chance, and human writing keeps absorbing AI habits, so several tells together are the safeguard.
 
 Keep the details that carry the writer's voice unless they hurt the meaning:
 
@@ -495,4 +497,4 @@ Keep the details that carry the writer's voice unless they hurt the meaning:
 
 ## Source
 
-The patterns come from Wikipedia's ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup, and from reviews of AI-generated text on Wikipedia and elsewhere.
+The patterns come from Wikipedia's ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup, and from reviews of AI-generated text on Wikipedia and elsewhere. Most of these signals change with the model and the text type: El Attar, Dönmez, Maurer, and Falenska, "A Systematic Analysis of Linguistic Features in AI-Generated English Text Detection Across Domains and Models" ([arXiv:2606.04177](https://arxiv.org/abs/2606.04177), 2026), which covers 30 LLMs.
