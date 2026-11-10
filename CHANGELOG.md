@@ -4,6 +4,8 @@
 
 Require a fresh full-file read in file mode and report review coverage so partial passes are visible (fixes #326).
 
+Added a blank line above each pattern label in `SKILL.md` so GitHub shows every label and example on its own line. No wording changed.
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.
