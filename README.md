@@ -11,7 +11,7 @@ Humanizer makes AI-written text sound like a person wrote it, without changing w
 > I'm thrilled to announce that shared drafts are finally here! 🚀 For months, our own team was drowning in files named final_v7.docx — and we knew there had to be a better way. Now two people can edit the same doc at once, with every change appearing live for both of them. It's not just a feature; it's a whole new way to collaborate. Comments stay anchored to the exact sentence they reference, even as the text around them evolves. And the best part? It's available today on every plan, completely free. Let that sink in.
 
 **After:**
-> Shared drafts are out today. For months our own team passed around files named final_v7.docx, so we built a way for two people to edit the same doc at once, and each sees the other's changes live. Comments stay pinned to the sentence they're about, even when the text around them changes. It's free on every plan.
+> Shared drafts are out today. For months our own team passed around files named final_v7.docx, and we got sick of it. Now two people can edit the same doc at once and see each other's changes as they type. Comments stay attached to the sentence they're about, even when the text around it changes. It's free on every plan.
 
 In a blind test, judges preferred Humanizer's rewrite over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
 
@@ -195,11 +195,13 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 > Would I go back? Absolutely — next time in spring, and with better shoes! Lisbon isn't just a place to visit; it's a place to fall in love with, again and again. ✨
 
 **After:**
-> I spent five days in Lisbon last October. My hotel was up in Alfama, with a lot of stairs between it and everything else, and my legs felt every one of them. The views from the top were worth the climb.
+> I spent five days in Lisbon last October. My hotel was up in Alfama, with a lot of stairs between it and everything else. My legs felt every one of them, but the views from the top made up for it.
 >
-> Everyone tells you to ride Tram 28, so I did. The trip took about forty minutes, and most of the car was other tourists taking pictures out the windows. The custard tarts at Pastéis de Belém are the famous ones, but my favorite came from a place in Graça, still warm from the oven.
+> Everyone tells you to ride Tram 28, so I did. It took about forty minutes, and most of the car was other tourists taking pictures out the windows.
 >
-> The part of Lisbon I liked best starts a block or two above the main squares, where the streets go quiet and nobody is in a hurry. São Jorge Castle has good views over the rooftops and a long queue to get them.
+> The custard tarts at Pastéis de Belém are the famous ones. The best one I had came from a place in Graça, still warm from the oven.
+>
+> The part of Lisbon I liked most starts a block or two above the main squares, where the streets go quiet and nobody is in a hurry. São Jorge Castle has good views over the rooftops and a long queue to get them.
 >
 > I'd go back, in spring next time, and with better shoes.
 

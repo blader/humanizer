@@ -68,13 +68,13 @@ These are the strongest and most frequent tells in current model prose. Act on o
 > It's not just about the beat riding under the vocals; it's part of the aggression and atmosphere. It's not merely a song, it's a statement.
 
 **After:**
-> The heavy beat adds to the aggressive tone.
+> The heavy beat makes the song sound more aggressive.
 
 **Before (split across sentences):**
 > This does not mean every choice is equal. It means there is no external system that confirms which choice is right.
 
 **After:**
-> No external system confirms which choice is right, although the choices still have different consequences.
+> The choices differ, but no outside system will tell you which one is right.
 
 **Before (clipped tail):**
 > The options come from the selected item, no guessing.
@@ -160,7 +160,7 @@ These are the strongest and most frequent tells in current model prose. Act on o
 > Session tokens are rotated every 24 hours. A tempting approach would be to rotate them by restarting the auth service on a cron job, but that would drop every active session. Rotation happens in place, and clients refresh transparently.
 
 **After:**
-> Session tokens are rotated every 24 hours, in place, and clients refresh transparently.
+> Session tokens rotate in place every 24 hours, and clients refresh transparently.
 
 ## B. Rhythm by rule
 
@@ -342,7 +342,7 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 > Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces and boasts over 3,000 square feet.
 
 **After:**
-> Gallery 825 is LAAA's exhibition space for contemporary art. The gallery has four separate spaces and more than 3,000 square feet.
+> Gallery 825 is LAAA's exhibition space for contemporary art. It has four separate spaces and more than 3,000 square feet.
 
 ## D. Formatting by rule
 
@@ -364,7 +364,7 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 > - **Security:** Security has been strengthened with end-to-end encryption.
 
 **After:**
-> The update improves the interface, speeds up load times through optimized algorithms, and adds end-to-end encryption.
+> The update adds a new interface, faster algorithms, and end-to-end encryption.
 
 ### 20. Decorative headings
 
