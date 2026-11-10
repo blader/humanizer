@@ -19,10 +19,10 @@ Rewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what i
 A language model writes whatever is most likely to come next, so by default it makes the choice that fits the widest range of readers and subjects. A human writer chooses for one reader and one subject, so their choices are uneven and specific. Every pattern below is one form of the default choice:
 
 - **Staging.** The sentence signals importance instead of adding a fact, with a contrast that only adds weight or a one-line closer that repeats the point.
-- **Rhythm by rule.** The model uses triads and dashes everywhere, whether or not the meaning asks for them.
-- **Inflation.** The model presents ordinary facts as pivotal or expert-backed.
-- **Formatting by rule.** The model applies bold and title case to every item.
-- **Leftovers.** The text keeps chat wrappers and drafting moves that were never meant for the reader.
+- **Rhythm by rule.** Triads and dashes applied everywhere, whether or not the meaning asks for them.
+- **Inflation.** Ordinary facts dressed as pivotal or expert-backed.
+- **Formatting by rule.** Bold and title case applied to every item.
+- **Leftovers.** Chat wrappers and drafting moves that were never meant for the reader.
 - **Wrong reader.** A reply re-explains background the other person already has, so the decision arrives last.
 
 Word habits change with every model release. The structural habits above persist, so they lead the list below.
@@ -112,7 +112,7 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 **Watch for:** the real question is, at its core, in reality, what really matters, fundamentally, the deeper issue, the heart of the matter, X is the Y of Z, X becomes a trap, X is not a tool but a mirror, the language of, the currency of, the architecture of
 
-**Problem:** The writer presents an ordinary point as a hidden truth or an aphorism and adds no detail. Replace the saying with the specific claim.
+**Problem:** An ordinary point is dressed as a hidden truth or an aphorism, and the dressing adds no detail. Replace the saying with the specific claim.
 
 **Before:**
 > The real question is whether teams can adapt. At its core, what really matters is organizational readiness.
@@ -164,11 +164,11 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 ## B. Rhythm by rule
 
-The model applies the same shapes and punctuation everywhere, whether or not the meaning asks for them.
+Shapes and punctuation applied everywhere, whether or not the meaning asks for them.
 
 ### 6. Forced triads
 
-**Problem:** The writer lists three items to sound complete, whether the meaning has three parts or not. The tell can be one sentence ("innovation, inspiration, and insights"), three parallel examples, or three short facts followed by a lesson. Check that each item adds a distinct idea. Merge examples, develop the strongest one, or vary the structure when they do not. Keep three real items when the meaning needs three.
+**Problem:** Ideas arrive in threes to sound complete, whether the meaning has three parts or not. The tell can be one sentence ("innovation, inspiration, and insights"), three parallel examples, or three short facts followed by a lesson. Check that each item adds a distinct idea. Merge examples, develop the strongest one, or vary the structure when they do not. Keep three real items when the meaning needs three.
 
 **Before:**
 > The event features keynote sessions, panel discussions, and networking opportunities. Attendees can expect innovation, inspiration, and industry insights.
@@ -184,7 +184,7 @@ The model applies the same shapes and punctuation everywhere, whether or not the
 
 ### 7. Repeated sentence openings
 
-**Problem:** The writer starts several sentences in a row with the same subject, often *she* or *he*, and does not hear the repetition. Merge the sentences, change the subject, or begin with the action. Do not ban the repeated word; a remaining sentence may still start with "She." Writers also repeat an opening on purpose for rhythm, as in "She came. She saw. She conquered."
+**Problem:** Several sentences in a row start with the same subject, often *she* or *he*. Merge the sentences, change the subject, or begin with the action. Do not ban the repeated word; a remaining sentence may still start with "She." Writers also repeat an opening on purpose for rhythm, as in "She came. She saw. She conquered."
 
 **Before:**
 > She noted the door. She noted the lock on it. She filed both away.
@@ -208,7 +208,7 @@ The model applies the same shapes and punctuation everywhere, whether or not the
 
 **Watch for:** to be fair, it's also possible, could potentially, might arguably, in some cases it may, this is an inference
 
-**Problem:** With each edit, the writer adds another qualifier until every claim sounds uncertain, usually to repair an earlier overstatement rather than to report real doubt. Keep a qualifier only when the source supports it and the meaning needs it. Keep scope statements, legal and safety notices, and real corrections. Ordinary hedges such as *perhaps* or *tends to* are human habits and not tells. *Weak alone.*
+**Problem:** Repeated editing adds one qualifier after another until every claim sounds uncertain, usually to repair an earlier overstatement rather than to report real doubt. Keep a qualifier only when the source supports it and the meaning needs it. Keep scope statements, legal and safety notices, and real corrections. Ordinary hedges such as *perhaps* or *tends to* are human habits and not tells. *Weak alone.*
 
 **Before:**
 > It could potentially possibly be argued that the policy might have some effect on outcomes.
@@ -240,7 +240,7 @@ The model applies the same shapes and punctuation everywhere, whether or not the
 
 ## C. Inflation and borrowed authority
 
-The fact underneath is usually sound. Keep it and cut what inflates it.
+The fact underneath is usually sound. Keep it and remove the dressing.
 
 ### 12. Overused AI words
 
@@ -258,7 +258,7 @@ The fact underneath is usually sound. Keep it and cut what inflates it.
 
 **Watch for:** stands as a testament, a pivotal or crucial moment, plays a key role, marking or shaping the, underscores its importance, reflects a broader, enduring or lasting legacy, setting the stage for, evolving landscape, indelible mark; Despite these challenges... continues to thrive, Challenges and Legacy, Future Outlook, Awards and recognition; the future looks bright, exciting times ahead, a step in the right direction
 
-**Problem:** The writer says an ordinary detail marks a change, proves a legacy, or promises a future. The habit shows up as a phrase, as a stock "challenges and outlook" section, or as a closing paragraph. Keep the fact and drop the significance. End on the last concrete fact; if the source states real plans, use those.
+**Problem:** An ordinary detail is said to mark a change, prove a legacy, or promise a future. The habit shows up as a phrase, as a stock "challenges and outlook" section, or as a closing paragraph. Keep the fact and drop the significance. End on the last concrete fact; if the source states real plans, use those.
 
 **Before:**
 > The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
@@ -294,7 +294,7 @@ The fact underneath is usually sound. Keep it and cut what inflates it.
 
 **Watch for:** highlighting, underscoring, emphasizing, ensuring, reflecting, symbolizing, contributing to, cultivating, fostering, encompassing, showcasing
 
-**Problem:** The writer adds an -ing phrase to a simple fact to make it sound deeper. Attaching it to a named source ("Roger Ebert highlighted the lasting influence") does not make it true. Keep the fact; keep the -ing phrase only when the source supports what it claims.
+**Problem:** An -ing phrase is bolted onto a simple fact to make it sound deeper. Attaching it to a named source ("Roger Ebert highlighted the lasting influence") does not make it true. Keep the fact; keep the -ing phrase only when the source supports what it claims.
 
 **Before:**
 > The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolizing Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes, reflecting the community's deep connection to the land.
@@ -336,7 +336,7 @@ The fact underneath is usually sound. Keep it and cut what inflates it.
 
 **Watch for:** serves as, stands as, functions as, operates as, marks, represents [a]; boasts, features, offers, maintains [a]; refers to
 
-**Problem:** The writer swaps simple verbs for longer phrases. Use *is*, *are*, and *has*.
+**Problem:** Simple verbs are replaced with longer phrases. Use *is*, *are*, and *has*.
 
 **Before:**
 > Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces and boasts over 3,000 square feet.
@@ -350,7 +350,7 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 
 ### 19. Bold as decoration
 
-**Problem:** The writer bolds words without a reason and gives every item in a vertical list a bold label and a colon. Remove the bold. Turn a labeled list into prose when the labels carry no information of their own.
+**Problem:** Words are bolded without a reason, and vertical lists give every item a bold label and a colon. Remove the bold. Turn a labeled list into prose when the labels carry no information of their own.
 
 **Before:**
 > It blends **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)**, and visual strategy tools such as the **Business Model Canvas (BMC)** and **Balanced Scorecard (BSC)**.
@@ -429,7 +429,7 @@ Remove these outright.
 
 ### 24. A heading repeated in the first sentence
 
-**Problem:** The writer follows a heading with a one-line paragraph that restates it before the real content begins. Remove the repeated sentence.
+**Problem:** A heading is followed by a one-line paragraph that restates it before the real content begins. Remove the repeated sentence.
 
 **Before:**
 > ## Performance
