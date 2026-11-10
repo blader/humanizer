@@ -1,0 +1,23 @@
+CHANGELOG.md
+  s_c537cda44f0247::t_bfc0377d901250 9
+README.md
+  s_c537cda44f0247::t_b20fc6e0d477be 113
+SKILL.md
+  s_c537cda44f0247::t_fadd356417110d 22-25,115,167,171,187,211,243,261,297,339,353,432
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1a98325cc7399506a05bd5f8e7c9e7cf60048a6f",
+  "prompts": {},
+  "sessions": {
+    "s_c537cda44f0247": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eed924b5-fa0c-4597-9352-5d3dce9da159",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    }
+  }
+}
