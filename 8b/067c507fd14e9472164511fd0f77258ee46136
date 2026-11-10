@@ -1,0 +1,25 @@
+.claude-plugin/plugin.json
+  s_c537cda44f0247::t_687f2d4de56153 4
+.cursor-plugin/plugin.json
+  s_c537cda44f0247::t_743d206b8283cf 4
+CHANGELOG.md
+  s_c537cda44f0247::t_e0b8e10a82b224 3-13
+SKILL.md
+  s_c537cda44f0247::t_6df4f8a8580652 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8b067c507fd14e9472164511fd0f77258ee46136",
+  "prompts": {},
+  "sessions": {
+    "s_c537cda44f0247": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eed924b5-fa0c-4597-9352-5d3dce9da159",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    }
+  }
+}
