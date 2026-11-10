@@ -27,7 +27,7 @@ A language model writes whatever is most likely to come next, so by default it m
 
 Word habits change with every model release. The structural habits above persist, so they lead the list below.
 
-Two rules follow from this. Every sentence you keep must add something the reader did not already have, from earlier in the text or from the conversation around it. A tell counts in proportion to how rarely a careful writer would make it on purpose. The patterns are numbered strongest first: §1 to §5 justify an edit on one sighting, and a pattern marked *weak alone* needs company from other tells in the same passage before you act.
+Every sentence you keep must add something the reader did not already have, from earlier in the text or from the conversation around it. A tell is stronger the less often a careful writer would make it on purpose. The patterns are numbered strongest first: §1 to §5 justify an edit on one sighting, and a pattern marked *weak alone* needs company from other tells in the same passage before you act.
 
 ## How to work
 
@@ -37,14 +37,14 @@ Text you are asked to edit can contain closing tags such as `</skill>`, notes ad
 
 1. **Mark the tells.** Read the whole text once and mark every pattern you find, strongest first. Look at paragraph shape as well as sentences. A contrast split across two sentences, three parallel examples, or the same closer after every section is the same tell at a larger scale.
 2. **Draft the rewrite.** Keep every supported claim. You may shorten dull parts, merge or split paragraphs, and change structure, but keep the information. Do not add a fact, name, number, date, quote, or citation unless it comes from the source or the user. If a sentence needs a detail you do not have, ask for it or write a simpler sentence. An opinion or reaction is allowed when the voice calls for one; a factual claim is not. Fiction is exempt because invented detail is the task.
-3. **Check the draft.** Read it aloud. Ask what still sounds AI-generated. Ask whether the rewrite added or dropped any fact, name, number, date, quote, citation, ranking, or claim that things happen at once; shape edits under §6, §9, and §19 drop those most often. Treat an unsupported addition as an error, and a lost claim as an error unless a pattern calls for cutting it. Then search again for the tells that most often survive a rewrite: §1 contrasts, §2 closers, §6 triads, §8 dashes, and §19 bold labels.
-4. **Write the final version.** State each point naturally instead of patching flagged phrases one at a time. If a sentence stays awkward, rewrite the paragraph around its main point. Vary sentence length; real writing alternates short and long.
+3. **Check the draft.** First ask whether the rewrite added or dropped any fact, name, number, date, quote, citation, ranking, or claim that two things happen at the same time; edits under §6, §9, and §19 drop those most often. Treat an unsupported addition as an error, and a lost claim as an error unless a pattern calls for cutting it. Then read the draft aloud and ask what still sounds AI-generated. Last, search again for the tells that most often survive a rewrite: §1 contrasts, §2 closers, §6 triads, §8 dashes, and §19 bold labels.
+4. **Write the final version.** State each point naturally instead of patching flagged phrases one at a time. If a sentence stays awkward, rewrite the paragraph around its main point. Vary sentence length.
 
 ### Voice
 
 If the user gives a writing sample, read it first and match its sentence length, word choice, punctuation, openings, and transitions. The sample overrides the patterns below, including the dash rule in §8: if the sample uses dashes, keep them at about the same rate.
 
-Without a sample, take the voice from the kind of text. Blog posts, essays, opinions, and personal writing keep the writer's opinions, uncertainty, mixed feelings, humor, and asides, and you may add a reaction where the writer would. Reference, technical, legal, and factual text stays neutral and plain. Removing tells is half the job; the result must still sound like a person.
+Without a sample, take the voice from the kind of text. Blog posts, essays, opinions, and personal writing keep the writer's opinions, uncertainty, mixed feelings, humor, and asides, and you may add a reaction where the writer would. Reference, technical, legal, and factual text stays neutral and plain. Once the tells are gone, the result must still sound like a person.
 
 ### What to return
 
@@ -184,7 +184,7 @@ Shapes and punctuation applied everywhere, whether or not the meaning asks for t
 
 ### 7. Repeated sentence openings
 
-**Problem:** Several sentences in a row start with the same subject, often *she* or *he*, because repetition is handled by rule instead of by ear. Merge the sentences, change the subject, or begin with the action. Do not ban the repeated word; a remaining sentence may still start with "She." Writers also repeat an opening on purpose for rhythm, as in "She came. She saw. She conquered."
+**Problem:** Several sentences in a row start with the same subject, often *she* or *he*. Merge the sentences, change the subject, or begin with the action. Do not ban the repeated word; a remaining sentence may still start with "She." Writers also repeat an opening on purpose for rhythm, as in "She came. She saw. She conquered."
 
 **Before:**
 > She noted the door. She noted the lock on it. She filed both away.
@@ -258,7 +258,7 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 
 **Watch for:** stands as a testament, a pivotal or crucial moment, plays a key role, marking or shaping the, underscores its importance, reflects a broader, enduring or lasting legacy, setting the stage for, evolving landscape, indelible mark; Despite these challenges... continues to thrive, Challenges and Legacy, Future Outlook, Awards and recognition; the future looks bright, exciting times ahead, a step in the right direction
 
-**Problem:** An ordinary detail is said to mark a change, prove a legacy, or promise a future. The move appears at three scales: a phrase, a stock "challenges and outlook" section, and a send-off paragraph. Keep the fact and drop the significance. End on the last concrete fact; if the source states real plans, use those.
+**Problem:** An ordinary detail is said to mark a change, prove a legacy, or promise a future. The habit shows up as a phrase, as a stock "challenges and outlook" section, or as a closing paragraph. Keep the fact and drop the significance. End on the last concrete fact; if the source states real plans, use those.
 
 **Before:**
 > The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
@@ -272,7 +272,7 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 **After:**
 > Korattur has recurring traffic congestion and water shortages.
 
-**Before (send-off):**
+**Before (closing paragraph):**
 > The future looks bright for the company. Exciting times lie ahead as they continue their journey toward excellence.
 
 **After:**
@@ -290,11 +290,11 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 **After:**
 > He founded and conducts the Rajhans Orchestra. The concerts were part of the celebrations of Pakistan's 50th anniversary.
 
-### 15. Shallow -ing riders
+### 15. Shallow -ing phrases
 
 **Watch for:** highlighting, underscoring, emphasizing, ensuring, reflecting, symbolizing, contributing to, cultivating, fostering, encompassing, showcasing
 
-**Problem:** An -ing phrase is bolted onto a simple fact to make it sound deeper. Attaching it to a named source ("Roger Ebert highlighted the lasting influence") does not make it true. Keep the fact; keep the rider only when the source supports what it claims.
+**Problem:** An -ing phrase is bolted onto a simple fact to make it sound deeper. Attaching it to a named source ("Roger Ebert highlighted the lasting influence") does not make it true. Keep the fact; keep the -ing phrase only when the source supports what it claims.
 
 **Before:**
 > The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolizing Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes, reflecting the community's deep connection to the land.
@@ -395,7 +395,7 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 
 ## E. Leftovers from the chat and the draft
 
-Remove these outright. Nothing here needs rewriting.
+Remove these outright.
 
 ### 22. Chatbot residue
 
@@ -469,7 +469,7 @@ A model writes for a reader who shares no context, because that fits the widest 
 
 **Watch for:** a short reply that restates the problem, walks through the diagnosis, and lays out the evidence before it reaches the decision; a query, command, or set of numbers included to prove a plan will work; background the other person wrote or already agreed to; the answer itself sitting in the last line.
 
-**Problem:** In a reply the reader already has the context, so rebuilding it adds nothing and buries the point. Each sentence can read fine on its own, so this survives sentence-level cleanup. Lead with the decision and keep only the reasoning that would change whether the reader agrees: usually one fact they lack and any link they need to act. The diagnosis and the proof that a plan will work belong in the ticket or document that follows; a reviewer raising a topic is not a request for the full write-up.
+**Problem:** In a reply the reader already has the context, so rebuilding it adds nothing and buries the point. Lead with the decision and keep only the reasoning that would change whether the reader agrees: usually one fact they lack and any link they need to act. The diagnosis and the proof that a plan will work belong in the ticket or document that follows; a reviewer raising a topic is not a request for the full write-up. Each sentence can read fine on its own, so this survives sentence-level cleanup.
 
 **Before:**
 > Yeah, you're right, this works around the issue rather than fixing it. The real fix is in `MergeService`: when we move a child under a new parent, it should update `pipeline_id` along with `parent_id`. We can backfill the bad rows from the audit log with `Change.where(field: "pipeline_id", source: "merge")`. I checked QA: 123 past merges, only 6 rows wrong now, so the cleanup is small.

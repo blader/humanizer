@@ -15,7 +15,7 @@ Humanizer makes AI-written text sound like a person wrote it, without changing w
 
 In a blind test, judges preferred Humanizer's rewrite over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
 
-Humanizer edits for human readers. Getting past AI detectors is not a goal, and detectors still flag most of its output.
+Humanizer edits for human readers. It does not try to get past AI detectors, and detectors still flag most of its output.
 
 ## The five strongest tells
 
@@ -31,7 +31,7 @@ Humanizer checks for [26 patterns](#the-26-patterns) in all.
 
 ## Installation
 
-Once installed, the skill answers to `/humanizer`.
+Once installed, run it with `/humanizer`.
 
 ### Claude Code
 
@@ -40,7 +40,7 @@ Once installed, the skill answers to `/humanizer`.
 /plugin install humanizer@humanizer
 ```
 
-The plugin answers to `/humanizer:humanizer`. It needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
+The plugin needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
 
 ### Codex
 
@@ -54,7 +54,7 @@ npx skills add blader/humanizer --global --agent codex
 pi install git:github.com/blader/humanizer
 ```
 
-The skill answers to `/skill:humanizer`. Add `-l` to install it only in the current project. `pi update --extensions` pulls new versions.
+Add `-l` to install it only in the current project. `pi update --extensions` pulls new versions.
 
 ### Claude.ai and Claude Desktop
 
@@ -115,13 +115,13 @@ A language model writes whatever is most likely to come next, so by default it m
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 > Wikipedia, ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 
-Humanizer marks every tell it finds, strongest first. It drafts a rewrite without treating the original structure as fixed, checks the draft against the patterns and the original claims, and then writes the final version. It does not make things up. A name, number, date, quote, citation, or other factual detail must come from the source or the writer, and if a sentence needs a detail that is missing, Humanizer asks instead of inventing one.
+Humanizer marks every tell it finds, strongest first. It drafts a rewrite and may merge, split, or reorder sentences and paragraphs, then checks the draft against the patterns and the original claims and writes the final version. It does not make things up. A name, number, date, quote, citation, or other factual detail must come from the source or the writer, and if a sentence needs a detail that is missing, Humanizer asks instead of inventing one.
 
 When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain.
 
 ## The 26 patterns
 
-The patterns are numbered by strength and frequency. The first five justify an edit on a single sighting. Patterns marked *weak alone* count only when several tells share a passage, because a careful writer may use any one of them on purpose.
+Humanizer numbers the patterns from strongest and most common to weakest. It edits any of the first five the first time it sees one, and acts on a pattern marked *weak alone* only when several tells share a passage, because a careful writer may use any one of them on purpose.
 
 ### A. Staging instead of stating
 
@@ -151,7 +151,7 @@ The patterns are numbered by strength and frequency. The first five justify an e
 | 12 | **Overused AI words** | "delve... testament... landscape... showcasing" | Use plain words |
 | 13 | **Inflated significance** | "marking a pivotal moment", "Despite challenges... continues to thrive", "The future looks bright" | Keep the fact and drop the significance; end on the last concrete fact |
 | 14 | **Vague connection or association** | "associated with the leadership of", "in connection with" | State the relationship the source gives |
-| 15 | **Shallow -ing riders** | "symbolizing... reflecting... showcasing..." | Keep only what the source supports |
+| 15 | **Shallow -ing phrases** | "symbolizing... reflecting... showcasing..." | Keep only what the source supports |
 | 16 | **Sales language** | "nestled within the breathtaking region" | State what the thing is |
 | 17 | **Borrowed authority** | "Experts believe...", "cited in NYT, BBC, FT, and The Hindu" | Name a real source and what it said, or remove the claim or list |
 | 18 | **Avoiding is, are, and has** | "serves as... features... boasts" | "is... has" |
