@@ -1,0 +1,33 @@
+README.md
+  s_c537cda44f0247::t_0865017b1aeefa 118
+  s_c537cda44f0247::t_74cb4d41a6c454 124
+  s_13875fe1857104::t_d92324e745593f 18,34,43,57,113,154
+CHANGELOG.md
+  s_c537cda44f0247::t_a3a0b31d47dc62 9-10
+SKILL.md
+  s_c537cda44f0247::t_227cc3c9d8255e 22-25,30,40-41,47,115,167,171,187,211,243,261,275,293,297,339,353,398,432,472
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "9fdfc373fd969773ae69e061c4feec94c43ca0c1",
+  "prompts": {},
+  "sessions": {
+    "s_13875fe1857104": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1c2be-18c9-7363-aab2-d7af6cb3625a",
+        "model": "gpt-6-astra"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    },
+    "s_c537cda44f0247": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "eed924b5-fa0c-4597-9352-5d3dce9da159",
+        "model": "claude-fable-5-2"
+      },
+      "human_author": "Siqi Chen <blader@gmail.com>"
+    }
+  }
+}
