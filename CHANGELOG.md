@@ -8,7 +8,7 @@ Added a blank line above each pattern label in `SKILL.md` so GitHub shows every 
 
 Rewrote unclear sentences in `SKILL.md` and `README.md`. Coined terms such as "riders" and "shape edits" became plain words, and sentences that only announced or repeated a neighbor are gone. Step 3 now checks for added or dropped facts first. Pattern 15 is now "Shallow -ing phrases". The README gives `/humanizer` as the only command. No pattern was added, removed, or renumbered.
 
-The skill no longer forbids adding facts. Where the text is generic, it now adds a specific detail it knows to be true. It still keeps every claim the original made and treats a lost or changed claim as an error. This reverses the no-invention rule from 2.9.0 and should ship as a major version. Patterns 14 and 17 follow the same change. Reworked 11 "After" examples in `SKILL.md` and one in the README: several were vaguer than the text they replaced, used phrases from the skill's own watch lists, or changed a stated fact.
+The skill no longer forbids adding facts. Where the text is generic, it now adds a specific detail it knows to be true. It still keeps every claim the original made and treats a lost or changed claim as an error. This reverses the no-invention rule from 2.9.0 and should ship as a major version. Patterns 14 and 17 follow the same change. Reworked 15 "After" examples in `SKILL.md` and both README examples: several were vaguer or stiffer than the text they replaced, used phrases from the skill's own watch lists, or changed a stated fact.
 
 ## 3.1.0
 
