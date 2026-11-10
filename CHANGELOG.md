@@ -6,6 +6,8 @@ Require a fresh full-file read in file mode and report review coverage so partia
 
 Added a blank line above each pattern label in `SKILL.md` so GitHub shows every label and example on its own line. No wording changed.
 
+Rewrote unclear sentences in `SKILL.md` and `README.md`. Passive lines now name who acts, coined terms such as "riders" and "shape edits" became plain words, and sentences that only announced or repeated a neighbor are gone. Step 3 now checks for added or dropped facts first. Pattern 15 is now "Shallow -ing phrases". The README gives `/humanizer` as the only command. No pattern was added, removed, or renumbered.
+
 ## 3.1.0
 
 - Added pattern #26 and section F for replies that re-explain context the reader already has (#269). It acts on replies, not standalone writing. 26 patterns total.

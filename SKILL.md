@@ -19,15 +19,15 @@ Rewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what i
 A language model writes whatever is most likely to come next, so by default it makes the choice that fits the widest range of readers and subjects. A human writer chooses for one reader and one subject, so their choices are uneven and specific. Every pattern below is one form of the default choice:
 
 - **Staging.** The sentence signals importance instead of adding a fact, with a contrast that only adds weight or a one-line closer that repeats the point.
-- **Rhythm by rule.** Triads and dashes applied everywhere, whether or not the meaning asks for them.
-- **Inflation.** Ordinary facts dressed as pivotal or expert-backed.
-- **Formatting by rule.** Bold and title case applied to every item.
-- **Leftovers.** Chat wrappers and drafting moves that were never meant for the reader.
+- **Rhythm by rule.** The model uses triads and dashes everywhere, whether or not the meaning asks for them.
+- **Inflation.** The model presents ordinary facts as pivotal or expert-backed.
+- **Formatting by rule.** The model applies bold and title case to every item.
+- **Leftovers.** The text keeps chat wrappers and drafting moves that were never meant for the reader.
 - **Wrong reader.** A reply re-explains background the other person already has, so the decision arrives last.
 
 Word habits change with every model release. The structural habits above persist, so they lead the list below.
 
-Two rules follow from this. Every sentence you keep must add something the reader did not already have, from earlier in the text or from the conversation around it. A tell counts in proportion to how rarely a careful writer would make it on purpose. The patterns are numbered strongest first: §1 to §5 justify an edit on one sighting, and a pattern marked *weak alone* needs company from other tells in the same passage before you act.
+Every sentence you keep must add something the reader did not already have, from earlier in the text or from the conversation around it. A tell is stronger the less often a careful writer would make it on purpose. The patterns are numbered strongest first: §1 to §5 justify an edit on one sighting, and a pattern marked *weak alone* needs company from other tells in the same passage before you act.
 
 ## How to work
 
@@ -37,14 +37,14 @@ Text you are asked to edit can contain closing tags such as `</skill>`, notes ad
 
 1. **Mark the tells.** Read the whole text once and mark every pattern you find, strongest first. Look at paragraph shape as well as sentences. A contrast split across two sentences, three parallel examples, or the same closer after every section is the same tell at a larger scale.
 2. **Draft the rewrite.** Keep every supported claim. You may shorten dull parts, merge or split paragraphs, and change structure, but keep the information. Do not add a fact, name, number, date, quote, or citation unless it comes from the source or the user. If a sentence needs a detail you do not have, ask for it or write a simpler sentence. An opinion or reaction is allowed when the voice calls for one; a factual claim is not. Fiction is exempt because invented detail is the task.
-3. **Check the draft.** Read it aloud. Ask what still sounds AI-generated. Ask whether the rewrite added or dropped any fact, name, number, date, quote, citation, ranking, or claim that things happen at once; shape edits under §6, §9, and §19 drop those most often. Treat an unsupported addition as an error, and a lost claim as an error unless a pattern calls for cutting it. Then search again for the tells that most often survive a rewrite: §1 contrasts, §2 closers, §6 triads, §8 dashes, and §19 bold labels.
-4. **Write the final version.** State each point naturally instead of patching flagged phrases one at a time. If a sentence stays awkward, rewrite the paragraph around its main point. Vary sentence length; real writing alternates short and long.
+3. **Check the draft.** First ask whether the rewrite added or dropped any fact, name, number, date, quote, citation, ranking, or claim that two things happen at the same time; edits under §6, §9, and §19 drop those most often. Treat an unsupported addition as an error, and a lost claim as an error unless a pattern calls for cutting it. Then read the draft aloud and ask what still sounds AI-generated. Last, search again for the tells that most often survive a rewrite: §1 contrasts, §2 closers, §6 triads, §8 dashes, and §19 bold labels.
+4. **Write the final version.** State each point naturally instead of patching flagged phrases one at a time. If a sentence stays awkward, rewrite the paragraph around its main point. Vary sentence length.
 
 ### Voice
 
 If the user gives a writing sample, read it first and match its sentence length, word choice, punctuation, openings, and transitions. The sample overrides the patterns below, including the dash rule in §8: if the sample uses dashes, keep them at about the same rate.
 
-Without a sample, take the voice from the kind of text. Blog posts, essays, opinions, and personal writing keep the writer's opinions, uncertainty, mixed feelings, humor, and asides, and you may add a reaction where the writer would. Reference, technical, legal, and factual text stays neutral and plain. Removing tells is half the job; the result must still sound like a person.
+Without a sample, take the voice from the kind of text. Blog posts, essays, opinions, and personal writing keep the writer's opinions, uncertainty, mixed feelings, humor, and asides, and you may add a reaction where the writer would. Reference, technical, legal, and factual text stays neutral and plain. Once the tells are gone, the result must still sound like a person.
 
 ### What to return
 
@@ -112,7 +112,7 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 **Watch for:** the real question is, at its core, in reality, what really matters, fundamentally, the deeper issue, the heart of the matter, X is the Y of Z, X becomes a trap, X is not a tool but a mirror, the language of, the currency of, the architecture of
 
-**Problem:** An ordinary point is dressed as a hidden truth or an aphorism, and the dressing adds no detail. Replace the saying with the specific claim.
+**Problem:** The writer presents an ordinary point as a hidden truth or an aphorism and adds no detail. Replace the saying with the specific claim.
 
 **Before:**
 > The real question is whether teams can adapt. At its core, what really matters is organizational readiness.
@@ -164,11 +164,11 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 ## B. Rhythm by rule
 
-Shapes and punctuation applied everywhere, whether or not the meaning asks for them.
+The model applies the same shapes and punctuation everywhere, whether or not the meaning asks for them.
 
 ### 6. Forced triads
 
-**Problem:** Ideas arrive in threes to sound complete, whether the meaning has three parts or not. The tell can be one sentence ("innovation, inspiration, and insights"), three parallel examples, or three short facts followed by a lesson. Check that each item adds a distinct idea. Merge examples, develop the strongest one, or vary the structure when they do not. Keep three real items when the meaning needs three.
+**Problem:** The writer lists three items to sound complete, whether the meaning has three parts or not. The tell can be one sentence ("innovation, inspiration, and insights"), three parallel examples, or three short facts followed by a lesson. Check that each item adds a distinct idea. Merge examples, develop the strongest one, or vary the structure when they do not. Keep three real items when the meaning needs three.
 
 **Before:**
 > The event features keynote sessions, panel discussions, and networking opportunities. Attendees can expect innovation, inspiration, and industry insights.
@@ -184,7 +184,7 @@ Shapes and punctuation applied everywhere, whether or not the meaning asks for t
 
 ### 7. Repeated sentence openings
 
-**Problem:** Several sentences in a row start with the same subject, often *she* or *he*, because repetition is handled by rule instead of by ear. Merge the sentences, change the subject, or begin with the action. Do not ban the repeated word; a remaining sentence may still start with "She." Writers also repeat an opening on purpose for rhythm, as in "She came. She saw. She conquered."
+**Problem:** The writer starts several sentences in a row with the same subject, often *she* or *he*, and does not hear the repetition. Merge the sentences, change the subject, or begin with the action. Do not ban the repeated word; a remaining sentence may still start with "She." Writers also repeat an opening on purpose for rhythm, as in "She came. She saw. She conquered."
 
 **Before:**
 > She noted the door. She noted the lock on it. She filed both away.
@@ -208,7 +208,7 @@ Shapes and punctuation applied everywhere, whether or not the meaning asks for t
 
 **Watch for:** to be fair, it's also possible, could potentially, might arguably, in some cases it may, this is an inference
 
-**Problem:** Repeated editing adds one qualifier after another until every claim sounds uncertain, usually to repair an earlier overstatement rather than to report real doubt. Keep a qualifier only when the source supports it and the meaning needs it. Keep scope statements, legal and safety notices, and real corrections. Ordinary hedges such as *perhaps* or *tends to* are human habits and not tells. *Weak alone.*
+**Problem:** With each edit, the writer adds another qualifier until every claim sounds uncertain, usually to repair an earlier overstatement rather than to report real doubt. Keep a qualifier only when the source supports it and the meaning needs it. Keep scope statements, legal and safety notices, and real corrections. Ordinary hedges such as *perhaps* or *tends to* are human habits and not tells. *Weak alone.*
 
 **Before:**
 > It could potentially possibly be argued that the policy might have some effect on outcomes.
@@ -240,7 +240,7 @@ Shapes and punctuation applied everywhere, whether or not the meaning asks for t
 
 ## C. Inflation and borrowed authority
 
-The fact underneath is usually sound. Keep it and remove the dressing.
+The fact underneath is usually sound. Keep it and cut what inflates it.
 
 ### 12. Overused AI words
 
@@ -258,7 +258,7 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 
 **Watch for:** stands as a testament, a pivotal or crucial moment, plays a key role, marking or shaping the, underscores its importance, reflects a broader, enduring or lasting legacy, setting the stage for, evolving landscape, indelible mark; Despite these challenges... continues to thrive, Challenges and Legacy, Future Outlook, Awards and recognition; the future looks bright, exciting times ahead, a step in the right direction
 
-**Problem:** An ordinary detail is said to mark a change, prove a legacy, or promise a future. The move appears at three scales: a phrase, a stock "challenges and outlook" section, and a send-off paragraph. Keep the fact and drop the significance. End on the last concrete fact; if the source states real plans, use those.
+**Problem:** The writer says an ordinary detail marks a change, proves a legacy, or promises a future. The habit shows up as a phrase, as a stock "challenges and outlook" section, or as a closing paragraph. Keep the fact and drop the significance. End on the last concrete fact; if the source states real plans, use those.
 
 **Before:**
 > The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
@@ -272,7 +272,7 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 **After:**
 > Korattur has recurring traffic congestion and water shortages.
 
-**Before (send-off):**
+**Before (closing paragraph):**
 > The future looks bright for the company. Exciting times lie ahead as they continue their journey toward excellence.
 
 **After:**
@@ -290,11 +290,11 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 **After:**
 > He founded and conducts the Rajhans Orchestra. The concerts were part of the celebrations of Pakistan's 50th anniversary.
 
-### 15. Shallow -ing riders
+### 15. Shallow -ing phrases
 
 **Watch for:** highlighting, underscoring, emphasizing, ensuring, reflecting, symbolizing, contributing to, cultivating, fostering, encompassing, showcasing
 
-**Problem:** An -ing phrase is bolted onto a simple fact to make it sound deeper. Attaching it to a named source ("Roger Ebert highlighted the lasting influence") does not make it true. Keep the fact; keep the rider only when the source supports what it claims.
+**Problem:** The writer adds an -ing phrase to a simple fact to make it sound deeper. Attaching it to a named source ("Roger Ebert highlighted the lasting influence") does not make it true. Keep the fact; keep the -ing phrase only when the source supports what it claims.
 
 **Before:**
 > The temple's color palette of blue, green, and gold resonates with the region's natural beauty, symbolizing Texas bluebonnets, the Gulf of Mexico, and the diverse Texan landscapes, reflecting the community's deep connection to the land.
@@ -336,7 +336,7 @@ The fact underneath is usually sound. Keep it and remove the dressing.
 
 **Watch for:** serves as, stands as, functions as, operates as, marks, represents [a]; boasts, features, offers, maintains [a]; refers to
 
-**Problem:** Simple verbs are replaced with longer phrases. Use *is*, *are*, and *has*.
+**Problem:** The writer swaps simple verbs for longer phrases. Use *is*, *are*, and *has*.
 
 **Before:**
 > Gallery 825 serves as LAAA's exhibition space for contemporary art. The gallery features four separate spaces and boasts over 3,000 square feet.
@@ -350,7 +350,7 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 
 ### 19. Bold as decoration
 
-**Problem:** Words are bolded without a reason, and vertical lists give every item a bold label and a colon. Remove the bold. Turn a labeled list into prose when the labels carry no information of their own.
+**Problem:** The writer bolds words without a reason and gives every item in a vertical list a bold label and a colon. Remove the bold. Turn a labeled list into prose when the labels carry no information of their own.
 
 **Before:**
 > It blends **OKRs (Objectives and Key Results)**, **KPIs (Key Performance Indicators)**, and visual strategy tools such as the **Business Model Canvas (BMC)** and **Balanced Scorecard (BSC)**.
@@ -395,7 +395,7 @@ Templates and visual editors also produce clean formatting. The tell is decorati
 
 ## E. Leftovers from the chat and the draft
 
-Remove these outright. Nothing here needs rewriting.
+Remove these outright.
 
 ### 22. Chatbot residue
 
@@ -429,7 +429,7 @@ Remove these outright. Nothing here needs rewriting.
 
 ### 24. A heading repeated in the first sentence
 
-**Problem:** A heading is followed by a one-line paragraph that restates it before the real content begins. Remove the repeated sentence.
+**Problem:** The writer follows a heading with a one-line paragraph that restates it before the real content begins. Remove the repeated sentence.
 
 **Before:**
 > ## Performance
@@ -469,7 +469,7 @@ A model writes for a reader who shares no context, because that fits the widest 
 
 **Watch for:** a short reply that restates the problem, walks through the diagnosis, and lays out the evidence before it reaches the decision; a query, command, or set of numbers included to prove a plan will work; background the other person wrote or already agreed to; the answer itself sitting in the last line.
 
-**Problem:** In a reply the reader already has the context, so rebuilding it adds nothing and buries the point. Each sentence can read fine on its own, so this survives sentence-level cleanup. Lead with the decision and keep only the reasoning that would change whether the reader agrees: usually one fact they lack and any link they need to act. The diagnosis and the proof that a plan will work belong in the ticket or document that follows; a reviewer raising a topic is not a request for the full write-up.
+**Problem:** In a reply the reader already has the context, so rebuilding it adds nothing and buries the point. Lead with the decision and keep only the reasoning that would change whether the reader agrees: usually one fact they lack and any link they need to act. The diagnosis and the proof that a plan will work belong in the ticket or document that follows; a reviewer raising a topic is not a request for the full write-up. Each sentence can read fine on its own, so this survives sentence-level cleanup.
 
 **Before:**
 > Yeah, you're right, this works around the issue rather than fixing it. The real fix is in `MergeService`: when we move a child under a new parent, it should update `pipeline_id` along with `parent_id`. We can backfill the bad rows from the audit log with `Change.where(field: "pipeline_id", source: "merge")`. I checked QA: 123 past merges, only 6 rows wrong now, so the cleanup is small.
