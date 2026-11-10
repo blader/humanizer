@@ -7,7 +7,7 @@ description: |
   language, stock AI words, bold labels, or filler.
 license: MIT
 metadata:
-  version: "3.1.0"
+  version: "4.0.0"
 ---
 
 # Humanizer: remove AI writing patterns
