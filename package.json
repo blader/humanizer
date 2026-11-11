@@ -7,5 +7,9 @@
   "keywords": ["pi-package"],
   "pi": {
     "skills": ["./"]
+  },
+  "devDependencies": {
+    "axios": "1.21.1",
+    "qs": "6.17.1"
   }
 }
