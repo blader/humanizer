@@ -128,9 +128,11 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 ### 4. Staged run-up before the point
 
-**Watch for:** Let's dive in, let's explore, let's break this down, here's what you need to know, now let's look at, without further ado, heads up, quick note, Honestly?, Look, Here's the thing, The thing is, Let's be honest, Real talk, and casual versions such as "one thing that bit me, so pay attention"
+**Watch for:** Let's dive in, let's explore, let's break this down, here's what you need to know, now let's look at, without further ado, heads up, quick note, Honestly?, Look, Here's the thing, The thing is, Let's be honest, Real talk, and casual versions such as "one thing that bit me, so pay attention"; "the part" in place of a named thing: the hard part is, the new part is that, the part that matters is, the part worth X
 
 **Problem:** The writer announces the point or stages a moment of candor instead of making the point. Remove the run-up, not just its tone. "Honestly" or "look" inside a casual sentence is ordinary; the tell is the standalone opener before a routine claim.
+
+"The part" does the same work: "the hard part is X" stages X, and "the part worth sharing" points at something the text never names. Name the thing, or state X directly. A literal part, such as one part of a multipart upload, is fine.
 
 **Before:**
 > Let's dive into how caching works in Next.js. Here's what you need to know.
@@ -143,6 +145,12 @@ These are the strongest and most frequent tells in current model prose. Act on o
 
 **After:**
 > Whether it's worth the price depends on how often you'll use it.
+
+**Before ("the part"):**
+> Sharing one build folder nearly works. This post is about the part that doesn't. The slow part is the dependencies.
+
+**After:**
+> Sharing one build folder saves space, but one checkout can end up running another checkout's code. Most of the build time goes to the dependencies.
 
 ### 5. Arguing with no one
 
