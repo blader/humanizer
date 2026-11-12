@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names. The fix names the thing. Literal parts are left alone.
+
 ## 4.0.0
 
 - The skill no longer forbids adding facts. Where the text is generic, it now adds a specific detail it knows to be true. It still keeps every claim the original made and treats a lost or changed claim as an error. This reverses the no-invention rule from 2.9.0. Patterns 14 and 17 follow the same change.

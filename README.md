@@ -24,7 +24,7 @@ These are the most common signs of AI writing, and Humanizer rewrites any of the
 1. **Not X but Y:** "It's not just a feature, it's a shift."
 2. **One-line closers:** "Let that sink in."
 3. **Sayings that sound deep:** "At its core, what really matters is..."
-4. **A staged run-up:** "Here's the thing." "Honestly?"
+4. **A staged run-up:** "Here's the thing." "Honestly?" "The hard part is..."
 5. **Arguing with no one:** "I'm not saying X, but..."
 
 Humanizer checks for [26 patterns](#the-26-patterns) in all.
@@ -130,7 +130,7 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 | 1 | **Not X but Y** | "It's not just X, it's Y", "This doesn't mean X. It means Y." | State the point directly |
 | 2 | **One-line closers and dramatic fragments** | "That is the real win." after every section; "This shows the importance of..." after an example; "No prior. No nostalgia." | Cut the closer that repeats or explains the example; merge fragments into a specific claim |
 | 3 | **Sayings that sound deep** | "At its core, what matters is...", "Symmetry is the language of trust" | Replace the saying with the specific claim |
-| 4 | **Staged run-up before the point** | "Let's dive in", "Honestly? It depends..." | Remove the run-up and state the point |
+| 4 | **Staged run-up before the point** | "Let's dive in", "Honestly? It depends...", "The hard part is...", "the part that doesn't" | Remove the run-up and state the point; name what "the part" stands for |
 | 5 | **Arguing with no one** | "This isn't mainly about...", "A tempting approach would be..." | Remove the unraised objection or fake option; keep any real claim |
 
 ### B. Rhythm by rule
