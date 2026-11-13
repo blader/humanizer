@@ -1,0 +1,11 @@
+{
+  "name": "humanizer",
+  "private": true,
+  "description": "Rewrite AI-sounding text so it reads like the writer without changing what it says.",
+  "license": "MIT",
+  "repository": "github:blader/humanizer",
+  "keywords": ["pi-package"],
+  "pi": {
+    "skills": ["./"]
+  }
+}

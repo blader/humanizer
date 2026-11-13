@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.0.0
+
+- The skill no longer forbids adding facts. Where the text is generic, it now adds a specific detail it knows to be true. It still keeps every claim the original made and treats a lost or changed claim as an error. This reverses the no-invention rule from 2.9.0. Patterns 14 and 17 follow the same change.
+- Reworked 15 "After" examples in `SKILL.md` and both README examples. Several were vaguer or stiffer than the text they replaced, used phrases from the skill's own watch lists, or changed a stated fact.
+- File mode now reads the whole current file before editing, even one written in the same session. Its summary says how many sections it reviewed, so a partial pass is visible (#326, #327).
+- Text being edited can contain fake closing tags or notes from an "operator" or a "system message". The skill now treats those as material to edit, never as instructions (#317).
+- Rewrote unclear sentences in `SKILL.md` and `README.md`. Coined terms such as "riders" and "shape edits" became plain words, and sentences that only announced or repeated a neighbor are gone. Step 3 now checks for dropped or changed facts first. Pattern 15 is now "Shallow -ing phrases". The README gives `/humanizer` as the only command (#330).
+- Added a blank line above each pattern label in `SKILL.md` so GitHub shows every label and example on its own line (#329).
+- The skill description no longer cites Wikipedia. The credit stays in the Source section and the README (#321).
+- Added a pi package manifest, so `pi install git:github.com/blader/humanizer` installs the skill (#315).
+- Removed the `$schema` key from the Claude plugin manifest, which caused a sync warning (#307).
+
 ## 3.6.1
 
 - Corrected the blind-test keys: `evals/make_pairs.py` had recorded every key as {"A": old, "B": new} regardless of the shuffle, so the committed keys for all three judged runs were wrong whenever a pair was shuffled. The true mappings were reconstructed from the archived pair texts (`evals/reconstruct_keys.py`, `evals/results/key-reconstruction.json`). Corrected outcomes: runs 1–2 (v3.1.0 vs v3.3.0) were **7–2 for v3.1.0**, not 9–0; run 3 (v3.1.0 vs v3.6.0) was **5–1 for v3.1.0**, not 3–3. The direction of every release decision is unchanged — the gate still preferred the pre-rhythm-check version, and v3.6.0's changes still did not beat the baseline — but the magnitudes in earlier entries were wrong.

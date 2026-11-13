@@ -11,11 +11,11 @@ Humanizer makes AI-written text sound like a person wrote it, without changing w
 > I'm thrilled to announce that shared drafts are finally here! 🚀 For months, our own team was drowning in files named final_v7.docx — and we knew there had to be a better way. Now two people can edit the same doc at once, with every change appearing live for both of them. It's not just a feature; it's a whole new way to collaborate. Comments stay anchored to the exact sentence they reference, even as the text around them evolves. And the best part? It's available today on every plan, completely free. Let that sink in.
 
 **After:**
-> Shared drafts are out today. For months our own team passed around files named final_v7.docx, so we built a way for two people to edit the same doc at once, with each person's changes showing up live for the other. Comments stay pinned to the sentence they're about, even when the text around them changes. It's free on every plan.
+> Shared drafts are out today. For months our own team passed around files named final_v7.docx, and we got sick of it. Now two people can edit the same doc at once and see each other's changes as they type. Comments stay attached to the sentence they're about, even when the text around it changes. It's free on every plan.
 
 In a blind test, judges preferred Humanizer's rewrite over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
 
-Humanizer edits for human readers. Getting past AI detectors is not a goal, and detectors still flag most of its output.
+Humanizer edits for human readers. It does not try to get past AI detectors, and detectors still flag most of its output.
 
 ## The five strongest tells
 
@@ -31,7 +31,7 @@ Humanizer checks for [26 patterns](#the-26-patterns) in all.
 
 ## Installation
 
-Once installed, the skill answers to `/humanizer`.
+Once installed, run it with `/humanizer`.
 
 ### Claude Code
 
@@ -40,13 +40,21 @@ Once installed, the skill answers to `/humanizer`.
 /plugin install humanizer@humanizer
 ```
 
-The plugin answers to `/humanizer:humanizer`. It needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
+The plugin needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
 
 ### Codex
 
 ```bash
 npx skills add blader/humanizer --global --agent codex
 ```
+
+### pi
+
+```bash
+pi install git:github.com/blader/humanizer
+```
+
+Add `-l` to install it only in the current project. `pi update --extensions` pulls new versions.
 
 ### Claude.ai and Claude Desktop
 
@@ -82,6 +90,8 @@ To rewrite a file, give Humanizer its path:
 Humanize the prose in docs/launch-post.md
 ```
 
+Humanizer reads the current file in full before editing, including files it wrote earlier in the session. Its summary states how many sections it reviewed and identifies any it could not cover.
+
 ### Match your voice
 
 If you want the rewrite to sound more like you, include a sample:
@@ -105,13 +115,13 @@ A language model writes whatever is most likely to come next, so by default it m
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 > Wikipedia, ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 
-Humanizer marks every tell it finds, strongest first. It drafts a rewrite without treating the original structure as fixed, checks the draft against the patterns and the original claims, and then writes the final version. It does not make things up. A name, number, date, quote, citation, or other factual detail must come from the source or the writer, and if a sentence needs a detail that is missing, Humanizer asks instead of inventing one.
+Humanizer marks every tell it finds, strongest first. It drafts a rewrite and may merge, split, or reorder sentences and paragraphs, then checks the draft against the patterns and the original claims and writes the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made.
 
 When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain.
 
 ## The 26 patterns
 
-The patterns are numbered by strength and frequency. The first five justify an edit on a single sighting. Patterns marked *weak alone* count only when several tells share a passage, because a careful writer may use any one of them on purpose.
+Humanizer numbers the patterns from strongest and most common to weakest. It edits any of the first five the first time it sees one, and acts on a pattern marked *weak alone* only when several tells share a passage, because a careful writer may use any one of them on purpose.
 
 ### A. Staging instead of stating
 
@@ -140,8 +150,8 @@ The patterns are numbered by strength and frequency. The first five justify an e
 |---|---------|--------|-------|
 | 12 | **Overused AI words** | "delve... testament... landscape... showcasing" | Use plain words |
 | 13 | **Inflated significance** | "marking a pivotal moment", "Despite challenges... continues to thrive", "The future looks bright" | Keep the fact and drop the significance; end on the last concrete fact |
-| 14 | **Vague connection or association** | "associated with the leadership of", "in connection with" | State the relationship the source gives |
-| 15 | **Shallow -ing riders** | "symbolizing... reflecting... showcasing..." | Keep only what the source supports |
+| 14 | **Vague connection or association** | "associated with the leadership of", "in connection with" | Name the relationship if you know it |
+| 15 | **Shallow -ing phrases** | "symbolizing... reflecting... showcasing..." | Keep only what the source supports |
 | 16 | **Sales language** | "nestled within the breathtaking region" | State what the thing is |
 | 17 | **Borrowed authority** | "Experts believe...", "cited in NYT, BBC, FT, and The Hindu" | Name a real source and what it said, or remove the claim or list |
 | 18 | **Avoiding is, are, and has** | "serves as... features... boasts" | "is... has" |
@@ -185,11 +195,13 @@ The patterns are numbered by strength and frequency. The first five justify an e
 > Would I go back? Absolutely — next time in spring, and with better shoes! Lisbon isn't just a place to visit; it's a place to fall in love with, again and again. ✨
 
 **After:**
-> I spent five days in Lisbon last October. My hotel was up in Alfama, with a lot of stairs between it and everything else, and my legs felt every one of them. The views from the top were worth the climb.
+> I spent five days in Lisbon last October. My hotel was up in Alfama, with a lot of stairs between it and everything else. My legs felt every one of them, but the views from the top made up for it.
 >
-> Everyone tells you to ride Tram 28, so I did. The trip took about forty minutes, and most of the car was other tourists taking pictures out the windows. The custard tarts at Pastéis de Belém are the famous ones, but my favorite came from a place in Graça, still warm from the oven.
+> Everyone tells you to ride Tram 28, so I did. It took about forty minutes, and most of the car was other tourists taking pictures out the windows.
 >
-> The part of Lisbon I liked best starts a block or two above the main squares, where the streets go quiet and nobody is in a hurry. São Jorge Castle has good views over the rooftops and a long queue to get them.
+> The custard tarts at Pastéis de Belém are the famous ones. The best one I had came from a place in Graça, still warm from the oven.
+>
+> The part of Lisbon I liked most starts a block or two above the main squares, where the streets go quiet and nobody is in a hurry. São Jorge Castle has good views over the rooftops and a long queue to get them.
 >
 > I'd go back, in spring next time, and with better shoes.
 
