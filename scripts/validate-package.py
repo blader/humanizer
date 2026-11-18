@@ -40,6 +40,15 @@ def require_match(match: re.Match[str] | None, message: str) -> re.Match[str]:
     return match
 
 
+def numbered_patterns(matches: list[tuple[str, str]], where: str) -> dict[int, str]:
+    # A dict keeps only the last entry for a number, so check for repeats first.
+    numbers = [int(number) for number, _ in matches]
+    repeated = sorted({number for number in numbers if numbers.count(number) > 1})
+    if repeated:
+        raise SystemExit(f"Use each pattern number once in {where}: {repeated}")
+    return {int(number): name for number, name in matches}
+
+
 yaml_metadata = require_match(
     re.match(r"\A---\n(.*?)\n---\n", SKILL, re.DOTALL),
     "SKILL.md must begin with YAML metadata",
@@ -99,18 +108,17 @@ if len(package_descriptions) != 1 or not skill_description.startswith(
         f"{sorted(package_descriptions)}"
     )
 
-skill_patterns = dict(
-    (int(number), name)
-    for number, name in re.findall(r"(?m)^### ([0-9]+)\. (.+)$", SKILL)
+
+skill_patterns = numbered_patterns(
+    re.findall(r"(?m)^### ([0-9]+)\. (.+)$", SKILL), "SKILL.md"
 )
 pattern_numbers = list(skill_patterns)
 pattern_count = len(pattern_numbers)
 if pattern_count == 0 or pattern_numbers != list(range(1, pattern_count + 1)):
     raise SystemExit(f"Number SKILL.md patterns from 1 upward without gaps: {pattern_numbers}")
 
-readme_patterns = dict(
-    (int(number), name)
-    for number, name in re.findall(r"(?m)^\| ([0-9]+) \| \*\*(.+?)\*\*", README)
+readme_patterns = numbered_patterns(
+    re.findall(r"(?m)^\| ([0-9]+) \| \*\*(.+?)\*\*", README), "the README tables"
 )
 if sorted(readme_patterns) != pattern_numbers:
     raise SystemExit(
