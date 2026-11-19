@@ -114,7 +114,7 @@ A language model writes whatever is most likely to come next, so by default it m
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 > Wikipedia, ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 
-Humanizer marks every tell it finds, strongest first. It drafts a rewrite, merging, splitting, or reordering sentences and paragraphs as needed, then checks the draft against the patterns and the original claims before writing the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made.
+Humanizer marks every tell it finds, strongest first. It drafts a rewrite, merging, splitting, or reordering sentences and paragraphs as needed, then checks the draft against the patterns and the original claims before writing the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made. The draft must also preserve the text's purpose, give its reader enough context, and match the strength of its evidence.
 
 When you paste text, Humanizer shows its work: the first rewrite, a short list of tells that survived it, and the final version. Point it at a file and it edits only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks; technical and reference prose stays neutral and plain. Informal human text, such as chat messages, rants, and angry reviews, is left alone unless two unrelated tells appear together, and Humanizer keeps the writer's anger at full strength.
 
