@@ -9,12 +9,13 @@ license: MIT
 metadata:
   version: "4.0.0"
 ---
+iyhghuyiuhiuniun
 
 # Humanizer: remove AI writing patterns
 
 Rewrite AI-sounding text so it reads like the writer, not a chatbot. Keep what it says.
 
-## Why AI text sounds the way it does
+## Why AI text sounds the way it does 
 
 A language model writes whatever is most likely to come next, so by default it makes the choice that fits the widest range of readers and subjects. A person chooses for one reader and one subject, so their choices are uneven and specific. Every pattern below is one form of the default choice:
 
