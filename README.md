@@ -1,9 +1,8 @@
-# Humanizer 
+# Humanizer
 
 sponsored by [cfo.ai](https://cfo.ai)
 
-[![GitHub stars](https://img.shields.io/github/stars/blader/humanizer?style=flat)](https://github.com/blader/humanizer/stargazers) [![skills.sh installs](https://skills.sh/b/blader/humanizer)](https://skills.sh/blader/humanizer) 
-
+[![GitHub stars](https://img.shields.io/github/stars/blader/humanizer?style=flat)](https://github.com/blader/humanizer/stargazers) [![skills.sh installs](https://skills.sh/b/blader/humanizer)](https://skills.sh/blader/humanizer)
 
 Humanizer makes AI-written text sound like a person wrote it, without changing what it says. It is built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the guide Wikipedia editors use to catch AI-generated text, and it works in Claude Code, Codex, and any other agent that supports skills.
 
@@ -24,7 +23,7 @@ These are the most common signs of AI writing, and Humanizer rewrites any of the
 1. **Not X but Y:** "It's not just a feature, it's a shift."
 2. **One-line closers:** "Let that sink in."
 3. **Sayings that sound deep:** "At its core, what really matters is..."
-4. **A staged run-up:** "Here's the thing." "Honestly?"
+4. **A staged run-up:** "Here's the thing." "Honestly?" "The hard part is..."
 5. **Arguing with no one:** "I'm not saying X, but..."
 
 Humanizer checks for [26 patterns](#the-26-patterns) in all.
@@ -40,7 +39,7 @@ Once installed, run it with `/humanizer`.
 /plugin install humanizer@humanizer
 ```
 
-The plugin needs Claude Code 2.1.142 or newer; on older versions, use `npx skills add blader/humanizer --global --agent claude-code`.
+The plugin requires Claude Code 2.1.142 or newer; on older versions, run `npx skills add blader/humanizer --global --agent claude-code`.
 
 ### Codex
 
@@ -66,7 +65,7 @@ Download this repository as a ZIP (**Code → Download ZIP**) and upload it as a
 npx skills add blader/humanizer --global --agent '*'
 ```
 
-This installs Humanizer for every agent the Skills CLI supports, including Gemini CLI, GitHub Copilot, and Windsurf. Leave off `--global` in any command above to install it only in the current project. For an agent the Skills CLI does not know, copy `SKILL.md` into its skill folder.
+This installs Humanizer for every agent the Skills CLI supports, including Gemini CLI, GitHub Copilot, and Windsurf. Omit `--global` in any command above to install it only in the current project. For an agent the Skills CLI does not cover, copy `SKILL.md` into its skill folder.
 
 ## Usage
 
@@ -84,17 +83,17 @@ Or ask in plain language:
 Please humanize this text: [your text]
 ```
 
-To rewrite a file, give Humanizer its path:
+To rewrite a file, pass its path:
 
 ```
 Humanize the prose in docs/launch-post.md
 ```
 
-Humanizer reads the current file in full before editing, including files it wrote earlier in the session. Its summary states how many sections it reviewed and identifies any it could not cover.
+Humanizer reads the current file in full before editing, including files it wrote earlier in the session. Its summary states how many sections it reviewed and names any it could not cover.
 
 ### Match your voice
 
-If you want the rewrite to sound more like you, include a sample:
+To make the rewrite sound like you, include a writing sample:
 
 ```
 /humanizer
@@ -115,13 +114,13 @@ A language model writes whatever is most likely to come next, so by default it m
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 > Wikipedia, ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 
-Humanizer marks every tell it finds, strongest first. It drafts a rewrite and may merge, split, or reorder sentences and paragraphs, then checks the draft against the patterns and the original claims and writes the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made.
+Humanizer marks every tell it finds, strongest first. It drafts a rewrite, merging, splitting, or reordering sentences and paragraphs as needed, then checks the draft against the patterns and the original claims before writing the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made.
 
-When you paste text, Humanizer shows its work: the first rewrite, a short critique of anything that still sounds artificial, and the final version. Point it at a file and it changes only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain.
+When you paste text, Humanizer shows its work: the first rewrite, a short list of tells that survived it, and the final version. Point it at a file and it edits only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks; technical and reference prose stays neutral and plain.
 
 ## The 26 patterns
 
-Humanizer numbers the patterns from strongest and most common to weakest. It edits any of the first five the first time it sees one, and acts on a pattern marked *weak alone* only when several tells share a passage, because a careful writer may use any one of them on purpose.
+Humanizer numbers the patterns from strongest and most common to weakest. It edits any of the first five on one sighting, and acts on a pattern marked *weak alone* only when other tells appear in the same passage, because a careful writer may use any one of them on purpose.
 
 ### A. Staging instead of stating
 
@@ -130,7 +129,7 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 | 1 | **Not X but Y** | "It's not just X, it's Y", "This doesn't mean X. It means Y." | State the point directly |
 | 2 | **One-line closers and dramatic fragments** | "That is the real win." after every section; "This shows the importance of..." after an example; "No prior. No nostalgia." | Cut the closer that repeats or explains the example; merge fragments into a specific claim |
 | 3 | **Sayings that sound deep** | "At its core, what matters is...", "Symmetry is the language of trust" | Replace the saying with the specific claim |
-| 4 | **Staged run-up before the point** | "Let's dive in", "Honestly? It depends..." | Remove the run-up and state the point |
+| 4 | **Staged run-up before the point** | "Let's dive in", "Honestly? It depends...", "The hard part is...", "the part that doesn't" | Remove the run-up and state the point; name what "the part" stands for |
 | 5 | **Arguing with no one** | "This isn't mainly about...", "A tempting approach would be..." | Remove the unraised objection or fake option; keep any real claim |
 
 ### B. Rhythm by rule
@@ -141,8 +140,8 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 | 7 | **Repeated sentence openings** | "She noted... She noted... She filed..." | Merge the sentences or change the subject |
 | 8 | **Dashes as the universal connector** (*weak alone*) | "institutions—not the people—yet this continues—" | Use periods, commas, colons, or parentheses; match a sample that uses dashes |
 | 9 | **Stacked qualifiers** (*weak alone*) | "could potentially possibly be argued" | Keep only qualifiers the source supports |
-| 10 | **Hyphenated pairs everywhere** (*weak alone*) | "the report is high-quality" | Keep the hyphen before the noun or where the dictionary has one |
-| 11 | **Passive voice and missing subjects** (*weak alone*) | "No configuration file needed" | Name the actor when that helps |
+| 10 | **Hyphenated pairs everywhere** (*weak alone*) | "the report is high-quality" | Keep the hyphen before the noun or where the dictionary always uses one |
+| 11 | **Passive voice and missing subjects** (*weak alone*) | "No configuration file needed" | Name the actor when that makes the action clearer |
 
 ### C. Inflation and borrowed authority
 
@@ -169,9 +168,9 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 | # | Pattern | Before | After |
 |---|---------|--------|-------|
 | 22 | **Chatbot residue** | "Great question! ... I hope this helps!" | Remove the wrapper and keep the content |
-| 23 | **Knowledge-limit disclaimers and guesses** | "While details are limited in available sources, it appears..." | State what the source shows, or remove the sentence |
+| 23 | **Knowledge-limit disclaimers and guesses** | "While details are limited in available sources, it appears..." | State what the source does not show, or cut the sentence |
 | 24 | **A heading repeated in the first sentence** | "## Performance" + "Speed matters." | Let the heading do the work |
-| 25 | **Writing about the document instead of its subject** | "This function was added to replace...", "compiled from...", "The table below compares..." | Describe the subject; state a convention only when the reader cannot see it |
+| 25 | **Writing about the document instead of its subject** | "This function was added to replace...", "compiled from...", "The table below compares..." | Describe the subject; state a convention only when the reader cannot infer it |
 
 ### F. Writing for the wrong reader
 
