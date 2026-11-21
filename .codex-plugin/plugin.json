@@ -1,0 +1,28 @@
+{
+  "name": "humanizer",
+  "version": "4.0.0",
+  "description": "Rewrite AI-sounding text so it reads like the writer without changing what it says.",
+  "author": {
+    "name": "blader",
+    "url": "https://github.com/blader"
+  },
+  "homepage": "https://github.com/blader/humanizer",
+  "repository": "https://github.com/blader/humanizer",
+  "license": "MIT",
+  "keywords": ["writing", "editing", "humanize", "prose", "style"],
+  "skills": "./",
+  "interface": {
+    "displayName": "Humanizer",
+    "shortDescription": "Make AI-written text sound like the writer",
+    "longDescription": "Humanizer rewrites AI-sounding prose so it reads like a person wrote it, without changing the facts. It targets the strongest Wikipedia signs of AI writing — not-X-but-Y contrasts, one-line closers, staged openers, forced triads, inflated claims, and chat residue — and works as an agent skill via /humanizer.",
+    "category": "Productivity",
+    "developerName": "blader",
+    "websiteUrl": "https://github.com/blader/humanizer",
+    "logo": "./.codex-plugin/logo.png",
+    "defaultPrompt": [
+      "Use $humanizer to rewrite this text in my voice without changing its facts.",
+      "Humanize this draft so it sounds like a person wrote it.",
+      "Rewrite this file's prose to remove AI writing tells."
+    ]
+  }
+}

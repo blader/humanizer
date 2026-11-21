@@ -1,0 +1,17 @@
+{
+  "name": "humanizer",
+  "plugins": [
+    {
+      "name": "humanizer",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
