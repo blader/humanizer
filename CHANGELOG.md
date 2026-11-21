@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- Added an academic register for research papers, proposals, theses, and LaTeX sources in `references/academic.md`. Plain fixes made such text too informal. The new rules keep it formal: no idioms or contractions, general-to-specific paragraphs, a visible argument chain, fixed field terms, acronyms defined at first use, periods instead of joining colons and semicolons, and venue conventions such as IEEE headings and en-dash ranges.
 - Tightened `SKILL.md` and `README.md` for clarity, concision, and readability. Reworded four "After" examples (§6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
 - Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names (#338).
 - `scripts/validate-package.py` now fails when a pattern number appears twice in `SKILL.md` or in the README tables. Before, the second one replaced the first and the check passed (#340).

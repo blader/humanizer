@@ -11,6 +11,7 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 ## Key files
 
 - `SKILL.md` is the source of truth and the repo's only skill file. It contains portable YAML metadata, an account of why AI text sounds the way it does, and numbered patterns grouped in six sections and ordered by strength and frequency.
+- `references/academic.md` holds the academic register rules. `SKILL.md` tells agents to read it for research writing and LaTeX sources. Keep its § references in step with `SKILL.md`.
 - `README.md` explains installation, use, and patterns.
 - `CHANGELOG.md` holds the release notes, newest first. Old notes keep the pattern numbers their release used.
 - `.claude-plugin/plugin.json` describes the Claude plugin and points its skill loader at the root `SKILL.md`.

@@ -91,6 +91,10 @@ Humanize the prose in docs/launch-post.md
 
 Humanizer reads the current file in full before editing, including files it wrote earlier in the session. Its summary states how many sections it reviewed and names any it could not cover.
 
+### Academic writing
+
+For papers, proposals, theses, and LaTeX sources, Humanizer switches to a formal academic register described in [`references/academic.md`](references/academic.md). It removes the same AI tells but keeps the text formal and impersonal: no idioms, contractions, or *you*; arguments that move from the general problem to the specific work; acronyms defined at first use; and venue conventions such as IEEE title-case headings and en-dash ranges.
+
 ### Match your voice
 
 To make the rewrite sound like you, include a writing sample:
