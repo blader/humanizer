@@ -93,7 +93,7 @@ Humanizer reads the current file in full before editing, including files it wrot
 
 ### Academic writing
 
-For papers, proposals, theses, and LaTeX sources, Humanizer switches to a formal academic register described in [`references/academic.md`](references/academic.md). It removes the same AI tells but keeps the text formal and impersonal: no idioms, contractions, or *you*; arguments that move from the general problem to the specific work; acronyms defined at first use; and venue conventions such as IEEE title-case headings and en-dash ranges.
+For papers, proposals, theses, and LaTeX sources, Humanizer switches to a formal academic register described in [`references/academic.md`](references/academic.md). It removes the same AI tells but keeps the text formal and impersonal: no idioms, contractions, or *you*; arguments that move from the general problem to the specific work; acronyms defined at first use; varied wording instead of the same word in consecutive sentences; and venue conventions such as IEEE title-case headings and en-dash ranges.
 
 ### Match your voice
 

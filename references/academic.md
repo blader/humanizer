@@ -51,7 +51,7 @@ In an introduction or a motivation paragraph, each sentence must follow from the
 
 ### 4. Use the field's terms and keep them fixed
 
-Name concepts with the terms the research community uses: *staff observation*, *self-reported data*, *non-invasive*, *real-time*, *activity monitoring*. Use one term for one concept across the whole document. Define each acronym at first use, full form first: "Centre Hospitalier Universitaire (CHU)". Do not introduce a technical label that the text never defines or needs; describe what is measured instead ("the contribution of the gyroscope" rather than an unexplained "sensor ablation").
+Name concepts with the terms the research community uses: *staff observation*, *self-reported data*, *non-invasive*, *real-time*, *activity monitoring*. Use one term for one technical concept across the whole document. This applies to technical terms only; ordinary words follow rule 10. Define each acronym at first use, full form first: "Centre Hospitalier Universitaire (CHU)". Do not introduce a technical label that the text never defines or needs; describe what is measured instead ("the contribution of the gyroscope" rather than an unexplained "sensor ablation").
 
 ### 5. Join clauses with periods, not colons or semicolons
 
@@ -85,6 +85,22 @@ Refer to the work as *this project*, *this work*, or *the proposed approach*. Us
 
 Correct agreement ("traditional methods rely", "the raw outputs are"), spelling, and missing articles. Keep the document's spelling variety (British or American) consistent with the rest of the text.
 
+### 10. Do not repeat words in nearby sentences
+
+A content word (noun, verb, or adjective) that recurs in consecutive sentences, or twice in one sentence, makes the prose sound mechanical. Connectives count too: two nearby sentences that both open with *However* have the same fault. Before returning, scan each paragraph for repeated words and vary them:
+
+- use a synonym with the same meaning: *clinicians*, *physicians*, *medical staff*; *record*, *capture*, *acquire*; *show*, *indicate*, *reveal*;
+- use a pronoun or a demonstrative: *they*, *these signals*, *such devices*;
+- restructure the sentence so the word is needed once, or drop it where the context makes it clear.
+
+Rule 4 still holds: a technical term or defined concept (*gyroscope*, *HAR*, *self-supervised learning*, *activity monitoring*) stays the same every time, because a synonym would suggest a different thing. Vary the words around the term instead. A synonym must keep the meaning exactly: *patients* are not *participants* or *volunteers*.
+
+**Before:**
+> However, wearable inertial sensors can support the continuous monitoring of patients. Small, non-invasive devices record movement over long periods without a camera, which avoids the privacy and occlusion problems of video-based monitoring \cite{serpush2022wearable}. However, raw inertial signals cannot be interpreted directly by clinicians. Human activity recognition (HAR) is then used to convert these signals into a timeline of activities that clinicians can read.
+
+**After:**
+> Wearable inertial sensors can support the continuous monitoring of patients. Small, non-invasive devices record movement over long periods without a camera, which avoids the privacy and occlusion problems of video-based monitoring \cite{serpush2022wearable}. However, raw inertial signals cannot be interpreted directly by medical staff. Human activity recognition (HAR) converts them into a timeline of activities that clinicians can read.
+
 ## LaTeX sources
 
 Edit only the prose. Keep commands, environments, labels, `\cite` and `\ref` keys, non-breaking spaces (`~`), math, and `%` comments unchanged unless the user asks. Keep the line breaks of untouched sentences so the diff stays small.
@@ -99,7 +115,7 @@ Edit only the prose. Keep commands, environments, labels, `\cite` and `\ref` key
 **Academic register:**
 > Monitoring the mobility and physical activity of patients with complex health profiles is difficult in clinical settings, and the Centre Hospitalier Universitaire (CHU) Clermont-Ferrand faces the same difficulty. Accurate activity assessment is nevertheless essential to detect early signs of deterioration, to estimate the risk of falls and loss of autonomy, to adapt care plans, and to evaluate rehabilitation programmes \cite{chu2025ssl}. Current practice relies mainly on staff observation and on self-reported data. Both are subjective, do not scale to large numbers of patients, and provide no information on activity outside the hospital \cite{chu2025ssl}.
 >
-> Wearable inertial sensors can support the continuous monitoring of patient movement. Small, non-invasive devices worn on the wrist, the waist, or the thigh record movement over long periods without a camera, which avoids the privacy and occlusion problems of video-based monitoring \cite{serpush2022wearable}. However, raw inertial signals cannot be interpreted directly by clinicians. Human activity recognition (HAR) converts them into a timeline of activities. This project addresses HAR for clinical monitoring, with doctors and patients as its end users.
+> Wearable inertial sensors can support the continuous monitoring of patient movement. Small, non-invasive devices worn on the wrist, the waist, or the thigh record motion over long periods without a camera, which avoids the privacy and occlusion problems of video-based monitoring \cite{serpush2022wearable}. However, raw inertial signals cannot be interpreted directly by clinicians. Human activity recognition (HAR) converts them into a timeline of activities. This project addresses HAR for clinical monitoring, with doctors and patients as its end users.
 
 ## Final check
 
@@ -109,5 +125,6 @@ Before returning academic text, confirm that:
 - each paragraph moves from the general problem to the specific work;
 - every acronym is defined once, at first use;
 - no colon or semicolon joins two independent clauses;
+- no content word or connective repeats in consecutive sentences, except fixed technical terms;
 - every fact, number, and citation of the original is still present and attached to its claim;
 - the main tells (§1, §2, §6, §8, §19) are gone.
