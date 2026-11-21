@@ -47,6 +47,13 @@ The plugin requires Claude Code 2.1.142 or newer; on older versions, run `npx sk
 npx skills add blader/humanizer --global --agent codex
 ```
 
+### Install as an agent plugin
+
+```bash
+codex plugin marketplace add blader/humanizer
+codex plugin add humanizer@humanizer
+```
+
 ### pi
 
 ```bash
