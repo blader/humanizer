@@ -236,13 +236,19 @@ Shapes and punctuation applied everywhere, whether or not the meaning asks for t
 
 ### 11. Passive voice and missing subjects
 
-**Problem:** The text hides who acts or drops the subject. Use active voice when it makes the actor and action clearer. *Weak alone.*
+**Problem:** The text hides who acts, drops the subject, or hands the writer's verbs (*organize*, *distinguish*, *guide*) to abstract concepts and counts. Name the actor, or state the structural relation (*"The argument rests on..."*). Keep active verbs for concrete components that perform the work (*"The scheduler dispatches tasks"*). *Weak alone.*
 
 **Before:**
 > No configuration file needed. The results are preserved automatically.
 
 **After:**
 > You do not need a configuration file. The system preserves the results automatically.
+
+**Before (concepts acting for the writer):**
+> Four theoretical propositions organize the argument. Eight appraisal domains distinguish the results.
+
+**After:**
+> We organize the argument around four theoretical propositions and group the results into eight appraisal domains.
 
 ## C. Inflation and borrowed authority
 

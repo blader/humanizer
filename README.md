@@ -141,7 +141,7 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 | 8 | **Dashes as the universal connector** (*weak alone*) | "institutions—not the people—yet this continues—" | Use periods, commas, colons, or parentheses; match a sample that uses dashes |
 | 9 | **Stacked qualifiers** (*weak alone*) | "could potentially possibly be argued" | Keep only qualifiers the source supports |
 | 10 | **Hyphenated pairs everywhere** (*weak alone*) | "the report is high-quality" | Keep the hyphen before the noun or where the dictionary always uses one |
-| 11 | **Passive voice and missing subjects** (*weak alone*) | "No configuration file needed" | Name the actor when that makes the action clearer |
+| 11 | **Passive voice and missing subjects** (*weak alone*) | "No configuration file needed", "Four propositions organize the argument" | Name the actor, or restore the writer when concepts take analytical verbs |
 
 ### C. Inflation and borrowed authority
 
