@@ -46,6 +46,8 @@ Without a sample, match the kind of text. Blog posts, essays, and personal writi
 
 Informal text (chat messages, comments, rants, angry reviews) is often human already. Lowercase, abbreviations like "lmk", fragments, and emphatic stops ("Worst. Service. Ever.") are its register, so leave them. A lone tell is not enough here, except §22 chatbot residue; two unrelated tells make the whole text a rewrite target. Keep the writer's anger at full strength: "disgusting" stays "disgusting" and "tried restarting it" stays "tried restarting it". With no tell, return the text unchanged.
 
+For a reply in a public thread (Hacker News, Reddit, an issue), also read `references/forum-replies.md`: blind tests found the angle, arc, and kind of detail give AI replies away more than any sentence does.
+
 ### What to return
 
 **Pasted text (default).** Return the first rewrite, a short list of tells that survived it, and the final rewrite.
