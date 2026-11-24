@@ -10,7 +10,10 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 
 ## Key files
 
-- `SKILL.md` is the source of truth and the repo's only skill file. It contains portable YAML metadata, an account of why AI text sounds the way it does, and numbered patterns grouped in six sections and ordered by strength and frequency.
+- `SKILL.md` is the source of truth and the repo's only skill file. It contains portable YAML metadata, the shared five-phase process, language routing, output rules, and genre guidance.
+- `references/en.md` holds English patterns 1–26. `references/zh-CN.md` holds Chinese patterns 27–50. Each language file contains its own numbered sections ordered by strength and frequency.
+- `docs/research-zh-CN.md` separates Chinese research, evidence limits, and maintenance principles from the executable rules.
+- `tests/cases.json` and `tests/run_behavior_tests.py` hold behavior cases and the real-agent test runner. Keep expected outputs and test fixtures out of the language rules.
 - `README.md` explains installation, use, and patterns.
 - `CHANGELOG.md` holds the release notes, newest first. Old notes keep the pattern numbers their release used.
 - `.claude-plugin/plugin.json` describes the Claude plugin and points its skill loader at the root `SKILL.md`.
@@ -22,15 +25,15 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 
 ## Rules for changes
 
-Keep `SKILL.md` and `README.md` in sync.
+Keep `SKILL.md`, the active language rule file, and `README.md` in sync.
 
-- **Patterns:** Patterns are numbered from 1 without gaps, strongest and most frequent first. A new tell earns a pattern only when no existing pattern already implies it; prefer folding it into an existing pattern. If you add, remove, or renumber a pattern, update the README tables, the README section title, and every §reference. The validator derives the count from the headings and checks that README pattern names match them.
+- **Patterns:** Patterns are numbered globally from 1 without gaps, strongest and most frequent first within each language. Keep English at 1–26 and Chinese at 27–50 unless a release deliberately renumbers every reference. A new tell earns a pattern only when no existing pattern already implies it; prefer folding it into an existing pattern. If you add, remove, or renumber a pattern, update the README tables, the README section title, and every §reference. The validator derives the count from the language-rule headings and checks that README pattern names match them.
 - **Version:** Keep the same version in `SKILL.md` under `metadata.version`, the first `CHANGELOG.md` heading, `.claude-plugin/plugin.json`, and `.cursor-plugin/plugin.json`. Do not add a top-level `version` field to the skill.
 - **Compatibility:** Keep install and use instructions neutral across agents. Names such as Claude Code, Cursor, OpenCode, and Codex are examples, not limits.
 - **Description:** The plugin manifests use the first sentence of the `SKILL.md` description.
-- **Length:** Every word of `SKILL.md` is read on each use. The validator caps it at 5,500 words; a change that adds words should earn them.
+- **Length:** Each use reads `SKILL.md` and one language rule file; mixed text reads both. The validator caps either single-language load at 5,500 whitespace-delimited words; a change that adds words should earn them. Keep research and test fixtures out of this load.
 - **History:** Add a short `CHANGELOG.md` note for any behavior change or non-obvious fix.
-- **Checks:** Before publishing, run `python3 scripts/validate-package.py`, `npx skills add . --list`, and `claude plugin validate .`.
+- **Checks:** Before publishing, run `python3 scripts/validate-package.py`, `python3 tests/run_behavior_tests.py --agent-command "claude -p --tools=\"\""`, `npx skills add . --list`, and `claude plugin validate .`. Behavior tests require an installed, authenticated agent; package checks do not.
 
 ## Writing style
 
