@@ -1,0 +1,176 @@
+[
+  {
+    "id": "zh_technical_article",
+    "title": "中文技术文章：删除套话、包装和拔高，保留技术事实",
+    "genre": "技术文章",
+    "input": "在当今云原生时代，缓存已成为系统架构中不可或缺的重要组成部分。我们的系统使用 Redis 6.2，并通过布隆过滤器防止缓存穿透。值得注意的是，本轮优化不仅让 P95 延迟从 800 毫秒降到 450 毫秒，更赋能了研发流程，充分体现了技术创新的核心价值。从本质上来说，这不仅是一次性能优化，更是一场架构理念的深刻变革。总之，缓存优化具有十分重要的意义。",
+    "must_keep": ["Redis 6.2", "布隆过滤器", "缓存穿透", "P95", "800 毫秒", "450 毫秒"],
+    "forbidden_patterns": ["在当今", "不可或缺", "赋能", "从本质上来说", "深刻变革", "总之", "十分重要的意义", "不仅"],
+    "required_patterns": ["P95[^。\\n]*从 800 毫秒降(?:到|至)(?:了)? 450 毫秒"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.75
+  },
+  {
+    "id": "zh_technical_documentation",
+    "title": "中文技术文档：有用标题、步骤、代码和必要提示不应误改",
+    "genre": "技术文档",
+    "input": "## 重试配置\n\n将 `max_retries` 设为 `3`。值得注意的是，该设置仅适用于 HTTP 客户端，不影响后台任务。\n\n1. 修改 `client.yaml`。\n2. 重启服务。\n3. 运行 `python manage.py check`。",
+    "unchanged": true,
+    "must_keep": ["## 重试配置", "`max_retries`", "`3`", "仅适用于 HTTP 客户端", "不影响后台任务", "`client.yaml`", "`python manage.py check`"],
+    "no_new_numbers": true
+  },
+  {
+    "id": "zh_work_report",
+    "title": "中文工作汇报：减少价值包装，保留真实并列事项",
+    "genre": "工作汇报",
+    "input": "本季度，团队以目标为导向，以执行为抓手，全面推进各项工作。一是赋能客户响应，将平均响应时间从 12 小时缩短到 6 小时；二是打造质量闭环，将发布失败率从 8% 降到 3%；三是实现协同升级，完成 4 次跨部门评审。这充分说明团队战斗力得到全方位提升。下一步将系统性推进第二季度规划，具体计划是在 5 月 15 日前完成账单模块迁移。",
+    "must_keep": ["12 小时", "6 小时", "8%", "3%", "4 次", "5 月 15 日", "账单模块", "迁移"],
+    "forbidden_patterns": ["以目标为导向", "为抓手", "赋能", "闭环", "全方位提升", "系统性推进"],
+    "required_patterns": ["响应时间从 12 小时缩短(?:到|至)(?:了)? 6 小时", "发布失败率从 8% 降(?:到|至)(?:了)? 3%"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.8
+  },
+  {
+    "id": "zh_forced_numbering",
+    "title": "机械编号：三个编号复述同一事实时应合并",
+    "genre": "工作汇报",
+    "input": "本次更新主要体现在三个方面。一是提升速度，冷启动时间从 4 秒降到 2 秒。二是提升效率，冷启动时间从 4 秒降到 2 秒。三是优化体验，冷启动时间从 4 秒降到 2 秒。由此可见，三个方面实现了全方位提升。",
+    "must_keep": ["4 秒", "2 秒", "冷启动"],
+    "forbidden_patterns": ["三个方面", "一是", "二是", "三是", "由此可见", "全方位提升"],
+    "required_patterns": ["冷启动(?:时间)?从 4 秒降(?:到|至)(?:了)? 2 秒"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.55
+  },
+  {
+    "id": "zh_business_email",
+    "title": "中文商务邮件：删除助手残留但保留正常礼貌",
+    "genre": "商务邮件",
+    "input": "王经理，您好：\n\n根据您的要求，以下是合同修订的详细分析。我们已将交付日期改为 6 月 18 日，并在附件第 3 页补充了验收标准。请查收附件。\n\n如需进一步信息，请随时与我联系。希望这对你有所帮助。如果你愿意，我可以继续为您详细分析。\n\n祝好，\n李明",
+    "must_keep": ["王经理，您好", "6 月 18 日", "附件第 3 页", "验收标准", "如需进一步信息，请随时与我联系", "祝好", "李明"],
+    "forbidden_patterns": ["根据您的要求", "详细分析", "希望这对你有所帮助", "如果你愿意", "我可以继续"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.9
+  },
+  {
+    "id": "zh_daily_chat_unchanged",
+    "title": "中文日常聊天：情绪、口语和碎句不应被文章化",
+    "genre": "日常聊天",
+    "input": "今天真的烦死了。地铁坐反了两站，咖啡又洒在新裤子上。别跟我讲道理，先让我骂三分钟。",
+    "unchanged": true,
+    "must_keep": ["真的烦死了", "两站", "新裤子", "别跟我讲道理", "三分钟"],
+    "no_new_numbers": true
+  },
+  {
+    "id": "mixed_chinese_english",
+    "title": "中英混合：分别路由，保留技术连字符和代码",
+    "genre": "中英文混合技术文章",
+    "input": "在当今协作办公时代，新版 `real-time sync` 不仅能同步评论，更能赋能团队生态，具有深远意义。\n\nIt's not just a UI change; it's a new workflow. The report is high-quality and the API uses end-to-end encryption.",
+    "must_keep": ["`real-time sync`", "end-to-end encryption", "The report is high quality"],
+    "forbidden_patterns": ["在当今", "赋能", "深远意义", "It's not just", "\\bnot\\b[^.?!;]*\\bonly\\b", "high-quality"],
+    "required_patterns": ["\\b(?:UI|interface)\\b", "(?:同步评论|评论同步)"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.9
+  },
+  {
+    "id": "english_regression",
+    "title": "英文回归：保留原有强规则、事实和直接输出",
+    "genre": "English technical article",
+    "input": "Great question! Let's dive into our PostgreSQL 16 upgrade. It's not just a maintenance task; it's a transformative journey toward operational excellence. In 2024, the upgrade reduced query time by 18%, marking a pivotal moment for our innovative, robust, and future-ready platform. That is the real win. I hope this helps!",
+    "must_keep": ["PostgreSQL 16", "2024", "18%", "query time"],
+    "forbidden_patterns": ["Great question", "Let's dive", "not just", "transformative journey", "pivotal moment", "innovative, robust, and future-ready", "That is the real win", "I hope this helps"],
+    "required_patterns": ["(?:reduced|cut|decreased) query time by 18%"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.75
+  },
+  {
+    "id": "zh_normal_prose_unchanged",
+    "title": "正常中文：自然节奏和具体细节不应被误改",
+    "genre": "散文",
+    "input": "雨下了一夜。清晨推门，地上全是樟树叶子。我扫到巷口，又回来给母亲煮了一碗面。",
+    "unchanged": true,
+    "must_keep": ["雨下了一夜", "樟树叶子", "巷口", "一碗面"],
+    "no_new_numbers": true
+  },
+  {
+    "id": "zh_academic_facts",
+    "title": "中文学术文本：保留术语、数字、引用、限定和结论强度",
+    "genre": "学术文本",
+    "input": "从本质上来说，本研究不仅揭示了模型偏差，更构建了可信 AI 的理论基石。本研究纳入 216 份样本，Transformer 模型的 F1=0.87，差异达到统计显著水平（p<0.05）。值得注意的是，结果仅适用于普通话母语者。王等（2024）将这一现象称为“语境依赖”，本研究沿用该术语。",
+    "must_keep": ["216", "Transformer", "F1=0.87", "p<0.05", "仅适用于普通话母语者", "王等（2024）", "“语境依赖”", "沿用"],
+    "forbidden_patterns": ["从本质上来说", "理论基石", "不仅", "更构建"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.95
+  },
+  {
+    "id": "zh_opinion_mechanical_rhetoric",
+    "title": "中文评论：处理机械排比、伪范围和强行升华，保留作者判断",
+    "genre": "评论和观点文章",
+    "input": "社区图书馆把周五和周六的闭馆时间延长到 22:00。这不是一次简单的时间调整，而是公共服务理念的全面升级。从一张书桌到一盏灯，从一个读者到整个城市，它都在书写知识改变命运的宏大叙事。我认为真正值得肯定的是，夜班读者多了一个合法、安静的落脚处。这一点充分说明，小改变也能承载大时代。",
+    "must_keep": ["社区图书馆", "22:00", "夜班读者", "合法、安静的落脚处"],
+    "forbidden_patterns": ["不是一次简单", "全面升级", "宏大叙事", "这一点充分说明", "大时代", "从一张书桌", "Community Library"],
+    "required_patterns": ["周五(?:和|、)周六", "(?:我认为|值得)"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.75
+  },
+  {
+    "id": "zh_social_media_unchanged",
+    "title": "中文社交媒体：保留口语、设问和个人好恶",
+    "genre": "社交媒体",
+    "input": "别问，问就是真香。这家店没装修，菜单只有四样，老板却记得我不要香菜。谁说便宜没好货？",
+    "unchanged": true,
+    "must_keep": ["别问，问就是真香", "菜单只有四样", "不要香菜", "谁说便宜没好货"],
+    "no_new_numbers": true
+  },
+  {
+    "id": "zh_news_release",
+    "title": "中文新闻稿：删除宣传与夸大，保留归因和时间",
+    "genre": "新闻稿",
+    "input": "今日，星河公司正式宣布推出“星河 2.0”，这一重磅发布标志着行业发展的重要里程碑。公司表示，新系统将于 6 月 30 日在上海和深圳试点，首批覆盖 120 家门店。这一举措充分彰显了公司引领未来的决心，并将深刻重塑零售生态。",
+    "must_keep": ["星河公司", "“星河 2.0”", "6 月 30 日", "上海和深圳", "120 家门店", "试点"],
+    "forbidden_patterns": ["重磅发布", "重要里程碑", "充分彰显", "引领未来", "深刻重塑"],
+    "required_patterns": ["(?:公司表示|公司介绍|公司称|据公司)"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.85
+  },
+  {
+    "id": "zh_official_document_unchanged",
+    "title": "中文公文：规范编号和正式措辞不应误改",
+    "genre": "公文和正式报告",
+    "input": "一、工作目标\n\n2026 年完成辖区内老旧小区供水管网排查，建立问题台账。\n\n二、重点任务\n\n（一）摸清设施底数。各街道应于 3 月底前报送排查结果。\n（二）实行分类处置。对存在渗漏的管段，按照轻重缓急安排维修。",
+    "unchanged": true,
+    "must_keep": ["一、工作目标", "2026 年", "二、重点任务", "（一）摸清设施底数", "3 月底", "（二）实行分类处置", "轻重缓急"],
+    "no_new_numbers": true
+  },
+  {
+    "id": "zh_fiction_unchanged",
+    "title": "中文小说：保留有意重复、对话和叙事节奏",
+    "genre": "小说和创意写作",
+    "input": "门开了。门又关上。她始终没有回头。\n\n“你走吧，”他说，“趁我还没后悔。”",
+    "unchanged": true,
+    "must_keep": ["门开了。门又关上", "她始终没有回头", "“你走吧，”他说，“趁我还没后悔。”"],
+    "no_new_numbers": true
+  },
+  {
+    "id": "zh_no_invented_specifics",
+    "title": "具体性：只使用原文事实，不编造措施、数字或案例",
+    "genre": "工作汇报",
+    "input": "团队采取了一系列措施，取得了显著成效。过去一个月，发布失败率从 8% 降到 3%，回滚次数从 5 次降到 2 次。这一成果充分说明流程优化具有重要价值。",
+    "must_keep": ["过去一个月", "8%", "3%", "5 次", "2 次"],
+    "forbidden_patterns": ["一系列措施", "显著成效", "充分说明", "重要价值", "双人复核"],
+    "required_patterns": ["发布失败率从 8% 降(?:到|至)(?:了)? 3%", "回滚次数从 5 次降(?:到|至)(?:了)? 2 次"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.7
+  },
+  {
+    "id": "zh_voice_not_standardized",
+    "title": "作者风格：短促口语不应被统一成中性文章腔",
+    "genre": "社交媒体",
+    "voice_sample": "我不爱绕弯子。这个功能省了两步，够用。别把它说成革命。",
+    "input": "在效率工具不断发展的今天，这款计算器不仅支持离线使用，更以便捷、智能、强大的体验赋能每一位用户。它只有 2 MB，不需要登录。可以预见，它必将重新定义个人计算方式。",
+    "must_keep": ["2 MB", "登录"],
+    "forbidden_patterns": ["效率工具不断发展", "便捷、智能、强大", "赋能", "可以预见", "必将重新定义"],
+    "required_patterns": ["(?:离线|不用联网|无网络)", "(?:不用|不需要)登录"],
+    "no_new_numbers": true,
+    "max_length_ratio": 0.65
+  }
+]

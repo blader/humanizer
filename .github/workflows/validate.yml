@@ -21,6 +21,10 @@ jobs:
           python-version: "3.12"
       - name: Check package files
         run: python3 scripts/validate-package.py
+      - name: Check behavior case definitions
+        run: python3 tests/run_behavior_tests.py --list
+      - name: Check output assertions
+        run: python3 tests/test_output_checks.py
       - name: Check skill discovery
         run: npx --yes skills@1.5.20 add . --list
       - name: Check Claude marketplace

@@ -1,10 +1,16 @@
 # Changelog
 
-## Unreleased
+## 5.0.0
 
-- Tightened `SKILL.md` and `README.md` for clarity, concision, and readability. Reworded four "After" examples (§6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
+- Added Chinese editing support with 24 language-specific patterns (27–50), covering empty framing, abstraction, inflated significance, mechanical sentence patterns, repetition, template structure, specificity, rhythm, and chat residue.
+- Split the prompt into a shared root `SKILL.md`, `references/en.md`, and `references/zh-CN.md`. The root routes Chinese, English, and mixed text to the right rules and keeps the original 26 English patterns.
+- Replaced the visible draft-and-audit output with five internal phases: analysis, evaluation, targeted rewriting, fact and meaning verification, and final output. The default response is now only the final text; analysis is available on request.
+- Added genre guidance for technical articles and documentation, news, work reports, official documents, business email, social media, opinion writing, academic text, chat, and fiction. Normal Chinese subject omission, parallel prose, formal wording, and creative style have explicit safeguards.
+- Restored a strict no-invention rule across both languages. Rewrites cannot add unchecked data, cases, sources, experiences, opinions, or facts. Reworked the English examples so every retained detail is supported by its own "Before" text.
+- Added Chinese research notes, lightweight real-agent behavior tests, and Chinese installation and usage documentation. Updated package validation for the language files and 50 global patterns.
+- Tightened the inherited prompt and README for clarity, concision, and readability. Reworded four inherited examples (old §6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
 - Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names (#338).
-- `scripts/validate-package.py` now fails when a pattern number appears twice in `SKILL.md` or in the README tables. Before, the second one replaced the first and the check passed (#340).
+- `scripts/validate-package.py` now fails when a pattern number appears twice in the language rules or in the README tables. Before, the second one replaced the first and the check passed (#340).
 - Informal human text is no longer over-edited. Chat messages, rants, and angry reviews keep their lowercase, abbreviations, fragments, and blunt openers. A lone tell is not enough there (§22 chatbot residue excepted); two unrelated tells make the whole text a rewrite target. Anger keeps its strength, and "tried X" stays "tried X" (#318).
 - Added a closing "Overall" or "Ultimately" verdict that restates the paragraph to §2 (#318).
 - Said that a plain "let me know" in a message predates chatbots (#318).
