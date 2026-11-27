@@ -10,9 +10,9 @@ Humanizer makes AI-written text sound like a person wrote it, without changing w
 > I'm thrilled to announce that shared drafts are finally here! 🚀 For months, our own team was drowning in files named final_v7.docx — and we knew there had to be a better way. Now two people can edit the same doc at once, with every change appearing live for both of them. It's not just a feature; it's a whole new way to collaborate. Comments stay anchored to the exact sentence they reference, even as the text around them evolves. And the best part? It's available today on every plan, completely free. Let that sink in.
 
 **After:**
-> Shared drafts are out today. For months our own team passed around files named final_v7.docx, and we got sick of it. Now two people can edit the same doc at once and see each other's changes as they type. Comments stay attached to the sentence they're about, even when the text around it changes. It's free on every plan.
+> Shared drafts are here. For months, our own team kept losing track of files named final_v7.docx, and we wanted a better way to work on one document together. Now two people can edit the same doc at once, and each of them sees the other's changes as they happen. Comments stay attached to the sentence they refer to, even when the text around that sentence changes. Shared drafts are available today and free on every plan.
 
-In a blind test, judges preferred Humanizer's rewrite over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
+In a blind test of an earlier rewrite of this text, judges preferred Humanizer's version over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
 
 Humanizer edits for human readers. It does not try to get past AI detectors, and detectors still flag most of its output.
 
@@ -216,15 +216,17 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 > Would I go back? Absolutely — next time in spring, and with better shoes! Lisbon isn't just a place to visit; it's a place to fall in love with, again and again. ✨
 
 **After:**
-> I spent five days in Lisbon last October. My hotel was up in Alfama, with a lot of stairs between it and everything else. My legs felt every one of them, but the views from the top made up for it.
+> I spent five days in Lisbon last October and loved it. My hotel was high up in the Alfama district, and I liked the place from the day I checked in.
 >
-> Everyone tells you to ride Tram 28, so I did. It took about forty minutes, and most of the car was other tourists taking pictures out the windows.
+> The hills are hard work. There were a lot of stairs between my hotel and everything else, and my legs felt every one of them. The views from the top make up for it, though, and you get one after almost every climb.
 >
-> The custard tarts at Pastéis de Belém are the famous ones. The best one I had came from a place in Graça, still warm from the oven.
+> I rode Tram 28, which takes about forty minutes and was full of other tourists holding up their phones. The food was excellent. Everyone goes to Pastéis de Belém for pastéis de nata, and theirs are good, but my favorite came from a place in Graça, still warm from the oven.
 >
-> The part of Lisbon I liked most starts a block or two above the main squares, where the streets go quiet and nobody is in a hurry. São Jorge Castle has good views over the rooftops and a long queue to get them.
+> What I liked most was how quickly the city calms down. Walk a block or two uphill from the main squares and the crowds thin out and the streets go quiet, so you can take your time.
 >
-> I'd go back, in spring next time, and with better shoes.
+> I also went to São Jorge Castle, which has a great view over the rooftops. The line was long, but if you like history, it's worth the wait.
+>
+> I'd go back. Next time I'll go in spring, and I'll bring better shoes.
 
 ## Sources
 

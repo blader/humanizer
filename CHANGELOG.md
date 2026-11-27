@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Replaced both README "After" examples with fresh rewrites of the same "Before" text, made with the hooks on and checked for dropped or changed facts. The blind-test note now says it tested an earlier rewrite.
+
 - The Claude Code plugin now enforces Humanizer with hooks, on prose files, chat replies, and thinking. `PreToolUse` blocks prose writes that the scorer flags. `Stop` sends a flagged reply back for a rewrite. `SessionStart` and `UserPromptSubmit` add the rules to context and report tells found in the last turn's thinking. Set `HUMANIZER_HOOK=off` to turn them off.
 - Added `scripts/humanizer-lint.py`, a weighted linear scorer over the `SKILL.md` patterns, modeled on `ste-lint`. Stock-word weights follow published frequency ratios (Kobak et al. 2025; Reinhart et al. 2025); passive voice and type-token ratio are left out because they do not point reliably at AI text (El Attar et al. 2026). One-sighting tells flag a text alone; weaker lexical and structural signals flag it together. Added `tests/` with fixtures for the scorer and each hook event.
 
