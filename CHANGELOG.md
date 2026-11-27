@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+- Reordered `README.md` so Usage follows Installation and the hook settings come after it. The intro now names both parts: the rewrite skill and the Claude Code hooks that the plugin enables in Claude Code settings.
+- The scorer no longer counts a one-line lead-in that ends in a colon as a closer paragraph.
+
+- Restructured `README.md` to the RWS application profile: added Status, Requirements, Configuration, Testing, and Support sections, an install check with `/hooks`, and the scorer sources. Corrected the hook scoring notes (20-word floor; §12 words are weighted, not one-sighting).
+
+- Replaced both README "After" examples with fresh rewrites of the same "Before" text, made with the hooks on and checked for dropped or changed facts. The blind-test note now says it tested an earlier rewrite.
+
+- The Claude Code plugin now enforces Humanizer with hooks, on prose files, chat replies, and thinking. `PreToolUse` blocks prose writes that the scorer flags. `Stop` sends a flagged reply back for a rewrite. `SessionStart` and `UserPromptSubmit` add the rules to context and report tells found in the last turn's thinking. Set `HUMANIZER_HOOK=off` to turn them off.
+- Added `scripts/humanizer-lint.py`, a weighted linear scorer over the `SKILL.md` patterns, modeled on `ste-lint`. Stock-word weights follow published frequency ratios (Kobak et al. 2025; Reinhart et al. 2025); passive voice and type-token ratio are left out because they do not point reliably at AI text (El Attar et al. 2026). One-sighting tells flag a text alone; weaker lexical and structural signals flag it together. Added `tests/` with fixtures for the scorer and each hook event.
+
 - Tightened `SKILL.md` and `README.md` for clarity, concision, and readability. Reworded four "After" examples (§6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
 - Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names (#338).
 - `scripts/validate-package.py` now fails when a pattern number appears twice in `SKILL.md` or in the README tables. Before, the second one replaced the first and the check passed (#340).

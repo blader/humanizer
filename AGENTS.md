@@ -18,6 +18,11 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 - `.cursor-plugin/plugin.json` describes the Cursor plugin. Omit a `skills` path so Cursor loads the root `SKILL.md`.
 - `package.json` makes the repo a pi package. Its `pi.skills` entry points at the repo root so pi loads the root `SKILL.md`. Do not add a `version` field; pi installs from git.
 - `agents/openai.yaml` holds the display name, short description, and default prompt for OpenAI-compatible agents.
+- `hooks/hooks.json` holds the Claude plugin hooks. Claude Code loads it from the plugin root, so do not also list it in `plugin.json`. It runs `scripts/humanizer-hook.py` on `SessionStart`, `UserPromptSubmit`, `PreToolUse` (`Write|Edit|MultiEdit`), and `Stop`.
+- `scripts/humanizer-hook.py` routes each hook event. It adds the rules to context, blocks prose writes and final replies that the scorer flags (exit code 2), and carries thinking findings to the next prompt.
+- `scripts/humanizer-lint.py` scores text with a weighted linear model over the `SKILL.md` patterns, in the style of `ste-lint`. Use only the Python standard library. Mark a feature `hard` only for a tell that justifies an edit on one sighting. If you renumber a pattern, update the `§` labels; the validator checks them.
+- `tests/test_hooks.py` and `tests/fixtures.json` test the scorer and every hook event. A new feature must keep the human fixtures unflagged.
+- `.claude/settings.json` turns the hooks off in this repo, because `SKILL.md` lists every tell.
 - `scripts/validate-package.py` checks package files and shared values.
 
 ## Rules for changes
@@ -30,7 +35,7 @@ Keep `SKILL.md` and `README.md` in sync.
 - **Description:** The plugin manifests use the first sentence of the `SKILL.md` description.
 - **Length:** Every word of `SKILL.md` is read on each use. The validator caps it at 5,500 words; a change that adds words should earn them.
 - **History:** Add a short `CHANGELOG.md` note for any behavior change or non-obvious fix.
-- **Checks:** Before publishing, run `python3 scripts/validate-package.py`, `npx skills add . --list`, and `claude plugin validate .`.
+- **Checks:** Before publishing, run `python3 scripts/validate-package.py`, `python3 -m unittest discover -s tests`, `npx skills add . --list`, and `claude plugin validate .`.
 
 ## Writing style
 

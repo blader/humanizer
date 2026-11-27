@@ -1,0 +1,40 @@
+{
+  "ai": [
+    "I'm thrilled to announce that shared drafts are finally here! For months, our own team was drowning in files named final_v7.docx, and we knew there had to be a better way. Now two people can edit the same doc at once. It's not just a feature; it's a whole new way to collaborate. Comments stay anchored to the exact sentence they reference, even as the text around them evolves. And the best part? It's available today on every plan, completely free. Let that sink in.",
+    "Great question! Caching in Next.js is a crucial topic. Let's dive in.",
+    "The real question is whether teams can adapt. At its core, what really matters is organizational readiness, cultural alignment, and leadership buy-in.",
+    "I fixed the parser — the bug was in the tokenizer — and now everything works.",
+    "This isn't mainly about prompt length. I'm not saying documentation doesn't matter. The issue is whether the agent can use the instruction.",
+    "The new dashboard showcases a vibrant, intricate interplay of metrics, a testament to the team's meticulous work. It underscores our pivotal commitment to robust, seamless reporting. The landscape of analytics has shifted, and this tool plays a crucial role in it. Teams garner insights, bolster decisions, and leverage data across every function of the business today.",
+    "Great question! The issue isn't the cache, it's the stale index. Once you rebuild the index, lookups return the right rows again. That's the real win.",
+    "- **Performance:** The new parser delivers robust, scalable, and maintainable performance.\n- **Security:** Additionally, it leverages crucial safeguards to enhance resilience.\n- **Usability:** It showcases a seamless experience for developers.",
+    "Let's dive in. Here's the thing — the build is slow because every job reinstalls dependencies — and that adds up fast. Here's what you need to know: caching the package directory fixes it.",
+    "The migration to Postgres 16 marks a pivotal moment in the evolution of our data layer, underscoring our commitment to reliability and setting the stage for future growth. It stands as a testament to the team's dedication.",
+    "At its core, this isn't about test coverage. To be clear, I'm not saying coverage doesn't matter. The real question is whether the tests catch regressions, and what really matters is the feedback loop.",
+    "Why does this matter? Because every retry doubles the load on the database.\n\nNo backoff. No jitter. No ceiling.\n\nThe fix is simple: add exponential backoff with a cap.\n\nProblem solved.",
+    "The dashboard offers a comprehensive view of deployments, highlighting failure trends, fostering accountability, and ensuring that teams stay aligned with organizational goals. It is seamlessly integrated with the vibrant ecosystem of internal tools.",
+    "Certainly! Based on available information, the function could potentially be called from multiple threads, which might arguably cause a race. I hope this helps! Let me know if you'd like me to expand on any section.",
+    "- **Root cause:** The retry loop had no cap.\n- **Fix:** Added exponential backoff with a ceiling.\n- **Testing:** Ran the integration suite three times.\n\nWant me to open a PR?",
+    "Here's what I found. The flaky test isn't a timing issue, it's a shared fixture. Each test now builds its own fixture, ensuring clean state every run."
+  ],
+  "human": [
+    "Shared drafts are out today. For months our own team passed around files named final_v7.docx, and we got sick of it. Now two people can edit the same doc at once and see each other's changes as they type. Comments stay attached to the sentence they're about, even when the text around it changes. It's free on every plan.",
+    "Next.js caches data at several layers, including request memoization, the data cache, and the router cache.",
+    "All 12 tests pass. The fix is in parser.py: the tokenizer dropped the last character when a line ended without a newline.",
+    "I cloned both repos into ~/Documents/dev. Neither existed there before, so nothing was overwritten.",
+    "Session tokens rotate in place every 24 hours, and clients refresh transparently.",
+    "The question is whether teams can adapt. That mostly depends on whether the organization is ready to change its habits, which in our case took about two quarters and one painful reorg that nobody enjoyed.",
+    "yeah that's the flaky test again, rerun it. if it fails twice lmk and I'll look",
+    "The build was slow because each job reinstalled dependencies. I added a cache keyed on the lockfile hash, and CI time dropped from 11 minutes to 4.",
+    "Run `npm ci --prefer-offline` before the test step. The flag stops npm from hitting the registry when the cache already has the package.\n\n```sh\nnpm ci --prefer-offline -- robust, seamless, and crucial\n```",
+    "## Configuration\n\nThe server reads `config.toml` from the working directory. Set `port` to change the listen port; the default is 8080. If the file is missing, the server exits with code 2.",
+    "Agreed, this is a workaround. I'd rather keep this PR account-specific and open a separate ticket for the MergeService fix and the backfill.",
+    "I tried three things: clearing the cache, pinning the version, and rolling back the kernel. Only the rollback worked, which still bugs me, because nothing in the changelog touches the driver.",
+    "The test fails only on CI. Locally TZ is Asia/Manila, CI uses UTC, so the date boundary shifts. Check whether parseDate uses local time. It does, line 42. Switch it to Date.UTC and rerun.",
+    "The reviewer flagged \"delve\" and \"tapestry\" in the draft. I removed both and rewrote the intro so it starts with the benchmark numbers.",
+    "Options:\n\n- **`--force`** overwrites existing files.\n- **`--dry-run`** prints the plan without writing.\n- **--verbose** logs each step.",
+    "Retries use exponential backoff starting at 200 ms and doubling up to a 30 second ceiling. After five failed attempts the job moves to the dead-letter queue, where an operator can inspect it. This keeps the worker robust against brief network drops without hammering a database that is already struggling. Jitter of up to 20 percent spreads retries from many workers so they do not arrive together.",
+    "Fixed. The off-by-one was in the pager.",
+    "Look, the deadline is Friday, the reviewer is out, and the CI box is down. We ship what we have."
+  ]
+}

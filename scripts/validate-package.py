@@ -151,4 +151,34 @@ skill_words = len(SKILL.split())
 if skill_words > 5500:
     raise SystemExit(f"Keep SKILL.md at 5,500 words or fewer; it has {skill_words}")
 
+# The plugin hook must stay valid JSON and point at a script that exists.
+try:
+    HOOKS = json.loads(read_package_file(ROOT / "hooks" / "hooks.json"))
+except json.JSONDecodeError as error:
+    raise SystemExit(f"Fix the JSON in hooks/hooks.json: {error}")
+if "hooks" in PLUGIN:
+    raise SystemExit("Omit hooks from plugin.json; Claude Code loads hooks/hooks.json itself")
+hook_commands = [
+    hook.get("command", "")
+    for groups in HOOKS.get("hooks", {}).values()
+    for group in groups
+    for hook in group.get("hooks", [])
+]
+if not hook_commands:
+    raise SystemExit("Add at least one command to hooks/hooks.json")
+for command in hook_commands:
+    for script in re.findall(r"\$\{CLAUDE_PLUGIN_ROOT\}/([^\"'\s]+)", command):
+        if not (ROOT / script).is_file():
+            raise SystemExit(f"hooks/hooks.json runs a missing file: {script}")
+
+# Hook labels must point at real patterns after a renumber.
+hook_source = read_package_file(ROOT / "scripts" / "humanizer-lint.py")
+hook_references = sorted({int(n) for n in re.findall(r'"§([0-9]+)"', hook_source)})
+bad_hook_refs = [n for n in hook_references if not 1 <= n <= pattern_count]
+if bad_hook_refs:
+    raise SystemExit(
+        f"Point every feature label in scripts/humanizer-lint.py at a pattern from 1 to "
+        f"{pattern_count}: {bad_hook_refs}"
+    )
+
 print(f"Humanizer package v{skill_version} is valid")
