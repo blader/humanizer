@@ -82,7 +82,7 @@ class HookEvents(unittest.TestCase):
         edit = run_hook({"hook_event_name": "PreToolUse", "tool_input": {
             "file_path": "b.txt", "old_string": "x", "new_string": "Great question! Here it is."}})
         multi = run_hook({"hook_event_name": "PreToolUse", "tool_input": {
-            "file_path": "c.rst", "edits": [{"new_string": "fine"}, {"new_string": "We delve in."}]}})
+            "file_path": "c.rst", "edits": [{"new_string": "fine"}, {"new_string": "Don't get me wrong, we ship Friday."}]}})
         self.assertEqual((edit.returncode, multi.returncode), (2, 2))
 
     def test_code_file_is_ignored(self):
