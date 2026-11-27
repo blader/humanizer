@@ -172,12 +172,12 @@ for command in hook_commands:
             raise SystemExit(f"hooks/hooks.json runs a missing file: {script}")
 
 # Hook labels must point at real patterns after a renumber.
-hook_source = read_package_file(ROOT / "scripts" / "humanizer-hook.py")
+hook_source = read_package_file(ROOT / "scripts" / "humanizer-lint.py")
 hook_references = sorted({int(n) for n in re.findall(r'"§([0-9]+)"', hook_source)})
 bad_hook_refs = [n for n in hook_references if not 1 <= n <= pattern_count]
 if bad_hook_refs:
     raise SystemExit(
-        f"Point every hook label in scripts/humanizer-hook.py at a pattern from 1 to "
+        f"Point every feature label in scripts/humanizer-lint.py at a pattern from 1 to "
         f"{pattern_count}: {bad_hook_refs}"
     )
 

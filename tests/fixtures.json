@@ -1,0 +1,18 @@
+{
+  "ai": [
+    "I'm thrilled to announce that shared drafts are finally here! For months, our own team was drowning in files named final_v7.docx, and we knew there had to be a better way. Now two people can edit the same doc at once. It's not just a feature; it's a whole new way to collaborate. Comments stay anchored to the exact sentence they reference, even as the text around them evolves. And the best part? It's available today on every plan, completely free. Let that sink in.",
+    "Great question! Caching in Next.js is a crucial topic. Let's dive in.",
+    "The real question is whether teams can adapt. At its core, what really matters is organizational readiness, cultural alignment, and leadership buy-in.",
+    "I fixed the parser — the bug was in the tokenizer — and now everything works.",
+    "This isn't mainly about prompt length. I'm not saying documentation doesn't matter. The issue is whether the agent can use the instruction.",
+    "The new dashboard showcases a vibrant, intricate interplay of metrics, a testament to the team's meticulous work. It underscores our pivotal commitment to robust, seamless reporting. The landscape of analytics has shifted, and this tool plays a crucial role in it. Teams garner insights, bolster decisions, and leverage data across every function of the business today."
+  ],
+  "human": [
+    "Shared drafts are out today. For months our own team passed around files named final_v7.docx, and we got sick of it. Now two people can edit the same doc at once and see each other's changes as they type. Comments stay attached to the sentence they're about, even when the text around it changes. It's free on every plan.",
+    "Next.js caches data at several layers, including request memoization, the data cache, and the router cache.",
+    "All 12 tests pass. The fix is in parser.py: the tokenizer dropped the last character when a line ended without a newline.",
+    "I cloned both repos into ~/Documents/dev. Neither existed there before, so nothing was overwritten.",
+    "Session tokens rotate in place every 24 hours, and clients refresh transparently.",
+    "The question is whether teams can adapt. That mostly depends on whether the organization is ready to change its habits, which in our case took about two quarters and one painful reorg that nobody enjoyed."
+  ]
+}

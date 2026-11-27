@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-- The Claude Code plugin now enforces Humanizer with a hook. Before Claude writes a prose file, `hooks/hooks.json` runs `scripts/humanizer-hook.py` on the new text and blocks the write if it finds a one-sighting tell (§1 to §5, §8, some §12 words, §22). Code, URLs, blockquotes, and quoted phrases are skipped. Set `HUMANIZER_HOOK=off` to turn it off.
+- The Claude Code plugin now enforces Humanizer with hooks, on prose files, chat replies, and thinking. `PreToolUse` blocks prose writes that the scorer flags. `Stop` sends a flagged reply back for a rewrite. `SessionStart` and `UserPromptSubmit` add the rules to context and report tells found in the last turn's thinking. Set `HUMANIZER_HOOK=off` to turn them off.
+- Added `scripts/humanizer-lint.py`, a weighted linear scorer over the `SKILL.md` patterns, modeled on `ste-lint`. One-sighting tells flag a text alone; weaker lexical and structural signals flag it together. Added `tests/` with fixtures for the scorer and each hook event.
 
 - Tightened `SKILL.md` and `README.md` for clarity, concision, and readability. Reworded four "After" examples (§6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
 - Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names (#338).

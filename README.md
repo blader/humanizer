@@ -43,11 +43,19 @@ The plugin requires Claude Code 2.1.142 or newer; on older versions, run `npx sk
 
 #### Hard enforcement with hooks
 
-The Claude Code plugin also installs a hook, so Humanizer runs whether or not the agent remembers to call it. Before Claude writes a prose file (`.md`, `.mdx`, `.markdown`, `.txt`, `.rst`, `.adoc`), the hook checks the new text for the strongest tells: §1 to §5, §8 dashes, §12 words such as "delve", and §22 chatbot residue. If it finds one, it blocks the write and tells Claude to rewrite the text with the skill first.
+The Claude Code plugin also installs hooks, so Humanizer applies whether or not the agent remembers to call it. The hooks cover three kinds of text:
 
-The hook skips code blocks, inline code, URLs, blockquotes, and quoted phrases, so text that discusses a pattern passes. It needs `python3` on your `PATH`; without it, writes go through unchecked.
+| Text | Hook | What happens |
+| --- | --- | --- |
+| Prose files (`.md`, `.mdx`, `.markdown`, `.txt`, `.rst`, `.adoc`) | `PreToolUse` on `Write`, `Edit`, `MultiEdit` | A write with AI tells is blocked until Claude rewrites it. |
+| Chat replies | `Stop` | A reply with AI tells is sent back, and Claude posts a rewritten reply. |
+| Thinking | `SessionStart`, `UserPromptSubmit`, `Stop` | The rules are added to Claude's context each session and each prompt. Tells found in stored thinking are reported at the next prompt. |
 
-To turn the hook off, set `HUMANIZER_HOOK=off`, for example in a project's `.claude/settings.json`:
+`scripts/humanizer-lint.py` scores the text. It counts the tells from `SKILL.md` as features, weights them, and adds them into a score from 0 to 1. A one-sighting tell (§1 to §5, §8 dashes, §12 words such as "delve", §22 chatbot residue, §23) flags the text by itself. Weaker signals, such as stock AI words, triads, flat sentence rhythm, and repeated openers, flag it only together. Texts under 40 words are flagged only for one-sighting tells. Run the scorer by hand with `python3 scripts/humanizer-lint.py FILE` or pipe text to it for a JSON report.
+
+The scorer skips code blocks, inline code, URLs, blockquotes, and quoted phrases, so text that discusses a pattern passes. Thinking can only be steered, not rewritten, and Claude Code often stores thinking without its text. The hooks need `python3` on your `PATH`; without it, text goes through unchecked.
+
+To turn the hooks off, set `HUMANIZER_HOOK=off`, for example in a project's `.claude/settings.json`:
 
 ```json
 { "env": { "HUMANIZER_HOOK": "off" } }
