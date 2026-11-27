@@ -64,6 +64,11 @@ class LintFixtures(unittest.TestCase):
         text = 'Avoid "Let that sink in." and `at its core`.\n\n> Here\'s the thing.\n\n```\na — b\n```\n'
         self.assertFalse(lint_module.lint(text)["flagged"])
 
+    def test_lead_in_line_is_not_a_closer(self):
+        para = "The server reads its config at start. It exits with code 2 if the file is missing."
+        text = "\n\n".join([para, "Each option is listed below:", para, "Pick one of these:", para, "Run it like this:", para])
+        self.assertEqual(lint_module.lint(text)["features"]["short_closers"], 0.0)
+
     def test_repo_docs_pass(self):
         for name in ("README.md", "AGENTS.md", "CHANGELOG.md"):
             with self.subTest(name=name):

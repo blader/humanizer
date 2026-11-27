@@ -224,7 +224,8 @@ def structural(cleaned: str, sents: list[str], words: int) -> dict[str, float]:
     paragraphs = [p.strip() for p in re.split(r"\n\s*\n", cleaned) if p.strip()]
     closers = sum(
         1 for prev, cur in zip(paragraphs, paragraphs[1:])
-        if not cur.startswith(LIST_OR_BLOCK) and not prev.startswith("#")
+        # A line ending in a colon introduces what follows; it is not a closer.
+        if not cur.startswith(LIST_OR_BLOCK) and not prev.startswith("#") and not cur.endswith(":")
         and len(sentences(cur)) == 1 and len(WORD.findall(cur)) <= 10 and len(sentences(prev)) >= 2
     )
     out["short_closers"] = float(closers)

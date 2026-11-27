@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Reordered `README.md` so Usage follows Installation and the hook settings come after it. The intro now names both parts: the rewrite skill and the Claude Code hooks that the plugin enables in Claude Code settings.
+- The scorer no longer counts a one-line lead-in that ends in a colon as a closer paragraph.
+
 - Restructured `README.md` to the RWS application profile: added Status, Requirements, Configuration, Testing, and Support sections, an install check with `/hooks`, and the scorer sources. Corrected the hook scoring notes (20-word floor; §12 words are weighted, not one-sighting).
 
 - Replaced both README "After" examples with fresh rewrites of the same "Before" text, made with the hooks on and checked for dropped or changed facts. The blind-test note now says it tested an earlier rewrite.
