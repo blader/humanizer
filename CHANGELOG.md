@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Restructured `README.md` to the RWS application profile: added Status, Requirements, Configuration, Testing, and Support sections, an install check with `/hooks`, and the scorer sources. Corrected the hook scoring notes (20-word floor; §12 words are weighted, not one-sighting).
+
 - Replaced both README "After" examples with fresh rewrites of the same "Before" text, made with the hooks on and checked for dropped or changed facts. The blind-test note now says it tested an earlier rewrite.
 
 - The Claude Code plugin now enforces Humanizer with hooks, on prose files, chat replies, and thinking. `PreToolUse` blocks prose writes that the scorer flags. `Stop` sends a flagged reply back for a rewrite. `SessionStart` and `UserPromptSubmit` add the rules to context and report tells found in the last turn's thinking. Set `HUMANIZER_HOOK=off` to turn them off.

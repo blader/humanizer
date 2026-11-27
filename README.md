@@ -4,7 +4,9 @@ sponsored by [cfo.ai](https://cfo.ai/?utm_source=github&utm_medium=sponsorship&u
 
 [![GitHub stars](https://img.shields.io/github/stars/blader/humanizer?style=flat)](https://github.com/blader/humanizer/stargazers) [![skills.sh installs](https://skills.sh/b/blader/humanizer)](https://skills.sh/blader/humanizer)
 
-Humanizer makes AI-written text sound like a person wrote it, without changing what it says. It is built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the guide Wikipedia editors use to catch AI-generated text, and it works in Claude Code, Codex, and any other agent that supports skills.
+Humanizer makes AI-written text sound like a person wrote it, without changing what it says. It is for anyone who edits AI drafts or wants an agent to write plainly.
+
+Humanizer is built on Wikipedia's [Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), the guide Wikipedia editors use to catch AI-generated text. It works in Claude Code, Codex, and any other agent that supports skills.
 
 **Before:**
 > I'm thrilled to announce that shared drafts are finally here! 🚀 For months, our own team was drowning in files named final_v7.docx — and we knew there had to be a better way. Now two people can edit the same doc at once, with every change appearing live for both of them. It's not just a feature; it's a whole new way to collaborate. Comments stay anchored to the exact sentence they reference, even as the text around them evolves. And the best part? It's available today on every plan, completely free. Let that sink in.
@@ -12,7 +14,11 @@ Humanizer makes AI-written text sound like a person wrote it, without changing w
 **After:**
 > Shared drafts are here. For months, our own team kept losing track of files named final_v7.docx, and we wanted a better way to work on one document together. Now two people can edit the same doc at once, and each of them sees the other's changes as they happen. Comments stay attached to the sentence they refer to, even when the text around that sentence changes. Shared drafts are available today and free on every plan.
 
-In a blind test of an earlier rewrite of this text, judges preferred Humanizer's version over the original AI text 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
+In a blind test of an earlier rewrite of this text, judges preferred Humanizer's version 16 times out of 16 ([#229](https://github.com/blader/humanizer/issues/229)).
+
+## Status
+
+Humanizer is active. The current release is 4.0.0; see [CHANGELOG.md](CHANGELOG.md) for unreleased changes.
 
 Humanizer edits for human readers. It does not try to get past AI detectors, and detectors still flag most of its output.
 
@@ -28,6 +34,13 @@ These are the most common signs of AI writing, and Humanizer rewrites any of the
 
 Humanizer checks for [26 patterns](#the-26-patterns) in all.
 
+## Requirements
+
+- An agent that supports skills, such as Claude Code, Codex, pi, or Claude.ai.
+- Claude Code 2.1.142 or newer for the Claude Code plugin.
+- `python3` on your `PATH` for the Claude Code hooks. Without it, the hooks let text through unchecked.
+- Node.js with `npx` for the `npx skills` installs.
+
 ## Installation
 
 Once installed, run it with `/humanizer`.
@@ -39,29 +52,9 @@ Once installed, run it with `/humanizer`.
 /plugin install humanizer@humanizer
 ```
 
-The plugin requires Claude Code 2.1.142 or newer; on older versions, run `npx skills add blader/humanizer --global --agent claude-code`.
+On Claude Code older than 2.1.142, run `npx skills add blader/humanizer --global --agent claude-code` instead. That install adds the skill without the hooks.
 
-#### Hard enforcement with hooks
-
-The Claude Code plugin also installs hooks, so Humanizer applies whether or not the agent remembers to call it. The hooks cover three kinds of text:
-
-| Text | Hook | What happens |
-| --- | --- | --- |
-| Prose files (`.md`, `.mdx`, `.markdown`, `.txt`, `.rst`, `.adoc`) | `PreToolUse` on `Write`, `Edit`, `MultiEdit` | A write with AI tells is blocked until Claude rewrites it. |
-| Chat replies | `Stop` | A reply with AI tells is sent back, and Claude posts a rewritten reply. |
-| Thinking | `SessionStart`, `UserPromptSubmit`, `Stop` | The rules are added to Claude's context each session and each prompt. Tells found in stored thinking are reported at the next prompt. |
-
-`scripts/humanizer-lint.py` scores the text. It counts the tells from `SKILL.md` as features, weights them, and adds them into a score from 0 to 1. A one-sighting tell (§1 to §5, §8 dashes, §12 words such as "delve", §22 chatbot residue, §23) flags the text by itself. Weaker signals, such as stock AI words, triads, flat sentence rhythm, and repeated openers, flag it only together. Texts under 40 words are flagged only for one-sighting tells. Run the scorer by hand with `python3 scripts/humanizer-lint.py FILE` or pipe text to it for a JSON report.
-
-The scorer skips code blocks, inline code, URLs, blockquotes, and quoted phrases, so text that discusses a pattern passes. Thinking can only be steered, not rewritten, and Claude Code often stores thinking without its text. The hooks need `python3` on your `PATH`; without it, text goes through unchecked.
-
-To turn the hooks off, set `HUMANIZER_HOOK=off`, for example in a project's `.claude/settings.json`:
-
-```json
-{ "env": { "HUMANIZER_HOOK": "off" } }
-```
-
-The `npx skills` installs below add the skill only, with no hook.
+To check the install, start a new session and run `/hooks`. The list shows `SessionStart`, `UserPromptSubmit`, `PreToolUse`, and `Stop` hooks that run `scripts/humanizer-hook.py`.
 
 ### Codex
 
@@ -87,13 +80,50 @@ Download this repository as a ZIP (**Code → Download ZIP**) and upload it as a
 npx skills add blader/humanizer --global --agent '*'
 ```
 
-This installs Humanizer for every agent the Skills CLI supports, including Gemini CLI, GitHub Copilot, and Windsurf. Omit `--global` in any command above to install it only in the current project. For an agent the Skills CLI does not cover, copy `SKILL.md` into its skill folder.
+This command installs Humanizer for every agent the Skills CLI supports, including Gemini CLI, GitHub Copilot, and Windsurf. Omit `--global` in any command above to install it only in the current project. For an agent the Skills CLI does not cover, copy `SKILL.md` into its skill folder.
+
+## Configuration
+
+The skill has no settings. The Claude Code plugin adds hooks, so Humanizer applies even when the agent does not call it. The `npx skills` and ZIP installs do not include the hooks.
+
+| Text | Hook | What happens |
+| --- | --- | --- |
+| Prose files (`.md`, `.mdx`, `.markdown`, `.txt`, `.rst`, `.adoc`) | `PreToolUse` on `Write`, `Edit`, `MultiEdit` | Claude Code blocks a write with AI tells until Claude rewrites it. |
+| Chat replies | `Stop` | The hook sends a reply with AI tells back, and Claude posts a rewritten reply. You see both. |
+| Thinking | `SessionStart`, `UserPromptSubmit`, `Stop` | The hooks add the rules to Claude's context each session and each prompt. They report tells in stored thinking at the next prompt. |
+
+The hooks can steer thinking but cannot rewrite it. Claude Code often stores thinking without its text, so the `Stop` hook has nothing to check in that case.
+
+### Scoring
+
+[`scripts/humanizer-lint.py`](scripts/humanizer-lint.py) scores text from 0 to 1. It counts the tells from `SKILL.md` as weighted features, in the style of a linear model.
+
+- One-sighting tells flag the text alone: §1 to §5, §8 dashes, §22 chatbot residue, and §23 disclaimers.
+- Weaker signals flag the text only together. Examples are stock AI words such as "delve", triads, bold labels, and flat sentence rhythm.
+- Texts under 20 words are flagged only for one-sighting tells.
+- The scorer skips code, URLs, blockquotes, and quoted phrases, so text that discusses a pattern passes.
+
+Score a file by hand, or pipe text to the scorer for a JSON report:
+
+```bash
+python3 scripts/humanizer-lint.py docs/launch-post.md
+```
+
+### Turn the hooks off
+
+Set `HUMANIZER_HOOK` to `off`, for example in a project's `.claude/settings.json`:
+
+```json
+{ "env": { "HUMANIZER_HOOK": "off" } }
+```
+
+This repository turns the hooks off for itself, because `SKILL.md` lists every tell.
 
 ## Usage
 
 Call the skill directly:
 
-```
+```text
 /humanizer
 
 [paste your text here]
@@ -101,13 +131,13 @@ Call the skill directly:
 
 Or ask in plain language:
 
-```
+```text
 Please humanize this text: [your text]
 ```
 
 To rewrite a file, pass its path:
 
-```
+```text
 Humanize the prose in docs/launch-post.md
 ```
 
@@ -117,7 +147,7 @@ Humanizer reads the current file in full before editing, including files it wrot
 
 To make the rewrite sound like you, include a writing sample:
 
-```
+```text
 /humanizer
 
 Here's a sample of my writing for voice matching:
@@ -131,18 +161,28 @@ Humanizer follows the sample's rhythm, word choice, punctuation, and deliberate 
 
 ## How it works
 
-A language model writes whatever is most likely to come next, so by default it makes the choice that fits the widest range of readers and subjects. A person chooses for one reader and one subject. Every tell Humanizer looks for is a form of that default choice: a sentence that signals importance instead of adding a fact, rhythm or formatting applied by rule, an ordinary fact dressed as a pivotal one, text left over from the chat, or a reply that re-explains what the reader already knows.
+A language model writes whatever is most likely to come next. By default, it makes the choice that fits the widest range of readers and subjects. A person chooses for one reader and one subject.
+
+Every tell Humanizer looks for is a form of that default choice:
+
+- A sentence that signals importance instead of adding a fact.
+- Rhythm or formatting applied by rule.
+- An ordinary fact dressed as a pivotal one.
+- Text left over from the chat.
+- A reply that re-explains what the reader already knows.
 
 > "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
 > Wikipedia, ["Signs of AI writing"](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing)
 
-Humanizer marks every tell it finds, strongest first. It drafts a rewrite, merging, splitting, or reordering sentences and paragraphs as needed, then checks the draft against the patterns and the original claims before writing the final version. Where the text is generic, it adds a specific detail it knows to be true, and it keeps every claim the original made.
+Humanizer marks every tell it finds, strongest first. It drafts a rewrite and merges, splits, or reorders sentences as needed. Then it checks the draft against the patterns and the original claims before it writes the final version. Where the text is generic, it adds a specific detail it knows to be true. It keeps every claim the original made.
 
-When you paste text, Humanizer shows its work: the first rewrite, a short list of tells that survived it, and the final version. Point it at a file and it edits only the prose, leaving code, data, frontmatter, and link targets alone. Personal writing keeps the writer's opinions and quirks; technical and reference prose stays neutral and plain. Informal human text, such as chat messages, rants, and angry reviews, is left alone unless two unrelated tells appear together, and Humanizer keeps the writer's anger at full strength.
+When you paste text, Humanizer shows the first rewrite, a short list of tells that survived it, and the final version. When you point it at a file, it edits only the prose. It leaves code, data, frontmatter, and link targets alone.
+
+Personal writing keeps the writer's opinions and quirks. Technical and reference prose stays neutral and plain. Humanizer leaves informal human text, such as chat messages and angry reviews, alone unless two unrelated tells appear together. It keeps the writer's anger at full strength.
 
 ## The 26 patterns
 
-Humanizer numbers the patterns from strongest and most common to weakest. It edits any of the first five on one sighting, and acts on a pattern marked *weak alone* only when other tells appear in the same passage, because a careful writer may use any one of them on purpose.
+Humanizer numbers the patterns from strongest and most common to weakest. It edits any of the first five on one sighting. It acts on a pattern marked *weak alone* only when other tells appear in the same passage. A careful writer may use any one of them on purpose.
 
 ### A. Staging instead of stating
 
@@ -228,11 +268,33 @@ Humanizer numbers the patterns from strongest and most common to weakest. It edi
 >
 > I'd go back. Next time I'll go in spring, and I'll bring better shoes.
 
+## Testing
+
+Run the package checks before you publish a change:
+
+```bash
+python3 scripts/validate-package.py
+python3 -m unittest discover -s tests
+npx skills add . --list
+claude plugin validate .
+```
+
+The validator prints `Humanizer package v4.0.0 is valid`, and the test run ends with `OK`. See [AGENTS.md](AGENTS.md) for the rules that a change must follow.
+
+## Support
+
+- Report a missed tell with the **New tell** issue form.
+- Report a rewrite that kept a tell, changed the meaning, or over-edited with the **Rewrite problem** issue form.
+- Ask questions in [Discussions](https://github.com/blader/humanizer/discussions).
+
+Open both forms from [Issues](https://github.com/blader/humanizer/issues/new/choose).
+
 ## Sources
 
 - [Wikipedia: Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing) is the source for the pattern list.
 - [WikiProject AI Cleanup](https://en.wikipedia.org/wiki/Wikipedia:WikiProject_AI_Cleanup) maintains the page.
 - El Attar, Dönmez, Maurer, and Falenska, ["A Systematic Analysis of Linguistic Features in AI-Generated English Text Detection Across Domains and Models"](https://arxiv.org/abs/2606.04177) (2026) is the source for the caution that most signals change with the model and the text type.
+- Kobak et al., ["Delving into LLM-assisted writing in biomedical publications through excess vocabulary"](https://arxiv.org/abs/2406.07016) (2025), and Reinhart et al., ["Do LLMs write like humans?"](https://arxiv.org/abs/2410.16107) (2025), are the sources for the scorer's word weights.
 
 ## Version history
 
@@ -240,6 +302,6 @@ See [CHANGELOG.md](CHANGELOG.md).
 
 ## License
 
-MIT
+Humanizer is released under the [MIT License](LICENSE).
 
 If Humanizer helps you, a star helps other people find it.
