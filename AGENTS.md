@@ -18,6 +18,8 @@ Keep the skill portable. Do not write instructions that limit it to one or two a
 - `.cursor-plugin/plugin.json` describes the Cursor plugin. Omit a `skills` path so Cursor loads the root `SKILL.md`.
 - `package.json` makes the repo a pi package. Its `pi.skills` entry points at the repo root so pi loads the root `SKILL.md`. Do not add a `version` field; pi installs from git.
 - `agents/openai.yaml` holds the display name, short description, and default prompt for OpenAI-compatible agents.
+- `hooks/hooks.json` is the Claude plugin hook. Claude Code loads it from the plugin root, so do not also list it in `plugin.json`. It runs `scripts/humanizer-hook.py` before every `Write`, `Edit`, and `MultiEdit`.
+- `scripts/humanizer-hook.py` blocks prose writes that contain one-sighting tells (exit code 2). Use only the Python standard library. Add a check only for a tell that justifies an edit on one sighting; weak tells stay in `SKILL.md`. If you renumber a pattern, update the `§` labels in this script.
 - `scripts/validate-package.py` checks package files and shared values.
 
 ## Rules for changes

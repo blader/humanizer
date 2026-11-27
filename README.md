@@ -41,6 +41,20 @@ Once installed, run it with `/humanizer`.
 
 The plugin requires Claude Code 2.1.142 or newer; on older versions, run `npx skills add blader/humanizer --global --agent claude-code`.
 
+#### Hard enforcement with hooks
+
+The Claude Code plugin also installs a hook, so Humanizer runs whether or not the agent remembers to call it. Before Claude writes a prose file (`.md`, `.mdx`, `.markdown`, `.txt`, `.rst`, `.adoc`), the hook checks the new text for the strongest tells: §1 to §5, §8 dashes, §12 words such as "delve", and §22 chatbot residue. If it finds one, it blocks the write and tells Claude to rewrite the text with the skill first.
+
+The hook skips code blocks, inline code, URLs, blockquotes, and quoted phrases, so text that discusses a pattern passes. It needs `python3` on your `PATH`; without it, writes go through unchecked.
+
+To turn the hook off, set `HUMANIZER_HOOK=off`, for example in a project's `.claude/settings.json`:
+
+```json
+{ "env": { "HUMANIZER_HOOK": "off" } }
+```
+
+The `npx skills` installs below add the skill only, with no hook.
+
 ### Codex
 
 ```bash

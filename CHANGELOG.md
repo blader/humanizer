@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- The Claude Code plugin now enforces Humanizer with a hook. Before Claude writes a prose file, `hooks/hooks.json` runs `scripts/humanizer-hook.py` on the new text and blocks the write if it finds a one-sighting tell (§1 to §5, §8, some §12 words, §22). Code, URLs, blockquotes, and quoted phrases are skipped. Set `HUMANIZER_HOOK=off` to turn it off.
+
 - Tightened `SKILL.md` and `README.md` for clarity, concision, and readability. Reworded four "After" examples (§6, §13, §15, §25) so they read naturally and avoid stock academic phrasing.
 - Added "the part" as a stand-in to §4: "the hard part is X" stages X, and "the part that doesn't" or "the part worth sharing" points at something the text never names (#338).
 - `scripts/validate-package.py` now fails when a pattern number appears twice in `SKILL.md` or in the README tables. Before, the second one replaced the first and the check passed (#340).

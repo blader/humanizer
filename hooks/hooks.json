@@ -1,0 +1,17 @@
+{
+  "description": "Block prose writes that contain Humanizer's strongest AI tells.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"${CLAUDE_PLUGIN_ROOT}/scripts/humanizer-hook.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
